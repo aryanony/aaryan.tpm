@@ -1,0 +1,86 @@
+/* ===== assets/css/components/forms.css ===== */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-5);
+  position: relative;
+}
+
+.form-label {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  background: rgba(3, 13, 10, 0.4);
+  border: 1px solid var(--bd-subtle);
+  border-radius: var(--r-sm);
+  color: var(--text-primary);
+  transition: border-color var(--dur-base), box-shadow var(--dur-base);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--bd-strong);
+  box-shadow: 0 0 0 3px var(--accent-p-mute);
+}
+
+.form-textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Form validation and errors */
+.form-group.has-error .form-input,
+.form-group.has-error .form-textarea {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.form-error-msg {
+  display: none;
+  font-size: var(--text-xs);
+  color: #ef4444;
+  margin-top: var(--sp-1);
+}
+
+.form-group.has-error .form-error-msg {
+  display: block;
+}
+
+/* Success modal or response alert */
+.form-status {
+  display: none;
+  padding: 1rem 1.5rem;
+  border-radius: var(--r-sm);
+  font-size: var(--text-base);
+  margin-top: var(--sp-4);
+  line-height: var(--leading-normal);
+}
+.form-status.success {
+  display: block;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+.form-status.error {
+  display: block;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}

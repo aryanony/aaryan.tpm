@@ -1,0 +1,144 @@
+/* ===== assets/css/sections/skills.css ===== */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6);
+}
+
+.skills-group {
+  border: 1px solid var(--bd-subtle);
+  background: var(--bg-card);
+  clip-path: var(--clip-card);
+  padding: var(--sp-6);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--dur-base);
+}
+
+.skills-group.open {
+  border-color: var(--bd-mid);
+  background: var(--bg-elevated);
+}
+
+.skills-group__hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: var(--sp-4);
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--bd-subtle);
+}
+
+.skills-group__title {
+  font-size: var(--text-lg);
+  color: var(--text-primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.skills-group__icon {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-p);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color var(--dur-fast);
+}
+
+.skills-group__hdr:hover .skills-group__icon {
+  transform: scale(1.2) rotate(5deg);
+  color: var(--text-accent);
+}
+
+.skills-group__trigger {
+  color: var(--text-secondary);
+  transition: transform var(--dur-base), color var(--dur-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(13, 148, 136, 0.04);
+  border: 1px solid var(--bd-subtle);
+  border-radius: var(--r-sm);
+}
+
+.skills-group__trigger:hover {
+  color: var(--text-accent);
+  border-color: var(--bd-mid);
+}
+
+.skills-group__chevron {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.skills-group.open .skills-group__chevron {
+  transform: rotate(180deg);
+}
+
+.skills-group__body {
+  max-height: 500px; /* Fully visible by default or responsive */
+  overflow: hidden;
+  transition: max-height 0.35s var(--ease-out);
+}
+
+.skills-group.collapsed .skills-group__body {
+  max-height: 0;
+}
+
+.skills-group__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  padding-top: var(--sp-1);
+}
+
+/* ─── STACK FILTER BUTTONS ─── */
+.stack-filter-btn {
+  padding: var(--sp-2) var(--sp-4);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--bd-subtle);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: 
+    background var(--dur-base),
+    color var(--dur-base),
+    border-color var(--dur-base),
+    box-shadow var(--dur-base);
+}
+
+.stack-filter-btn:hover {
+  background: var(--bg-elevated);
+  border-color: var(--bd-mid);
+  color: var(--text-primary);
+}
+
+.stack-filter-btn.active {
+  background: var(--accent-p-mute);
+  color: var(--text-accent);
+  border-color: var(--accent-p);
+  box-shadow: 0 0 12px var(--accent-p-glow);
+}
+
+/* Active Highlight Chip State */
+.chip.chip--active {
+  background: var(--accent-p-mute);
+  color: var(--text-accent);
+  border-color: var(--accent-p);
+  box-shadow: 0 0 8px var(--accent-p-glow);
+  opacity: 1 !important;
+}
+

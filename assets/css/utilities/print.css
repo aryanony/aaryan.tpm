@@ -1,0 +1,36 @@
+/* ===== assets/css/utilities/print.css ===== */
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  .nav, 
+  .theme-toggle, 
+  .cursor-dot, 
+  .cursor-ring, 
+  .loader-wrapper,
+  #hero-canvas,
+  .footer,
+  .btn,
+  .about__actions {
+    display: none !important;
+  }
+  
+  .section {
+    padding: 2rem 0 !important;
+  }
+  
+  .exp__card, .card {
+    background: transparent !important;
+    border: 1px solid #cccccc !important;
+    box-shadow: none !important;
+    color: #000000 !important;
+    clip-path: none !important;
+  }
+  
+  .exp__stem, .exp__timeline::before {
+    background: #cccccc !important;
+  }
+}

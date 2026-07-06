@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "why-healthtech-apps-fail",
+    "title": "Why HealthTech Apps Fail in India — A PM's Perspective",
+    "desc": "India has 600K+ doctors, fewer than 10% use digital tools. Here is why HealthTech products fail to achieve adoption — and how to fix it.",
+    "date": "2026-06-15",
+    "readTime": "6 min read",
+    "tags": ["HealthTech", "Product Design"],
+    "image": "/assets/images/blog/why-healthtech-apps-fail-thumb.webp"
+  },
+  {
+    "slug": "technical-pm-vs-traditional-pm",
+    "title": "Technical PM vs Traditional PM: What is the Real Difference?",
+    "desc": "Discover the key differences between traditional project management and technical project management. Why developer DNA matters.",
+    "date": "2026-06-01",
+    "readTime": "5 min read",
+    "tags": ["TPM", "Agile"],
+    "image": "/assets/images/blog/technical-pm-vs-traditional-pm-thumb.webp"
+  },
+  {
+    "slug": "ai-tools-for-project-managers",
+    "title": "Top AI Tools for Modern Project Managers in 2026",
+    "desc": "How AI integrations, LLMs, and custom automation workflows can save project managers up to 10 hours a week.",
+    "date": "2026-05-18",
+    "readTime": "4 min read",
+    "tags": ["AI", "Automation"],
+    "image": "/assets/images/blog/ai-tools-for-project-managers-thumb.webp"
+  },
+  {
+    "slug": "clinic-digitization-checklist",
+    "title": "The Ultimate Clinic Digitization Checklist for Doctors",
+    "desc": "Step-by-step guide to digitizing your medical clinic OPD and client files without workflow interruptions or monthly fee traps.",
+    "date": "2026-05-02",
+    "readTime": "7 min read",
+    "tags": ["HealthTech", "Clinics"],
+    "image": "/assets/images/blog/clinic-digitization-checklist-thumb.webp"
+  },
+  {
+    "slug": "agile-for-indian-startups",
+    "title": "Adapting Agile Sprint Processes for Indian Startups",
+    "desc": "Traditional Scrum guidelines often fail in fast-growing Indian startups. Here is how to modify Agile for speed and ownership.",
+    "date": "2026-04-15",
+    "readTime": "5 min read",
+    "tags": ["Agile", "Scrum"],
+    "image": "/assets/images/blog/agile-for-indian-startups-thumb.webp"
+  },
+  {
+    "slug": "jaipur-healthtech-opportunity",
+    "title": "Jaipur's HealthTech Opportunity: Digitizing Rajasthan Healthcare",
+    "desc": "An analysis of the growing medical tech space in Jaipur, local initiatives by the health department, and gaps in clinical software adoption.",
+    "date": "2026-04-01",
+    "readTime": "6 min read",
+    "tags": ["Local SEO", "HealthTech"],
+    "image": "/assets/images/blog/jaipur-healthtech-opportunity-thumb.webp"
+  }
+]

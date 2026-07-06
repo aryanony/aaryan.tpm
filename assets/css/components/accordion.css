@@ -1,0 +1,65 @@
+/* ===== assets/css/components/accordion.css ===== */
+
+.faq-item {
+  border: 1px solid var(--bd-subtle);
+  clip-path: var(--clip-card-sm);
+  overflow: hidden;
+  background: var(--bg-card);
+  margin-bottom: var(--sp-4);
+  transition: border-color var(--dur-base);
+}
+
+.faq-item.open {
+  border-color: var(--bd-mid);
+}
+
+.faq-q {
+  width: 100%;
+  text-align: left;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  background: none;
+  border: none;
+  gap: 1rem;
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  transition: color var(--dur-base);
+}
+
+.faq-q:hover,
+.faq-item.open .faq-q {
+  color: var(--text-accent);
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--accent-p);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(45deg); /* + becomes × (angular rotation) */
+}
+
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.38s var(--ease-out);
+}
+
+.faq-item.open .faq-body {
+  max-height: 500px;
+}
+
+.faq-ans {
+  padding: 0 1.5rem 1.5rem;
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+}

@@ -1,0 +1,58 @@
+/* ===== assets/css/base/global.css ===== */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  background: var(--bg-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background var(--dur-base), color var(--dur-base);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+  line-height: var(--leading-tight);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bd-mid);
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--accent-p);
+  color: var(--text-inverse);
+}
+
+/* Base list styling for text sections */
+.rich-text ul {
+  list-style: disc;
+  margin-left: var(--sp-6);
+  margin-bottom: var(--sp-4);
+}
+.rich-text li {
+  margin-bottom: var(--sp-2);
+}
+
+/* Eyebrow label typography */
+.text-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+

@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://aaaryangupta.com/#localbusiness",
+  "name": "Aaryan Gupta — Technical Project Manager",
+  "telephone": "+916205650368",
+  "email": "aaryangupta.pm@gmail.com",
+  "url": "https://aaaryangupta.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Jaipur",
+    "addressRegion": "Rajasthan",
+    "postalCode": "302001",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "26.9124",
+    "longitude": "75.7873"
+  },
+  "priceRange": "₹₹",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "areaServed": ["Jaipur", "Ahmedabad", "India", "Worldwide"],
+  "sameAs": [
+    "https://linkedin.com/in/aryanony/",
+    "https://x.com/aryanony/"
+  ]
+}

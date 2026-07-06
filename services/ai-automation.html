@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Anti-FOUC -->
+  <script>!function(){var t=localStorage.getItem('ag-theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t)}()</script>
+
+  <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap" as="style">
+
+  <title>AI Workflow & Automation Services | Aaryan Gupta</title>
+  <meta name="description" content="Custom n8n and Make automation pipelines, OpenAI API setups, WhatsApp AI responder integrations, and startup workflow consulting. Book a call.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://aaaryangupta.com/services/ai-automation.html">
+
+  <link rel="icon" href="/assets/images/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#030D0A" media="(prefers-color-scheme: dark)">
+
+  <!-- Inline critical layout settings -->
+  <style>
+    :root {
+      --bg-base: #030D0A;
+      --text-primary: #EDF8F5;
+      --accent-p: #0D9488;
+      --nav-h: 72px;
+      --z-loader: 10000;
+    }
+    html, body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+    .loader-wrapper {
+      position: fixed; inset: 0; background: var(--bg-base); z-index: var(--z-loader);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;
+    }
+    .loader-logo {
+      width: 64px; height: 64px; background: var(--accent-p);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+    .loader-progress { width: 200px; height: 2px; background: rgba(255,255,255,0.06); position: relative; overflow: hidden; }
+    .loader-progress-bar { position: absolute; top:0; left:0; height:100%; width:0%; background: var(--accent-p); }
+  </style>
+
+  <!-- Deferred Stylesheet -->
+  <link rel="stylesheet" href="/assets/css/main.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>
+</head>
+<body>
+
+  <!-- Custom mouse cursor elements -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Preloader Screen -->
+  <div class="loader-wrapper">
+    <div class="loader-logo"></div>
+    <div class="loader-progress">
+      <div class="loader-progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <nav class="nav">
+    <div class="nav__progress"></div>
+    <div class="container nav__container">
+      <a href="/" class="nav__logo">
+        <svg viewBox="0 0 256 256"><polygon points="128 32 224 80 224 176 128 224 32 176 32 80 128 32"/></svg>
+        <span data-cfg="identity.publicName">Aaryan Gupta</span>
+      </a>
+      
+            <div class="nav__links">
+        <a href="/#about" class="nav__link">About</a>
+        <a href="/#services" class="nav__link">Services</a>
+        <a href="/#projects" class="nav__link">Projects</a>
+        <a href="/#experience" class="nav__link">Experience</a>
+        <a href="/#skills" class="nav__link">Skills</a>
+        <a href="/#products" class="nav__link">Products</a>
+      </div>
+
+      <div class="nav__right">
+        <button class="theme-toggle flex-center" aria-label="Toggle theme">
+          <i class="ph-fill ph-moon moon-icon"></i>
+          <i class="ph-fill ph-sun sun-icon"></i>
+        </button>
+        <a data-cfg-href="contact.calendlyUrl" data-cfg="contact.calendarText" class="btn btn-p btn-magnetic btn-sm">Book Free Call</a>
+      </div>
+
+      <button class="nav__ham" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Overlay -->
+    <div class="nav__mobile-menu" id="mobile-menu">
+    <a href="/#about" class="nav__link">About</a>
+    <a href="/#services" class="nav__link">Services</a>
+    <a href="/#projects" class="nav__link">Projects</a>
+    <a href="/#experience" class="nav__link">Experience</a>
+    <a href="/#skills" class="nav__link">Skills</a>
+    <a href="/#products" class="nav__link">Products</a>
+    <a data-cfg-href="contact.calendlyUrl" data-cfg="contact.calendarText" class="btn btn-p btn-magnetic" style="margin-top: var(--sp-4);">Book Free Call</a>
+  </div>
+
+  <main style="padding-top: var(--nav-h);">
+    <div class="container section">
+      
+      <!-- Page Title -->
+      <div class="post-header reveal">
+        <span class="text-eyebrow">Service Breakdown</span>
+        <h1>AI Workflow & Automation</h1>
+        <div style="width: 100%; height: 1px; background: var(--bd-subtle); margin-top: var(--sp-4);"></div>
+      </div>
+
+      <div class="post-container">
+        
+        <div class="tldr-box reveal">
+          <h3>The Automation Advantage</h3>
+          <p style="font-size: var(--text-base); line-height: var(--leading-relaxed); margin:0;">
+            Stop wasting engineering and operational hours on manual data re-entry, lead follow-ups, and documentation sorting. I configure n8n/Make pipelines and connect LLM APIs to automate workflow steps, reducing administrative delay by up to 60%.
+          </p>
+        </div>
+
+        <!-- Flowchart Illustration -->
+        <div class="reveal" style="margin: var(--sp-6) auto var(--sp-8); max-width: 600px; padding: var(--sp-4); background: var(--bg-card); border: 1px solid var(--bd-subtle); clip-path: var(--clip-card-sm);">
+          <span style="font-family: var(--font-mono); font-size: var(--text-xxs); color: var(--text-muted); text-transform: uppercase; letter-spacing: var(--tracking-widest); display: block; text-align: center; margin-bottom: var(--sp-4);">AI Pipeline Flow Topology</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" width="100%" height="100%">
+            <!-- Connections (Lines) -->
+            <path d="M110,90 L170,90" stroke="var(--accent-p)" stroke-width="2" stroke-dasharray="4 4" />
+            <path d="M270,90 L330,90" stroke="var(--accent-c)" stroke-width="2" />
+            <path d="M430,90 L490,90" stroke="var(--accent-p)" stroke-width="2" stroke-dasharray="4 4" />
+
+            <!-- Node 1: Trigger -->
+            <rect x="10" y="55" width="100" height="70" rx="6" fill="#071410" stroke="var(--bd-mid)" stroke-width="1.5" />
+            <rect x="10" y="55" width="100" height="18" rx="6" fill="var(--accent-p-mute)" />
+            <text x="60" y="68" font-family="'JetBrains Mono', monospace" font-size="9" fill="var(--text-accent)" text-anchor="middle" font-weight="bold">TRIGGER</text>
+            <text x="60" y="93" font-family="system-ui, sans-serif" font-size="11" fill="var(--text-primary)" text-anchor="middle" font-weight="600">Client Form /</text>
+            <text x="60" y="108" font-family="system-ui, sans-serif" font-size="11" fill="var(--text-primary)" text-anchor="middle" font-weight="600">API Webhook</text>
+
+            <!-- Node 2: n8n Workflow -->
+            <rect x="170" y="55" width="100" height="70" rx="6" fill="#0C1C15" stroke="var(--accent-p)" stroke-width="2" />
+            <rect x="170" y="55" width="100" height="18" rx="6" fill="var(--accent-p)" />
+            <text x="220" y="68" font-family="'JetBrains Mono', monospace" font-size="9" fill="#030D0A" text-anchor="middle" font-weight="bold">INTEGRATOR</text>
+            <text x="220" y="93" font-family="system-ui, sans-serif" font-size="11" fill="var(--text-primary)" text-anchor="middle" font-weight="600">n8n / Make</text>
+            <text x="220" y="108" font-family="system-ui, sans-serif" font-size="11" fill="var(--text-secondary)" text-anchor="middle">Data Pipeline</text>
+
+            <!-- Node 3: LLM Engine -->
+            <rect x="330" y="55" width="100" height="70" rx="6" fill="#0C1C15" stroke="var(--accent-c)" stroke-width="2" />
+            <rect x="330" y="55" width="100" height="18" rx="6" fill="var(--accent-c)" />
+            <text x="380" y="68" font-family="'JetBrains Mono', monospace" font-size="9" fill="#030D0A" text-anchor="middle" font-weight="bold">LLM ENGINE</text>
+            <text x="380" y="93" font-family="system-ui, sans-serif" font-size="11" fill="var(--text-primary)" text-anchor="middle" font-weight="600">Claude / GPT</text>
+            <text x="380" y="108" font-family="system-ui, sans-serif" font-size="11" fill="var(--text-secondary)" text-anchor="middle">AI Analysis</text>
+
+            <!-- Node 4: Target System -->
+            <rect x="490" y="55" width="100" height="70" rx="6" fill="#071410" stroke="var(--bd-mid)" stroke-width="1.5" />
+            <rect x="490" y="55" width="100" height="18" rx="6" fill="var(--accent-p-mute)" />
+            <text x="540" y="68" font-family="'JetBrains Mono', monospace" font-size="9" fill="var(--text-accent)" text-anchor="middle" font-weight="bold">DESTINATION</text>
+            <text x="540" y="93" font-family="system-ui, sans-serif" font-size="11" fill="var(--text-primary)" text-anchor="middle" font-weight="600">CRM / WhatsApp</text>
+            <text x="540" y="108" font-family="system-ui, sans-serif" font-size="11" fill="var(--text-primary)" text-anchor="middle" font-weight="600">Database</text>
+          </svg>
+        </div>
+
+        <div class="post-content reveal">
+          <h2>The cost of manual workflows</h2>
+          <p>
+            Startups and growing medical operations lose hundreds of hours monthly to administrative tasks: transferring data from form submissions to CRM leads, sending confirmation alerts, drafting client summaries, sorting prescription logs, and coordinating project updates.
+          </p>
+          <p>
+            When developers or operators are tied up in manual administrative tasks, product delivery slows down, and overhead operational costs increase.
+          </p>
+
+          <h2>Dynamic AI Pipeline Integrations</h2>
+          <p>
+            I analyze operational loops and implement tailored automations that sync databases, trigger updates, and handle routine processes automatically.
+          </p>
+          
+          <h3>Core Automation Implementations:</h3>
+          <ul style="list-style: disc; margin-left: var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-2); margin-bottom: var(--sp-6);">
+            <li><strong>n8n & Make Orchestration:</strong> Linking forms, calendars, CRMs, and email engines into structured data pipelines.</li>
+            <li><strong>LLM API Integration:</strong> Connecting OpenAI, Anthropic, or local LLMs to categorize leads, analyze medical notes, or generate project summaries automatically.</li>
+            <li><strong>WhatsApp & SMS Bots:</strong> Deploying smart auto-responders that handle basic booking queries and queue updates without administrative delay.</li>
+            <li><strong>Automated Invoicing & Handoffs:</strong> Triggering client contract, invoicing, onboarding tasks, and workspace creations instantly upon payment logs.</li>
+          </ul>
+
+          <h2>Engagement Models & Pricing</h2>
+          <p>
+            Workflow automation projects start from <strong>₹20,000 to ₹50,000</strong> per implementation depending on pipeline complexity and integration points. I handle requirements definition, API key configuration, error-handling setups, and final walkthrough logs.
+          </p>
+
+          <div style="text-align: center; margin-top: var(--sp-12);">
+            <h3 style="font-family:var(--font-display); font-size:var(--text-xl); color:var(--text-primary); margin-bottom:var(--sp-4);">Free up operational bandwidth with smart automations</h3>
+            <a data-cfg-href="contact.calendlyUrl" class="btn btn-p btn-magnetic">Schedule Scoping Consultation</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer__info">
+        <a href="/" class="footer__logo">
+          <svg viewBox="0 0 256 256"><polygon points="128 32 224 80 224 176 128 224 32 176 32 80 128 32"/></svg>
+          <span data-cfg="identity.publicName">Aaryan Gupta</span>
+        </a>
+        <p class="footer__tagline">
+          Bridging technical execution with product coordination for SaaS & HealthTech squads.
+        </p>
+        <div class="footer__socials">
+          <a data-cfg-href="social.linkedin" target="_blank" rel="noopener" class="footer__social-link" aria-label="LinkedIn">
+            <i class="ph-fill ph-linkedin-logo"></i>
+          </a>
+          <a data-cfg-href="social.github" target="_blank" rel="noopener" class="footer__social-link" aria-label="GitHub">
+            <i class="ph-fill ph-github-logo"></i>
+          </a>
+          <a data-cfg-href="social.twitter" target="_blank" rel="noopener" class="footer__social-link" aria-label="Twitter">
+            <i class="ph-fill ph-x-logo"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Services</h3>
+        <div class="footer__col-links">
+          <a href="/services/technical-project-management.html">Project Management</a>
+          <a href="/services/healthtech-consulting.html">HealthTech Consulting</a>
+          <a href="/services/ai-automation.html">AI Workflows</a>
+          <a href="/services/micro-saas-software.html">Micro-SaaS Software</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Locations</h3>
+        <div class="footer__col-links">
+          <a href="/jaipur.html">Jaipur PM Services</a>
+          <a href="/ahmedabad.html">Ahmedabad PM Services</a>
+          <a href="/about.html">About Aaryan</a>
+          <a href="/blog/">Insights Blog</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Booking</h3>
+        <div class="footer__col-links">
+          <a href="/contact.html">Contact Form</a>
+          <a data-cfg-href="contact.calendlyUrl">Calendly Link</a>
+          <a data-cfg-href="contact.whatsappUrl">WhatsApp Chat</a>
+          <a href="mailto:aaryangupta.pm@gmail.com">Direct Email</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <div class="footer__copyright">
+        &copy; <span id="year">2026</span> Aaryan Gupta. All rights reserved. (Legal: Aryan Raj)
+      </div>
+      <div class="footer__bottom-links">
+        <a href="/about.html">Privacy Policy</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script type="module" src="/assets/js/core/main.js"></script>
+</body>
+</html>

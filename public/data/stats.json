@@ -1,0 +1,6 @@
+[
+  { "id": "markets", "value": "70+", "count": 70, "label": "International Markets Served" },
+  { "id": "projects", "value": "20+", "count": 20, "label": "Projects Delivered" },
+  { "id": "experience", "value": "3+", "count": 3, "label": "Years Experience" },
+  { "id": "products", "value": "5+", "count": 5, "label": "SaaS Products Built" }
+]

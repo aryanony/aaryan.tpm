@@ -1,0 +1,28 @@
+/* ===== assets/css/utilities/dark-light.css ===== */
+
+/* Specific styling overrides for theme values */
+
+/* Map embed colors for light mode */
+:root[data-theme="light"] .map-embed iframe {
+  filter: grayscale(1) contrast(1.2) invert(0);
+}
+
+/* Map embed colors for dark mode */
+:root[data-theme="dark"] .map-embed iframe {
+  filter: grayscale(1) contrast(1.2) invert(0.9) hue-rotate(180deg);
+}
+
+/* Toggle icon display states inside theme toggle button */
+.theme-toggle .sun-icon {
+  display: none;
+}
+.theme-toggle .moon-icon {
+  display: block;
+}
+
+:root[data-theme="light"] .theme-toggle .sun-icon {
+  display: block;
+}
+:root[data-theme="light"] .theme-toggle .moon-icon {
+  display: none;
+}

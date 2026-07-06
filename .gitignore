@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env.local
+.env
+*.local
+lighthouse.html
+.DS_Store
+Thumbs.db

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Anti-FOUC -->
+  <script>!function(){var t=localStorage.getItem('ag-theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t)}()</script>
+
+  <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap" as="style">
+
+  <title>Software Maintenance Guide for Non-Tech Founders | Aaryan Gupta</title>
+  <meta name="description" content="A comprehensive guide to website and software maintenance. Learn how to track patches, manage dependencies, audit speeds, and ensure uptime.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://aaaryangupta.com/blog/software-maintenance-guide-non-tech-founders.html">
+
+  <link rel="icon" href="/assets/images/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#030D0A" media="(prefers-color-scheme: dark)">
+
+  <!-- Inline critical layout settings -->
+  <style>
+    :root {
+      --bg-base: #030D0A;
+      --text-primary: #EDF8F5;
+      --accent-p: #0D9488;
+      --nav-h: 72px;
+      --z-loader: 10000;
+    }
+    html, body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+    .loader-wrapper {
+      position: fixed; inset: 0; background: var(--bg-base); z-index: var(--z-loader);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;
+    }
+    .loader-logo {
+      width: 64px; height: 64px; background: var(--accent-p);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+    .loader-progress { width: 200px; height: 2px; background: rgba(255,255,255,0.06); position: relative; overflow: hidden; }
+    .loader-progress-bar { position: absolute; top:0; left:0; height:100%; width:0%; background: var(--accent-p); }
+  </style>
+
+  <!-- Deferred Stylesheet -->
+  <link rel="stylesheet" href="/assets/css/main.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>
+</head>
+<body>
+
+  <!-- Custom mouse cursor elements -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Preloader Screen -->
+  <div class="loader-wrapper">
+    <div class="loader-logo"></div>
+    <div class="loader-progress">
+      <div class="loader-progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <nav class="nav">
+    <div class="nav__progress"></div>
+    <div class="container nav__container">
+      <a href="/" class="nav__logo">
+        <svg viewBox="0 0 256 256"><polygon points="128 32 224 80 224 176 128 224 32 176 32 80 128 32"/></svg>
+        <span data-cfg="identity.publicName">Aaryan Gupta</span>
+      </a>
+      
+            <div class="nav__links">
+        <a href="/#about" class="nav__link">About</a>
+        <a href="/#services" class="nav__link">Services</a>
+        <a href="/#projects" class="nav__link">Projects</a>
+        <a href="/#experience" class="nav__link">Experience</a>
+        <a href="/#skills" class="nav__link">Skills</a>
+        <a href="/#products" class="nav__link">Products</a>
+      </div>
+
+      <div class="nav__right">
+        <button class="theme-toggle flex-center" aria-label="Toggle theme">
+          <i class="ph-fill ph-moon moon-icon"></i>
+          <i class="ph-fill ph-sun sun-icon"></i>
+        </button>
+        <a data-cfg-href="contact.calendlyUrl" data-cfg="contact.calendarText" class="btn btn-p btn-magnetic btn-sm">Book Free Call</a>
+      </div>
+
+      <button class="nav__ham" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Overlay -->
+    <div class="nav__mobile-menu" id="mobile-menu">
+    <a href="/#about" class="nav__link">About</a>
+    <a href="/#services" class="nav__link">Services</a>
+    <a href="/#projects" class="nav__link">Projects</a>
+    <a href="/#experience" class="nav__link">Experience</a>
+    <a href="/#skills" class="nav__link">Skills</a>
+    <a href="/#products" class="nav__link">Products</a>
+    <a data-cfg-href="contact.calendlyUrl" data-cfg="contact.calendarText" class="btn btn-p btn-magnetic" style="margin-top: var(--sp-4);">Book Free Call</a>
+  </div>
+
+  <main style="padding-top: var(--nav-h);">
+    <div class="container section">
+      
+      <!-- Article Header -->
+      <div class="post-header reveal">
+        <span class="text-eyebrow">Insights Log — Maintenance</span>
+        <h1>Software Maintenance Guide for Non-Tech Founders</h1>
+        <div style="font-family: var(--font-mono); font-size: var(--text-sm); color: var(--text-secondary); margin-top: var(--sp-2);">
+          Published: 2026-07-04 · Category: Web Maintenance · Read Time: 5 mins
+        </div>
+        <div style="width: 100%; height: 1px; background: var(--bd-subtle); margin-top: var(--sp-4);"></div>
+      </div>
+
+      <!-- Article Content -->
+      <div class="post-container">
+        
+        <div class="tldr-box reveal">
+          <h3>TL;DR: The Upkeep Summary</h3>
+          <p style="font-size: var(--text-base); line-height: var(--leading-relaxed); margin:0;">
+            A website or SaaS product is not a set-it-and-forget-it asset. Once launched, software codebases face security updates, package updates, performance drops, and potential database clutter. Keeping your platform updated prevents security risks and ensures fast load times.
+          </p>
+        </div>
+
+        <div class="post-content reveal">
+          <h2>The Post-Launch Reality</h2>
+          <p>
+            Many founders invest heavily in design and development, launching a beautiful MVP only to assume their work is complete. In reality, post-launch maintenance is crucial. Software packages, framework libraries, and server dependencies age quickly. If neglected, performance can decrease and security risks can emerge.
+          </p>
+          <p>
+            Continuous maintenance ensures your application remains fast, secure, and operational for your users.
+          </p>
+
+          <h2>Key Areas of Website Upkeep</h2>
+          
+          <h3>1. Package & Dependency Updates</h3>
+          <p>
+            Modern web applications rely on numerous packages and npm libraries. As maintainers release updates to patch security bugs, keeping your dependencies updated helps protect your system.
+          </p>
+
+          <h3>2. Database Performance Tuning</h3>
+          <p>
+            As users log activities and input records, database tables grow. Over time, query execution times can increase, leading to slower page loads. Periodic database tuning, indexing, and cleanup help maintain performance.
+          </p>
+
+          <h3>3. Security Auditing</h3>
+          <p>
+            Securing your application requires checking configuration variables, installing valid SSL certificates, and setting strict security headers to prevent vulnerabilities like cross-site scripting (XSS).
+          </p>
+
+          <h3>4. Scheduled Backups</h3>
+          <p>
+            Maintaining scheduled backups of both your codebase and database is essential. Having recent backups ensures you can restore operations quickly in the event of server failures or data issues.
+          </p>
+
+          <h2>Conclusion</h2>
+          <p>
+            Regular maintenance preserves the value of your software investment. Establishing a basic upkeep schedule prevents performance degradation and keeps your systems secure.
+          </p>
+
+          <div style="text-align: center; margin-top: var(--sp-12); border-top: 1px solid var(--bd-subtle); padding-top: var(--sp-8);">
+            <h3 style="font-family:var(--font-display); font-size:var(--text-lg); color:var(--text-primary); margin-bottom:var(--sp-4);">Need a reliable partner to manage your site's maintenance?</h3>
+            <a data-cfg-href="contact.calendlyUrl" class="btn btn-p btn-magnetic">Schedule Scoping Consultation</a>
+            <a href="/blog/" class="btn btn-w btn-magnetic" style="margin-left: var(--sp-4);">Back to Blog Index</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer__info">
+        <a href="/" class="footer__logo">
+          <svg viewBox="0 0 256 256"><polygon points="128 32 224 80 224 176 128 224 32 176 32 80 128 32"/></svg>
+          <span data-cfg="identity.publicName">Aaryan Gupta</span>
+        </a>
+        <p class="footer__tagline">
+          Bridging technical execution with product coordination for SaaS & HealthTech squads.
+        </p>
+        <div class="footer__socials">
+          <a data-cfg-href="social.linkedin" target="_blank" rel="noopener" class="footer__social-link" aria-label="LinkedIn">
+            <i class="ph-fill ph-linkedin-logo"></i>
+          </a>
+          <a data-cfg-href="social.github" target="_blank" rel="noopener" class="footer__social-link" aria-label="GitHub">
+            <i class="ph-fill ph-github-logo"></i>
+          </a>
+          <a data-cfg-href="social.twitter" target="_blank" rel="noopener" class="footer__social-link" aria-label="Twitter">
+            <i class="ph-fill ph-x-logo"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Services</h3>
+        <div class="footer__col-links">
+          <a href="/services/technical-project-management.html">Project Management</a>
+          <a href="/services/healthtech-consulting.html">HealthTech Consulting</a>
+          <a href="/services/ai-automation.html">AI Workflows</a>
+          <a href="/services/micro-saas-software.html">Micro-SaaS Software</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Locations</h3>
+        <div class="footer__col-links">
+          <a href="/jaipur.html">Jaipur PM Services</a>
+          <a href="/ahmedabad.html">Ahmedabad PM Services</a>
+          <a href="/about.html">About Aaryan</a>
+          <a href="/blog/">Insights Blog</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Booking</h3>
+        <div class="footer__col-links">
+          <a href="/contact.html">Contact Form</a>
+          <a data-cfg-href="contact.calendlyUrl">Calendly Link</a>
+          <a data-cfg-href="contact.whatsappUrl">WhatsApp Chat</a>
+          <a href="mailto:aaryangupta.pm@gmail.com">Direct Email</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <div class="footer__copyright">
+        &copy; <span id="year">2026</span> Aaryan Gupta. All rights reserved. (Legal: Aryan Raj)
+      </div>
+      <div class="footer__bottom-links">
+        <a href="/about.html">Privacy Policy</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script type="module" src="/assets/js/core/main.js"></script>
+</body>
+</html>

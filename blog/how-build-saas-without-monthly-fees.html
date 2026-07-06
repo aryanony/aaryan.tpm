@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Anti-FOUC -->
+  <script>!function(){var t=localStorage.getItem('ag-theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t)}()</script>
+
+  <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap" as="style">
+
+  <title>How to Build SaaS Without Monthly Fees | Aaryan Gupta</title>
+  <meta name="description" content="Learn how to architect, develop, and host micro-SaaS web products without recurring subscription fees using VPS, Docker, and self-hosted databases.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://aaaryangupta.com/blog/how-build-saas-without-monthly-fees.html">
+
+  <link rel="icon" href="/assets/images/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#030D0A" media="(prefers-color-scheme: dark)">
+
+  <!-- Inline critical layout settings -->
+  <style>
+    :root {
+      --bg-base: #030D0A;
+      --text-primary: #EDF8F5;
+      --accent-p: #0D9488;
+      --nav-h: 72px;
+      --z-loader: 10000;
+    }
+    html, body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+    .loader-wrapper {
+      position: fixed; inset: 0; background: var(--bg-base); z-index: var(--z-loader);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;
+    }
+    .loader-logo {
+      width: 64px; height: 64px; background: var(--accent-p);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+    .loader-progress { width: 200px; height: 2px; background: rgba(255,255,255,0.06); position: relative; overflow: hidden; }
+    .loader-progress-bar { position: absolute; top:0; left:0; height:100%; width:0%; background: var(--accent-p); }
+  </style>
+
+  <!-- Deferred Stylesheet -->
+  <link rel="stylesheet" href="/assets/css/main.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>
+</head>
+<body>
+
+  <!-- Custom mouse cursor elements -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Preloader Screen -->
+  <div class="loader-wrapper">
+    <div class="loader-logo"></div>
+    <div class="loader-progress">
+      <div class="loader-progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <nav class="nav">
+    <div class="nav__progress"></div>
+    <div class="container nav__container">
+      <a href="/" class="nav__logo">
+        <svg viewBox="0 0 256 256"><polygon points="128 32 224 80 224 176 128 224 32 176 32 80 128 32"/></svg>
+        <span data-cfg="identity.publicName">Aaryan Gupta</span>
+      </a>
+      
+            <div class="nav__links">
+        <a href="/#about" class="nav__link">About</a>
+        <a href="/#services" class="nav__link">Services</a>
+        <a href="/#projects" class="nav__link">Projects</a>
+        <a href="/#experience" class="nav__link">Experience</a>
+        <a href="/#skills" class="nav__link">Skills</a>
+        <a href="/#products" class="nav__link">Products</a>
+      </div>
+
+      <div class="nav__right">
+        <button class="theme-toggle flex-center" aria-label="Toggle theme">
+          <i class="ph-fill ph-moon moon-icon"></i>
+          <i class="ph-fill ph-sun sun-icon"></i>
+        </button>
+        <a data-cfg-href="contact.calendlyUrl" data-cfg="contact.calendarText" class="btn btn-p btn-magnetic btn-sm">Book Free Call</a>
+      </div>
+
+      <button class="nav__ham" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Overlay -->
+    <div class="nav__mobile-menu" id="mobile-menu">
+    <a href="/#about" class="nav__link">About</a>
+    <a href="/#services" class="nav__link">Services</a>
+    <a href="/#projects" class="nav__link">Projects</a>
+    <a href="/#experience" class="nav__link">Experience</a>
+    <a href="/#skills" class="nav__link">Skills</a>
+    <a href="/#products" class="nav__link">Products</a>
+    <a data-cfg-href="contact.calendlyUrl" data-cfg="contact.calendarText" class="btn btn-p btn-magnetic" style="margin-top: var(--sp-4);">Book Free Call</a>
+  </div>
+
+  <main style="padding-top: var(--nav-h);">
+    <div class="container section">
+      
+      <!-- Article Header -->
+      <div class="post-header reveal">
+        <span class="text-eyebrow">Insights Log — Architectures</span>
+        <h1>Building SaaS Without Monthly Fees</h1>
+        <div style="font-family: var(--font-mono); font-size: var(--text-sm); color: var(--text-secondary); margin-top: var(--sp-2);">
+          Published: 2026-07-04 · Category: Micro-SaaS · Read Time: 6 mins
+        </div>
+        <div style="width: 100%; height: 1px; background: var(--bd-subtle); margin-top: var(--sp-4);"></div>
+      </div>
+
+      <!-- Article Content -->
+      <div class="post-container">
+        
+        <div class="tldr-box reveal">
+          <h3>TL;DR: The Overhead Plan</h3>
+          <p style="font-size: var(--text-base); line-height: var(--leading-relaxed); margin:0;">
+            Building a web product doesn't require high monthly database and cloud hosting costs. By utilizing free static hosting for frontends (Vercel, Netlify) and deploying Docker-packaged backends on basic Virtual Private Servers (VPS) costing ~₹400/month, you can host your micro-SaaS application affordably.
+          </p>
+        </div>
+
+        <div class="post-content reveal">
+          <h2>The SaaS Overhead Problem</h2>
+          <p>
+            When starting a new micro-SaaS project, founders often sign up for managed hosting services: server setups on AWS, managed database clusters, auth frameworks, and analytics trackers. While convenient, this stack introduces significant recurring monthly costs before the product has acquired its first active user.
+          </p>
+          <p>
+            For small tools or internal utilities (like clinical record dashboards or queue managers), this ongoing cost is unnecessary.
+          </p>
+
+          <h2>A Low-Overhead Hosting Model</h2>
+          <p>
+            You can build a reliable application stack using a combination of static hosting and basic Virtual Private Servers (VPS).
+          </p>
+          <p>
+            By decoupling the static frontend from the backend API, you can host the user interface on free global CDNs. The backend API is packaged inside lightweight Docker containers and deployed to a single VPS server, keeping hosting costs low.
+          </p>
+
+          <h2>The Architecture:</h2>
+          <ul style="list-style: disc; margin-left: var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-2); margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
+            <li><strong>Frontend:</strong> React.js or static HTML/CSS files hosted on Vercel, Netlify, or Cloudflare Pages (Free tier handles high traffic easily).</li>
+            <li><strong>Backend API:</strong> Node.js and Express server running in a Docker container on a basic Ubuntu VPS (Hetzner or DigitalOcean).</li>
+            <li><strong>Database:</strong> Self-hosted MongoDB or PostgreSQL database running on the same VPS, backed up daily to free cloud storage.</li>
+            <li><strong>Domain & Security:</strong> Free SSL certificates from Let's Encrypt managed by Nginx reverse proxy configurations.</li>
+          </ul>
+
+          <h2>Operational Benefits</h2>
+          <p>
+            This architecture keeps operational costs minimal, allowing micro-SaaS products to run affordably. Additionally, because the software is packaged in Docker, the entire stack can be migrated to another server provider in minutes.
+          </p>
+
+          <div style="text-align: center; margin-top: var(--sp-12); border-top: 1px solid var(--bd-subtle); padding-top: var(--sp-8);">
+            <h3 style="font-family:var(--font-display); font-size:var(--text-lg); color:var(--text-primary); margin-bottom:var(--sp-4);">Need help deploying a low-overhead web product?</h3>
+            <a data-cfg-href="contact.calendlyUrl" class="btn btn-p btn-magnetic">Book Free Scoping Session</a>
+            <a href="/blog/" class="btn btn-w btn-magnetic" style="margin-left: var(--sp-4);">Back to Blog Index</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer__info">
+        <a href="/" class="footer__logo">
+          <svg viewBox="0 0 256 256"><polygon points="128 32 224 80 224 176 128 224 32 176 32 80 128 32"/></svg>
+          <span data-cfg="identity.publicName">Aaryan Gupta</span>
+        </a>
+        <p class="footer__tagline">
+          Bridging technical execution with product coordination for SaaS & HealthTech squads.
+        </p>
+        <div class="footer__socials">
+          <a data-cfg-href="social.linkedin" target="_blank" rel="noopener" class="footer__social-link" aria-label="LinkedIn">
+            <i class="ph-fill ph-linkedin-logo"></i>
+          </a>
+          <a data-cfg-href="social.github" target="_blank" rel="noopener" class="footer__social-link" aria-label="GitHub">
+            <i class="ph-fill ph-github-logo"></i>
+          </a>
+          <a data-cfg-href="social.twitter" target="_blank" rel="noopener" class="footer__social-link" aria-label="Twitter">
+            <i class="ph-fill ph-x-logo"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Services</h3>
+        <div class="footer__col-links">
+          <a href="/services/technical-project-management.html">Project Management</a>
+          <a href="/services/healthtech-consulting.html">HealthTech Consulting</a>
+          <a href="/services/ai-automation.html">AI Workflows</a>
+          <a href="/services/micro-saas-software.html">Micro-SaaS Software</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Locations</h3>
+        <div class="footer__col-links">
+          <a href="/jaipur.html">Jaipur PM Services</a>
+          <a href="/ahmedabad.html">Ahmedabad PM Services</a>
+          <a href="/about.html">About Aaryan</a>
+          <a href="/blog/">Insights Blog</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Booking</h3>
+        <div class="footer__col-links">
+          <a href="/contact.html">Contact Form</a>
+          <a data-cfg-href="contact.calendlyUrl">Calendly Link</a>
+          <a data-cfg-href="contact.whatsappUrl">WhatsApp Chat</a>
+          <a href="mailto:aaryangupta.pm@gmail.com">Direct Email</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <div class="footer__copyright">
+        &copy; <span id="year">2026</span> Aaryan Gupta. All rights reserved. (Legal: Aryan Raj)
+      </div>
+      <div class="footer__bottom-links">
+        <a href="/about.html">Privacy Policy</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script type="module" src="/assets/js/core/main.js"></script>
+</body>
+</html>

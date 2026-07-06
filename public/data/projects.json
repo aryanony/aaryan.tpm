@@ -1,0 +1,77 @@
+[
+  {
+    "id": "projectport",
+    "name": "ProjectPort",
+    "tagline": "Client Onboarding SaaS Platform",
+    "category": "SaaS",
+    "body": "A full-stack project onboarding and lifecycle automation platform for freelance developers and clients, reducing administrative overhead and streamlining communications.",
+    "tags": ["React.js", "Node.js", "Express", "MongoDB", "REST APIs"],
+    "metric": "40% faster onboarding",
+    "href": "/work/projectport.html",
+    "demo": "https://projectsport.vercel.app/",
+    "livePreviewUrl": "https://projectsport.vercel.app",
+    "github": "https://github.com/aryanony/ProjectPort",
+    "image": "/assets/images/projects/projectport-thumb.webp",
+    "featured": true,
+    "metricsList": [
+      { "label": "Onboarding speed", "value": 40, "suffix": "% boost" },
+      { "label": "Sprints delivered", "value": 18, "suffix": " sprints" },
+      { "label": "API latency", "value": 120, "suffix": "ms" }
+    ],
+    "highlights": [
+      "Automated standard onboarding workflows with dynamic document signing.",
+      "Integrated real-time Slack notifications for client approval cycles.",
+      "Optimized MongoDB aggregations to load timeline tracking cards faster."
+    ]
+  },
+  {
+    "id": "uibrium",
+    "name": "UiBrium",
+    "tagline": "Open-Source React UI Library",
+    "category": "Web3",
+    "body": "A lightweight, modern, and accessible React UI component library published on NPM, designed for building dark-themed tech product dashboards.",
+    "tags": ["React.js", "TypeScript", "Tailwind CSS", "NPM", "Vite"],
+    "metric": "NPM Package Published",
+    "href": "/work/uibrium.html",
+    "demo": "https://uibrium.vercel.app/",
+    "livePreviewUrl": "https://uibrium.vercel.app",
+    "github": "https://github.com/aryanony/uibrium",
+    "image": "/assets/images/projects/uibrium-thumb.webp",
+    "featured": false,
+    "metricsList": [
+      { "label": "NPM downloads", "value": 2000, "suffix": "+" },
+      { "label": "UI Components", "value": 24, "suffix": " components" },
+      { "label": "A11y Score", "value": 100, "suffix": "%" }
+    ],
+    "highlights": [
+      "Designed semantic components with complete keyboard navigation support.",
+      "Bundled production packages using Rollup, reducing export footprint by 35%.",
+      "Optimized Tailwind classes to resolve configuration conflicts automatically."
+    ]
+  },
+  {
+    "id": "aibot",
+    "name": "Aryanony AI Bot",
+    "tagline": "Conversational AI Assistant",
+    "category": "AI & Automation",
+    "body": "An intelligent custom bot built with Botpress and OpenAI APIs, handling complex workflow automation and answering customer FAQs with structured reasoning.",
+    "tags": ["Botpress", "OpenAI API", "Prompt Engineering", "n8n"],
+    "metric": "60% support ticket cut",
+    "href": "/work/aryanony-ai-bot.html",
+    "demo": "https://aryanony.github.io/portfolio",
+    "livePreviewUrl": "/chatbot-widget.html",
+    "github": "https://github.com/aryanony",
+    "image": "/assets/images/projects/aibot-thumb.webp",
+    "featured": false,
+    "metricsList": [
+      { "label": "Ticket cut", "value": 60, "suffix": "% reduction" },
+      { "label": "Response lag", "value": 1.5, "suffix": "s" },
+      { "label": "Workflow integrations", "value": 3, "suffix": " flows" }
+    ],
+    "highlights": [
+      "Wired OpenAI Assistants API threads with self-hosted n8n webhook nodes.",
+      "Configured automatic lead capturing, logging queries to Notion dashboards.",
+      "Structured fallback prompts to route complex cases directly to WhatsApp."
+    ]
+  }
+]

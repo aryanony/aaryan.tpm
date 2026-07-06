@@ -1,0 +1,94 @@
+/* ===== assets/css/components/buttons.css ===== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 2px solid transparent;
+  clip-path: var(--clip-btn);  /* ANGULAR — the brand signature */
+  transition: 
+    background var(--dur-base) var(--ease-out),
+    color      var(--dur-base) var(--ease-out),
+    transform  var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent-p);
+  outline-offset: 3px;
+}
+
+.btn-p {
+  background: var(--accent-p);
+  color: var(--text-inverse);
+  border-color: var(--accent-p);
+  box-shadow: var(--sh-btn);
+}
+
+.btn-p:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  box-shadow: var(--glow-teal);
+  transform: translateY(-2px);
+}
+
+.btn-g {
+  background: transparent;
+  color: var(--accent-p);
+  border-color: var(--accent-p);
+}
+
+.btn-g:hover {
+  background: var(--accent-p-mute);
+  box-shadow: 0 0 0 1px var(--accent-p);
+  transform: translateY(-2px);
+}
+
+.btn-w {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--bd-white);
+}
+
+.btn-w:hover {
+  background: var(--bd-white);
+}
+
+.btn-sm {
+  padding: 0.5rem 1.25rem;
+  font-size: var(--text-sm);
+}
+
+.btn-lg {
+  padding: 1rem 2.25rem;
+  font-size: var(--text-lg);
+}
+
+.btn-xl {
+  padding: 1.125rem 2.75rem;
+  font-size: var(--text-xl);
+}
+
+/* Pulsing dot for available status */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--text-accent);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* DIAMOND */
+  animation: pulseRing 1.5s infinite;
+}

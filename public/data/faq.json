@@ -1,0 +1,16 @@
+[
+  { "q":"What does a Technical Project Manager actually do?",
+    "a":"A Technical PM bridges engineering teams and business stakeholders — owning the full delivery lifecycle from requirements through deployment. Unlike traditional PMs, a TPM reads code, reviews architecture decisions, identifies technical debt early, and communicates engineering complexity in clear business language. This eliminates the translation gap, reducing rework by up to 40% and accelerating sprint velocity." },
+  { "q":"Can you help doctors and clinics in Jaipur or Ahmedabad?",
+    "a":"Yes — HealthTech is a primary specialization. Aaryan works with doctors, clinic owners, and hospital administrators in Jaipur and Ahmedabad to digitize their practice: patient queue management (TokenQ), digital prescriptions (RxPad Pro), lab management (LabTrack Pro), patient follow-up automation (RecallMD), and reputation management (CareReview). All software is one-time purchase, deployed on the clinic's own server with no monthly SaaS fees." },
+  { "q":"What does your micro-SaaS software cost?",
+    "a":"Products are one-time purchases from ₹5,000 to ₹35,000 depending on complexity. TokenQ (₹6,000–₹12,000), RxPad Pro (₹5,000–₹10,000), LabTrack Pro (₹15,000–₹35,000), RecallMD (₹4,000–₹8,000), CareReview (₹4,000–₹9,000). All include deployment on your own server and 30-day support. Optional maintenance from ₹2,000/month." },
+  { "q":"Are you available for remote or international projects?",
+    "a":"Yes. Currently managing projects across 70+ countries at Oblinex Pvt. Ltd. Async-first workflow, milestone-based delivery — timezone agnostic. International freelance engagements welcome. USD pricing available ($500–$1,500/month)." },
+  { "q":"What happens in the free 30-minute call?",
+    "a":"No sales pitch. The 30-minute call covers: what you are trying to build or fix, your current team setup and constraints, realistic timeline and budget range, and whether a PM engagement is the right fit. You leave with a clear next-step action plan whether or not you engage Aaryan." },
+  { "q":"Do you offer ongoing maintenance after delivery?",
+    "a":"Yes. Post-delivery maintenance: Basic ₹2,000/month (bug fixes, security monitoring), Standard ₹4,000/month (10 hours + minor updates), Premium ₹8,000/month (unlimited minor changes, priority 4-hour response, monthly report). Cancel anytime." },
+  { "q":"What makes your HealthTech approach different from other consultants?",
+    "a":"Most PM consultants approach healthcare like e-commerce. Clinical software fails when it ignores the 3-minute patient consultation window, actual doctor workflow, receptionist tech comfort levels, and connectivity drops during OPD. Aaryan maps real clinic workflows before speccing a single feature — this is why products achieve genuine adoption, not just deployment." }
+]

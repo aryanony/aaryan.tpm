@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline | Aaryan Gupta — Technical PM</title>
+  <style>
+    :root {
+      --bg-base: #030D0A;
+      --text-primary: #EDF8F5;
+      --text-secondary: #8DADA4;
+      --accent-p: #0D9488;
+      --accent-hover: #14B8A6;
+      --clip-btn: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    }
+    body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+    .wrapper {
+      max-width: 480px;
+    }
+    .logo {
+      width: 64px; height: 64px; background: var(--accent-p);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      margin: 0 auto 32px;
+      box-shadow: 0 0 16px rgba(13,148,136,0.30);
+    }
+    h1 {
+      font-size: 36px;
+      margin: 0 0 16px;
+    }
+    p {
+      color: var(--text-secondary);
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0 0 32px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.75rem;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      background: var(--accent-p);
+      color: #030D0A;
+      border: none;
+      clip-path: var(--clip-btn);
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: var(--accent-hover);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="120" height="120" style="margin: 0 auto 32px; display: block; filter: drop-shadow(0 0 12px rgba(13,148,136,0.25));">
+      <circle cx="100" cy="100" r="80" fill="#071410" stroke="rgba(13,148,136,0.2)" stroke-width="2" />
+      <rect x="60" y="60" width="80" height="20" rx="4" fill="#0C1C15" stroke="#0D9488" stroke-width="2" />
+      <circle cx="75" cy="70" r="3" fill="#6B938A" />
+      <rect x="90" y="68" width="40" height="4" rx="2" fill="#2D5249" />
+      <rect x="60" y="90" width="80" height="20" rx="4" fill="#0C1C15" stroke="#0D9488" stroke-width="2" />
+      <circle cx="75" cy="100" r="3" fill="#6B938A" />
+      <rect x="90" y="98" width="40" height="4" rx="2" fill="#2D5249" />
+      <rect x="60" y="120" width="80" height="20" rx="4" fill="#0C1C15" stroke="#EF4444" stroke-width="2" />
+      <circle cx="75" cy="130" r="3" fill="#EF4444" />
+      <rect x="90" y="128" width="40" height="4" rx="2" fill="rgba(239,68,68,0.2)" />
+      <path d="M70,45 A40,40 0 0,1 130,45" fill="none" stroke="#6B938A" stroke-width="3" stroke-linecap="round" />
+      <path d="M80,53 A25,25 0 0,1 120,53" fill="none" stroke="#6B938A" stroke-width="3" stroke-linecap="round" />
+      <circle cx="100" cy="100" r="6" fill="#EF4444" />
+    </svg>
+    <h1>You are Offline</h1>
+    <p>It seems your device has lost connection to the internet. Pages that have not been cached previously are currently unavailable.</p>
+    <a href="/" class="btn">Go to Cached Homepage</a>
+  </div>
+</body>
+</html>

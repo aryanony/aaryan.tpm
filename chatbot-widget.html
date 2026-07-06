@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aaryan AI Assistant</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-base: #030D0A;
+      --bg-surface: #0A1612;
+      --bg-card: #0F1F1A;
+      --bg-input: #132A23;
+      --accent: #0D9488;
+      --accent-glow: rgba(13, 148, 136, 0.25);
+      --accent-soft: rgba(13, 148, 136, 0.08);
+      --text-primary: #E8F5F0;
+      --text-secondary: #8FABA3;
+      --text-muted: #4A6B62;
+      --bd-subtle: rgba(13, 148, 136, 0.12);
+      --bot-bubble: #0F1F1A;
+      --user-bubble: #0D9488;
+      --radius: 16px;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg-base);
+      font-family: var(--font);
+      color: var(--text-primary);
+      overflow: hidden;
+    }
+
+    .chat-app {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      max-width: 100%;
+    }
+
+    /* ─── Header ─── */
+    .chat-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--bd-subtle);
+      flex-shrink: 0;
+    }
+
+    .chat-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #065F56);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: #fff;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .chat-avatar::after {
+      content: '';
+      position: absolute;
+      bottom: 1px;
+      right: 1px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #10B981;
+      border: 2px solid var(--bg-surface);
+    }
+
+    .chat-header-info h1 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .chat-header-info span {
+      font-size: 11px;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-weight: 500;
+    }
+
+    .chat-header-badge {
+      margin-left: auto;
+      background: var(--accent-soft);
+      border: 1px solid var(--bd-subtle);
+      color: var(--accent);
+      font-size: 10px;
+      font-family: var(--mono);
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ─── Messages Area ─── */
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      scroll-behavior: smooth;
+    }
+
+    .chat-messages::-webkit-scrollbar { width: 4px; }
+    .chat-messages::-webkit-scrollbar-track { background: transparent; }
+    .chat-messages::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 4px; }
+
+    .msg-group {
+      display: flex;
+      gap: 10px;
+      max-width: 88%;
+      animation: msgIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .msg-group.user {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .msg-group .avatar-sm {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #065F56);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .msg-group.user .avatar-sm {
+      background: linear-gradient(135deg, #6366F1, #4338CA);
+    }
+
+    .msg-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .msg-bubble {
+      padding: 10px 14px;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-primary);
+      background: var(--bot-bubble);
+      border: 1px solid var(--bd-subtle);
+      border-radius: var(--radius);
+      border-top-left-radius: 4px;
+      word-break: break-word;
+    }
+
+    .msg-group.user .msg-bubble {
+      background: var(--user-bubble);
+      color: #fff;
+      border-color: transparent;
+      border-radius: var(--radius);
+      border-top-right-radius: 4px;
+      border-top-left-radius: var(--radius);
+    }
+
+    .msg-time {
+      font-size: 10px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      padding: 0 4px;
+    }
+
+    .msg-group.user .msg-time {
+      text-align: right;
+    }
+
+    /* ─── Typing Indicator ─── */
+    .typing-indicator {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      padding: 0 20px;
+      margin-bottom: 8px;
+    }
+
+    .typing-indicator.show { display: flex; }
+
+    .typing-dots {
+      display: flex;
+      gap: 4px;
+      background: var(--bot-bubble);
+      border: 1px solid var(--bd-subtle);
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      border-top-left-radius: 4px;
+    }
+
+    .typing-dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: dotBounce 1.4s infinite ease-in-out both;
+    }
+
+    .typing-dots span:nth-child(2) { animation-delay: 0.16s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0.32s; }
+
+    @keyframes dotBounce {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+
+    /* ─── Quick Replies ─── */
+    .quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0 20px 12px;
+    }
+
+    .quick-btn {
+      background: var(--accent-soft);
+      border: 1px solid var(--bd-subtle);
+      color: var(--accent);
+      font-family: var(--font);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 7px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .quick-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px var(--accent-glow);
+    }
+
+    /* ─── Input Bar ─── */
+    .chat-input-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--bd-subtle);
+      flex-shrink: 0;
+    }
+
+    .chat-input {
+      flex: 1;
+      background: var(--bg-input);
+      border: 1px solid var(--bd-subtle);
+      border-radius: 24px;
+      padding: 10px 18px;
+      font-family: var(--font);
+      font-size: 13px;
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .chat-input::placeholder { color: var(--text-muted); }
+    .chat-input:focus { border-color: var(--accent); }
+
+    .send-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .send-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
+
+    .send-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+    }
+
+    /* ─── Animations ─── */
+    @keyframes msgIn {
+      from { opacity: 0; transform: translateY(10px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 480px) {
+      .chat-header { padding: 10px 14px; }
+      .chat-messages { padding: 14px; }
+      .quick-replies { padding: 0 14px 10px; }
+      .chat-input-bar { padding: 10px 14px; }
+      .msg-group { max-width: 92%; }
+      .chat-header-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-app">
+    <!-- Header -->
+    <div class="chat-header">
+      <div class="chat-avatar">AG</div>
+      <div class="chat-header-info">
+        <h1>Aaryan AI Assistant</h1>
+        <span>● Online — Ready to help</span>
+      </div>
+      <div class="chat-header-badge">AI Powered</div>
+    </div>
+
+    <!-- Messages -->
+    <div class="chat-messages" id="chatMessages"></div>
+
+    <!-- Typing Indicator -->
+    <div class="typing-indicator" id="typingIndicator">
+      <div class="avatar-sm" style="background:linear-gradient(135deg,#0D9488,#065F56);">AG</div>
+      <div class="typing-dots">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <!-- Quick Replies -->
+    <div class="quick-replies" id="quickReplies"></div>
+
+    <!-- Input -->
+    <div class="chat-input-bar">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything about Aaryan..." autocomplete="off">
+      <button class="send-btn" id="sendBtn" aria-label="Send message">
+        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // ─── Knowledge Base ───
+    const KB = {
+      greeting: {
+        patterns: ['hello', 'hi', 'hey', 'greetings', 'sup', 'yo', 'hola', 'namaste'],
+        response: "Hey there! 👋 I'm Aaryan's AI assistant. I can tell you about his projects, skills, experience, services, or how to get in touch. What would you like to know?"
+      },
+      about: {
+        patterns: ['who is aaryan', 'about aaryan', 'tell me about', 'who are you', 'introduce', 'about yourself', 'about him', 'background'],
+        response: "**Aaryan Gupta** is a Technical Project Manager based in Jaipur, India. He specializes in **HealthTech digital transformation**, **SaaS product delivery**, **AI automation**, and **Micro-SaaS** development. With an MCA from AKTU (2025), he bridges complex technology with seamless execution — helping healthcare, SaaS, and product teams ship faster, smarter, and at scale. 🚀"
+      },
+      skills: {
+        patterns: ['skills', 'tech stack', 'technologies', 'what can he do', 'expertise', 'capable', 'proficient', 'tools', 'programming'],
+        response: "Aaryan's core tech stack includes:\n\n⚡ **Frontend:** React.js, Next.js, TypeScript, Tailwind CSS\n⚡ **Backend:** Node.js, Express, MongoDB, PostgreSQL\n⚡ **AI/ML:** OpenAI APIs, Botpress, n8n, Prompt Engineering\n⚡ **DevOps:** Docker, Vercel, Netlify, GitHub Actions\n⚡ **PM Tools:** Jira, Notion, Linear, Confluence, Slack\n⚡ **Design:** Figma, UI/UX Research, Design Systems"
+      },
+      projects: {
+        patterns: ['projects', 'work', 'portfolio', 'built', 'created', 'developed', 'case studies', 'showcase'],
+        response: "Here are Aaryan's key projects:\n\n🔹 **ProjectPort** — A SaaS client onboarding platform (React, Node, MongoDB). Achieved 40% faster onboarding.\n🔹 **UiBrium** — An open-source React UI component library published on NPM with 24+ components.\n🔹 **Aryanony AI Bot** — A conversational AI assistant built with Botpress & OpenAI, cutting support tickets by 60%.\n\nAll projects are live and deployed! Want to know more about any specific one?"
+      },
+      projectport: {
+        patterns: ['projectport', 'project port', 'onboarding platform', 'saas platform'],
+        response: "**ProjectPort** is a full-stack SaaS platform for project onboarding and lifecycle automation. Built with React.js, Node.js, Express, and MongoDB.\n\n📊 **Key Results:**\n• 40% faster client onboarding\n• 18 sprints delivered\n• 120ms API latency\n• Automated document signing workflows\n• Real-time Slack notification integration\n\n🔗 Live at: projectsport.vercel.app"
+      },
+      uibrium: {
+        patterns: ['uibrium', 'ui library', 'component library', 'npm package', 'react components'],
+        response: "**UiBrium** is an open-source React UI component library designed for dark-themed tech product dashboards.\n\n📦 **Highlights:**\n• 24+ accessible UI components\n• 2000+ NPM downloads\n• 100% A11y compliance score\n• Built with React, TypeScript, and Tailwind CSS\n• Keyboard navigation support\n\n🔗 Live at: uibrium.vercel.app"
+      },
+      aibot: {
+        patterns: ['ai bot', 'chatbot', 'aryanony bot', 'conversational', 'assistant'],
+        response: "**Aryanony AI Bot** is an intelligent conversational assistant built with Botpress and OpenAI APIs.\n\n🤖 **Capabilities:**\n• 60% support ticket reduction\n• 1.5s average response time\n• 3 integrated workflow automations\n• Lead capture to Notion dashboards\n• WhatsApp fallback routing\n\nYou're actually talking to a demo version of it right now! 😄"
+      },
+      services: {
+        patterns: ['services', 'offer', 'provide', 'consulting', 'hire', 'freelance', 'work with'],
+        response: "Aaryan offers these professional services:\n\n🏥 **HealthTech Consulting** — EMR systems, clinic management, patient engagement\n🚀 **Technical Project Management** — Agile delivery, sprint planning, cross-team coordination\n🤖 **AI & Automation** — Chatbots, workflow automation, AI integrations\n💻 **Micro-SaaS Development** — Custom software, zero-SaaS-fee self-hosted solutions\n🛠️ **Website Maintenance** — Ongoing support, performance optimization\n\nWant to book a free call? Visit calendly.com/aaryanpm/30min"
+      },
+      contact: {
+        patterns: ['contact', 'reach', 'email', 'phone', 'call', 'connect', 'get in touch', 'hire'],
+        response: "Here's how to reach Aaryan:\n\n📧 **Email:** aaryangupta.pm@gmail.com\n📱 **Phone:** +91 62056 50368\n📅 **Book a Call:** calendly.com/aaryanpm/30min\n💬 **WhatsApp:** wa.me/916205650368\n\n🔗 **Social:**\n• LinkedIn: linkedin.com/in/aryanony\n• GitHub: github.com/aryanony\n• Twitter/X: x.com/aryanony"
+      },
+      experience: {
+        patterns: ['experience', 'career', 'work history', 'resume', 'professional', 'years', 'companies'],
+        response: "Aaryan has **3+ years** of professional experience:\n\n🏢 Delivered projects across **70+ markets**\n📊 Managed **20+ projects** end-to-end\n🎓 **MCA from AKTU** (2025)\n💼 Specialized in HealthTech, SaaS, and AI automation\n🌍 Works remotely with clients worldwide\n\nHis strength is bridging the gap between developers and business stakeholders."
+      },
+      healthtech: {
+        patterns: ['healthtech', 'healthcare', 'medical', 'clinic', 'hospital', 'doctor', 'emr', 'patient'],
+        response: "Aaryan has deep expertise in **Indian Healthcare IT**:\n\n🏥 **Products built:**\n• EMR/EHR systems for clinics\n• Diagnostic sample trackers\n• Patient queue management systems\n• Patient engagement automations\n• OPD management software\n\nAll solutions are self-hosted with zero recurring SaaS fees — designed specifically for India's clinical workflows."
+      },
+      location: {
+        patterns: ['location', 'where', 'based', 'city', 'country', 'jaipur', 'india', 'remote'],
+        response: "Aaryan is based in **Jaipur, Rajasthan, India** 🇮🇳 but works remotely with clients worldwide. He also has connections in Ahmedabad and Noida."
+      },
+      thanks: {
+        patterns: ['thanks', 'thank you', 'thx', 'appreciate', 'helpful', 'great', 'awesome', 'cool'],
+        response: "You're welcome! 😊 Glad I could help. Feel free to ask anything else about Aaryan's work, or book a free call at calendly.com/aaryanpm/30min to discuss your project! 🚀"
+      },
+      bye: {
+        patterns: ['bye', 'goodbye', 'see you', 'later', 'exit', 'quit', 'close'],
+        response: "Goodbye! 👋 It was great chatting with you. If you need anything later, Aaryan's just an email away at aaryangupta.pm@gmail.com. Have a wonderful day! ✨"
+      }
+    };
+
+    const QUICK_SUGGESTIONS = [
+      { text: "👤 About Aaryan", query: "Tell me about Aaryan" },
+      { text: "🛠️ Skills", query: "What are his skills?" },
+      { text: "🚀 Projects", query: "Show me his projects" },
+      { text: "💼 Services", query: "What services does he offer?" },
+      { text: "📞 Contact", query: "How to contact him?" },
+      { text: "🏥 HealthTech", query: "Tell me about his HealthTech work" }
+    ];
+
+    const FALLBACK_RESPONSES = [
+      "That's an interesting question! While I might not have a specific answer for that, I can tell you about Aaryan's **projects**, **skills**, **services**, or **how to get in touch**. What interests you?",
+      "Hmm, I'm not sure about that one. Try asking me about Aaryan's work experience, tech stack, or his HealthTech consulting services! 💡",
+      "I don't have information on that specific topic, but I'm great at answering questions about Aaryan's portfolio! Ask about his projects, skills, or services. 🚀"
+    ];
+
+    // ─── Chat Logic ───
+    const messagesEl = document.getElementById('chatMessages');
+    const inputEl = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const typingEl = document.getElementById('typingIndicator');
+    const quickEl = document.getElementById('quickReplies');
+    let fallbackIdx = 0;
+
+    function getTime() {
+      return new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+    }
+
+    function formatText(text) {
+      return text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\n/g, '<br>');
+    }
+
+    function addMessage(text, isUser = false) {
+      const group = document.createElement('div');
+      group.className = `msg-group ${isUser ? 'user' : 'bot'}`;
+      group.innerHTML = `
+        <div class="avatar-sm">${isUser ? 'You' : 'AG'}</div>
+        <div class="msg-content">
+          <div class="msg-bubble">${formatText(text)}</div>
+          <span class="msg-time">${getTime()}</span>
+        </div>
+      `;
+      messagesEl.appendChild(group);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function showTyping() {
+      typingEl.classList.add('show');
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function hideTyping() {
+      typingEl.classList.remove('show');
+    }
+
+    function renderQuickReplies(suggestions) {
+      quickEl.innerHTML = suggestions.map(s =>
+        `<button class="quick-btn" data-query="${s.query}">${s.text}</button>`
+      ).join('');
+
+      quickEl.querySelectorAll('.quick-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const query = btn.dataset.query;
+          handleSend(query);
+        });
+      });
+    }
+
+    function findResponse(input) {
+      const lower = input.toLowerCase().trim();
+
+      for (const [key, entry] of Object.entries(KB)) {
+        for (const pattern of entry.patterns) {
+          if (lower.includes(pattern)) {
+            return entry.response;
+          }
+        }
+      }
+
+      const resp = FALLBACK_RESPONSES[fallbackIdx % FALLBACK_RESPONSES.length];
+      fallbackIdx++;
+      return resp;
+    }
+
+    function handleSend(text) {
+      const trimmed = (text || inputEl.value).trim();
+      if (!trimmed) return;
+
+      addMessage(trimmed, true);
+      inputEl.value = '';
+      quickEl.innerHTML = '';
+
+      showTyping();
+
+      const delay = 600 + Math.random() * 800;
+      setTimeout(() => {
+        hideTyping();
+        const response = findResponse(trimmed);
+        addMessage(response, false);
+
+        // Show contextual follow-ups
+        setTimeout(() => {
+          renderQuickReplies(QUICK_SUGGESTIONS.sort(() => 0.5 - Math.random()).slice(0, 3));
+        }, 400);
+      }, delay);
+    }
+
+    sendBtn.addEventListener('click', () => handleSend());
+    inputEl.addEventListener('keydown', e => {
+      if (e.key === 'Enter') handleSend();
+    });
+
+    // ─── Initial Boot ───
+    setTimeout(() => {
+      addMessage("Hi! 👋 I'm **Aaryan's AI Assistant**. I know everything about his work, skills, projects, and services.\n\nWhat would you like to explore?", false);
+      setTimeout(() => renderQuickReplies(QUICK_SUGGESTIONS), 500);
+    }, 600);
+  </script>
+</body>
+</html>

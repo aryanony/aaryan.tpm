@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /data/
+Disallow: /node_modules/
+
+Sitemap: https://aaaryangupta.com/sitemap.xml

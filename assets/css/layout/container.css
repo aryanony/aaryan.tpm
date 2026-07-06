@@ -1,0 +1,91 @@
+/* ===== assets/css/layout/container.css ===== */
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+.section {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+  position: relative;
+}
+
+.section-hdr {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto var(--sp-16);
+}
+
+.section-hdr h2 {
+  font-size: var(--section-h2);
+  margin-bottom: var(--sp-3);
+  position: relative;
+  display: inline-block;
+}
+
+/* Optional text gradient for emphasis words in headings */
+.text-gradient {
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--text-accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-hdr p {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* Flexbox and Grid utility shorthand styles */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-cols-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-8);
+}
+
+.grid-cols-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-8);
+}
+
+/* Split Header layout (for left title & right button) */
+.section-hdr--split {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  max-width: none;
+  margin: 0 0 var(--sp-12) 0;
+  text-align: left;
+}
+
+.section-hdr--split .section-hdr__left {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.section-hdr--split h2 {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .section-hdr--split {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-4);
+    text-align: left;
+  }
+}
+

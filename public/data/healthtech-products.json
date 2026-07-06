@@ -1,0 +1,17 @@
+[
+  { "id":"tokenq", "name":"TokenQ", "tagline":"OPD Patient Queue System",
+    "desc":"Patients get a WhatsApp token number. Doctor sees live queue on any screen. Eliminates crowded waiting rooms instantly.",
+    "price":"₹6,000–₹12,000", "setup":"24 hours" },
+  { "id":"rxpad-pro", "name":"RxPad Pro", "tagline":"Digital Prescription Generator",
+    "desc":"Type or voice-input prescriptions. System generates professional PDF with clinic letterhead in seconds. Patient history stored.",
+    "price":"₹5,000–₹10,000", "setup":"24 hours" },
+  { "id":"labtrack-pro", "name":"LabTrack Pro", "tagline":"Diagnostic Lab Management",
+    "desc":"Sample tracking, test report generation, patient notification — complete lab workflow in one system.",
+    "price":"₹15,000–₹35,000", "setup":"48 hours" },
+  { "id":"recallmd", "name":"RecallMD", "tagline":"Patient Follow-Up Automation",
+    "desc":"Automated WhatsApp follow-ups for appointment reminders, medication schedules, and post-visit check-ins. Zero manual effort.",
+    "price":"₹4,000–₹8,000", "setup":"12 hours" },
+  { "id":"carereview", "name":"CareReview", "tagline":"Clinic Reputation Management",
+    "desc":"Automated Google review requests post-visit. Monitor ratings, respond to feedback, grow online presence.",
+    "price":"₹4,000–₹9,000", "setup":"12 hours" }
+]

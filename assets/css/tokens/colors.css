@@ -1,0 +1,100 @@
+/* ===== assets/css/tokens/colors.css ===== */
+
+/* ─── DARK MODE (Default) ─── */
+:root,
+:root[data-theme="dark"] {
+  /* Backgrounds: slight teal undertone, NOT pure black */
+  --bg-base:     #030D0A;   /* deepest bg — near-black with teal hint */
+  --bg-surface:  #071410;   /* section backgrounds */
+  --bg-card:     #0C1C15;   /* card backgrounds */
+  --bg-elevated: #112219;   /* hovered/elevated cards */
+  --bg-overlay:  rgba(3,13,10,0.94);
+  --bg-glass:    rgba(7,20,16,0.80);
+
+  /* PRIMARY: Dark Sea Green / Teal */
+  --accent-p:       #0D9488;   /* primary CTAs, active states */
+  --accent-p-glow:  rgba(13,148,136,0.30);
+  --accent-p-mute:  rgba(13,148,136,0.12);
+  --accent-hover:   #14B8A6;   /* hover state */
+
+  /* SECONDARY: Cyan — bridges teal and blue */
+  --accent-c:       #06B6D4;
+  --accent-c-glow:  rgba(6,182,212,0.22);
+  --accent-c-mute:  rgba(6,182,212,0.10);
+
+  /* TERTIARY: Dark Blue */
+  --accent-b:       #2563EB;
+  --accent-b-glow:  rgba(37,99,235,0.25);
+  --accent-b-mute:  rgba(37,99,235,0.10);
+
+  /* Text */
+  --text-primary:   #EDF8F5;   /* warm white, slight teal tint */
+  --text-secondary: #8DADA4;   /* medium muted */
+  --text-muted:     #4A6B62;   /* very muted */
+  --text-accent:    #2DD4BF;   /* highlighted accent text */
+  --text-inverse:   #030D0A;   /* text ON colored buttons */
+
+  /* Borders */
+  --bd-subtle:  rgba(13,148,136,0.10);
+  --bd-mid:     rgba(13,148,136,0.22);
+  --bd-strong:  rgba(13,148,136,0.45);
+  --bd-white:   rgba(255,255,255,0.08);
+
+  /* Glows */
+  --glow-teal:  0 0 16px rgba(13,148,136,0.40), 0 0 48px rgba(13,148,136,0.14);
+  --glow-cyan:  0 0 16px rgba(6,182,212,0.35),  0 0 48px rgba(6,182,212,0.10);
+  --glow-blue:  0 0 16px rgba(37,99,235,0.35),  0 0 48px rgba(37,99,235,0.10);
+
+  /* Shadows */
+  --sh-card:   0 4px 24px rgba(0,0,0,0.45), 0 1px 0 var(--bd-subtle);
+  --sh-hover:  0 8px 40px rgba(0,0,0,0.60), 0 0 0 1px var(--bd-mid);
+  --sh-float:  0 20px 60px rgba(0,0,0,0.65), var(--glow-teal);
+  --sh-btn:    0 4px 16px var(--accent-p-glow);
+
+  color-scheme: dark;
+}
+
+/* ─── LIGHT MODE ─── */
+:root[data-theme="light"] {
+  --bg-base:     #F0FBFA;   /* near-white with teal hint */
+  --bg-surface:  #FFFFFF;
+  --bg-card:     rgba(255,255,255,0.90);
+  --bg-elevated: #FFFFFF;
+  --bg-overlay:  rgba(240,251,250,0.92);
+  --bg-glass:    rgba(255,255,255,0.72);
+
+  --accent-p:       #0F766E;
+  --accent-p-glow:  rgba(15,118,110,0.18);
+  --accent-p-mute:  rgba(15,118,110,0.10);
+  --accent-hover:   #0D9488;
+
+  --accent-c:       #0891B2;
+  --accent-c-glow:  rgba(8,145,178,0.15);
+  --accent-c-mute:  rgba(8,145,178,0.08);
+
+  --accent-b:       #1E40AF;
+  --accent-b-glow:  rgba(30,64,175,0.12);
+  --accent-b-mute:  rgba(30,64,175,0.07);
+
+  --text-primary:   #071410;
+  --text-secondary: #2D5249;
+  --text-muted:     #6B938A;
+  --text-accent:    #0F766E;
+  --text-inverse:   #FFFFFF;
+
+  --bd-subtle:  rgba(15,118,110,0.10);
+  --bd-mid:     rgba(15,118,110,0.22);
+  --bd-strong:  rgba(15,118,110,0.42);
+  --bd-white:   rgba(255,255,255,0.60);
+
+  --glow-teal:  none;
+  --glow-cyan:  none;
+  --glow-blue:  none;
+
+  --sh-card:   0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.05);
+  --sh-hover:  0 4px 24px rgba(15,118,110,0.14), 0 1px 0 var(--bd-mid);
+  --sh-float:  0 16px 48px rgba(0,0,0,0.10), 0 0 0 1px var(--bd-subtle);
+  --sh-btn:    0 4px 16px rgba(15,118,110,0.25);
+
+  color-scheme: light;
+}

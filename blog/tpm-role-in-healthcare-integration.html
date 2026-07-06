@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Anti-FOUC -->
+  <script>!function(){var t=localStorage.getItem('ag-theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t)}()</script>
+
+  <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap" as="style">
+
+  <title>The TPM Role in Healthcare Integration | Aaryan Gupta</title>
+  <meta name="description" content="Understand the critical responsibilities of a Technical Project Manager coordinating HL7, FHIR, and EMR data integrations for medical clinics.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://aaaryangupta.com/blog/tpm-role-in-healthcare-integration.html">
+
+  <link rel="icon" href="/assets/images/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#030D0A" media="(prefers-color-scheme: dark)">
+
+  <!-- Inline critical layout settings -->
+  <style>
+    :root {
+      --bg-base: #030D0A;
+      --text-primary: #EDF8F5;
+      --accent-p: #0D9488;
+      --nav-h: 72px;
+      --z-loader: 10000;
+    }
+    html, body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+    .loader-wrapper {
+      position: fixed; inset: 0; background: var(--bg-base); z-index: var(--z-loader);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;
+    }
+    .loader-logo {
+      width: 64px; height: 64px; background: var(--accent-p);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+    .loader-progress { width: 200px; height: 2px; background: rgba(255,255,255,0.06); position: relative; overflow: hidden; }
+    .loader-progress-bar { position: absolute; top:0; left:0; height:100%; width:0%; background: var(--accent-p); }
+  </style>
+
+  <!-- Deferred Stylesheet -->
+  <link rel="stylesheet" href="/assets/css/main.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>
+</head>
+<body>
+
+  <!-- Custom mouse cursor elements -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Preloader Screen -->
+  <div class="loader-wrapper">
+    <div class="loader-logo"></div>
+    <div class="loader-progress">
+      <div class="loader-progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <nav class="nav">
+    <div class="nav__progress"></div>
+    <div class="container nav__container">
+      <a href="/" class="nav__logo">
+        <svg viewBox="0 0 256 256"><polygon points="128 32 224 80 224 176 128 224 32 176 32 80 128 32"/></svg>
+        <span data-cfg="identity.publicName">Aaryan Gupta</span>
+      </a>
+      
+            <div class="nav__links">
+        <a href="/#about" class="nav__link">About</a>
+        <a href="/#services" class="nav__link">Services</a>
+        <a href="/#projects" class="nav__link">Projects</a>
+        <a href="/#experience" class="nav__link">Experience</a>
+        <a href="/#skills" class="nav__link">Skills</a>
+        <a href="/#products" class="nav__link">Products</a>
+      </div>
+
+      <div class="nav__right">
+        <button class="theme-toggle flex-center" aria-label="Toggle theme">
+          <i class="ph-fill ph-moon moon-icon"></i>
+          <i class="ph-fill ph-sun sun-icon"></i>
+        </button>
+        <a data-cfg-href="contact.calendlyUrl" data-cfg="contact.calendarText" class="btn btn-p btn-magnetic btn-sm">Book Free Call</a>
+      </div>
+
+      <button class="nav__ham" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Overlay -->
+    <div class="nav__mobile-menu" id="mobile-menu">
+    <a href="/#about" class="nav__link">About</a>
+    <a href="/#services" class="nav__link">Services</a>
+    <a href="/#projects" class="nav__link">Projects</a>
+    <a href="/#experience" class="nav__link">Experience</a>
+    <a href="/#skills" class="nav__link">Skills</a>
+    <a href="/#products" class="nav__link">Products</a>
+    <a data-cfg-href="contact.calendlyUrl" data-cfg="contact.calendarText" class="btn btn-p btn-magnetic" style="margin-top: var(--sp-4);">Book Free Call</a>
+  </div>
+
+  <main style="padding-top: var(--nav-h);">
+    <div class="container section">
+      
+      <!-- Article Header -->
+      <div class="post-header reveal">
+        <span class="text-eyebrow">Insights Log — HealthTech</span>
+        <h1>The TPM Role in Healthcare Integration</h1>
+        <div style="font-family: var(--font-mono); font-size: var(--text-sm); color: var(--text-secondary); margin-top: var(--sp-2);">
+          Published: 2026-07-04 · Category: HealthTech · Read Time: 6 mins
+        </div>
+        <div style="width: 100%; height: 1px; background: var(--bd-subtle); margin-top: var(--sp-4);"></div>
+      </div>
+
+      <!-- Article Content -->
+      <div class="post-container">
+        
+        <div class="tldr-box reveal">
+          <h3>TL;DR: Healthcare Project Management</h3>
+          <p style="font-size: var(--text-base); line-height: var(--leading-relaxed); margin:0;">
+            Medical software integrations must balance data exchange speed with strict privacy guidelines (HIPAA/DISHA). A Technical Project Manager in healthcare understands clinical workflows and data formats (FHIR, HL7) to manage integrations securely without compromising system stability.
+          </p>
+        </div>
+
+        <div class="post-content reveal">
+          <h2>The Complexity of Medical Systems</h2>
+          <p>
+            Healthcare products operate under high requirements. Unlike typical SaaS tools, clinical systems handle sensitive patient health information (PHI) and must comply with regional data standards.
+          </p>
+          <p>
+            When a hospital department updates its electronic medical records (EMR) or connects diagnostic labs, the integration must ensure that patient data remains secure, private, and formatted correctly across all endpoints.
+          </p>
+
+          <h2>Why Technical Fluency Matters in HealthTech</h2>
+          <p>
+            HealthTech projects involve integrating diverse data interfaces. A TPM in this space must understand medical data formats (HL7 messaging, FHIR structures) to map API endpoints correctly.
+          </p>
+          <p>
+            This technical knowledge helps team leads coordinate secure data transfers between hospital records, billing modules, and third-party laboratory systems without introducing security vulnerabilities.
+          </p>
+
+          <h2>Core TPM Milestones in HealthTech:</h2>
+          <ul style="list-style: disc; margin-left: var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-2); margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
+            <li><strong>HIPAA & DISHA Compliance Checks:</strong> Structuring database tables with role-based access rules and data encryption.</li>
+            <li><strong>Data Interface Mapping:</strong> Configuring API endpoints to convert diagnostic output files into standardized medical records.</li>
+            <li><strong>Sandbox Environment Validation:</strong> Creating synthetic patient datasets to test integrations thoroughly before staging.</li>
+            <li><strong>Onsite Receptionist Training:</strong> Coordinating rollout standups and logging training metrics for clinic administrators.</li>
+          </ul>
+
+          <h2>Summary</h2>
+          <p>
+            Coordinating medical digital transformations requires a balance of software engineering knowledge and compliance awareness. Technical project management ensures these integrations are delivered securely and run reliably.
+          </p>
+
+          <div style="text-align: center; margin-top: var(--sp-12); border-top: 1px solid var(--bd-subtle); padding-top: var(--sp-8);">
+            <h3 style="font-family:var(--font-display); font-size:var(--text-lg); color:var(--text-primary); margin-bottom:var(--sp-4);">Planning a medical software or EMR integration?</h3>
+            <a data-cfg-href="contact.calendlyUrl" class="btn btn-p btn-magnetic">Schedule Scoping Consultation</a>
+            <a href="/blog/" class="btn btn-w btn-magnetic" style="margin-left: var(--sp-4);">Back to Blog Index</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer__info">
+        <a href="/" class="footer__logo">
+          <svg viewBox="0 0 256 256"><polygon points="128 32 224 80 224 176 128 224 32 176 32 80 128 32"/></svg>
+          <span data-cfg="identity.publicName">Aaryan Gupta</span>
+        </a>
+        <p class="footer__tagline">
+          Bridging technical execution with product coordination for SaaS & HealthTech squads.
+        </p>
+        <div class="footer__socials">
+          <a data-cfg-href="social.linkedin" target="_blank" rel="noopener" class="footer__social-link" aria-label="LinkedIn">
+            <i class="ph-fill ph-linkedin-logo"></i>
+          </a>
+          <a data-cfg-href="social.github" target="_blank" rel="noopener" class="footer__social-link" aria-label="GitHub">
+            <i class="ph-fill ph-github-logo"></i>
+          </a>
+          <a data-cfg-href="social.twitter" target="_blank" rel="noopener" class="footer__social-link" aria-label="Twitter">
+            <i class="ph-fill ph-x-logo"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Services</h3>
+        <div class="footer__col-links">
+          <a href="/services/technical-project-management.html">Project Management</a>
+          <a href="/services/healthtech-consulting.html">HealthTech Consulting</a>
+          <a href="/services/ai-automation.html">AI Workflows</a>
+          <a href="/services/micro-saas-software.html">Micro-SaaS Software</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Locations</h3>
+        <div class="footer__col-links">
+          <a href="/jaipur.html">Jaipur PM Services</a>
+          <a href="/ahmedabad.html">Ahmedabad PM Services</a>
+          <a href="/about.html">About Aaryan</a>
+          <a href="/blog/">Insights Blog</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Booking</h3>
+        <div class="footer__col-links">
+          <a href="/contact.html">Contact Form</a>
+          <a data-cfg-href="contact.calendlyUrl">Calendly Link</a>
+          <a data-cfg-href="contact.whatsappUrl">WhatsApp Chat</a>
+          <a href="mailto:aaryangupta.pm@gmail.com">Direct Email</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <div class="footer__copyright">
+        &copy; <span id="year">2026</span> Aaryan Gupta. All rights reserved. (Legal: Aryan Raj)
+      </div>
+      <div class="footer__bottom-links">
+        <a href="/about.html">Privacy Policy</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script type="module" src="/assets/js/core/main.js"></script>
+</body>
+</html>

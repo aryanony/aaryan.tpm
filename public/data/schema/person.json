@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://aaaryangupta.com/#person",
+  "name": "Aaryan Gupta",
+  "url": "https://aaaryangupta.com",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://aaaryangupta.com/assets/images/profile/aaryan-gupta-headshot.webp",
+    "width": 800,
+    "height": 1000,
+    "caption": "Aaryan Gupta — Technical Project Manager, Jaipur"
+  },
+  "jobTitle": "Technical Project Manager",
+  "description": "Aaryan Gupta is a Technical Project Manager based in Jaipur, India, specializing in health-tech digital transformation, SaaS project coordination, AI automation consulting, and micro-SaaS software delivery for clinics, hospitals, startups, and SMBs across India and globally.",
+  "email": "aaryangupta.pm@gmail.com",
+  "telephone": "+916205650368",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Jaipur",
+    "addressRegion": "Rajasthan",
+    "addressCountry": "IN"
+  },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Lloyd Institute of Engineering & Technology, AKTU", "sameAs": "https://liet.ac.in" },
+    { "@type": "CollegeOrUniversity", "name": "R.D & D.J College, Munger University" }
+  ],
+  "knowsAbout": ["Technical Project Management","Health Technology","SaaS","Agile","React.js","Node.js","AI Automation","Prompt Engineering","Micro-SaaS"],
+  "sameAs": [
+    "https://linkedin.com/in/aryanony/",
+    "https://x.com/aryanony/",
+    "https://instagram.com/aryanony/",
+    "https://github.com/aryanony"
+  ],
+  "worksFor": { "@type": "Organization", "name": "Oblinex Pvt. Ltd." }
+}

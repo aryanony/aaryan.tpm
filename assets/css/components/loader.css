@@ -1,0 +1,47 @@
+/* ===== assets/css/components/loader.css ===== */
+
+.loader-wrapper {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-base);
+  z-index: var(--z-loader);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-6);
+  opacity: 1;
+  transition: opacity var(--dur-slow) var(--ease-out);
+}
+
+.loader-wrapper.loaded {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader-logo {
+  width: 64px;
+  height: 64px;
+  background: var(--accent-p);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* DIAMOND */
+  animation: loaderPulse 1.8s infinite var(--ease-inout);
+  box-shadow: var(--glow-teal);
+}
+
+.loader-progress {
+  width: 200px;
+  height: 2px;
+  background: var(--bd-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.loader-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-p), var(--accent-c));
+  transition: width 0.1s linear;
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "t1",
+    "name": "Dr. Suresh Sharma",
+    "title": "Cardiologist & Clinic Owner",
+    "company": "Sharma Cardiac Care",
+    "city": "Jaipur, Rajasthan",
+    "avatar": "/assets/images/profile/t1.webp",
+    "stars": 5,
+    "text": "Aaryan Gupta digitized our clinic OPD with the TokenQ queue system. Patient wait times dropped by 50%, and our staff now works without stress. His understanding of how doctors consult patients was crucial. Highly recommended for any medical professional looking to digitize."
+  },
+  {
+    "id": "t2",
+    "name": "Dr. Neha Patel",
+    "title": "Clinic Director",
+    "company": "Patna Health Center & Clinic Clinic",
+    "city": "Ahmedabad, Gujarat",
+    "avatar": "/assets/images/profile/t2.webp",
+    "stars": 5,
+    "text": "Implementing RxPad Pro and RecallMD completely changed how we write prescriptions and follow up with patients. Aaryan coordinated the entire setup on our local server smoothly. He speaks the language of doctors and handles the technical execution perfectly."
+  },
+  {
+    "id": "t3",
+    "name": "Amit Verma",
+    "title": "Founder & CEO",
+    "company": "CareSaaS Inc.",
+    "city": "Jaipur / Remote",
+    "avatar": "/assets/images/profile/t3.webp",
+    "stars": 5,
+    "text": "Aaryan managed our SaaS product sprints at Oblinex. His technical project management skills, clear reporting, and ability to coordinate distributed engineers saved us from a 3-month launch delay. A developer-turned-PM is exactly what we needed."
+  }
+]

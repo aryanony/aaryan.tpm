@@ -1,0 +1,64 @@
+/* ===== assets/css/components/cards.css ===== */
+
+.card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--bd-subtle);
+  box-shadow: var(--sh-card);
+  padding: var(--sp-8);
+  clip-path: var(--clip-card);   /* TOP-RIGHT ANGULAR CUT */
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: 
+    border-color var(--dur-base),
+    box-shadow var(--dur-base),
+    background var(--dur-base);
+}
+
+.card:hover {
+  border-color: var(--bd-mid);
+  box-shadow: var(--sh-hover);
+  background: var(--bg-elevated);
+}
+
+/* Small card variant (for tags, small listings, or blog index cards) */
+.card-sm {
+  clip-path: var(--clip-card-sm);
+  padding: var(--sp-6);
+}
+
+/* Shine layer for tilt.js 3D effect */
+.card-shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  clip-path: inherit;
+  z-index: 1;
+}
+
+/* Card inner container to enable preserve-3d spacing */
+.card__inner {
+  transform: translateZ(30px);
+  position: relative;
+  z-index: 2;
+}
+
+/* Card tech-corner ticks overlay styling */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid var(--accent-p);
+  border-top: 2px solid var(--accent-p);
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity var(--dur-base);
+}
+
+.card:hover::before {
+  opacity: 1;
+}

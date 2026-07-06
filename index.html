@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Anti-FOUC: must be FIRST script in <head> -->
+  <script>!function(){var t=localStorage.getItem('ag-theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t)}()</script>
+
+  <!-- Preload critical fonts -->
+  <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" as="style">
+
+  <!-- DNS prefetch -->
+  <link rel="dns-prefetch" href="//api.fontshare.com">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//calendly.com">
+
+  <!-- Meta (page-specific) -->
+  <title>Aaryan Gupta — Technical Project Manager | HealthTech & SaaS | Jaipur</title>
+  <meta name="description" content="Aaryan Gupta — Freelance Technical PM for HealthTech & SaaS. 70+ markets delivered. AI Automation. Micro-SaaS. Book a free 30-min strategy call.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://aaaryangupta.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aaaryangupta.com/">
+  <meta property="og:title" content="Aaryan Gupta — Technical Project Manager | HealthTech & SaaS | Jaipur">
+  <meta property="og:description" content="Aaryan Gupta — Freelance Technical PM for HealthTech & SaaS. 70+ markets delivered. AI Automation. Micro-SaaS. Book a free 30-min strategy call.">
+  <meta property="og:image" content="https://aaaryangupta.com/assets/images/og/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@aryanony">
+  <meta name="twitter:image" content="https://aaaryangupta.com/assets/images/og/og-default.png">
+
+  <!-- Geo -->
+  <meta name="geo.region" content="IN-RJ">
+  <meta name="geo.placename" content="Jaipur">
+  <meta name="geo.position" content="26.9124;75.7873">
+  <meta name="ICBM" content="26.9124, 75.7873">
+
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="en" href="https://aaaryangupta.com/">
+  <link rel="alternate" hreflang="en-IN" href="https://aaaryangupta.com/">
+  <link rel="alternate" hreflang="x-default" href="https://aaaryangupta.com/">
+
+  <!-- Inline critical CSS (anti-FOUC layout basics) -->
+  <style>
+    :root {
+      --bg-base: #030D0A;
+      --text-primary: #EDF8F5;
+      --accent-p: #0D9488;
+      --nav-h: 72px;
+      --z-loader: 10000;
+    }
+    html, body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+    .loader-wrapper {
+      position: fixed; inset: 0; background: var(--bg-base); z-index: var(--z-loader);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;
+    }
+    .loader-logo {
+      width: 64px; height: 64px; background: var(--accent-p);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      box-shadow: 0 0 16px rgba(13,148,136,0.40);
+    }
+    .loader-progress { width: 200px; height: 2px; background: rgba(255,255,255,0.06); position: relative; overflow: hidden; }
+    .loader-progress-bar { position: absolute; top:0; left:0; height:100%; width:0%; background: var(--accent-p); }
+  </style>
+
+  <!-- Deferred full CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>
+
+  <!-- Favicons + PWA -->
+  <link rel="icon" href="/assets/images/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#030D0A" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F0FBFA" media="(prefers-color-scheme: light)">
+
+  <!-- JSON-LD Schema (Graph version) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://aaaryangupta.com/#person",
+        "name": "Aaryan Gupta",
+        "url": "https://aaaryangupta.com",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://aaaryangupta.com/assets/images/profile/aaryan-gupta-headshot.webp",
+          "width": 800, "height": 1000,
+          "caption": "Aaryan Gupta — Technical Project Manager, Jaipur"
+        },
+        "jobTitle": "Technical Project Manager",
+        "description": "Aaryan Gupta is a Technical Project Manager based in Jaipur, India, specializing in health-tech digital transformation, SaaS project coordination, AI automation consulting, and micro-SaaS software delivery for clinics, hospitals, startups, and SMBs across India and globally.",
+        "email": "aaryangupta.pm@gmail.com",
+        "telephone": "+916205650368",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Jaipur",
+          "addressRegion": "Rajasthan",
+          "addressCountry": "IN"
+        },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Lloyd Institute of Engineering & Technology, AKTU", "sameAs": "https://liet.ac.in" },
+          { "@type": "CollegeOrUniversity", "name": "R.D & D.J College, Munger University" }
+        ],
+        "knowsAbout": ["Technical Project Management","Health Technology","SaaS","Agile","React.js","Node.js","AI Automation","Prompt Engineering","Micro-SaaS"],
+        "sameAs": [
+          "https://linkedin.com/in/aryanony/",
+          "https://x.com/aryanony/",
+          "https://instagram.com/aryanony/",
+          "https://github.com/aryanony"
+        ],
+        "worksFor": { "@type": "Organization", "name": "Oblinex Pvt. Ltd." }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://aaaryangupta.com/#website",
+        "url": "https://aaaryangupta.com",
+        "name": "Aaryan Gupta — Technical Project Manager",
+        "publisher": { "@id": "https://aaaryangupta.com/#person" },
+        "inLanguage": "en-IN"
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://aaaryangupta.com/#localbusiness",
+        "name": "Aaryan Gupta — Technical Project Manager",
+        "telephone": "+916205650368",
+        "email": "aaryangupta.pm@gmail.com",
+        "url": "https://aaaryangupta.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Jaipur", "addressRegion": "Rajasthan", "addressCountry": "IN" },
+        "geo": { "@type": "GeoCoordinates", "latitude": "26.9124", "longitude": "75.7873" },
+        "areaServed": ["Jaipur","Ahmedabad","India","Worldwide"],
+        "priceRange": "₹₹"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does a Technical Project Manager actually do?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A Technical PM bridges engineering teams and business stakeholders — owning the full delivery lifecycle from requirements through deployment. Unlike traditional PMs, a TPM has technical fluency: reading code, reviewing architecture, identifying technical debt, and translating engineering complexity into clear business language. This eliminates the translation gap, reducing rework by up to 40% and accelerating sprint delivery." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can Aaryan Gupta help doctors and clinics in Jaipur or Ahmedabad?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes — HealthTech is Aaryan Gupta's primary specialization. He works with doctors, clinic owners, and hospital administrators in Jaipur and Ahmedabad to digitize their practice management: patient queue systems (TokenQ), digital prescriptions (RxPad Pro), lab management (LabTrack Pro), patient follow-up automation (RecallMD), and reputation management (CareReview). All software is one-time purchase, deployed on the clinic's own server with no monthly SaaS fees." }
+          },
+          {
+            "@type": "Question",
+            "name": "What are Aaryan Gupta's rates for Technical PM services?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Aaryan Gupta offers project-based rates from ₹20,000–₹80,000 per project depending on scope. Monthly retainers for dev team coordination range from ₹25,000–₹60,000/month. Micro-SaaS products are one-time purchases from ₹5,000–₹35,000. Website maintenance starts at ₹2,000/month. A free 30-minute strategy call is available to scope requirements before any commitment." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Custom mouse cursor elements -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Preloader Screen -->
+  <div class="loader-wrapper">
+    <div class="loader-logo"></div>
+    <div class="loader-progress">
+      <div class="loader-progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- Skip to Main Content (a11y) -->
+  <a href="#main-content" class="btn btn-p" style="position: absolute; top: -100px; left: var(--sp-4); z-index: 1000; transition: top 0.2s;" onfocus="this.style.top='10px'" onblur="this.style.top='-100px'">Skip to main content</a>
+
+  <!-- NAVIGATION HEADER -->
+  <nav class="nav">
+    <div class="nav__progress"></div>
+    <div class="container nav__container">
+      <a href="/" class="nav__logo">
+        <svg viewBox="0 0 256 256"><polygon points="128 32 224 80 224 176 128 224 32 176 32 80 128 32"/></svg>
+        <span data-cfg="identity.publicName">Aaryan Gupta</span>
+      </a>
+      
+            <div class="nav__links">
+        <a href="#about" class="nav__link">About</a>
+        <a href="#services" class="nav__link">Services</a>
+        <a href="#projects" class="nav__link">Projects</a>
+        <a href="#experience" class="nav__link">Experience</a>
+        <a href="#skills" class="nav__link">Skills</a>
+        <a href="#products" class="nav__link">Products</a>
+      </div>
+
+      <div class="nav__right">
+        <button class="theme-toggle flex-center" aria-label="Toggle light/dark theme">
+          <i class="ph-duotone ph-moon moon-icon"></i>
+          <i class="ph-duotone ph-sun sun-icon"></i>
+        </button>
+        <a data-cfg-href="contact.calendlyUrl" data-cfg="contact.calendarText" class="btn btn-p btn-magnetic btn-sm">Book Free Call</a>
+      </div>
+
+      <button class="nav__ham" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Fullscreen Mobile Navigation Menu -->
+    <div class="nav__mobile-menu" id="mobile-menu">
+    <a href="#about" class="nav__link">About</a>
+    <a href="#services" class="nav__link">Services</a>
+    <a href="#projects" class="nav__link">Projects</a>
+    <a href="#experience" class="nav__link">Experience</a>
+    <a href="#skills" class="nav__link">Skills</a>
+    <a href="#products" class="nav__link">Products</a>
+    <a data-cfg-href="contact.calendlyUrl" data-cfg="contact.calendarText" class="btn btn-p btn-magnetic" style="margin-top: var(--sp-4);">Book Free Call</a>
+  </div>
+
+  <!-- MAIN VIEWPORT CONTAINER -->
+  <main id="main-content">
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero">
+      <canvas id="hero-canvas"></canvas>
+      <div class="container hero-grid">
+        <div class="hero__content">
+          <div class="hero__badge">
+            <span class="hero__badge-pulse"></span>
+            <span class="hero__badge-text" data-cfg="identity.availability">Available for Projects & Roles</span>
+          </div>
+          
+          <h1 class="hero__h1">
+            <span class="word">The PM Who</span>
+            <span class="word hero__h1-gradient">Speaks Dev.</span>
+            <span class="word">Delivers Results.</span>
+          </h1>
+
+          <div class="hero__typewriter-wrap">
+            I am a <span class="hero__typewriter"></span>
+          </div>
+
+          <p class="hero__body" data-cfg="identity.tagline">
+            I bridge complex technology with seamless execution — so healthcare, SaaS, and product teams ship faster, smarter, and at scale. Developer-turned-PM with full-stack technical fluency.
+          </p>
+
+          <div class="hero__ctas">
+            <a data-cfg-href="contact.calendlyUrl" data-cfg="contact.calendarText" class="btn btn-p btn-magnetic">Book Free Call</a>
+            <a href="#projects" class="btn btn-g btn-magnetic">View My Work &rarr;</a>
+          </div>
+
+          <div class="hero__trust" data-cfg="stats.trust_bar">
+            MCA · AKTU 2025 · 70+ Markets · 20+ Projects · 3+ Years
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="tech-grid-overlay"></div>
+          <div class="hero__photo-wrapper" data-tilt>
+            <div class="hologram-scanner"></div>
+            <img src="/assets/images/profile/aaryan-gupta-headshot.webp" alt="Aaryan Gupta — Technical Project Manager" class="hero__photo">
+          </div>
+
+          <!-- Interactive HUD Hotspots -->
+          <div class="hud-hotspot hud-hotspot-1" style="top: 20%; left: 15%;">
+            <div class="hud-pulse"></div>
+            <div class="hud-ring"></div>
+            <div class="hud-tooltip">
+              <span class="hud-tooltip-title">Developer DNA</span>
+              <span class="hud-tooltip-desc">Speaks developer language, reviews APIs, and estimates code effort.</span>
+            </div>
+          </div>
+
+          <div class="hud-hotspot hud-hotspot-2" style="top: 48%; right: 10%;">
+            <div class="hud-pulse"></div>
+            <div class="hud-ring"></div>
+            <div class="hud-tooltip">
+              <span class="hud-tooltip-title">70+ Markets Delivered</span>
+              <span class="hud-tooltip-desc">Oversees concurrent live projects across USA, UAE, and Europe.</span>
+            </div>
+          </div>
+
+          <div class="hud-hotspot hud-hotspot-3" style="bottom: 22%; left: 20%;">
+            <div class="hud-pulse"></div>
+            <div class="hud-ring"></div>
+            <div class="hud-tooltip">
+              <span class="hud-tooltip-title">System Status</span>
+              <span class="hud-tooltip-desc">Online. Ready for Agile sprint governance and product launches.</span>
+            </div>
+          </div>
+          
+          <!-- Floating Parallax Stats Cards -->
+          <div class="hero__stat-card hero__stat-card--1" data-tilt>
+            <span class="hero__stat-card-val" data-cfg="stats.markets">70+</span>
+            <span class="hero__stat-card-lbl">Global Markets</span>
+          </div>
+          <div class="hero__stat-card hero__stat-card--2" data-tilt>
+            <span class="hero__stat-card-val">MCA</span>
+            <span class="hero__stat-card-lbl">AKTU 2025</span>
+          </div>
+          <div class="hero__stat-card hero__stat-card--3" data-tilt>
+            <span class="hero__stat-card-val" data-cfg="location.geoPlacename">Jaipur</span>
+            <span class="hero__stat-card-lbl">Based</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. MARQUEE STRIP -->
+    <div class="marquee-strip" style="background: var(--bg-surface); border-top: 1px solid var(--bd-subtle); border-bottom: 1px solid var(--bd-subtle); padding: var(--sp-4) 0; overflow: hidden; white-space: nowrap; width: 100%; display: flex;">
+      <div class="marquee__track" style="display: inline-block; animation: marqueeScroll 25s linear infinite; font-family: var(--font-mono); font-size: var(--text-sm); text-transform: uppercase; color: var(--text-secondary); letter-spacing: var(--tracking-wide);">
+        <span style="margin-right: var(--sp-12);">Technical PM</span>
+        <span style="margin-right: var(--sp-12); color: var(--text-accent);">✦</span>
+        <span style="margin-right: var(--sp-12);">HealthTech</span>
+        <span style="margin-right: var(--sp-12); color: var(--text-accent);">✦</span>
+        <span style="margin-right: var(--sp-12);">AI Automation</span>
+        <span style="margin-right: var(--sp-12); color: var(--text-accent);">✦</span>
+        <span style="margin-right: var(--sp-12);">SaaS Delivery</span>
+        <span style="margin-right: var(--sp-12); color: var(--text-accent);">✦</span>
+        <span style="margin-right: var(--sp-12);">Agile & Scrum</span>
+        <span style="margin-right: var(--sp-12); color: var(--text-accent);">✦</span>
+        <span style="margin-right: var(--sp-12);">Micro-SaaS</span>
+        <span style="margin-right: var(--sp-12); color: var(--text-accent);">✦</span>
+        <span style="margin-right: var(--sp-12);">70+ Markets</span>
+        <span style="margin-right: var(--sp-12); color: var(--text-accent);">✦</span>
+      </div>
+    </div>
+
+    <!-- 3. ABOUT SNAPSHOT SECTION -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-hdr reveal">
+          <span class="text-eyebrow" style="color: var(--text-accent);">Who I Am</span>
+          <h2>The PM Who Speaks Developer</h2>
+        </div>
+
+        <!-- About Tabs Navigation -->
+        <div class="about-tabs-nav reveal" role="tablist">
+          <button class="about-tab-btn active" data-target="pane-vision" role="tab" aria-selected="true">
+            <i class="ph-duotone ph-trend-up" style="font-size:16px; margin-right:6px;"></i>
+            Vision & Bio
+          </button>
+          <button class="about-tab-btn" data-target="pane-engineering" role="tab" aria-selected="false">
+            <i class="ph-duotone ph-code" style="font-size:16px; margin-right:6px;"></i>
+            Engineering Fluency
+          </button>
+          <button class="about-tab-btn" data-target="pane-management" role="tab" aria-selected="false">
+            <i class="ph-duotone ph-squares-four" style="font-size:16px; margin-right:6px;"></i>
+            Management Framework
+          </button>
+        </div>
+        
+        <div class="about-panes-wrapper reveal">
+          <!-- Pane 1: Vision & Bio -->
+          <div class="about-pane active" id="pane-vision" role="tabpanel" aria-hidden="false">
+            <div class="about-grid">
+              <div class="about__text">
+                <p>
+                  Aaryan Gupta is a Technical Project Manager based in Jaipur, India, with 3+ years of progressive experience across frontend engineering, AI integration, product delivery, and digital strategy.
+                </p>
+                <p>
+                  Currently managing end-to-end project lifecycles at Oblinex Pvt. Ltd. across 70+ international markets — owning client onboarding, infrastructure setup, sprint governance, QA validation, and Play Store / App Store releases for concurrent live client accounts.
+                </p>
+                <p>
+                  With an MCA from AKTU (2025) and hands-on React, Node.js, and DevOps fluency, he bridges engineering execution and business outcomes — translating complex technical realities into clear stakeholder language and actionable delivery plans.
+                </p>
+                <div class="about__actions">
+                  <a data-cfg-href="social.linkedin" target="_blank" rel="noopener" class="btn btn-g btn-sm">LinkedIn</a>
+                  <a data-cfg-href="social.github" target="_blank" rel="noopener" class="btn btn-g btn-sm">GitHub</a>
+                  <a href="/about.html" class="btn btn-w btn-sm">Read Full Story</a>
+                </div>
+              </div>
+              
+              <div class="about__details">
+                <!-- Counter stats grid loaded dynamically -->
+                <div class="about__stats-grid reveal-grid"></div>
+
+                <div class="about__features">
+                  <div class="about__feature-item">
+                    <i class="about__feature-icon ph-duotone ph-seal-check"></i>
+                    <div class="about__feature-content">
+                      <h4>Technical Fluency</h4>
+                      <p>Reads code, reviews APIs, and speaks developer language to optimize timelines.</p>
+                    </div>
+                  </div>
+                  <div class="about__feature-item">
+                    <i class="about__feature-icon ph-duotone ph-clock"></i>
+                    <div class="about__feature-content">
+                      <h4>Agile Delivery</h4>
+                      <p>Sprint governance, backlog grooming, and milestone coordination with Jira and Notion.</p>
+                    </div>
+                  </div>
+                  <div class="about__feature-item">
+                    <i class="about__feature-icon ph-duotone ph-lightning"></i>
+                    <div class="about__feature-content">
+                      <h4>AI-Native Workflow</h4>
+                      <p>Leverages LLM API connections and automation paths (n8n) to reduce administrative lags by 60%.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 2: Engineering Fluency -->
+          <div class="about-pane" id="pane-engineering" role="tabpanel" aria-hidden="true">
+            <div class="about-grid">
+              <div class="about__text">
+                <h3 class="pane-title">Full-Stack Technical Literacy</h3>
+                <p>
+                  Having a frontend developer background means Aaryan reads the source code, understands database schemas, reviews API contracts, and communicates with developers in their own language.
+                </p>
+                <p>
+                  This developer DNA avoids translation errors, allows accurate milestone forecasting, and supports quick diagnostic sweeps when production bugs appear.
+                </p>
+                <div class="pane-tech-focus">
+                  <h4 style="font-size: var(--text-base); color: var(--text-primary); margin-top: var(--sp-4); margin-bottom: var(--sp-2);">Specialized Technical Focus</h4>
+                  <ul style="padding-left: var(--sp-4); color: var(--text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);">
+                    <li>Self-hosted clinic queues (TokenQ) and prescription tools (RxPad Pro).</li>
+                    <li>LLM integration (GPT-4/Claude) via advanced n8n/Make automation.</li>
+                    <li>Docker container staging and Node.js backend optimization.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="about__details">
+                <div class="engineering-stack-card card">
+                  <div class="card__inner">
+                    <h4 style="color:var(--text-accent); margin-bottom:var(--sp-4);">Operational Focus</h4>
+                    <div class="eng-columns" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4);">
+                      <div>
+                        <span style="font-weight:600; display:block; color:var(--text-primary); font-size:var(--text-sm);">Frontend Tech</span>
+                        <span style="font-size:var(--text-xs); color:var(--text-secondary);">React.js, TypeScript, TailwindCSS</span>
+                      </div>
+                      <div>
+                        <span style="font-weight:600; display:block; color:var(--text-primary); font-size:var(--text-sm);">Backend & DBs</span>
+                        <span style="font-size:var(--text-xs); color:var(--text-secondary);">Node.js, Express, MongoDB, Firebase</span>
+                      </div>
+                      <div>
+                        <span style="font-weight:600; display:block; color:var(--text-primary); font-size:var(--text-sm);">DevOps & Flows</span>
+                        <span style="font-size:var(--text-xs); color:var(--text-secondary);">Git, Docker, Linux, CI/CD Actions</span>
+                      </div>
+                      <div>
+                        <span style="font-weight:600; display:block; color:var(--text-primary); font-size:var(--text-sm);">AI Automations</span>
+                        <span style="font-size:var(--text-xs); color:var(--text-secondary);">OpenAI API, Botpress, n8n, Webhooks</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 3: Management Framework -->
+          <div class="about-pane" id="pane-management" role="tabpanel" aria-hidden="true">
+            <div class="about-grid">
+              <div class="about__text">
+                <h3 class="pane-title">Agile Delivery & Governance</h3>
+                <p>
+                  Using Miro, Jira, and Notion, Aaryan coordinates distributed engineering teams to deliver projects on-time and with minimized scope creep.
+                </p>
+                <p>
+                  He acts as the buffer that shields developers from client noise, while providing clear, commercial, and operational milestone roadmaps back to stakeholders.
+                </p>
+                <div class="pane-agile-focus">
+                  <h4 style="font-size: var(--text-base); color: var(--text-primary); margin-top: var(--sp-4); margin-bottom: var(--sp-2);">Governance Toolkit</h4>
+                  <ul style="padding-left: var(--sp-4); color: var(--text-secondary); font-size: var(--text-base); line-height: var(--leading-relaxed);">
+                    <li>Daily standups, backlog grooming, sprint planning, and retrospective validation.</li>
+                    <li>Detailed software requirements specifications (SRS) and technical user stories.</li>
+                    <li>Automated Jira alerts & Slack webhooks tracking project health.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="about__details">
+                <div class="management-credentials-card card">
+                  <div class="card__inner">
+                    <h4 style="color:var(--text-accent); margin-bottom:var(--sp-4);">Academic & Professional Certifications</h4>
+                    <ul class="credentials-list" style="padding-left:var(--sp-4); color:var(--text-secondary); font-size:var(--text-sm); line-height:var(--leading-relaxed);">
+                      <li><strong>MCA:</strong> Lloyd Institute / AKTU (2023 - 2025)</li>
+                      <li><strong>BCA:</strong> Munger University (2019 - 2023)</li>
+                      <li><strong>IBM Virtual Internship:</strong> Web & Mobile Developer</li>
+                      <li><strong>Nasscom:</strong> Digital Fundamentals & Cloud Computing</li>
+                      <li><strong>FCC:</strong> Javascript Algorithms & Data Structures</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. WHY AARYAN SECTION -->
+    <section class="section" id="why" style="background: var(--bg-surface); border-top: 1px solid var(--bd-subtle); border-bottom: 1px solid var(--bd-subtle);">
+      <div class="container">
+        <div class="section-hdr reveal">
+          <span class="text-eyebrow">Differentiators</span>
+          <h2>What Sets This PM Apart</h2>
+          <p style="margin-top: var(--sp-2);">Most PMs understand process. Few understand the code behind the process. That gap is where projects fail — and where I operate.</p>
+        </div>
+
+        <div class="why-console reveal-grid">
+          <!-- Terminal Sidebar controls -->
+          <div class="why-console-sidebar" role="tablist">
+            <button class="why-console-btn active" data-target="why-panel-1" role="tab" aria-selected="true">
+              <span class="why-num">01</span>
+              <span class="why-label">Developer DNA</span>
+            </button>
+            <button class="why-console-btn" data-target="why-panel-2" role="tab" aria-selected="false">
+              <span class="why-num">02</span>
+              <span class="why-label">70+ Markets Shipped</span>
+            </button>
+            <button class="why-console-btn" data-target="why-panel-3" role="tab" aria-selected="false">
+              <span class="why-num">03</span>
+              <span class="why-label">HealthTech Focus</span>
+            </button>
+            <button class="why-console-btn" data-target="why-panel-4" role="tab" aria-selected="false">
+              <span class="why-num">04</span>
+              <span class="why-label">AI-Native Workflow</span>
+            </button>
+          </div>
+
+          <!-- Terminal Main Window Screen -->
+          <div class="why-console-window card">
+            <div class="why-console-hdr">
+              <div class="why-dots">
+                <span class="dot dot-r"></span>
+                <span class="dot dot-y"></span>
+                <span class="dot dot-g"></span>
+              </div>
+              <div class="why-title">aaryan@gupta-pm:~</div>
+            </div>
+            
+            <div class="why-console-body">
+              <!-- Panel 1: Developer DNA -->
+              <div class="why-display-pane active" id="why-panel-1" role="tabpanel" aria-hidden="false">
+                <div class="term-line"><span class="term-prompt">$</span> cat developer-dna.json</div>
+                <div class="term-output">
+                  <pre><code class="language-json">{
+  "background": "Full-stack frontend & backend engineer",
+  "logicalEstimate": "Estimates sprint complexities without consulting devs",
+  "impact": "Saves 40% of sprint planning meeting overhead",
+  "capabilities": ["API Reviews", "Complexity Audit", "Direct Code Reading"]
+}</code></pre>
+                </div>
+                <p class="why-desc">
+                  Built in React, Node.js, Firebase, and DevOps before managing those who do. Speaks the developer's language, audits pull requests, and reads API contracts first-hand.
+                </p>
+              </div>
+
+              <!-- Panel 2: 70+ Markets Shipped -->
+              <div class="why-display-pane" id="why-panel-2" role="tabpanel" aria-hidden="true">
+                <div class="term-line"><span class="term-prompt">$</span> cat global-operations.json</div>
+                <div class="term-output">
+                  <pre><code class="language-json">{
+  "marketsDelivered": ["India", "UAE", "UK", "USA", "Europe", "SE Asia"],
+  "deliveryStyle": "Async-first timezone-proof operational models",
+  "keyStrengths": ["App Store Compliance", "Staging Audits", "Handoff Orchestration"]
+}</code></pre>
+                </div>
+                <p class="why-desc">
+                  Overseeing client product releases across global jurisdictions. Master of the timezone-proof async pipeline, ensuring code gets verified and deployed without bottlenecks.
+                </p>
+              </div>
+
+              <!-- Panel 3: HealthTech Focus -->
+              <div class="why-display-pane" id="why-panel-3" role="tabpanel" aria-hidden="true">
+                <div class="term-line"><span class="term-prompt">$</span> cat clinical-focus.json</div>
+                <div class="term-output">
+                  <pre><code class="language-json">{
+  "domainSpecialization": "Clinical workflow optimization & OPD dashboards",
+  "designLogic": "Built around how clinicians consult in 3-minute slots",
+  "keyProducts": ["TokenQ Queue Manager", "RxPad Pro", "LabTrack Pro"]
+}</code></pre>
+                </div>
+                <p class="why-desc">
+                  Deeply focused on the clinical workflow problem. India's doctors deserve digital tools built for speed and clinician reality, not generic software templates.
+                </p>
+              </div>
+
+              <!-- Panel 4: AI-Native Workflow -->
+              <div class="why-display-pane" id="why-panel-4" role="tabpanel" aria-hidden="true">
+                <div class="term-line"><span class="term-prompt">$</span> cat ai-native.json</div>
+                <div class="term-output">
+                  <pre><code class="language-json">{
+  "workflowAutomation": "n8n and Make webhook pipelines",
+  "conversationalAgents": "Botpress integration with GPT/Claude APIs",
+  "operationalLeverage": "Cuts administrative logs coordination time by 60%"
+}</code></pre>
+                </div>
+                <p class="why-desc">
+                  Integrates LLMs and automation webhooks to build systems that automate scheduling, status tracking, and report updates with minimal lag.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SERVICES SECTION -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-hdr section-hdr--split reveal">
+          <div class="section-hdr__left">
+            <span class="text-eyebrow">Solutions</span>
+            <h2>What I Deliver</h2>
+          </div>
+          <div class="section-hdr__right">
+            <a href="/services.html" class="btn btn-g btn-sm btn-magnetic">All Services &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Rendered dynamically from data/services.json -->
+        <div class="services-grid reveal-grid"></div>
+
+        <!-- Project ROI Estimator Card -->
+        <div class="roi-estimator card reveal" style="margin-top:var(--sp-10); padding:var(--sp-8);">
+          <div class="card__inner">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--sp-6); border-bottom:1px solid var(--bd-subtle); padding-bottom:var(--sp-2); flex-wrap:wrap; gap:var(--sp-2);">
+              <div>
+                <h3 style="font-size:var(--text-lg); color:var(--text-primary); font-family:var(--font-display); margin:0;">Project Delivery ROI Estimator</h3>
+                <p style="font-size:var(--text-xs); color:var(--text-secondary); margin:2px 0 0 0;">Calculate the estimated resource & risk savings of technical Agile PM governance.</p>
+              </div>
+              <span class="badge badge-success">Value Assessment</span>
+            </div>
+            
+            <div class="roi-grid" style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:var(--sp-8); align-items:center;">
+              <!-- Left inputs: Sliders -->
+              <div style="display:flex; flex-direction:column; gap:var(--sp-5);">
+                <div>
+                  <div style="display:flex; justify-content:space-between; margin-bottom:var(--sp-2);">
+                    <label for="input-team-size" style="font-size:var(--text-sm); font-weight:600; color:var(--text-primary);">Developer Team Size</label>
+                    <span id="val-team-size" style="font-family:var(--font-mono); font-size:var(--text-sm); color:var(--text-accent); font-weight:600;">4 Devs</span>
+                  </div>
+                  <input type="range" id="input-team-size" min="1" max="10" value="4" style="width:100%; accent-color:var(--accent-p);">
+                </div>
+                
+                <div>
+                  <div style="display:flex; justify-content:space-between; margin-bottom:var(--sp-2);">
+                    <label for="input-timeline" style="font-size:var(--text-sm); font-weight:600; color:var(--text-primary);">Project Timeline</label>
+                    <span id="val-timeline" style="font-family:var(--font-mono); font-size:var(--text-sm); color:var(--text-accent); font-weight:600;">6 Months</span>
+                  </div>
+                  <input type="range" id="input-timeline" min="1" max="12" value="6" style="width:100%; accent-color:var(--accent-p);">
+                </div>
+              </div>
+              
+              <!-- Right outputs: Telemetry Display -->
+              <div style="display:flex; flex-direction:column; gap:var(--sp-4); background:rgba(255,255,255,0.02); padding:var(--sp-5); border:1px solid var(--bd-subtle); border-radius:var(--radius-sm);">
+                <div>
+                  <span style="font-size:var(--text-xs); color:var(--text-secondary); display:block; text-transform:uppercase; margin-bottom:2px;">Developer Hours Saved</span>
+                  <span id="roi-hours-saved" style="font-family:var(--font-mono); font-size:var(--text-2xl); color:var(--text-accent); font-weight:700;">144 hrs</span>
+                </div>
+                <div>
+                  <span style="font-size:var(--text-xs); color:var(--text-secondary); display:block; text-transform:uppercase; margin-bottom:2px;">Risk Reduction</span>
+                  <span id="roi-risk-reduction" style="font-family:var(--font-mono); font-size:var(--text-2xl); color:var(--text-accent); font-weight:700;">45%</span>
+                </div>
+                <div>
+                  <span style="font-size:var(--text-xs); color:var(--text-secondary); display:block; text-transform:uppercase; margin-bottom:2px;">Financial Value Saved</span>
+                  <span id="roi-money-saved" style="font-family:var(--font-mono); font-size:var(--text-2xl); color:var(--text-accent); font-weight:700;">$2,880+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SIGNATURE WORK SECTION -->
+    <section class="section" id="projects" style="background: var(--bg-surface); border-top: 1px solid var(--bd-subtle); border-bottom: 1px solid var(--bd-subtle);">
+      <div class="container">
+        <div class="section-hdr reveal">
+          <span class="text-eyebrow">Case Studies</span>
+          <h2>Proof of Delivery</h2>
+        </div>
+
+        <!-- Rendered dynamically from data/projects.json -->
+        <div class="work-showcase"></div>
+      </div>
+    </section>
+
+    <!-- 7. CAREER TIMELINE SECTION -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-hdr reveal">
+          <span class="text-eyebrow">Career Journey</span>
+          <h2>Professional History</h2>
+        </div>
+
+        <!-- Rendered dynamically from data/experience.json -->
+        <div class="exp__timeline"></div>
+      </div>
+    </section>
+
+    <!-- 8. FULL-STACK SKILLS ACCORDION -->
+    <section class="section" id="skills" style="background: var(--bg-surface); border-top: 1px solid var(--bd-subtle); border-bottom: 1px solid var(--bd-subtle);">
+      <div class="container">
+        <div class="section-hdr reveal">
+          <span class="text-eyebrow">Skills Directory</span>
+          <h2>Full-Stack Technical Fluency</h2>
+        </div>
+
+        <!-- Stack Filters Navigation -->
+        <div class="stack-filters reveal" style="display: flex; gap: var(--sp-3); flex-wrap: wrap; margin-bottom: var(--sp-6); justify-content: center;">
+          <button class="stack-filter-btn active" data-filter="all">All Tools</button>
+          <button class="stack-filter-btn" data-filter="web-app">Web App</button>
+          <button class="stack-filter-btn" data-filter="ai-bot">AI Bot</button>
+          <button class="stack-filter-btn" data-filter="healthtech">HealthTech</button>
+          <button class="stack-filter-btn" data-filter="saas">SaaS Platform</button>
+        </div>
+        <p id="stack-result-text" class="reveal" style="text-align: center; color: var(--text-secondary); font-family: var(--font-mono); font-size: var(--text-sm); margin-bottom: var(--sp-8); transition: opacity var(--dur-base); opacity: 1;">Viewing all tools across my full operational stack.</p>
+
+        <!-- Rendered dynamically from data/skills.json -->
+        <div class="skills-grid reveal-grid"></div>
+      </div>
+    </section>
+
+    <!-- 9. HEALTHTECH FOCUS -->
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-hdr reveal">
+          <span class="text-eyebrow">Niche Expertise</span>
+          <h2>Built for Indian Healthcare</h2>
+        </div>
+
+        <div class="healthtech-grid">
+          <div class="healthtech__content reveal">
+            <p>
+              Clinic workflows are uniquely time-sensitive. India's healthcare landscape demands digital transformation that doesn't add complexity to a doctor's already crowded consulting window.
+            </p>
+            <p>
+              I build and deliver medical software that maps directly to clinical reality — EMR systems, diagnostic samples trackers, patient queue managers, and patient engagement automations. Custom configurations deployed once, self-hosted, with zero recurring SaaS pricing models.
+            </p>
+            
+            <div class="healthtech__stats">
+              <div class="about__stat-item">
+                <span class="about__stat-num" data-counter="20" data-suffix="+">0</span>
+                <span class="about__stat-lbl">Clinics Digitized</span>
+              </div>
+              <div class="about__stat-item">
+                <span class="about__stat-num" data-counter="50" data-suffix="%">0</span>
+                <span class="about__stat-lbl">Wait Time Cut</span>
+              </div>
+            </div>
+            
+            <div style="margin-top: var(--sp-4);">
+              <a href="/services/healthtech-consulting.html" class="btn btn-p btn-magnetic">Explore HealthTech PM &rarr;</a>
+            </div>
+
+            <!-- TokenQ Simulator Widget -->
+            <div class="queue-simulator card" data-tilt style="margin-top: var(--sp-8);">
+              <div class="card__inner">
+                <div class="sim-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--sp-4); border-bottom:1px solid var(--bd-subtle); padding-bottom:var(--sp-2);">
+                  <h4 style="font-size:var(--text-base); color:var(--text-primary); font-family:var(--font-display); margin:0;">TokenQ™ OPD Dashboard</h4>
+                  <span class="badge badge-outline" style="font-size:10px; padding:2px 6px;">Live Simulation</span>
+                </div>
+                
+                <div class="sim-display" style="display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-4); margin-bottom:var(--sp-4); text-align:center;">
+                  <div style="background:rgba(255,255,255,0.02); padding:var(--sp-3); border:1px solid var(--bd-subtle); border-radius:var(--radius-sm);">
+                    <span style="font-size:var(--text-xs); color:var(--text-secondary); display:block; text-transform:uppercase; margin-bottom:2px;">Active Token</span>
+                    <span id="sim-active-token" style="font-family:var(--font-mono); font-size:var(--text-3xl); color:var(--text-accent); font-weight:700;">14</span>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.02); padding:var(--sp-3); border:1px solid var(--bd-subtle); border-radius:var(--radius-sm);">
+                    <span style="font-size:var(--text-xs); color:var(--text-secondary); display:block; text-transform:uppercase; margin-bottom:2px;">Wait Queue</span>
+                    <span id="sim-queue-size" style="font-family:var(--font-mono); font-size:var(--text-3xl); color:var(--text-accent); font-weight:700;">3<span style="font-size:var(--text-xs); color:var(--text-muted); font-weight:500;"> patients</span></span>
+                  </div>
+                </div>
+                
+                <div class="sim-controls" style="display:flex; gap:var(--sp-3); margin-bottom:var(--sp-4);">
+                  <button id="btn-sim-next" class="btn btn-p btn-sm" style="flex:1;">Call Next</button>
+                  <button id="btn-sim-add" class="btn btn-g btn-sm" style="flex:1;">Add Patient</button>
+                </div>
+                
+                <div class="sim-feed" id="sim-feed" style="background:#020705; border:1px solid var(--bd-subtle); border-radius:var(--radius-sm); padding:var(--sp-3); font-family:var(--font-mono); font-size:var(--text-xs); line-height:var(--leading-normal); height:85px; overflow-y:auto; color:var(--text-muted); text-align:left;">
+                  <div>&gt; TokenQ queue engine initialized.</div>
+                  <div>&gt; Token 14 called to OPD Consulting Room 1.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <h3 style="font-size: var(--text-xl); color: var(--text-primary); margin-bottom: var(--sp-6); font-family: var(--font-display);">Local Micro-SaaS Deploys</h3>
+            <!-- Loaded dynamically from data/healthtech-products.json -->
+            <div class="healthtech__products"></div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. DYNAMIC PROCESS SECTION -->
+    <section class="section" id="process" style="background: var(--bg-surface); border-top: 1px solid var(--bd-subtle); border-bottom: 1px solid var(--bd-subtle);">
+      <div class="container">
+        <div class="section-hdr reveal">
+          <span class="text-eyebrow">Methodology</span>
+          <h2>From First Call to Launch</h2>
+        </div>
+
+        <div class="journey-wrapper reveal-grid">
+          <!-- Stepper timeline navigation -->
+          <div class="journey-timeline">
+            <div class="journey-progress-line">
+              <div class="journey-progress-fill" style="width: 0%;"></div>
+            </div>
+            
+            <div class="journey-step-nodes" role="tablist">
+              <button class="journey-step-node active" data-target="jn-pane-discovery" role="tab" aria-selected="true">
+                <span class="journey-circle">1</span>
+                <span class="journey-node-lbl">Discovery</span>
+              </button>
+              <button class="journey-step-node" data-target="jn-pane-scoping" role="tab" aria-selected="false">
+                <span class="journey-circle">2</span>
+                <span class="journey-node-lbl">Scoping</span>
+              </button>
+              <button class="journey-step-node" data-target="jn-pane-governance" role="tab" aria-selected="false">
+                <span class="journey-circle">3</span>
+                <span class="journey-node-lbl">Governance</span>
+              </button>
+              <button class="journey-step-node" data-target="jn-pane-validation" role="tab" aria-selected="false">
+                <span class="journey-circle">4</span>
+                <span class="journey-node-lbl">Validation</span>
+              </button>
+              <button class="journey-step-node" data-target="jn-pane-handoff" role="tab" aria-selected="false">
+                <span class="journey-circle">5</span>
+                <span class="journey-node-lbl">Handoff</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Content display window -->
+          <div class="journey-display card">
+            <div class="card__inner">
+              <!-- Pane 1: Discovery -->
+              <div class="journey-stepper-pane active" id="jn-pane-discovery" role="tabpanel" aria-hidden="false">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--sp-4);">
+                  <span style="font-family:var(--font-mono); color:var(--text-accent); font-size:var(--text-sm);">Phase 01 // Scope Ingestion</span>
+                  <span class="live-demo-badge" style="background:var(--accent-p-mute); color:var(--text-accent);">24-48 Hours</span>
+                </div>
+                <h3 style="font-size:var(--text-xl); color:var(--text-primary); margin-bottom:var(--sp-2);">Deep-Dive Discovery</h3>
+                <p style="color:var(--text-secondary); font-size:var(--text-base); line-height:var(--leading-relaxed);">
+                  We start with a 30-minute discovery call to map out product expectations, technological constraints, and key delivery metrics. We catalog your current engineering state, identify code blocks, and establish basic project assumptions.
+                </p>
+              </div>
+
+              <!-- Pane 2: Scoping -->
+              <div class="journey-stepper-pane" id="jn-pane-scoping" role="tabpanel" aria-hidden="true">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--sp-4);">
+                  <span style="font-family:var(--font-mono); color:var(--text-accent); font-size:var(--text-sm);">Phase 02 // SOW & Milestones</span>
+                  <span class="live-demo-badge" style="background:var(--accent-p-mute); color:var(--text-accent);">3-5 Days</span>
+                </div>
+                <h3 style="font-size:var(--text-xl); color:var(--text-primary); margin-bottom:var(--sp-2);">Product Backlog & Estimations</h3>
+                <p style="color:var(--text-secondary); font-size:var(--text-base); line-height:var(--leading-relaxed);">
+                  Translating business plans into developer-ready backlogs. I write specific user stories, draw wireframe schema concepts, map database structures, and structure the milestone agreement with specific dates and exit criteria.
+                </p>
+              </div>
+
+              <!-- Pane 3: Governance -->
+              <div class="journey-stepper-pane" id="jn-pane-governance" role="tabpanel" aria-hidden="true">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--sp-4);">
+                  <span style="font-family:var(--font-mono); color:var(--text-accent); font-size:var(--text-sm);">Phase 03 // Sprint Management</span>
+                  <span class="live-demo-badge" style="background:var(--accent-p-mute); color:var(--text-accent);">Ongoing Cycles</span>
+                </div>
+                <h3 style="font-size:var(--text-xl); color:var(--text-primary); margin-bottom:var(--sp-2);">Agile Sprint Governance</h3>
+                <p style="color:var(--text-secondary); font-size:var(--text-base); line-height:var(--leading-relaxed);">
+                  Daily standups, Jira board tracking, and blocker clearing. I act as the technical buffer, validating code integration paths, coordinating backend/frontend hooks, and sending you weekly functional demos of completed milestones.
+                </p>
+              </div>
+
+              <!-- Pane 4: Validation -->
+              <div class="journey-stepper-pane" id="jn-pane-validation" role="tabpanel" aria-hidden="true">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--sp-4);">
+                  <span style="font-family:var(--font-mono); color:var(--text-accent); font-size:var(--text-sm);">Phase 04 // QA & Staging Audits</span>
+                  <span class="live-demo-badge" style="background:var(--accent-p-mute); color:var(--text-accent);">Prior to Releases</span>
+                </div>
+                <h3 style="font-size:var(--text-xl); color:var(--text-primary); margin-bottom:var(--sp-2);">Rigorous Quality Assurance</h3>
+                <p style="color:var(--text-secondary); font-size:var(--text-base); line-height:var(--leading-relaxed);">
+                  Before anything touches production, we run automated staging builds and structured manual user flow checks. In healthcare deployments, we run patient simulation scripts to verify database records and ensure zero data truncation.
+                </p>
+              </div>
+
+              <!-- Pane 5: Handoff -->
+              <div class="journey-stepper-pane" id="jn-pane-handoff" role="tabpanel" aria-hidden="true">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--sp-4);">
+                  <span style="font-family:var(--font-mono); color:var(--text-accent); font-size:var(--text-sm);">Phase 05 // Release Handover</span>
+                  <span class="live-demo-badge" style="background:var(--accent-p-mute); color:var(--text-accent);">24-48 Hours</span>
+                </div>
+                <h3 style="font-size:var(--text-xl); color:var(--text-primary); margin-bottom:var(--sp-2);">Production Deployment</h3>
+                <p style="color:var(--text-secondary); font-size:var(--text-base); line-height:var(--leading-relaxed);">
+                  Provisioning server resources (VPS, Vercel, Firebase console), compiling production assets, setting security rules, and completing DNS redirects. I hand over the complete repository access and launch documentation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. FAQ ACCORDION -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-hdr reveal">
+          <span class="text-eyebrow">Knowledge Base</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <!-- Loaded dynamically from data/faq.json -->
+        <div class="faq-container reveal"></div>
+      </div>
+    </section>
+
+    <!-- 12. CONTACT / CTA SECTION -->
+    <section class="section contact-section" id="contact" style="background: var(--bg-surface); border-top: 1px solid var(--bd-subtle);">
+      <div class="container contact-container reveal">
+        <span class="text-eyebrow">Get in Touch</span>
+        <h2>Ready to Ship Something That Works?</h2>
+        
+        <p class="contact__body">
+          Book a free 30-minute strategy call. No sales pitch — just clarity on what you need and whether I can help.
+        </p>
+
+        <div class="contact__actions">
+          <a data-cfg-href="contact.calendlyUrl" data-cfg="contact.calendarText" class="btn btn-p btn-magnetic">Book Free Call</a>
+          <a data-cfg-href="contact.whatsappUrl" class="btn btn-g btn-magnetic" target="_blank" rel="noopener">WhatsApp Me</a>
+          <button class="btn btn-w btn-magnetic btn-copy-email">Copy Email</button>
+        </div>
+
+        <div class="contact__details-bar">
+          <span>
+            <i class="ph-duotone ph-envelope-simple" style="font-size:16px;"></i>
+            <span data-cfg="contact.email">aaryangupta.pm@gmail.com</span>
+          </span>
+          <span>·</span>
+          <span>
+            <i class="ph-duotone ph-phone" style="font-size:16px;"></i>
+            <span data-cfg="contact.phone">+91 62056 50368</span>
+          </span>
+          <span>·</span>
+          <span>
+            <i class="ph-duotone ph-map-pin" style="font-size:16px;"></i>
+            Jaipur / Ahmedabad / Remote
+          </span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer__info">
+        <a href="/" class="footer__logo">
+          <svg viewBox="0 0 256 256"><polygon points="128 32 224 80 224 176 128 224 32 176 32 80 128 32"/></svg>
+          <span data-cfg="identity.publicName">Aaryan Gupta</span>
+        </a>
+        <p class="footer__tagline">
+          Bridging technical execution with product coordination for SaaS & HealthTech squads.
+        </p>
+        <div class="footer__socials">
+          <a data-cfg-href="social.linkedin" target="_blank" rel="noopener" class="footer__social-link" aria-label="LinkedIn">
+            <i class="ph-fill ph-linkedin-logo"></i>
+          </a>
+          <a data-cfg-href="social.github" target="_blank" rel="noopener" class="footer__social-link" aria-label="GitHub">
+            <i class="ph-fill ph-github-logo"></i>
+          </a>
+          <a data-cfg-href="social.twitter" target="_blank" rel="noopener" class="footer__social-link" aria-label="Twitter">
+            <i class="ph-fill ph-x-logo"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Services</h3>
+        <div class="footer__col-links">
+          <a href="/services/technical-project-management.html">Project Management</a>
+          <a href="/services/healthtech-consulting.html">HealthTech Consulting</a>
+          <a href="/services/ai-automation.html">AI Workflows</a>
+          <a href="/services/micro-saas-software.html">Micro-SaaS Software</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Locations</h3>
+        <div class="footer__col-links">
+          <a href="/jaipur.html">Jaipur PM Services</a>
+          <a href="/ahmedabad.html">Ahmedabad PM Services</a>
+          <a href="/about.html">About Aaryan</a>
+          <a href="/blog/">Insights Blog</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Booking</h3>
+        <div class="footer__col-links">
+          <a href="/contact.html">Contact Form</a>
+          <a data-cfg-href="contact.calendlyUrl">Calendly Link</a>
+          <a data-cfg-href="contact.whatsappUrl">WhatsApp Chat</a>
+          <a href="mailto:aaryangupta.pm@gmail.com">Direct Email</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <div class="footer__copyright">
+        &copy; <span id="year">2026</span> Aaryan Gupta. All rights reserved. (Legal: Aryan Raj)
+      </div>
+      <div class="footer__bottom-links">
+        <a href="/about.html">Privacy Policy</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script type="module" src="/assets/js/core/main.js"></script>
+</body>
+</html>

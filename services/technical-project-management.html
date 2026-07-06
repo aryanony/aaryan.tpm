@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Anti-FOUC -->
+  <script>!function(){var t=localStorage.getItem('ag-theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t)}()</script>
+
+  <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap" as="style">
+
+  <title>Technical Project Management Services | Aaryan Gupta</title>
+  <meta name="description" content="Professional Technical Project Manager for hire. Agile sprint management, scoping docs, Jira setups, and release coordination. Book a free call.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://aaaryangupta.com/services/technical-project-management.html">
+
+  <link rel="icon" href="/assets/images/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#030D0A" media="(prefers-color-scheme: dark)">
+
+  <!-- Inline critical layout settings -->
+  <style>
+    :root {
+      --bg-base: #030D0A;
+      --text-primary: #EDF8F5;
+      --accent-p: #0D9488;
+      --nav-h: 72px;
+      --z-loader: 10000;
+    }
+    html, body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+    .loader-wrapper {
+      position: fixed; inset: 0; background: var(--bg-base); z-index: var(--z-loader);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;
+    }
+    .loader-logo {
+      width: 64px; height: 64px; background: var(--accent-p);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+    .loader-progress { width: 200px; height: 2px; background: rgba(255,255,255,0.06); position: relative; overflow: hidden; }
+    .loader-progress-bar { position: absolute; top:0; left:0; height:100%; width:0%; background: var(--accent-p); }
+  </style>
+
+  <!-- Deferred Stylesheet -->
+  <link rel="stylesheet" href="/assets/css/main.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>
+</head>
+<body>
+
+  <!-- Custom mouse cursor elements -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Preloader Screen -->
+  <div class="loader-wrapper">
+    <div class="loader-logo"></div>
+    <div class="loader-progress">
+      <div class="loader-progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <nav class="nav">
+    <div class="nav__progress"></div>
+    <div class="container nav__container">
+      <a href="/" class="nav__logo">
+        <svg viewBox="0 0 256 256"><polygon points="128 32 224 80 224 176 128 224 32 176 32 80 128 32"/></svg>
+        <span data-cfg="identity.publicName">Aaryan Gupta</span>
+      </a>
+      
+            <div class="nav__links">
+        <a href="/#about" class="nav__link">About</a>
+        <a href="/#services" class="nav__link">Services</a>
+        <a href="/#projects" class="nav__link">Projects</a>
+        <a href="/#experience" class="nav__link">Experience</a>
+        <a href="/#skills" class="nav__link">Skills</a>
+        <a href="/#products" class="nav__link">Products</a>
+      </div>
+
+      <div class="nav__right">
+        <button class="theme-toggle flex-center" aria-label="Toggle theme">
+          <i class="ph-fill ph-moon moon-icon"></i>
+          <i class="ph-fill ph-sun sun-icon"></i>
+        </button>
+        <a data-cfg-href="contact.calendlyUrl" data-cfg="contact.calendarText" class="btn btn-p btn-magnetic btn-sm">Book Free Call</a>
+      </div>
+
+      <button class="nav__ham" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Overlay -->
+    <div class="nav__mobile-menu" id="mobile-menu">
+    <a href="/#about" class="nav__link">About</a>
+    <a href="/#services" class="nav__link">Services</a>
+    <a href="/#projects" class="nav__link">Projects</a>
+    <a href="/#experience" class="nav__link">Experience</a>
+    <a href="/#skills" class="nav__link">Skills</a>
+    <a href="/#products" class="nav__link">Products</a>
+    <a data-cfg-href="contact.calendlyUrl" data-cfg="contact.calendarText" class="btn btn-p btn-magnetic" style="margin-top: var(--sp-4);">Book Free Call</a>
+  </div>
+
+  <main style="padding-top: var(--nav-h);">
+    <div class="container section">
+      
+      <!-- Page Title -->
+      <div class="post-header reveal">
+        <span class="text-eyebrow">Service Breakdown</span>
+        <h1>Technical Project Management</h1>
+        <div style="width: 100%; height: 1px; background: var(--bd-subtle); margin-top: var(--sp-4);"></div>
+      </div>
+
+      <div class="post-container">
+        
+        <div class="tldr-box reveal">
+          <h3>The TPM Solution</h3>
+          <p style="font-size: var(--text-base); line-height: var(--leading-relaxed); margin:0;">
+            A technical orchestrator who understands how full-stack systems connect, eliminating developer scoping friction and planning lag. I translate product goals into clean Jira/Notion specifications, run daily agile checkins, validate staging API builds, and coordinate production deployments.
+          </p>
+        </div>
+
+        <!-- TPM Sprint Flowchart Illustration -->
+        <div class="reveal" style="margin: var(--sp-6) auto var(--sp-8); max-width: 600px; padding: var(--sp-4); background: var(--bg-card); border: 1px solid var(--bd-subtle); clip-path: var(--clip-card-sm);">
+          <span style="font-family: var(--font-mono); font-size: var(--text-xxs); color: var(--text-muted); text-transform: uppercase; letter-spacing: var(--tracking-widest); display: block; text-align: center; margin-bottom: var(--sp-4);">Agile Sprint Delivery Loop</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" width="100%" height="100%">
+            <!-- Circle Loop -->
+            <path d="M 300,90 m -60,0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0" fill="none" stroke="var(--accent-p-mute)" stroke-width="3" />
+            <!-- Active sector highlight -->
+            <path d="M 300,30 A 60,60 0 0,1 360,90" fill="none" stroke="var(--accent-c)" stroke-width="4" stroke-linecap="round" />
+            <path d="M 240,90 A 60,60 0 0,1 300,30" fill="none" stroke="var(--accent-p)" stroke-width="4" stroke-linecap="round" />
+
+            <!-- Connectors -->
+            <path d="M110,90 H240" stroke="var(--bd-mid)" stroke-width="1.5" stroke-dasharray="3 3" />
+            <path d="M360,90 H490" stroke="var(--bd-mid)" stroke-width="1.5" stroke-dasharray="3 3" />
+
+            <!-- Input: Backlog -->
+            <rect x="10" y="55" width="100" height="70" rx="4" fill="#071410" stroke="var(--bd-subtle)" stroke-width="1.5" />
+            <text x="60" y="75" font-family="'JetBrains Mono', monospace" font-size="9" fill="var(--text-accent)" text-anchor="middle" font-weight="bold">BACKLOG</text>
+            <text x="60" y="98" font-family="system-ui, sans-serif" font-size="10" fill="var(--text-primary)" text-anchor="middle" font-weight="bold">User Stories</text>
+            <text x="60" y="112" font-family="system-ui, sans-serif" font-size="9" fill="var(--text-secondary)" text-anchor="middle">Jira Backlog</text>
+
+            <!-- Loop Center text -->
+            <text x="300" y="88" font-family="'JetBrains Mono', monospace" font-size="11" fill="var(--text-primary)" text-anchor="middle" font-weight="bold">2-WEEK</text>
+            <text x="300" y="104" font-family="'JetBrains Mono', monospace" font-size="11" fill="var(--text-accent)" text-anchor="middle" font-weight="bold">SPRINT</text>
+
+            <!-- Output: Shipped Release -->
+            <rect x="490" y="55" width="100" height="70" rx="4" fill="#071410" stroke="var(--bd-subtle)" stroke-width="1.5" />
+            <text x="540" y="75" font-family="'JetBrains Mono', monospace" font-size="9" fill="var(--text-accent)" text-anchor="middle" font-weight="bold">RELEASE</text>
+            <text x="540" y="98" font-family="system-ui, sans-serif" font-size="10" fill="var(--text-primary)" text-anchor="middle" font-weight="bold">Production</text>
+            <text x="540" y="112" font-family="system-ui, sans-serif" font-size="9" fill="var(--text-secondary)" text-anchor="middle">CI/CD Deploy</text>
+          </svg>
+        </div>
+
+        <div class="post-content reveal">
+          <h2>Why traditional project management fails in software</h2>
+          <p>
+            Most project managers manage spreadsheets, timelines, and budgets, but they do not understand the code. When a developer encounters a database blocker, an API version conflict, or an architectural hurdle, a non-technical PM is forced to act as a messaging middleman — asking questions, waiting for answers, and translating the developer's explanations to non-technical stakeholders.
+          </p>
+          <p>
+            This translation gap introduces scoping errors, delays sprint completions, and results in missed launch deadlines.
+          </p>
+
+          <h2>My Technical PM Approach</h2>
+          <p>
+            Having built and shipped web systems in React, Node.js, and Express, I understand software development. When coordinating sprints, I analyze codebase files directly to assess complexities, perform initial sanity checks on API responses, identify blockers early, and maintain realistic milestones.
+          </p>
+          
+          <h3>What my TPM engagement covers:</h3>
+          <ul style="list-style: disc; margin-left: var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-2);">
+            <li><strong>Requirements Gathering & Scoping Docs:</strong> Translating business ideas into highly granular user stories with clear API mock structures and data parameters.</li>
+            <li><strong>Sprint Governance:</strong> Setting up and managing Jira boards, Notion databases, running short daily standups, and keeping distributed developer squads aligned.</li>
+            <li><strong>Release Management:</strong> Coordinating code merges, staging checks, CI/CD monitoring, Play Store and App Store submission logs, and final production handovers.</li>
+            <li><strong>API and Code Integrity Audits:</strong> Conducting post-sprint code walkthroughs to check variable conventions, look for redundancy, and keep developers aligned on system standards.</li>
+          </ul>
+
+          <h2>Typical Timelines & Deliverables</h2>
+          <p>
+            TPM retainers are structured on a monthly basis, starting from <strong>₹25,000 to ₹60,000/month</strong> depending on team size and scope. This covers full agile coordination, daily blocker updates, weekly demo reports, and final monthly performance analysis logs.
+          </p>
+
+          <div style="text-align: center; margin-top: var(--sp-12);">
+            <h3 style="font-family:var(--font-display); font-size:var(--text-xl); color:var(--text-primary); margin-bottom:var(--sp-4);">Ready to accelerate your engineering velocity?</h3>
+            <a data-cfg-href="contact.calendlyUrl" class="btn btn-p btn-magnetic">Book Free Scoping Session</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer__info">
+        <a href="/" class="footer__logo">
+          <svg viewBox="0 0 256 256"><polygon points="128 32 224 80 224 176 128 224 32 176 32 80 128 32"/></svg>
+          <span data-cfg="identity.publicName">Aaryan Gupta</span>
+        </a>
+        <p class="footer__tagline">
+          Bridging technical execution with product coordination for SaaS & HealthTech squads.
+        </p>
+        <div class="footer__socials">
+          <a data-cfg-href="social.linkedin" target="_blank" rel="noopener" class="footer__social-link" aria-label="LinkedIn">
+            <i class="ph-fill ph-linkedin-logo"></i>
+          </a>
+          <a data-cfg-href="social.github" target="_blank" rel="noopener" class="footer__social-link" aria-label="GitHub">
+            <i class="ph-fill ph-github-logo"></i>
+          </a>
+          <a data-cfg-href="social.twitter" target="_blank" rel="noopener" class="footer__social-link" aria-label="Twitter">
+            <i class="ph-fill ph-x-logo"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Services</h3>
+        <div class="footer__col-links">
+          <a href="/services/technical-project-management.html">Project Management</a>
+          <a href="/services/healthtech-consulting.html">HealthTech Consulting</a>
+          <a href="/services/ai-automation.html">AI Workflows</a>
+          <a href="/services/micro-saas-software.html">Micro-SaaS Software</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Locations</h3>
+        <div class="footer__col-links">
+          <a href="/jaipur.html">Jaipur PM Services</a>
+          <a href="/ahmedabad.html">Ahmedabad PM Services</a>
+          <a href="/about.html">About Aaryan</a>
+          <a href="/blog/">Insights Blog</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Booking</h3>
+        <div class="footer__col-links">
+          <a href="/contact.html">Contact Form</a>
+          <a data-cfg-href="contact.calendlyUrl">Calendly Link</a>
+          <a data-cfg-href="contact.whatsappUrl">WhatsApp Chat</a>
+          <a href="mailto:aaryangupta.pm@gmail.com">Direct Email</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <div class="footer__copyright">
+        &copy; <span id="year">2026</span> Aaryan Gupta. All rights reserved. (Legal: Aryan Raj)
+      </div>
+      <div class="footer__bottom-links">
+        <a href="/about.html">Privacy Policy</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script type="module" src="/assets/js/core/main.js"></script>
+</body>
+</html>

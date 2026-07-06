@@ -1,0 +1,94 @@
+{
+  "_comment": "SINGLE SOURCE OF TRUTH — change any value, cascades everywhere",
+  "_version": "3.0",
+  "_updated": "2025-06-27",
+
+  "identity": {
+    "publicName":   "Aaryan Gupta",
+    "initials":     "AG",
+    "title":        "Technical Project Manager",
+    "subtitle":     "HealthTech · AI · SaaS · Micro-SaaS",
+    "tagline":      "I bridge complex technology with seamless execution — so healthcare, SaaS, and product teams ship faster, smarter, and at scale.",
+    "bio_schema":   "Aaryan Gupta is a Technical Project Manager based in Jaipur, India, specializing in health-tech digital transformation, SaaS project coordination, AI automation consulting, and micro-SaaS software delivery for clinics, hospitals, startups, and SMBs across India and globally.",
+    "availability": "Available for Projects & Roles"
+  },
+
+  "contact": {
+    "email":        "aaryangupta.pm@gmail.com",
+    "phone":        "+91 62056 50368",
+    "phoneE164":    "+916205650368",
+    "whatsappUrl":  "https://wa.me/916205650368",
+    "calendlyUrl":  "https://calendly.com/aaryanpm/30min",
+    "calendarText": "Book Free 30-Min Call"
+  },
+
+  "location": {
+    "primary":      "Jaipur, Rajasthan, India",
+    "secondary":    "Ahmedabad, Gujarat, India",
+    "based":        "Noida, Uttar Pradesh, India",
+    "global":       "Remote / Worldwide",
+    "geoRegion":    "IN-RJ",
+    "geoPlacename": "Jaipur",
+    "lat":          "26.9124",
+    "lng":          "75.7873"
+  },
+
+  "social": {
+    "linkedin":     "https://linkedin.com/in/aryanony/",
+    "twitter":      "https://x.com/aryanony/",
+    "instagram":    "https://instagram.com/aryanony/",
+    "github":       "https://github.com/aryanony",
+    "portfolio":    "https://aryanony.github.io/portfolio",
+    "handle":       "@aryanony"
+  },
+
+  "projects": {
+    "projectport":    "https://projectsport.vercel.app/",
+    "projectport_gh": "https://github.com/aryanony/ProjectPort",
+    "uibrium":        "https://uibrium.vercel.app/",
+    "uibrium_npm":    "https://www.npmjs.com/package/uibrium",
+    "uibrium_gh":     "https://github.com/aryanony/uibrium",
+    "aibot":          "https://aryanony.github.io/portfolio"
+  },
+
+  "domain": {
+    "primary":  "aaaryangupta.com",
+    "url":      "https://aaaryangupta.com",
+    "redirect": "aaryanpm.com",
+    "protocol": "https"
+  },
+
+  "analytics": {
+    "ga4_id":      "G-XXXXXXXXXX",
+    "clarity_id":  "XXXXXXXXXX",
+    "gsc_verified": true
+  },
+
+  "stats": {
+    "markets":          "70+",
+    "markets_count":    70,
+    "projects":         "20+",
+    "projects_count":   20,
+    "experience":       "3+",
+    "experience_count": 3,
+    "products":         "5+",
+    "products_count":   5
+  },
+
+  "seo": {
+    "defaultTitle": "Aaryan Gupta — Technical Project Manager | HealthTech & SaaS | Jaipur",
+    "separator":    " | ",
+    "siteName":     "Aaryan Gupta",
+    "defaultDesc":  "Aaryan Gupta — Freelance Technical PM for HealthTech & SaaS. 70+ markets delivered. AI Automation. Micro-SaaS. Book a free 30-min strategy call.",
+    "ogImage":      "/assets/images/og/og-default.png",
+    "twitterHandle":"@aryanony",
+    "locale":       "en_IN"
+  },
+
+  "pwa": {
+    "name":       "Aaryan Gupta — Technical PM",
+    "short_name": "Aaryan PM",
+    "theme_dark": "#030D0A",
+    "theme_light":"#F0FBFA"
+  }
+}

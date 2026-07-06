@@ -1,0 +1,8 @@
+{
+  "PM & Agile":        ["Agile","Scrum","Kanban","Jira","Notion","Trello","Miro","Sprint Planning","Backlog Grooming","Stakeholder Reporting","Risk Management","QA Governance"],
+  "Frontend Dev":      ["React.js","TypeScript","HTML5","CSS3","JavaScript ES6+","Tailwind CSS","Bootstrap","SASS/SCSS","Responsive Design","Web3 / dApp Frontend"],
+  "Backend & DB":      ["Node.js","Express.js","MongoDB","MySQL","Firebase","REST APIs","PHP basics","Laravel basics"],
+  "AI & Automation":   ["Prompt Engineering","OpenAI API","Claude API","Botpress","LLM Integration","n8n","Make/Zapier","WhatsApp Automation"],
+  "DevOps & Tools":    ["Git","GitHub","Vercel","Linux (Debian)","CI/CD","Docker (concepts)","IPFS","cPanel","VPS Setup"],
+  "Design & Marketing":["Figma","UI/UX Design","SEO","SMO","Google Analytics 4","Google Search Console","Brand Strategy","WordPress","Shopify","Canva"]
+}

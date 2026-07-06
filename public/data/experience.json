@@ -1,0 +1,77 @@
+[
+  {
+    "id": "oblinex",
+    "period": "May 2026 — Present",
+    "current": true,
+    "role": "Associate Project Manager",
+    "company": "Oblinex Pvt. Ltd.",
+    "shortCompany": "Oblinex",
+    "location": "Patna, India · Full-time",
+    "skills": ["Agile Sprints", "Release Management", "Docker & VPS", "Client Scoping", "Jira & Notion"],
+    "metrics": [
+      { "label": "Global Markets", "value": 70, "suffix": "+" },
+      { "label": "Milestone Speed", "value": 40, "suffix": "% boost" },
+      { "label": "Client Retention", "value": 98, "suffix": "%" }
+    ],
+    "bullets": [
+      "Managing end-to-end delivery across <strong>70+ international markets</strong> — from onboarding through infrastructure setup, sprint governance, QA validation, and Play Store / App Store releases.",
+      "Coordinating cross-functional developer teams via structured ticketing; resolving blockers, tracking sprint-level progress, and enforcing milestone-based delivery across concurrent live projects.",
+      "Driving post-delivery account expansion — identifying customisation opportunities and negotiating scope additions, contributing to upsell revenue and long-term retention."
+    ]
+  },
+  {
+    "id": "mydigishell",
+    "period": "April 2025 — Feb 2026",
+    "current": false,
+    "role": "Frontend Web3 Developer Intern",
+    "company": "MyDigiShell",
+    "shortCompany": "MyDigiShell",
+    "location": "Kolkata, India · Remote",
+    "skills": ["React.js", "Web3.js", "Tailwind CSS", "QA Testing", "Git & Collaboration"],
+    "metrics": [
+      { "label": "Internship Duration", "value": 11, "suffix": " months" },
+      { "label": "Integrations Shipped", "value": 12, "suffix": "+" },
+      { "label": "QA Pass Rate", "value": 100, "suffix": "%" }
+    ],
+    "bullets": [
+      "Coordinated multi-project Web3 frontend delivery over <strong>11 months</strong> — aligning backend developers, design stakeholders, and sprint timelines to meet client commitments.",
+      "Integrated blockchain wallet features using React.js, Tailwind CSS, and Web3 libraries; enforced QA standards across every release cycle."
+    ]
+  },
+  {
+    "id": "elipact",
+    "period": "Nov 2021 — Mar 2022",
+    "current": false,
+    "role": "Digital Marketer & E-Commerce Strategist",
+    "company": "Elipact Enterprises",
+    "shortCompany": "Elipact",
+    "location": "Patna, Bihar · Full-time",
+    "skills": ["SEO Roadmaps", "Shopify", "WordPress", "Content Marketing", "Analytics"],
+    "metrics": [
+      { "label": "Organic Traffic", "value": 140, "suffix": "% boost" },
+      { "label": "Campaigns Run", "value": 8, "suffix": "+" },
+      { "label": "Brand Reach", "value": 3, "suffix": "x" }
+    ],
+    "bullets": [
+      "Planned and executed SEO and content marketing roadmaps for Shopify and WordPress — managing timelines, content calendars, and channel KPIs end-to-end."
+    ]
+  },
+  {
+    "id": "ipistis",
+    "period": "Aug 2021 — Nov 2021",
+    "current": false,
+    "role": "Web Developer & WordPress Specialist",
+    "company": "Ipistis Technologies",
+    "shortCompany": "Ipistis",
+    "location": "Patna / Remote",
+    "skills": ["WordPress", "UI Design", "Speed Optimisation", "Security Hardening", "Client Briefs"],
+    "metrics": [
+      { "label": "Sites Delivered", "value": 10, "suffix": "+" },
+      { "label": "Lighthouse Score", "value": 95, "suffix": "+" },
+      { "label": "Security Audits", "value": 100, "suffix": "%" }
+    ],
+    "bullets": [
+      "Delivered SEO-optimised WordPress websites end-to-end for multiple clients — brief to launch, including requirements, UI design, speed optimisation, and security hardening."
+    ]
+  }
+]

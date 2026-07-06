@@ -1,0 +1,189 @@
+/* ===== assets/css/sections/services.css ===== */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6);
+}
+
+/* Service card layout */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.service-card__icon-wrap {
+  width: 48px;
+  height: 48px;
+  background: rgba(13, 148, 136, 0.05);
+  border: 1px solid var(--bd-subtle);
+  border-radius: var(--r-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-p);
+  margin-bottom: var(--sp-5);
+  transition: all var(--dur-fast);
+}
+
+.service-card:hover .service-card__icon-wrap {
+  background: var(--accent-p);
+  color: var(--text-inverse);
+  box-shadow: var(--glow-teal);
+}
+
+.service-card__icon-wrap svg,
+.service-card__icon-wrap i {
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.service-card:hover .service-card__icon-wrap svg,
+.service-card:hover .service-card__icon-wrap i {
+  transform: scale(1.15) translateY(-2px);
+}
+
+.service-card__title {
+  font-size: var(--text-xl);
+  color: var(--text-primary);
+  margin-bottom: var(--sp-2);
+}
+
+.service-card__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-accent);
+  margin-bottom: var(--sp-4);
+  font-weight: 500;
+}
+
+.service-card__body {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+  margin-bottom: var(--sp-6);
+  flex-grow: 1;
+}
+
+.service-card__tags {
+  margin-bottom: var(--sp-6);
+}
+
+.service-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--bd-subtle);
+  padding-top: var(--sp-4);
+  margin-top: auto;
+}
+
+.service-card__price {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.service-card__link {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--accent-p);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  transition: color var(--dur-fast);
+}
+
+.service-card__link:hover {
+  color: var(--text-accent);
+}
+
+.service-card__link svg {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--dur-fast);
+}
+
+.service-card__link:hover svg {
+  transform: translateX(3px);
+}
+
+/* ─── PROJECT ROI ESTIMATOR ─── */
+.roi-estimator {
+  background: var(--bg-surface);
+  border-color: var(--bd-mid);
+}
+
+.roi-estimator input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  height: 6px;
+  border-radius: var(--radius-sm);
+  outline: none;
+}
+
+/* Chrome/Safari track */
+.roi-estimator input[type="range"]::-webkit-slider-runnable-track {
+  background: rgba(255, 255, 255, 0.06);
+  height: 6px;
+  border-radius: 3px;
+  border: 1px solid var(--bd-subtle);
+}
+
+/* Firefox track */
+.roi-estimator input[type="range"]::-moz-range-track {
+  background: rgba(255, 255, 255, 0.06);
+  height: 6px;
+  border-radius: 3px;
+  border: 1px solid var(--bd-subtle);
+}
+
+/* Chrome/Safari thumb */
+.roi-estimator input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -5px; /* Centers thumb on track */
+  background-color: var(--accent-p);
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--text-primary);
+  box-shadow: 0 0 8px var(--accent-p-glow);
+  transition: transform var(--dur-fast), background-color var(--dur-fast);
+}
+.roi-estimator input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background-color: var(--accent-hover);
+}
+
+/* Firefox thumb */
+.roi-estimator input[type="range"]::-moz-range-thumb {
+  background-color: var(--accent-p);
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--text-primary);
+  box-shadow: 0 0 8px var(--accent-p-glow);
+  transition: transform var(--dur-fast), background-color var(--dur-fast);
+}
+.roi-estimator input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  background-color: var(--accent-hover);
+}
+
+@media (max-width: 768px) {
+  .roi-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--sp-6) !important;
+  }
+}
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Aaryan Gupta</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap" as="style">
+  
+  <style>
+    :root {
+      --bg-base: #030D0A;
+      --text-primary: #EDF8F5;
+      --text-secondary: #8DADA4;
+      --accent-p: #0D9488;
+      --accent-hover: #14B8A6;
+      --clip-btn: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+      --r-md: 6px;
+    }
+    body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Satoshi', sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+    .wrapper {
+      max-width: 480px;
+    }
+    .logo {
+      width: 64px; height: 64px; background: var(--accent-p);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      margin: 0 auto 32px;
+      box-shadow: 0 0 16px rgba(13,148,136,0.30);
+    }
+    h1 {
+      font-family: 'ClashDisplay', sans-serif;
+      font-size: 64px;
+      margin: 0 0 16px;
+      color: var(--text-primary);
+    }
+    p {
+      color: var(--text-secondary);
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0 0 32px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.75rem;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      background: var(--accent-p);
+      color: #030D0A;
+      border: none;
+      clip-path: var(--clip-btn);
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: var(--accent-hover);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="120" height="120" style="margin: 0 auto 32px; display: block; filter: drop-shadow(0 0 12px rgba(13,148,136,0.25));">
+      <line x1="20" y1="100" x2="180" y2="100" stroke="rgba(13,148,136,0.15)" stroke-width="2" stroke-dasharray="4 4" />
+      <line x1="100" y1="20" x2="100" y2="180" stroke="rgba(13,148,136,0.15)" stroke-width="2" stroke-dasharray="4 4" />
+      <rect x="50" y="70" width="100" height="70" rx="6" fill="#0C1C15" stroke="#0D9488" stroke-width="2" />
+      <rect x="50" y="70" width="100" height="20" rx="6" fill="#0D9488" />
+      <circle cx="65" cy="80" r="4" fill="#EF4444" />
+      <circle cx="77" cy="80" r="4" fill="#F59E0B" />
+      <circle cx="89" cy="80" r="4" fill="#10B981" />
+      <text x="100" y="122" font-family="'JetBrains Mono', monospace" font-size="28" font-weight="bold" fill="#2DD4BF" text-anchor="middle">404</text>
+      <rect x="140" y="40" width="24" height="24" rx="4" fill="#06B6D4" opacity="0.8" transform="rotate(15 152 52)" />
+      <path d="M120,65 L145,52" stroke="#06B6D4" stroke-width="2" stroke-dasharray="3 3" />
+    </svg>
+    <h1>404</h1>
+    <p>The page you are looking for has been moved, deleted, or does not exist in our project scope.</p>
+    <a href="/" class="btn">Return to Home &rarr;</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+/* ===== assets/css/sections/healthtech.css ===== */
+
+.healthtech-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--sp-12);
+  align-items: flex-start;
+}
+
+.healthtech__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+.healthtech__content p {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+.healthtech__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-6);
+  margin-top: var(--sp-4);
+  border-top: 1px solid var(--bd-subtle);
+  padding-top: var(--sp-6);
+}
+
+/* Products listing cards */
+.healthtech__products {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.ht-product {
+  background: var(--bg-card);
+  border: 1px solid var(--bd-subtle);
+  clip-path: var(--clip-card-sm);
+  padding: var(--sp-4) var(--sp-6);
+  cursor: pointer;
+  transition: all var(--dur-base);
+}
+
+.ht-product:hover {
+  border-color: var(--bd-mid);
+  background: var(--bg-elevated);
+}
+
+.ht-product.active {
+  border-color: var(--bd-strong);
+  background: var(--bg-elevated);
+  box-shadow: var(--sh-card);
+}
+
+.ht-product__hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.ht-product__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ht-product__name {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.ht-product__tagline {
+  font-size: var(--text-sm);
+  color: var(--text-accent);
+}
+
+.ht-product__price {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  background: rgba(13, 148, 136, 0.05);
+  border: 1px solid var(--bd-subtle);
+  padding: 2px 8px;
+  border-radius: var(--r-sm);
+}
+
+.ht-product__body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s var(--ease-out), padding 0.35s;
+}
+
+.ht-product.active .ht-product__body {
+  max-height: 200px;
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--bd-subtle);
+  margin-top: var(--sp-3);
+}
+
+.ht-product__desc {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+  margin-bottom: var(--sp-3);
+}
+
+.ht-product__meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.ht-product__meta span strong {
+  color: var(--text-secondary);
+}
+
+/* ─── TokenQ OPD QUEUE SIMULATOR ─── */
+.queue-simulator {
+  background: var(--bg-surface);
+  border-color: var(--bd-mid);
+}
+
+.sim-feed::-webkit-scrollbar {
+  width: 4px;
+}
+.sim-feed::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+.sim-feed::-webkit-scrollbar-thumb {
+  background: var(--accent-p-glow);
+  border-radius: 2px;
+}
+.sim-feed::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-p);
+}
+
+@media (max-width: 992px) {
+  .healthtech-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--sp-8) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .healthtech__stats {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+  }
+}
+
+
