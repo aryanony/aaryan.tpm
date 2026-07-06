@@ -21,14 +21,26 @@ h1, h2, h3, h4, h5 {
 
 /* Custom scrollbars */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
+  height: 6px; /* Enables styling for horizontal scrollbars */
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-base);
+  background: var(--bg-surface);
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--bd-mid);
-  border-radius: 2px;
+  background: linear-gradient(180deg, var(--accent-p), var(--accent-c));
+  border-radius: 6px;
+  border: 1px solid var(--bg-surface); /* Gives seamless padding from track */
+}
+::-webkit-scrollbar-thumb:horizontal {
+  background: linear-gradient(90deg, var(--accent-p), var(--accent-c));
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--accent-hover), var(--accent-p));
+}
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background: linear-gradient(90deg, var(--accent-hover), var(--accent-p));
 }
 
 ::selection {

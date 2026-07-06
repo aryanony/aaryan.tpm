@@ -1,11 +1,80 @@
 /* ===== assets/css/layout/footer.css ===== */
 
 .footer {
-  background: var(--bg-surface);
-  border-top: 1px solid var(--bd-subtle);
+  background-color: var(--bg-surface);
+  background-image: 
+    linear-gradient(to bottom, rgba(3, 13, 10, 0.85), rgba(3, 13, 10, 0.95)),
+    url('/assets/images/footer_vector_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-top: 1px solid rgba(13, 148, 136, 0.4);
   padding: var(--sp-16) 0 var(--sp-8);
   position: relative;
-  overflow: hidden;
+  /* Removed overflow: hidden so scroll button isn't cut off */
+}
+
+[data-theme="light"] .footer {
+  background-image: 
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.98)),
+    url('/assets/images/footer_vector_bg.png');
+}
+
+/* Scroll to top button (Soft Rounded Triangular Glassmorphism) */
+.footer__scroll-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  filter: drop-shadow(0 8px 24px rgba(13, 148, 136, 0.5));
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.footer__scroll-top::before {
+  content: '';
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  background: rgba(13, 148, 136, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  /* The secret to soft corners: a rotated squircle! */
+  border-radius: 18px; 
+  transform: rotate(45deg);
+}
+
+.footer__scroll-top:hover {
+  filter: drop-shadow(0 12px 32px rgba(13, 148, 136, 0.7));
+  transform: translate(-50%, -60%) scale(1.05);
+}
+
+.footer__scroll-top i {
+  position: relative;
+  z-index: 2;
+  font-size: 28px;
+  color: var(--accent-p);
+  margin-top: 4px; /* Visually center the arrow in the top point */
+  filter: drop-shadow(0 0 10px rgba(13, 148, 136, 0.8));
+  animation: pulseArrow 2s infinite ease-in-out;
+}
+
+@keyframes pulseArrow {
+  0%, 100% { 
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateY(-6px) scale(1.15);
+    opacity: 1;
+    filter: drop-shadow(0 0 16px rgba(13, 148, 136, 1));
+  }
 }
 
 .footer-grid {
@@ -31,10 +100,20 @@
   color: var(--text-primary);
 }
 
-.footer__logo svg {
-  width: 28px;
-  height: 28px;
+.footer__logo svg,
+.footer__logo .site-logo {
+  height: 48px;
+  width: auto;
   fill: var(--accent-p);
+  object-fit: contain;
+  transition: height var(--dur-base) var(--ease-out);
+}
+
+@media (max-width: 768px) {
+  .footer__logo svg,
+  .footer__logo .site-logo {
+    height: 36px;
+  }
 }
 
 .footer__tagline {

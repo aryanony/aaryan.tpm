@@ -199,15 +199,57 @@
 
 .exp__panel-metrics {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: var(--sp-3);
-  margin-top: auto;
+  margin-top: var(--sp-6);
 }
 
 .exp__metric-card {
   border: 1px solid var(--bd-subtle);
   background: var(--bg-surface);
   clip-path: var(--clip-card-sm);
+  transition: background 0.4s ease, border-color 0.4s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exp__metric-card:hover {
+  background: var(--bg-elevated);
+}
+
+/* On desktop, auto-play just subtly highlights the card */
+.exp__metric-card.active {
+  background: var(--bg-elevated);
+  border-color: var(--accent-p);
+}
+
+.exp__metric-card .card__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--sp-3);
+  text-align: center;
+}
+
+/* Icon is always visible */
+.exp__metric-card .metric-icon {
+  color: var(--accent-p);
+  transform: scale(1.1);
+  margin-bottom: var(--sp-2);
+  transition: color 0.4s;
+}
+
+/* Text elements are fully visible on desktop */
+.exp__metric-val,
+.exp__metric-lbl {
+  opacity: 1;
+  visibility: visible;
+  position: static;
+  transform: none;
 }
 
 .exp__metric-val {
@@ -215,7 +257,7 @@
   font-size: var(--text-xl);
   color: var(--text-primary);
   font-weight: 700;
-  text-shadow: 0 0 8px rgba(13,148,136,0.15);
+  text-shadow: 0 0 8px rgba(20, 184, 166, 0.15);
   margin-top: var(--sp-1);
 }
 
@@ -444,6 +486,59 @@
 
   .exp__panel-metrics {
     margin-top: var(--sp-6);
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 120px;
+    gap: var(--sp-2);
+    overflow: hidden;
+  }
+
+  .exp__metric-card {
+    flex: 1; /* Collapsed */
+    min-width: 0;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1), background 0.4s ease, border-color 0.4s ease;
+  }
+
+  .exp__metric-card.active {
+    flex: 5; /* Expands even larger on mobile to show text */
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.1);
+  }
+
+  .exp__metric-card .card__inner {
+    white-space: nowrap;
+  }
+
+  /* Icon logic for mobile accordion */
+  .exp__metric-card .metric-icon {
+    color: var(--text-secondary);
+    transition: color 0.4s, transform 0.4s;
+    transform: scale(0.9);
+    margin-bottom: 0;
+  }
+  .exp__metric-card.active .metric-icon {
+    color: var(--accent-p);
+    transform: scale(1.2);
+    margin-bottom: var(--sp-2);
+  }
+
+  /* Text elements hide when collapsed on mobile */
+  .exp__metric-val,
+  .exp__metric-lbl {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    visibility: hidden;
+    position: absolute; /* Take out of flow when hidden */
+  }
+
+  .exp__metric-card.active .exp__metric-val,
+  .exp__metric-card.active .exp__metric-lbl {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    visibility: visible;
+    position: static;
   }
 }

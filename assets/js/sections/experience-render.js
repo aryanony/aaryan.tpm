@@ -151,16 +151,21 @@ export async function renderExperience() {
   const panelInner = container.querySelector('.exp__panel-inner');
   const trackFill = container.querySelector('.exp__track-fill');
 
+  let accordionInterval;
+
   // Inject content for specific index
   const updatePanel = (idx) => {
+    // Clear any existing accordion interval
+    if (accordionInterval) clearInterval(accordionInterval);
+
     const exp = experience[idx];
     const bulletsHTML = exp.bullets.map(b => `<li>${b}</li>`).join('');
     const skillsHTML = exp.skills.map(s => `<span class="chip">${s}</span>`).join('');
     
-    const metricsHTML = exp.metrics.map(m => `
-      <div class="exp__metric-card card card-sm">
-        <div class="card__inner flex-center" style="flex-direction:column; padding: var(--sp-4);">
-          <span style="color:var(--accent-p); margin-bottom:var(--sp-2); display:inline-flex;">${getMetricIcon(m.label)}</span>
+    const metricsHTML = exp.metrics.map((m, i) => `
+      <div class="exp__metric-card ${i === 0 ? 'active' : ''}">
+        <div class="card__inner">
+          <span class="metric-icon" style="display:inline-flex;">${getMetricIcon(m.label)}</span>
           <span class="exp__metric-val" data-target="${m.value}" data-suffix="${m.suffix}">0</span>
           <span class="exp__metric-lbl">${m.label}</span>
         </div>
@@ -189,7 +194,7 @@ export async function renderExperience() {
               <h4 class="exp__panel-company">${exp.company}</h4>
               <span class="exp__panel-loc">${exp.location}</span>
               
-              <!-- Metrics dial grid -->
+              <!-- Metrics dial grid (now Accordion) -->
               <div class="exp__panel-metrics">
                 ${metricsHTML}
               </div>
@@ -214,6 +219,37 @@ export async function renderExperience() {
 
         // Fade in new content
         gsap.to(panelInner, { opacity: 1, y: 0, duration: 0.35 });
+
+        // Accordion Auto-Play Logic
+        const accCards = panelInner.querySelectorAll('.exp__metric-card');
+        let activeAccIdx = 0;
+
+        const activateAccCard = (index) => {
+          accCards.forEach((c, i) => c.classList.toggle('active', i === index));
+          activeAccIdx = index;
+        };
+
+        const startAccordionAutoPlay = () => {
+          clearInterval(accordionInterval);
+          accordionInterval = setInterval(() => {
+            activeAccIdx = (activeAccIdx + 1) % accCards.length;
+            activateAccCard(activeAccIdx);
+          }, 3500);
+        };
+
+        accCards.forEach((card, i) => {
+          card.addEventListener('mouseenter', () => {
+            clearInterval(accordionInterval);
+            activateAccCard(i);
+          });
+          card.addEventListener('mouseleave', () => startAccordionAutoPlay());
+          card.addEventListener('click', () => {
+            clearInterval(accordionInterval);
+            activateAccCard(i);
+          });
+        });
+
+        startAccordionAutoPlay();
 
         // Animate metrics counter numbers
         panelInner.querySelectorAll('.exp__metric-val').forEach(el => {

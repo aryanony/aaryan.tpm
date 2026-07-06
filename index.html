@@ -82,8 +82,9 @@
   <link rel="stylesheet" href="/assets/css/main.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>
 
-  <!-- Favicons + PWA -->
-  <link rel="icon" href="/assets/images/icons/favicon.svg" type="image/svg+xml">
+    <!-- Favicons + PWA -->
+  <link rel="icon" href="/assets/images/icons/icon.png" type="image/png">
+  <link rel="icon" href="/assets/images/icons/icon.svg" sizes="any" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#030D0A" media="(prefers-color-scheme: dark)">
@@ -165,6 +166,11 @@
             "@type": "Question",
             "name": "What are Aaryan Gupta's rates for Technical PM services?",
             "acceptedAnswer": { "@type": "Answer", "text": "Aaryan Gupta offers project-based rates from ₹20,000–₹80,000 per project depending on scope. Monthly retainers for dev team coordination range from ₹25,000–₹60,000/month. Micro-SaaS products are one-time purchases from ₹5,000–₹35,000. Website maintenance starts at ₹2,000/month. A free 30-minute strategy call is available to scope requirements before any commitment." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you develop custom products for other industries besides healthcare?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes! While I have deep specialization in HealthTech, I develop one-time purchase micro-SaaS products tailored to multiple industries (like retail, logistics, and professional services). These solutions are custom-built to streamline your specific operational workflows and are deployed on your own infrastructure with absolutely no recurring SaaS subscription fees." }
           }
         ]
       }
@@ -194,7 +200,7 @@
     <div class="nav__progress"></div>
     <div class="container nav__container">
       <a href="/" class="nav__logo">
-        <svg viewBox="0 0 256 256"><polygon points="128 32 224 80 224 176 128 224 32 176 32 80 128 32"/></svg>
+        <img src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo">
         <span data-cfg="identity.publicName">Aaryan Gupta</span>
       </a>
       
@@ -355,15 +361,15 @@
         <div class="about-tabs-nav reveal" role="tablist">
           <button class="about-tab-btn active" data-target="pane-vision" role="tab" aria-selected="true">
             <i class="ph-duotone ph-trend-up" style="font-size:16px; margin-right:6px;"></i>
-            Vision & Bio
+            <span>Vision & Bio</span>
           </button>
           <button class="about-tab-btn" data-target="pane-engineering" role="tab" aria-selected="false">
             <i class="ph-duotone ph-code" style="font-size:16px; margin-right:6px;"></i>
-            Engineering Fluency
+            <span>Engineering Fluency</span>
           </button>
           <button class="about-tab-btn" data-target="pane-management" role="tab" aria-selected="false">
             <i class="ph-duotone ph-squares-four" style="font-size:16px; margin-right:6px;"></i>
-            Management Framework
+            <span>Management Framework</span>
           </button>
         </div>
         
@@ -663,7 +669,7 @@
               </div>
               
               <!-- Right outputs: Telemetry Display -->
-              <div style="display:flex; flex-direction:column; gap:var(--sp-4); background:rgba(255,255,255,0.02); padding:var(--sp-5); border:1px solid var(--bd-subtle); border-radius:var(--radius-sm);">
+              <div class="roi-telemetry" style="display:flex; flex-direction:column; gap:var(--sp-5); background:var(--bg-elevated); padding:var(--sp-6); border:1px solid var(--bd-mid); border-radius:var(--radius-md); box-shadow:var(--sh-card);">
                 <div>
                   <span style="font-size:var(--text-xs); color:var(--text-secondary); display:block; text-transform:uppercase; margin-bottom:2px;">Developer Hours Saved</span>
                   <span id="roi-hours-saved" style="font-family:var(--font-mono); font-size:var(--text-2xl); color:var(--text-accent); font-weight:700;">144 hrs</span>
@@ -760,9 +766,7 @@
               </div>
             </div>
             
-            <div style="margin-top: var(--sp-4);">
-              <a href="/services/healthtech-consulting.html" class="btn btn-p btn-magnetic">Explore HealthTech PM &rarr;</a>
-            </div>
+
 
             <!-- TokenQ Simulator Widget -->
             <div class="queue-simulator card" data-tilt style="margin-top: var(--sp-8);">
@@ -801,6 +805,11 @@
             <!-- Loaded dynamically from data/healthtech-products.json -->
             <div class="healthtech__products"></div>
           </div>
+        </div>
+        
+        <!-- Centered CTA at the bottom of the grid for a perfect, compact layout -->
+        <div class="reveal" style="text-align: center; margin-top: var(--sp-12);">
+          <a href="/services/healthtech-consulting.html" class="btn btn-p btn-magnetic">Explore HealthTech PM &rarr;</a>
         </div>
         </div>
       </div>
@@ -962,12 +971,16 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
+    <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
+  <!-- Scroll to top button -->
+  <div class="footer__scroll-top" aria-label="Scroll to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <i class="ph-bold ph-caret-up"></i>
+  </div>
     <div class="container footer-grid">
       <div class="footer__info">
         <a href="/" class="footer__logo">
-          <svg viewBox="0 0 256 256"><polygon points="128 32 224 80 224 176 128 224 32 176 32 80 128 32"/></svg>
+            <img src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo">
           <span data-cfg="identity.publicName">Aaryan Gupta</span>
         </a>
         <p class="footer__tagline">

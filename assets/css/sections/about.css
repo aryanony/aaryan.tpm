@@ -447,9 +447,98 @@
 
 /* Responsive adjustment for tabs and timeline */
 @media (max-width: 768px) {
+  /* Accordion logic for About Tabs on Mobile */
+  .about-tabs-nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow: hidden;
+    gap: var(--sp-2);
+    padding-bottom: 2px;
+  }
+  
+  .about-tab-btn {
+    flex: 1;
+    min-width: 0;
+    padding: var(--sp-3) var(--sp-1);
+    justify-content: center;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  
+  .about-tab-btn.active {
+    flex: 5;
+  }
+  
+  .about-tab-btn span {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    transform: translateX(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+  }
+  
+  .about-tab-btn.active span {
+    opacity: 1;
+    visibility: visible;
+    position: static;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  .about-tab-btn i {
+    margin-right: 0 !important;
+  }
+  
+  .about-tab-btn.active i {
+    margin-right: 6px !important;
+  }
+
+  /* Why console mobile overrides */
   .why-console {
     grid-template-columns: 1fr;
   }
+  
+  .why-console-sidebar {
+    flex-direction: row;
+    width: 100%;
+    overflow: hidden;
+    gap: var(--sp-2);
+  }
+  
+  .why-console-btn {
+    flex: 1;
+    min-width: 0;
+    padding: var(--sp-2) 4px;
+    justify-content: center;
+    gap: 0;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  
+  .why-console-btn.active {
+    flex: 6; /* Give it slightly more flex room to fit text */
+    gap: var(--sp-1);
+  }
+  
+  .why-console-btn .why-label {
+    font-size: 0.7rem; /* Reduce font size to fit */
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    transform: translateX(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  
+  .why-console-btn.active .why-label {
+    opacity: 1;
+    visibility: visible;
+    position: static;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+  
   .journey-progress-line {
     display: none;
   }
@@ -476,9 +565,30 @@
 
 @media (max-width: 480px) {
   .about__stats-grid {
-    grid-template-columns: 1fr;
-    gap: var(--sp-4);
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 0;
+    padding-bottom: var(--sp-4);
+  }
+  .about__stats-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .about__stat-item {
+    flex: 0 0 auto;
+    min-width: 150px;
+    border-bottom: none;
+    border-right: 1px solid var(--bd-subtle);
+    padding: 0 var(--sp-5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .about__stat-item:first-child {
+    padding-left: 0;
+  }
+  .about__stat-item:last-child {
+    border-right: none;
+    padding-right: var(--sp-4); /* Extra padding at end of scroll */
   }
 }
-
-

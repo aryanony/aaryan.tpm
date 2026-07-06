@@ -14,7 +14,6 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://aaaryangupta.com/blog/what-is-technical-project-manager.html">
 
-  <link rel="icon" href="/assets/images/icons/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#030D0A" media="(prefers-color-scheme: dark)">
@@ -50,6 +49,12 @@
   <!-- Deferred Stylesheet -->
   <link rel="stylesheet" href="/assets/css/main.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>
+
+  <!-- Favicons + PWA -->
+  <link rel="icon" href="/assets/images/icons/icon.png" type="image/png">
+  <link rel="icon" href="/assets/images/icons/icon.svg" sizes="any" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
 
@@ -70,7 +75,7 @@
     <div class="nav__progress"></div>
     <div class="container nav__container">
       <a href="/" class="nav__logo">
-        <svg viewBox="0 0 256 256"><polygon points="128 32 224 80 224 176 128 224 32 176 32 80 128 32"/></svg>
+        <img src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo">
         <span data-cfg="identity.publicName">Aaryan Gupta</span>
       </a>
       
@@ -174,12 +179,16 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
+    <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
+  <!-- Scroll to top button -->
+  <div class="footer__scroll-top" aria-label="Scroll to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <i class="ph-bold ph-caret-up"></i>
+  </div>
     <div class="container footer-grid">
       <div class="footer__info">
         <a href="/" class="footer__logo">
-          <svg viewBox="0 0 256 256"><polygon points="128 32 224 80 224 176 128 224 32 176 32 80 128 32"/></svg>
+            <img src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo">
           <span data-cfg="identity.publicName">Aaryan Gupta</span>
         </a>
         <p class="footer__tagline">
@@ -187,7 +196,7 @@
         </p>
         <div class="footer__socials">
           <a data-cfg-href="social.linkedin" target="_blank" rel="noopener" class="footer__social-link" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16-16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24ZM96,192H72V104H96Zm-12-100a16,16,0,1,1,16-16A16,16,0,0,1,84,92Zm108,100H168V144c0-11-9-20-20-20s-20,9-20,20v48H104V104h24v12c5-7,15-16,28-16,22,0,40,18,40,40Z"/></svg>
+            <i class="ph-fill ph-linkedin-logo"></i>
           </a>
           <a data-cfg-href="social.github" target="_blank" rel="noopener" class="footer__social-link" aria-label="GitHub">
             <i class="ph-fill ph-github-logo"></i>

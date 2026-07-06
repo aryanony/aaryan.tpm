@@ -6,11 +6,13 @@ export function initScrollAnimations() {
   // Generic fade-up reveal
   gsap.utils.toArray('.reveal').forEach(el => {
     gsap.fromTo(el, 
-      { opacity: 0, y: 32, filter: 'blur(3px)' }, 
+      { opacity: 0, y: 32, filter: 'blur(12px)' }, 
       {
         opacity: 1, 
         y: 0, 
         filter: 'blur(0px)',
+        duration: 0.8,
+        ease: 'power3.out',
         scrollTrigger: { 
           trigger: el, 
           start: 'top 88%', 
@@ -23,13 +25,15 @@ export function initScrollAnimations() {
   // Staggered grid item reveals
   gsap.utils.toArray('.reveal-grid').forEach(grid => {
     gsap.fromTo(grid.querySelectorAll(':scope > *'),
-      { opacity: 0, y: 24, rotationX: 4 },
+      { opacity: 0, y: 24, rotationX: 4, filter: 'blur(10px)' },
       { 
         opacity: 1, 
         y: 0, 
         rotationX: 0, 
+        filter: 'blur(0px)',
         stagger: 0.08, 
-        duration: 0.55,
+        duration: 0.65,
+        ease: 'power3.out',
         scrollTrigger: { 
           trigger: grid, 
           start: 'top 86%', 

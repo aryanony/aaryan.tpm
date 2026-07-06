@@ -15,7 +15,8 @@ class Cursor {
     document.addEventListener('mousemove', e => {
       this.mouse.x = e.clientX;
       this.mouse.y = e.clientY;
-      this.dot.style.transform = `translate(${e.clientX - 6}px, ${e.clientY - 6}px)`;
+      // The custom cursor dot top-left (0,0) is the tip, so no centering offset
+      this.dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
     });
 
     const addHover = (root = document) => {
@@ -38,7 +39,7 @@ class Cursor {
     const lerp = (a, b, t) => a + (b - a) * t;
     this.ringPos.x = lerp(this.ringPos.x, this.mouse.x, 0.12);
     this.ringPos.y = lerp(this.ringPos.y, this.mouse.y, 0.12);
-    this.ring.style.transform = `translate(${this.ringPos.x - 20}px, ${this.ringPos.y - 20}px)`;
+    this.ring.style.transform = `translate(${this.ringPos.x}px, ${this.ringPos.y}px) translate(-50%, -50%)`;
     requestAnimationFrame(() => this.tick());
   }
 }

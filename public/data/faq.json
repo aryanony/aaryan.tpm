@@ -12,5 +12,7 @@
   { "q":"Do you offer ongoing maintenance after delivery?",
     "a":"Yes. Post-delivery maintenance: Basic ₹2,000/month (bug fixes, security monitoring), Standard ₹4,000/month (10 hours + minor updates), Premium ₹8,000/month (unlimited minor changes, priority 4-hour response, monthly report). Cancel anytime." },
   { "q":"What makes your HealthTech approach different from other consultants?",
-    "a":"Most PM consultants approach healthcare like e-commerce. Clinical software fails when it ignores the 3-minute patient consultation window, actual doctor workflow, receptionist tech comfort levels, and connectivity drops during OPD. Aaryan maps real clinic workflows before speccing a single feature — this is why products achieve genuine adoption, not just deployment." }
+    "a":"Most PM consultants approach healthcare like e-commerce. Clinical software fails when it ignores the 3-minute patient consultation window, actual doctor workflow, receptionist tech comfort levels, and connectivity drops during OPD. Aaryan maps real clinic workflows before speccing a single feature — this is why products achieve genuine adoption, not just deployment." },
+  { "q":"Do you develop custom products for other industries besides healthcare?",
+    "a":"Yes! While I have deep specialization in HealthTech, I develop one-time purchase micro-SaaS products tailored to multiple industries (like retail, logistics, and professional services). These solutions are custom-built to streamline your specific operational workflows and are deployed on your own infrastructure with absolutely no recurring SaaS subscription fees." }
 ]

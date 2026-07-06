@@ -233,19 +233,24 @@
   overflow: hidden;
   border: 1px solid var(--bd-subtle);
   flex-shrink: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .work__thumb-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .work__thumb-name {
   font-family: var(--font-display);
   font-size: var(--text-sm);
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 800; /* Made text bolder */
+  letter-spacing: 0.5px;
 }
 
 .work__thumb-tag {
@@ -515,3 +520,67 @@
   to { transform: rotate(360deg); }
 }
 
+@media (max-width: 768px) {
+  /* Accordion logic for project showcase metrics on mobile */
+  .work__board-metrics {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100%;
+    overflow: hidden;
+    gap: var(--sp-2) !important;
+  }
+  
+  .work__metric-card {
+    flex: 1;
+    min-width: 0;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  
+  .work__metric-card.active {
+    flex: 6; /* Give it slightly more flex room to fit text */
+    background: var(--bg-elevated);
+    border-color: var(--accent-p);
+  }
+  
+  .work__metric-card .card__inner {
+    padding: var(--sp-2) 4px !important;
+  }
+  
+  .work__metric-val {
+    font-size: 1rem !important; /* Smaller on mobile */
+  }
+  
+  .work__metric-lbl {
+    font-size: 0.65rem !important;
+    white-space: normal !important;
+    line-height: 1.1 !important;
+  }
+  
+  .work__metric-card .work__metric-val,
+  .work__metric-card .work__metric-lbl {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    transform: translateX(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  
+  .work__metric-card.active .work__metric-val,
+  .work__metric-card.active .work__metric-lbl {
+    opacity: 1;
+    visibility: visible;
+    position: static;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+  
+  .work__metric-card .metric-icon {
+    margin-bottom: 0 !important;
+  }
+  
+  .work__metric-card.active .metric-icon {
+    margin-bottom: var(--sp-1.5) !important;
+  }
+}

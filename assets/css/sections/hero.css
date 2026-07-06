@@ -78,6 +78,7 @@
 .hero__h1-gradient {
   background: linear-gradient(135deg, var(--accent-p) 0%, var(--accent-c) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -334,18 +335,19 @@
   .hero__photo-wrapper {
     width: 280px;
     height: 350px;
+    margin: 0 auto;
   }
   .hero__stat-card--1 {
-    left: -10px;
-    top: 5%;
+    left: -20px;
+    top: -10px;
   }
   .hero__stat-card--2 {
-    right: -10px;
-    bottom: 10%;
+    right: -20px;
+    bottom: 20px;
   }
   .hero__stat-card--3 {
-    left: 10px;
-    bottom: -5px;
+    left: 15px;
+    bottom: -15px;
   }
 }
 
@@ -364,16 +366,16 @@
     font-size: var(--text-xxs);
   }
   .hero__stat-card--1 {
-    left: -5px;
-    top: 2%;
+    left: -15px;
+    top: -15px;
   }
   .hero__stat-card--2 {
-    right: -5px;
-    bottom: 5%;
+    right: -15px;
+    bottom: 30px;
   }
   .hero__stat-card--3 {
-    left: 5px;
-    bottom: -5px;
+    left: 20px;
+    bottom: -20px;
   }
 }
 

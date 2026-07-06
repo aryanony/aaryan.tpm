@@ -6,15 +6,29 @@ export function initNav(config) {
   const menu = document.querySelector('.nav__mobile-menu');
 
   if (nav) {
+    let lastScrollY = window.scrollY;
+
     const checkScroll = () => {
-      if (window.scrollY > 50) {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > 50) {
         nav.classList.add('scrolled');
       } else {
         nav.classList.remove('scrolled');
       }
+
+      if (currentScrollY <= 0) {
+        nav.classList.remove('nav-hidden');
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        nav.classList.add('nav-hidden');
+      } else if (currentScrollY < lastScrollY) {
+        nav.classList.remove('nav-hidden');
+      }
+
+      lastScrollY = currentScrollY;
     };
     
-    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('scroll', checkScroll, { passive: true });
     checkScroll(); // Run once in case started scrolled
   }
 

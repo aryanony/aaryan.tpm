@@ -11,7 +11,7 @@
     "demo": "https://projectsport.vercel.app/",
     "livePreviewUrl": "https://projectsport.vercel.app",
     "github": "https://github.com/aryanony/ProjectPort",
-    "image": "/assets/images/projects/projectport-thumb.webp",
+    "image": "/assets/images/icons/projectport.png",
     "featured": true,
     "metricsList": [
       { "label": "Onboarding speed", "value": 40, "suffix": "% boost" },
@@ -36,7 +36,7 @@
     "demo": "https://uibrium.vercel.app/",
     "livePreviewUrl": "https://uibrium.vercel.app",
     "github": "https://github.com/aryanony/uibrium",
-    "image": "/assets/images/projects/uibrium-thumb.webp",
+    "image": "/assets/images/icons/uibrium.png",
     "featured": false,
     "metricsList": [
       { "label": "NPM downloads", "value": 2000, "suffix": "+" },
@@ -61,7 +61,7 @@
     "demo": "https://aryanony.github.io/portfolio",
     "livePreviewUrl": "/chatbot-widget.html",
     "github": "https://github.com/aryanony",
-    "image": "/assets/images/projects/aibot-thumb.webp",
+    "image": "/assets/images/projects/aibot.png",
     "featured": false,
     "metricsList": [
       { "label": "Ticket cut", "value": 60, "suffix": "% reduction" },

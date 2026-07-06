@@ -114,6 +114,9 @@ export async function renderProjects() {
   let activeCategory = 'All';
   let activeIndex = 0;
   let activeView = 'showcase'; // 'showcase' or 'grid'
+  
+  let showcaseAutoInterval;
+  let metricAutoInterval;
 
   // Extract categories dynamically
   const categories = ['All', ...new Set(allProjects.map(p => p.category))];
@@ -122,6 +125,19 @@ export async function renderProjects() {
   const getFilteredProjects = () => {
     if (activeCategory === 'All') return allProjects;
     return allProjects.filter(p => p.category === activeCategory);
+  };
+
+  const startShowcaseAutoPlay = () => {
+    clearInterval(showcaseAutoInterval);
+    showcaseAutoInterval = setInterval(() => {
+      if (activeView === 'showcase') {
+        const projCount = getFilteredProjects().length;
+        if (projCount > 1) {
+          activeIndex = (activeIndex + 1) % projCount;
+          updateShowcase();
+        }
+      }
+    }, 5000);
   };
 
   const renderFrame = () => {
@@ -147,7 +163,7 @@ export async function renderProjects() {
       </div>
 
       <!-- 1. Interactive Showcase View -->
-      <div class="work__showcase-view">
+      <div class="work__showcase-view" tabindex="0">
         <div class="work__board">
           <!-- Injected dynamically -->
         </div>
@@ -167,8 +183,16 @@ export async function renderProjects() {
       </div>
     `;
 
+    // Bind pause/play events to the showcase view
+    const showcaseView = container.querySelector('.work__showcase-view');
+    showcaseView.addEventListener('mouseenter', () => clearInterval(showcaseAutoInterval));
+    showcaseView.addEventListener('mouseleave', () => startShowcaseAutoPlay());
+    showcaseView.addEventListener('focusin', () => clearInterval(showcaseAutoInterval));
+    showcaseView.addEventListener('focusout', () => startShowcaseAutoPlay());
+
     bindControls();
     updateShowcase();
+    startShowcaseAutoPlay();
   };
 
   const updateShowcase = () => {
@@ -190,10 +214,10 @@ export async function renderProjects() {
 
       const tagsHTML = activeProj.tags.map(t => `<span class="chip chip-sm">${t}</span>`).join('');
       const highlightsHTML = activeProj.highlights.map(h => `<li>${h}</li>`).join('');
-      const metricsHTML = activeProj.metricsList.map(m => `
-        <div class="work__metric-card card card-sm">
+      const metricsHTML = activeProj.metricsList.map((m, idx) => `
+        <div class="work__metric-card card card-sm ${idx === 0 ? 'active' : ''}">
           <div class="card__inner flex-center" style="flex-direction:column; padding: var(--sp-3);">
-            <span style="color:var(--accent-p); display:inline-flex; margin-bottom:var(--sp-1.5);">${getProjectMetricIcon(m.label)}</span>
+            <span class="metric-icon" style="color:var(--accent-p); display:inline-flex; margin-bottom:var(--sp-1.5); transition: margin 0.3s ease;">${getProjectMetricIcon(m.label)}</span>
             <span class="work__metric-val" data-target="${m.value}" data-suffix="${m.suffix}">0</span>
             <span class="work__metric-lbl">${m.label}</span>
           </div>
@@ -280,6 +304,32 @@ export async function renderProjects() {
               }
             });
           });
+
+          // Metrics Accordion Auto-Play for Mobile
+          clearInterval(metricAutoInterval);
+          const metricCards = board.querySelectorAll('.work__metric-card');
+          if (metricCards.length > 0) {
+            let currentMetric = 0;
+            const startMetricAuto = () => {
+              clearInterval(metricAutoInterval);
+              metricAutoInterval = setInterval(() => {
+                metricCards[currentMetric].classList.remove('active');
+                currentMetric = (currentMetric + 1) % metricCards.length;
+                metricCards[currentMetric].classList.add('active');
+              }, 4000);
+            };
+            startMetricAuto();
+            metricCards.forEach((card, idx) => {
+              card.addEventListener('mouseenter', () => clearInterval(metricAutoInterval));
+              card.addEventListener('mouseleave', () => startMetricAuto());
+              card.addEventListener('click', () => {
+                clearInterval(metricAutoInterval);
+                metricCards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+                currentMetric = idx;
+              });
+            });
+          }
 
           // Dispatch event to activate tilt
           document.dispatchEvent(new Event('ag:ready'));

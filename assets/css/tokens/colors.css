@@ -3,52 +3,52 @@
 /* ─── DARK MODE (Default) ─── */
 :root,
 :root[data-theme="dark"] {
-  /* Backgrounds: slight teal undertone, NOT pure black */
-  --bg-base:     #030D0A;   /* deepest bg — near-black with teal hint */
-  --bg-surface:  #071410;   /* section backgrounds */
-  --bg-card:     #0C1C15;   /* card backgrounds */
-  --bg-elevated: #112219;   /* hovered/elevated cards */
-  --bg-overlay:  rgba(3,13,10,0.94);
-  --bg-glass:    rgba(7,20,16,0.80);
+  /* Backgrounds: Professional deep slate (removes the overwhelming green mud) */
+  --bg-base:     #04090E;   /* Deepest midnight slate */
+  --bg-surface:  #0A1218;   /* Slightly lighter */
+  --bg-card:     #0F1B25;   /* Card backgrounds */
+  --bg-elevated: #162635;   /* Hovered/elevated cards */
+  --bg-overlay:  rgba(4,9,14,0.94);
+  --bg-glass:    rgba(10,18,24,0.70);
 
-  /* PRIMARY: Dark Sea Green / Teal */
-  --accent-p:       #0D9488;   /* primary CTAs, active states */
-  --accent-p-glow:  rgba(13,148,136,0.30);
-  --accent-p-mute:  rgba(13,148,136,0.12);
-  --accent-hover:   #14B8A6;   /* hover state */
+  /* PRIMARY: Vibrant Teal */
+  --accent-p:       #14B8A6;   /* Primary CTAs, active states */
+  --accent-p-glow:  rgba(20,184,166,0.30);
+  --accent-p-mute:  rgba(20,184,166,0.12);
+  --accent-hover:   #2DD4BF;   /* Hover state */
 
-  /* SECONDARY: Cyan — bridges teal and blue */
+  /* SECONDARY: Electric Cyan */
   --accent-c:       #06B6D4;
-  --accent-c-glow:  rgba(6,182,212,0.22);
-  --accent-c-mute:  rgba(6,182,212,0.10);
+  --accent-c-glow:  rgba(6,182,212,0.25);
+  --accent-c-mute:  rgba(6,182,212,0.12);
 
-  /* TERTIARY: Dark Blue */
-  --accent-b:       #2563EB;
-  --accent-b-glow:  rgba(37,99,235,0.25);
-  --accent-b-mute:  rgba(37,99,235,0.10);
+  /* TERTIARY: Ocean Green / Emerald */
+  --accent-b:       #10B981;
+  --accent-b-glow:  rgba(16,185,129,0.25);
+  --accent-b-mute:  rgba(16,185,129,0.10);
 
-  /* Text */
-  --text-primary:   #EDF8F5;   /* warm white, slight teal tint */
-  --text-secondary: #8DADA4;   /* medium muted */
-  --text-muted:     #4A6B62;   /* very muted */
-  --text-accent:    #2DD4BF;   /* highlighted accent text */
-  --text-inverse:   #030D0A;   /* text ON colored buttons */
+  /* Text - Crisp, neutral tones for maximum readability */
+  --text-primary:   #F8FAFC;   /* Crisp white */
+  --text-secondary: #94A3B8;   /* Cool gray */
+  --text-muted:     #475569;   /* Slate */
+  --text-accent:    #38BDF8;   /* Bright Cyan/Blue for highlighted text */
+  --text-inverse:   #020617;   /* Text ON colored buttons */
 
-  /* Borders */
-  --bd-subtle:  rgba(13,148,136,0.10);
-  --bd-mid:     rgba(13,148,136,0.22);
-  --bd-strong:  rgba(13,148,136,0.45);
+  /* Borders - Mixing the teal and cyan palette */
+  --bd-subtle:  rgba(20,184,166,0.15); /* Teal subtle */
+  --bd-mid:     rgba(6,182,212,0.25);  /* Cyan mid */
+  --bd-strong:  rgba(16,185,129,0.45); /* Emerald strong */
   --bd-white:   rgba(255,255,255,0.08);
 
   /* Glows */
-  --glow-teal:  0 0 16px rgba(13,148,136,0.40), 0 0 48px rgba(13,148,136,0.14);
-  --glow-cyan:  0 0 16px rgba(6,182,212,0.35),  0 0 48px rgba(6,182,212,0.10);
-  --glow-blue:  0 0 16px rgba(37,99,235,0.35),  0 0 48px rgba(37,99,235,0.10);
+  --glow-teal:  0 0 16px rgba(20,184,166,0.40), 0 0 48px rgba(20,184,166,0.14);
+  --glow-cyan:  0 0 16px rgba(6,182,212,0.35),  0 0 48px rgba(6,182,212,0.15);
+  --glow-blue:  0 0 16px rgba(16,185,129,0.35), 0 0 48px rgba(16,185,129,0.15);
 
   /* Shadows */
-  --sh-card:   0 4px 24px rgba(0,0,0,0.45), 0 1px 0 var(--bd-subtle);
-  --sh-hover:  0 8px 40px rgba(0,0,0,0.60), 0 0 0 1px var(--bd-mid);
-  --sh-float:  0 20px 60px rgba(0,0,0,0.65), var(--glow-teal);
+  --sh-card:   0 4px 24px rgba(0,0,0,0.50), 0 1px 0 var(--bd-subtle);
+  --sh-hover:  0 8px 40px rgba(0,0,0,0.70), 0 0 0 1px var(--bd-mid);
+  --sh-float:  0 20px 60px rgba(0,0,0,0.80), var(--glow-cyan);
   --sh-btn:    0 4px 16px var(--accent-p-glow);
 
   color-scheme: dark;
