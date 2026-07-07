@@ -1,6 +1,7 @@
 import { defineConfig }         from 'vite';
 import { resolve }              from 'path';
 import { readdirSync, existsSync } from 'fs';
+import { ViteImageOptimizer }   from 'vite-plugin-image-optimizer';
 
 function collectHTML(dir = '.') {
   const entries = {};
@@ -23,7 +24,18 @@ function collectHTML(dir = '.') {
 export default defineConfig({
   root: '.',
   base: '/',
+  plugins: [
+    ViteImageOptimizer({
+      png: { quality: 80 },
+      jpeg: { quality: 80 },
+      jpg: { quality: 80 },
+      webp: { quality: 80 },
+      avif: { quality: 80 },
+    })
+  ],
   build: {
+    cssCodeSplit: true,
+
     outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {

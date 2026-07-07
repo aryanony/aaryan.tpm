@@ -8,7 +8,8 @@
   <script>!function(){var t=localStorage.getItem('ag-theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t)}()</script>
 
   <!-- Preload styles -->
-  <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap" as="style">
+  <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap"></noscript>
 
   <title>Services — Technical PM, HealthTech & AI Automation | Aaryan Gupta</title>
   <meta name="description" content="Technical PM, HealthTech Consulting, AI Automation, Micro-SaaS, Website Maintenance. Jaipur, Ahmedabad & worldwide. Book a free call.">
@@ -91,7 +92,7 @@
     <div class="nav__progress"></div>
     <div class="container nav__container">
       <a href="/" class="nav__logo">
-        <img src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo">
+        <img loading="lazy" decoding="async" src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo">
         <span data-cfg="identity.publicName">Aaryan Gupta</span>
       </a>
       
@@ -174,7 +175,7 @@
     <div class="container footer-grid">
       <div class="footer__info">
         <a href="/" class="footer__logo">
-            <img src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo">
+            <img loading="lazy" decoding="async" src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo">
           <span data-cfg="identity.publicName">Aaryan Gupta</span>
         </a>
         <p class="footer__tagline">

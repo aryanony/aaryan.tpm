@@ -61,7 +61,7 @@
     "demo": "https://aryanony.github.io/portfolio",
     "livePreviewUrl": "/chatbot-widget.html",
     "github": "https://github.com/aryanony",
-    "image": "/assets/images/projects/aibot.png",
+    "image": "/assets/images/icons/aibot.png",
     "featured": false,
     "metricsList": [
       { "label": "Ticket cut", "value": 60, "suffix": "% reduction" },

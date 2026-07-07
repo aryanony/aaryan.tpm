@@ -8,6 +8,8 @@ weights.forEach(weight => {
   const link = document.createElement('link');
   link.rel = 'stylesheet';
   link.type = 'text/css';
+  link.media = 'print';
+  link.onload = function() { this.media = 'all'; };
   link.href = `https://unpkg.com/@phosphor-icons/web@2.1.1/src/${weight}/style.css`;
   document.head.appendChild(link);
 });
