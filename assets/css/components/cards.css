@@ -36,6 +36,15 @@
   }
 }
 
+@media (max-width: 480px) {
+  .card {
+    padding: var(--sp-3);
+  }
+  .card-sm {
+    padding: var(--sp-3);
+  }
+}
+
 /* Shine layer for tilt.js 3D effect */
 .card-shine {
   position: absolute;

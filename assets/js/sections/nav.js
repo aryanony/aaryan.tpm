@@ -53,9 +53,35 @@ export function initNav(config) {
     ham.addEventListener('click', toggleMenu);
 
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && menu.classList.contains('open')) {
+      if (!menu.classList.contains('open')) return;
+      
+      if (e.key === 'Escape') {
         toggleMenu();
         ham.focus();
+        return;
+      }
+      
+      if (e.key === 'Tab') {
+        const focusableElements = [ham, ...menu.querySelectorAll('a, button, [tabindex="0"]')].filter(el => {
+          return el.offsetParent !== null && !el.disabled;
+        });
+        
+        if (focusableElements.length === 0) return;
+        
+        const first = focusableElements[0];
+        const last = focusableElements[focusableElements.length - 1];
+        
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
       }
     });
 

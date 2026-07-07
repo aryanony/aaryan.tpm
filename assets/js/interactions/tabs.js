@@ -8,6 +8,7 @@ export function setupHudControls(tabClass, paneClass, autoPlayDuration = 5000) {
   if (tabs.length === 0) return;
 
   let autoPlayInterval;
+  let autoplayResumeTimeout;
   let currentIndex = 0;
   let isAutoClick = false;
 
@@ -16,14 +17,27 @@ export function setupHudControls(tabClass, paneClass, autoPlayDuration = 5000) {
     if (t.classList.contains('active')) currentIndex = idx;
   });
 
-  const startAutoPlay = () => {
+  const stopAutoPlay = () => {
     clearInterval(autoPlayInterval);
+    autoPlayInterval = null;
+  };
+
+  const startAutoPlay = () => {
+    stopAutoPlay();
     autoPlayInterval = setInterval(() => {
       currentIndex = (currentIndex + 1) % tabs.length;
       isAutoClick = true;
       tabs[currentIndex].click();
       isAutoClick = false;
     }, autoPlayDuration);
+  };
+
+  const resetAutoPlayTimer = () => {
+    stopAutoPlay();
+    clearTimeout(autoplayResumeTimeout);
+    autoplayResumeTimeout = setTimeout(() => {
+      startAutoPlay();
+    }, 5000);
   };
 
   tabs.forEach((tab, idx) => {
@@ -57,16 +71,22 @@ export function setupHudControls(tabClass, paneClass, autoPlayDuration = 5000) {
     };
 
     tab.addEventListener('click', () => {
-      if (!isAutoClick) {
-        clearInterval(autoPlayInterval);
-      }
       activate();
+      if (!isAutoClick) {
+        resetAutoPlayTimer();
+      }
     });
-
-    // Pause on hover, resume when mouse leaves
-    tab.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-    tab.addEventListener('mouseleave', () => startAutoPlay());
   });
+
+  // Bind interaction events on closest common parent container to reset/hold autoplay
+  const parent = tabs[0].closest('section') || tabs[0].closest('.why-console') || tabs[0].parentElement.parentElement;
+  if (parent) {
+    ['mousemove', 'mousedown', 'touchstart', 'keydown', 'scroll'].forEach(evt => {
+      parent.addEventListener(evt, () => {
+        resetAutoPlayTimer();
+      }, { passive: true });
+    });
+  }
 
   startAutoPlay();
 }

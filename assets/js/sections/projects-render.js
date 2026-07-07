@@ -75,7 +75,7 @@ function buildVisualHTML(project, mode) {
  * - Uses IntersectionObserver to set iframe src only when visible (performance)
  * - Hides loader once iframe has loaded
  */
-function activateLiveFrames(container) {
+function activateLiveFrames(container, onActivity) {
   const frames = container.querySelectorAll('.work__live-frame');
   if (!frames.length) return;
 
@@ -93,6 +93,20 @@ function activateLiveFrames(container) {
             if (loader) {
               loader.style.opacity = '0';
               setTimeout(() => loader.style.display = 'none', 300);
+            }
+            
+            // Bind interaction events inside same-origin iframe to hold/pause autoplay
+            if (onActivity) {
+              try {
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                if (iframeDoc) {
+                  ['mousemove', 'mousedown', 'touchstart', 'keydown', 'scroll'].forEach(evt => {
+                    iframeDoc.addEventListener(evt, onActivity, { passive: true });
+                  });
+                }
+              } catch (err) {
+                console.warn("Could not bind iframe activity events:", err);
+              }
             }
           }, { once: true });
         }
@@ -117,6 +131,8 @@ export async function renderProjects() {
   
   let showcaseAutoInterval;
   let metricAutoInterval;
+  let autoplayResumeTimeout;
+  let onActivityCallback;
 
   // Extract categories dynamically
   const categories = ['All', ...new Set(allProjects.map(p => p.category))];
@@ -127,17 +143,39 @@ export async function renderProjects() {
     return allProjects.filter(p => p.category === activeCategory);
   };
 
-  const startShowcaseAutoPlay = () => {
+  let lastActivityTime = 0;
+  let isHoveringShowcase = false;
+
+  const recordActivity = () => {
+    lastActivityTime = Date.now();
+  };
+
+  const stopShowcaseAutoPlay = () => {
     clearInterval(showcaseAutoInterval);
+    showcaseAutoInterval = null;
+  };
+
+  const startShowcaseAutoPlay = () => {
+    stopShowcaseAutoPlay();
     showcaseAutoInterval = setInterval(() => {
       if (activeView === 'showcase') {
+        if (isHoveringShowcase) return;
+        if (Date.now() - lastActivityTime < 6000) return;
+
         const projCount = getFilteredProjects().length;
         if (projCount > 1) {
           activeIndex = (activeIndex + 1) % projCount;
           updateShowcase();
         }
       }
-    }, 5000);
+    }, 5000); // Check/run every 5s
+  };
+
+  const resetAutoplayTimer = () => {
+    recordActivity();
+    if (onActivityCallback) {
+      onActivityCallback();
+    }
   };
 
   const renderFrame = () => {
@@ -183,12 +221,22 @@ export async function renderProjects() {
       </div>
     `;
 
-    // Bind pause/play events to the showcase view
+    // Bind interaction events on parent showcase (reset autoplay on touch, click, hover, keypress)
     const showcaseView = container.querySelector('.work__showcase-view');
-    showcaseView.addEventListener('mouseenter', () => clearInterval(showcaseAutoInterval));
-    showcaseView.addEventListener('mouseleave', () => startShowcaseAutoPlay());
-    showcaseView.addEventListener('focusin', () => clearInterval(showcaseAutoInterval));
-    showcaseView.addEventListener('focusout', () => startShowcaseAutoPlay());
+    if (showcaseView) {
+      // Touch/click/scroll/keyboard/mousemove → hold for 6s then resume
+      ['mousedown', 'touchstart', 'keydown', 'scroll', 'mousemove'].forEach(evt => {
+        showcaseView.addEventListener(evt, recordActivity, { passive: true });
+      });
+      // Mouse hover → fully pause while hovering
+      showcaseView.addEventListener('mouseenter', () => {
+        isHoveringShowcase = true;
+      });
+      showcaseView.addEventListener('mouseleave', () => {
+        isHoveringShowcase = false;
+        recordActivity();
+      });
+    }
 
     bindControls();
     updateShowcase();
@@ -263,7 +311,7 @@ export async function renderProjects() {
                 </div>
 
                 <div style="margin-top:var(--sp-6);">
-                  <h4 style="font-family:var(--font-display); font-size:var(--text-sm); margin-bottom:var(--sp-2); color:var(--text-primary);">Deliveries & Impact:</h4>
+                  <h4 style="font-family:var(--font-display); font-size:var(--text-lg); font-weight:700; margin-bottom:var(--sp-2.5); color:var(--text-primary);">Deliveries & Impact:</h4>
                   <ul class="work__board-bullets">
                     ${highlightsHTML}
                   </ul>
@@ -287,8 +335,8 @@ export async function renderProjects() {
 
           gsap.to(board, { opacity: 1, y: 0, duration: 0.3 });
 
-          // Activate live iframe previews
-          activateLiveFrames(board);
+          // Activate live iframe previews and pass activity reset callback
+          activateLiveFrames(board, resetAutoplayTimer);
 
           // Animate numeric counters
           board.querySelectorAll('.work__metric-val').forEach(el => {
@@ -310,25 +358,43 @@ export async function renderProjects() {
           const metricCards = board.querySelectorAll('.work__metric-card');
           if (metricCards.length > 0) {
             let currentMetric = 0;
-            const startMetricAuto = () => {
+            let metricResumeTimeout;
+            
+            const stopMetricAuto = () => {
               clearInterval(metricAutoInterval);
+              metricAutoInterval = null;
+            };
+            
+            const startMetricAuto = () => {
+              stopMetricAuto();
               metricAutoInterval = setInterval(() => {
                 metricCards[currentMetric].classList.remove('active');
                 currentMetric = (currentMetric + 1) % metricCards.length;
                 metricCards[currentMetric].classList.add('active');
               }, 4000);
             };
+
+            const resetMetricAutoTimer = () => {
+              stopMetricAuto();
+              clearTimeout(metricResumeTimeout);
+              metricResumeTimeout = setTimeout(() => {
+                startMetricAuto();
+              }, 5000);
+            };
+
+            onActivityCallback = resetMetricAutoTimer;
             startMetricAuto();
+
             metricCards.forEach((card, idx) => {
-              card.addEventListener('mouseenter', () => clearInterval(metricAutoInterval));
-              card.addEventListener('mouseleave', () => startMetricAuto());
               card.addEventListener('click', () => {
-                clearInterval(metricAutoInterval);
+                resetMetricAutoTimer();
                 metricCards.forEach(c => c.classList.remove('active'));
                 card.classList.add('active');
                 currentMetric = idx;
               });
             });
+          } else {
+            onActivityCallback = null;
           }
 
           // Dispatch event to activate tilt
@@ -432,6 +498,7 @@ export async function renderProjects() {
         });
 
         updateShowcase();
+        resetAutoplayTimer();
       });
     });
 
@@ -447,6 +514,7 @@ export async function renderProjects() {
         });
 
         updateShowcase();
+        resetAutoplayTimer();
       });
     });
   };

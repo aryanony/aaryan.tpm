@@ -18,4 +18,57 @@ export async function renderStats() {
       </div>
     `;
   }).join('');
+
+  // Mobile autoplay logic
+  const isMobile = window.innerWidth <= 480;
+  if (isMobile) {
+    const items = container.querySelectorAll('.about__stat-item');
+    if (items.length > 0) {
+      let activeIdx = 0;
+      let autoplayInterval;
+      let resumeTimeout;
+
+      const activateItem = (index) => {
+        items.forEach((item, i) => item.classList.toggle('active', i === index));
+        activeIdx = index;
+      };
+
+      const stopAutoplay = () => {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+      };
+
+      const startAutoplay = () => {
+        stopAutoplay();
+        autoplayInterval = setInterval(() => {
+          activeIdx = (activeIdx + 1) % items.length;
+          activateItem(activeIdx);
+        }, 4000);
+      };
+
+      const resetTimer = () => {
+        stopAutoplay();
+        clearTimeout(resumeTimeout);
+        resumeTimeout = setTimeout(() => {
+          startAutoplay();
+        }, 5000);
+      };
+
+      activateItem(0);
+      startAutoplay();
+
+      // Bind click on items to manually expand and reset timer
+      items.forEach((item, idx) => {
+        item.addEventListener('click', () => {
+          resetTimer();
+          activateItem(idx);
+        });
+      });
+
+      // Bind interaction on the whole grid container to pause/reset timer
+      ['mousemove', 'mousedown', 'touchstart', 'keydown', 'scroll'].forEach(evt => {
+        container.addEventListener(evt, resetTimer, { passive: true });
+      });
+    }
+  }
 }

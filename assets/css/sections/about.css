@@ -46,6 +46,13 @@
   border-bottom: 1px solid var(--bd-subtle);
 }
 
+.about__stat-item .stat-icon {
+  margin-bottom: var(--sp-2);
+  color: var(--accent-p);
+  transform: scale(1.1);
+  display: inline-flex;
+}
+
 .about__stat-num {
   font-family: var(--font-display);
   font-size: var(--text-4xl);
@@ -565,30 +572,100 @@
 
 @media (max-width: 480px) {
   .about__stats-grid {
-    display: flex;
-    overflow-x: auto;
-    scrollbar-width: none;
-    gap: 0;
-    padding-bottom: var(--sp-4);
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: var(--sp-6) !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
   }
-  .about__stats-grid::-webkit-scrollbar {
-    display: none;
-  }
+  
   .about__stat-item {
-    flex: 0 0 auto;
-    min-width: 150px;
-    border-bottom: none;
-    border-right: 1px solid var(--bd-subtle);
-    padding: 0 var(--sp-5);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: var(--sp-4) 0 !important;
+    border: none !important;
+    border-bottom: 1px solid var(--bd-subtle) !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-bottom-color 0.4s !important;
+    transform: scale(1) !important;
+    transform-origin: center !important;
   }
-  .about__stat-item:first-child {
-    padding-left: 0;
+  
+  .about__stat-item.active {
+    transform: scale(1.06) !important;
+    border-bottom-color: var(--accent-p) !important;
   }
-  .about__stat-item:last-child {
-    border-right: none;
-    padding-right: var(--sp-4); /* Extra padding at end of scroll */
+
+  .about__stat-num {
+    font-family: var(--font-display) !important;
+    font-size: var(--text-4xl) !important;
+    font-weight: 700 !important;
+    color: var(--text-accent) !important;
+    line-height: 1.1 !important;
+    position: relative !important;
+  }
+
+  /* Clear indicator pseudo-elements from previous styling attempts */
+  .about__stat-item.active .about__stat-num::before {
+    display: none !important;
+  }
+
+  .about__stat-lbl {
+    font-family: var(--font-body) !important;
+    font-size: var(--text-sm) !important;
+    color: var(--text-secondary) !important;
+    margin-top: var(--sp-1) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: static !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    white-space: normal !important;
+    max-width: none !important;
+  }
+}
+
+/* Engineering stack card styling */
+.engineering-stack-card .eng-card-header {
+  color: var(--text-accent);
+  margin-bottom: var(--sp-4);
+}
+
+.eng-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+}
+
+.eng-title {
+  font-weight: 600;
+  display: block;
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+}
+
+.eng-list {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .eng-columns {
+    grid-template-columns: 1fr !important;
+    gap: var(--sp-4) !important;
+  }
+  
+  .eng-title {
+    font-size: var(--text-base) !important;
+    margin-bottom: 2px;
+  }
+  
+  .eng-list {
+    font-size: var(--text-sm) !important;
+    line-height: 1.4 !important;
   }
 }

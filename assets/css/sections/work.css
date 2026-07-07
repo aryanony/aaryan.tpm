@@ -155,21 +155,23 @@
 
 .work__metric-val {
   font-family: var(--font-display);
-  font-size: var(--text-lg);
+  font-size: var(--text-2xl);
   color: var(--text-primary);
-  font-weight: 700;
+  font-weight: 800;
   text-shadow: 0 0 6px rgba(13, 148, 136, 0.15);
   margin-top: var(--sp-1);
 }
 
 .work__metric-lbl {
   font-family: var(--font-mono);
-  font-size: var(--text-xxs);
-  color: var(--text-muted);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  font-weight: 600;
   text-transform: uppercase;
   text-align: center;
   margin-top: var(--sp-1);
   line-height: var(--leading-tight);
+  letter-spacing: 0.5px;
 }
 
 .work__board-bullets {
@@ -182,11 +184,12 @@
 }
 
 .work__board-bullets li {
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   color: var(--text-secondary);
   line-height: var(--leading-normal);
   position: relative;
   padding-left: var(--sp-5);
+  font-weight: 500;
 }
 
 .work__board-bullets li::before {
@@ -391,7 +394,7 @@
 
 @media (max-width: 767px) {
   .work__board-grid {
-    padding: var(--sp-5);
+    padding: var(--sp-3);
   }
 
   .work__controls-panel {
@@ -424,6 +427,34 @@
 
   .work__board-metrics {
     grid-template-columns: 1fr;
+  }
+
+  .work__mock-frame {
+    aspect-ratio: 4 / 5;
+  }
+
+  .work__board-title {
+    font-size: var(--text-4xl);
+    font-weight: 800;
+  }
+
+  .work__board-tagline {
+    font-size: var(--text-xl);
+    font-weight: 600;
+  }
+
+  .work__board-body {
+    font-size: var(--text-lg);
+    font-weight: 400;
+  }
+
+  .work__board-bullets li {
+    font-size: var(--text-base);
+  }
+
+  .work__board-details h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
   }
 }
 
@@ -531,13 +562,13 @@
   }
   
   .work__metric-card {
-    flex: 1;
+    flex: 2; /* Collapsed (takes 20%) */
     min-width: 0;
     transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   }
   
   .work__metric-card.active {
-    flex: 6; /* Give it slightly more flex room to fit text */
+    flex: 6; /* Active (takes 60%) */
     background: var(--bg-elevated);
     border-color: var(--accent-p);
   }
@@ -547,11 +578,12 @@
   }
   
   .work__metric-val {
-    font-size: 1rem !important; /* Smaller on mobile */
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
   }
   
   .work__metric-lbl {
-    font-size: 0.65rem !important;
+    font-size: 0.75rem !important;
     white-space: normal !important;
     line-height: 1.1 !important;
   }

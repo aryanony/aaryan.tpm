@@ -152,6 +152,8 @@ export async function renderExperience() {
   const trackFill = container.querySelector('.exp__track-fill');
 
   let accordionInterval;
+  let accordionResumeTimeout;
+  let onActivityCallback;
 
   // Inject content for specific index
   const updatePanel = (idx) => {
@@ -201,7 +203,7 @@ export async function renderExperience() {
             </div>
             <div class="exp__panel-details">
               <div>
-                <h4 style="font-family: var(--font-display); font-size: var(--text-base); margin-bottom: var(--sp-3); color: var(--text-primary); border-bottom: 1px solid var(--bd-subtle); padding-bottom: var(--sp-2);">Deliveries & Impact</h4>
+                <h4 style="font-family: var(--font-display); font-size: var(--text-lg); font-weight:700; margin-bottom: var(--sp-3); color: var(--text-primary); border-bottom: 1px solid var(--bd-subtle); padding-bottom: var(--sp-2);">Deliveries & Impact</h4>
                 <ul class="exp__bullets">
                   ${bulletsHTML}
                 </ul>
@@ -223,33 +225,70 @@ export async function renderExperience() {
         // Accordion Auto-Play Logic
         const accCards = panelInner.querySelectorAll('.exp__metric-card');
         let activeAccIdx = 0;
+        let accordionResumeTimeoutLocal;
 
         const activateAccCard = (index) => {
           accCards.forEach((c, i) => c.classList.toggle('active', i === index));
           activeAccIdx = index;
         };
 
-        const startAccordionAutoPlay = () => {
+        let lastAccActivityTime = 0;
+        let isHoveringAccordion = false;
+
+        const recordAccActivity = () => {
+          lastAccActivityTime = Date.now();
+        };
+
+        const stopAccordionAutoPlay = () => {
           clearInterval(accordionInterval);
+          accordionInterval = null;
+        };
+
+        const startAccordionAutoPlay = () => {
+          stopAccordionAutoPlay();
           accordionInterval = setInterval(() => {
+            if (isHoveringAccordion) return;
+            if (Date.now() - lastAccActivityTime < 6000) return;
+
             activeAccIdx = (activeAccIdx + 1) % accCards.length;
             activateAccCard(activeAccIdx);
           }, 3500);
         };
 
+        const resetAccordionTimer = () => {
+          recordAccActivity();
+        };
+
+        const resetAccordionTimerLocal = () => {
+          recordAccActivity();
+        };
+
+        onActivityCallback = resetAccordionTimer;
+        startAccordionAutoPlay();
+
+        // Bind direct card click activity
         accCards.forEach((card, i) => {
-          card.addEventListener('mouseenter', () => {
-            clearInterval(accordionInterval);
-            activateAccCard(i);
-          });
-          card.addEventListener('mouseleave', () => startAccordionAutoPlay());
           card.addEventListener('click', () => {
-            clearInterval(accordionInterval);
+            resetAccordionTimerLocal();
             activateAccCard(i);
           });
         });
 
-        startAccordionAutoPlay();
+        // Bind hover events to pause experience accordion autoplay when mouse is over it
+        const metricsContainer = panelInner.querySelector('.exp__panel-metrics');
+        if (metricsContainer) {
+          metricsContainer.addEventListener('mouseenter', () => {
+            isHoveringAccordion = true;
+          });
+          metricsContainer.addEventListener('mouseleave', () => {
+            isHoveringAccordion = false;
+            recordAccActivity();
+          });
+          
+          ['mousemove', 'mousedown', 'touchstart'].forEach(evt => {
+            metricsContainer.addEventListener(evt, recordAccActivity, { passive: true });
+          });
+        }
 
         // Animate metrics counter numbers
         panelInner.querySelectorAll('.exp__metric-val').forEach(el => {
@@ -328,6 +367,15 @@ export async function renderExperience() {
       updatePanel(activeIndex);
     });
   });
+
+  // Bind interaction events on experience dashboard to reset/hold autoplay
+  if (dbView) {
+    ['mousemove', 'mousedown', 'touchstart', 'keydown', 'scroll'].forEach(evt => {
+      dbView.addEventListener(evt, () => {
+        if (onActivityCallback) onActivityCallback();
+      }, { passive: true });
+    });
+  }
 
   // Initial render state
   updatePanel(0);

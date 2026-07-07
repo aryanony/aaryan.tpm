@@ -133,8 +133,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   background: rgba(13, 148, 136, 0.04);
   border: 1px solid var(--bd-subtle);
   color: var(--text-secondary);
@@ -149,9 +149,11 @@
   transform: translateY(-2px);
 }
 
-.footer__social-link svg {
-  width: 18px;
-  height: 18px;
+.footer__social-link svg,
+.footer__social-link i {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
 }
 
 .footer__col h3 {
@@ -165,13 +167,16 @@
 .footer__col-links {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-3);
+  gap: var(--sp-1);
 }
 
 .footer__col-links a {
   color: var(--text-secondary);
   font-size: var(--text-base);
   transition: color var(--dur-fast);
+  padding: var(--sp-2) 0;
+  display: flex;
+  align-items: center;
 }
 
 .footer__col-links a:hover {
