@@ -8,58 +8,105 @@
     :root {
       --bg-base: #030D0A;
       --text-primary: #EDF8F5;
-      --text-secondary: #8DADA4;
       --accent-p: #0D9488;
-      --accent-hover: #14B8A6;
-      --clip-btn: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+      --nav-h: 72px;
+      --z-loader: 10000;
     }
-    body {
+    html, body {
       background: var(--bg-base);
       color: var(--text-primary);
-      font-family: system-ui, sans-serif;
       margin: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
+      font-family: system-ui, sans-serif;
+      overflow-x: hidden;
     }
-    .wrapper {
-      max-width: 480px;
+    .loader-wrapper {
+      position: fixed; inset: 0; background: var(--bg-base); z-index: var(--z-loader);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px;
     }
-    .logo {
-      width: 64px; height: 64px; background: var(--accent-p);
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-      margin: 0 auto 32px;
-      box-shadow: 0 0 16px rgba(13,148,136,0.30);
+    .tpm-stages {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 380px; height: 200px;
+      position: relative; margin: 0 auto;
     }
-    h1 {
-      font-size: 36px;
-      margin: 0 0 16px;
+    .tpm-graph {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 1; pointer-events: none;
     }
-    p {
-      color: var(--text-secondary);
-      font-size: 18px;
-      line-height: 1.6;
-      margin: 0 0 32px;
+    #tpmGraphLine {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      /* Removed transition: handled purely by JS requestAnimationFrame for zero lag */
     }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.75rem 1.75rem;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      background: var(--accent-p);
-      color: #030D0A;
-      border: none;
-      clip-path: var(--clip-btn);
-      transition: background 0.3s;
+    .tpm-stage {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      opacity: 0.3; transition: all 0.4s ease;
+      z-index: 2; will-change: opacity, transform;
     }
-    .btn:hover {
-      background: var(--accent-hover);
+    .tpm-stage:nth-child(2) { transform: translateY(40px) translateZ(0); }
+    .tpm-stage:nth-child(3) { transform: translateY(0px) translateZ(0); }
+    .tpm-stage:nth-child(4) { transform: translateY(-40px) translateZ(0); }
+    .tpm-stage:nth-child(5) { transform: translateY(-80px) translateZ(0); }
+    
+    .tpm-box {
+      width: 56px; height: 56px; border-radius: 16px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.0) 100%);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative; overflow: hidden;
+      will-change: box-shadow, background; transform: translateZ(0);
+    }
+    .tpm-box::before {
+      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.5s ease; pointer-events: none;
+      will-change: opacity;
+    }
+    .tpm-box svg { width: 24px; height: 24px; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; filter: grayscale(100%) opacity(40%); will-change: transform, filter; transform: translateZ(0); }
+    
+    .tpm-label {
+      font-family: monospace; font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      color: rgba(128,128,128,0.7) !important; text-transform: uppercase; transition: all 0.5s ease;
+    }
+    
+    .tpm-stage.active { opacity: 1; }
+    .tpm-stage.active .tpm-box { background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%); }
+    .tpm-stage.active .tpm-box::before { opacity: 1; }
+    
+    .tpm-stage.active:nth-child(2) .tpm-box {
+      border-color: rgba(14, 165, 233, 0.4);
+      box-shadow: 0 0 25px rgba(14, 165, 233, 0.3), inset 0 0 12px rgba(14, 165, 233, 0.15);
+    }
+    .tpm-stage.active:nth-child(3) .tpm-box {
+      border-color: rgba(6, 182, 212, 0.4);
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.3), inset 0 0 12px rgba(6, 182, 212, 0.15);
+    }
+    .tpm-stage.active:nth-child(4) .tpm-box {
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.3), inset 0 0 12px rgba(59, 130, 246, 0.15);
+    }
+    .tpm-stage.active:nth-child(5) .tpm-box {
+      border-color: rgba(16, 185, 129, 0.4);
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.3), inset 0 0 12px rgba(16, 185, 129, 0.15);
+    }
+
+    .tpm-stage.active .tpm-box svg { filter: grayscale(0%) opacity(100%) drop-shadow(0 0 8px rgba(255,255,255,0.25)); transform: scale(1.15); }
+    .tpm-stage.active .tpm-label { color: inherit !important; text-shadow: 0 0 10px currentColor; }
+    
+    .tpm-progress-container {
+      width: 100%; max-width: 320px; display: flex; flex-direction: column; gap: 12px; margin-top: 16px;
+    }
+    .tpm-progress-text {
+      display: flex; justify-content: space-between; font-family: monospace;
+      font-size: 11px; font-weight: 600; letter-spacing: 1px; color: rgba(128,128,128,0.8);
+    }
+    .loader-progress { width: 100%; height: 2px; background: rgba(128,128,128,0.2); position: relative; overflow: hidden; display: none; /* Hidden since we have the graph */ }
+    .loader-progress-bar { position: absolute; top:0; left:0; height:100%; width:0%; background: var(--accent-p); transition: width 0.1s linear; }
+
+    @media (max-width: 600px) {
+      .tpm-stages { transform: scale(0.75); transform-origin: center center; margin-bottom: -40px; }
     }
   </style>
 

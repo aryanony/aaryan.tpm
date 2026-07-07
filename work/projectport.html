@@ -37,14 +37,93 @@
     }
     .loader-wrapper {
       position: fixed; inset: 0; background: var(--bg-base); z-index: var(--z-loader);
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px;
     }
-    .loader-logo {
-      width: 64px; height: 64px; background: var(--accent-p);
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    .tpm-stages {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 380px; height: 200px;
+      position: relative; margin: 0 auto;
     }
-    .loader-progress { width: 200px; height: 2px; background: rgba(255,255,255,0.06); position: relative; overflow: hidden; }
-    .loader-progress-bar { position: absolute; top:0; left:0; height:100%; width:0%; background: var(--accent-p); }
+    .tpm-graph {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 1; pointer-events: none;
+    }
+    #tpmGraphLine {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      /* Removed transition: handled purely by JS requestAnimationFrame for zero lag */
+    }
+    .tpm-stage {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      opacity: 0.3; transition: all 0.4s ease;
+      z-index: 2; will-change: opacity, transform;
+    }
+    .tpm-stage:nth-child(2) { transform: translateY(40px) translateZ(0); }
+    .tpm-stage:nth-child(3) { transform: translateY(0px) translateZ(0); }
+    .tpm-stage:nth-child(4) { transform: translateY(-40px) translateZ(0); }
+    .tpm-stage:nth-child(5) { transform: translateY(-80px) translateZ(0); }
+    
+    .tpm-box {
+      width: 56px; height: 56px; border-radius: 16px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.0) 100%);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative; overflow: hidden;
+      will-change: box-shadow, background; transform: translateZ(0);
+    }
+    .tpm-box::before {
+      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.5s ease; pointer-events: none;
+      will-change: opacity;
+    }
+    .tpm-box svg { width: 24px; height: 24px; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; filter: grayscale(100%) opacity(40%); will-change: transform, filter; transform: translateZ(0); }
+    
+    .tpm-label {
+      font-family: monospace; font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      color: rgba(128,128,128,0.7) !important; text-transform: uppercase; transition: all 0.5s ease;
+    }
+    
+    .tpm-stage.active { opacity: 1; }
+    .tpm-stage.active .tpm-box { background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%); }
+    .tpm-stage.active .tpm-box::before { opacity: 1; }
+    
+    .tpm-stage.active:nth-child(2) .tpm-box {
+      border-color: rgba(14, 165, 233, 0.4);
+      box-shadow: 0 0 25px rgba(14, 165, 233, 0.3), inset 0 0 12px rgba(14, 165, 233, 0.15);
+    }
+    .tpm-stage.active:nth-child(3) .tpm-box {
+      border-color: rgba(6, 182, 212, 0.4);
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.3), inset 0 0 12px rgba(6, 182, 212, 0.15);
+    }
+    .tpm-stage.active:nth-child(4) .tpm-box {
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.3), inset 0 0 12px rgba(59, 130, 246, 0.15);
+    }
+    .tpm-stage.active:nth-child(5) .tpm-box {
+      border-color: rgba(16, 185, 129, 0.4);
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.3), inset 0 0 12px rgba(16, 185, 129, 0.15);
+    }
+
+    .tpm-stage.active .tpm-box svg { filter: grayscale(0%) opacity(100%) drop-shadow(0 0 8px rgba(255,255,255,0.25)); transform: scale(1.15); }
+    .tpm-stage.active .tpm-label { color: inherit !important; text-shadow: 0 0 10px currentColor; }
+    
+    .tpm-progress-container {
+      width: 100%; max-width: 320px; display: flex; flex-direction: column; gap: 12px; margin-top: 16px;
+    }
+    .tpm-progress-text {
+      display: flex; justify-content: space-between; font-family: monospace;
+      font-size: 11px; font-weight: 600; letter-spacing: 1px; color: rgba(128,128,128,0.8);
+    }
+    .loader-progress { width: 100%; height: 2px; background: rgba(128,128,128,0.2); position: relative; overflow: hidden; display: none; /* Hidden since we have the graph */ }
+    .loader-progress-bar { position: absolute; top:0; left:0; height:100%; width:0%; background: var(--accent-p); transition: width 0.1s linear; }
+
+    @media (max-width: 600px) {
+      .tpm-stages { transform: scale(0.75); transform-origin: center center; margin-bottom: -40px; }
+    }
   </style>
 
   <!-- Deferred Stylesheet -->
@@ -65,11 +144,93 @@
 
   <!-- Preloader Screen -->
   <div class="loader-wrapper">
-    <div class="loader-logo"></div>
-    <div class="loader-progress">
-      <div class="loader-progress-bar"></div>
+    <div class="tpm-stages">
+      <!-- Glowing SVG Graph -->
+      <svg class="tpm-graph" viewBox="0 0 380 200">
+        <defs>
+          <linearGradient id="tpmGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#0ea5e9"/>
+            <stop offset="33%" stop-color="#06b6d4"/>
+            <stop offset="66%" stop-color="#3b82f6"/>
+            <stop offset="100%" stop-color="#10b981"/>
+          </linearGradient>
+        </defs>
+        <!-- Background dim line -->
+        <path d="M 28 140 C 64 117, 100 123, 136 100 C 172 77, 208 83, 244 60 C 280 37, 316 43, 352 20" 
+              fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Glowing progress line (Optimized for Mobile) -->
+        <path id="tpmGraphLine" d="M 28 140 C 64 117, 100 123, 136 100 C 172 77, 208 83, 244 60 C 280 37, 316 43, 352 20" 
+              fill="none" stroke="url(#tpmGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" style="will-change: stroke-dashoffset; transform: translateZ(0);"/>
+      </svg>
+
+      <div class="tpm-stage" id="tpmStage1">
+        <div class="tpm-box">
+          <!-- Clipboard / Plan (Bolder) -->
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="20" rx="3" fill="#4f46e5" />
+            <path d="M7 2h10v4H7z" fill="#0ea5e9" />
+            <path d="M8 12.5l2.5 2.5 5.5-5.5" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="tpm-label" style="color: #0ea5e9;">PLAN</span>
+      </div>
+      
+      <div class="tpm-stage" id="tpmStage2">
+        <div class="tpm-box" style="border-color: #06b6d4;">
+          <!-- Code / Build (Bolder) -->
+          <svg viewBox="0 0 24 24">
+            <rect x="1" y="4" width="22" height="16" rx="3" fill="#1e1b4b" />
+            <path d="M1 7c0-1.65 1.35-3 3-3h16c1.65 0 3 1.35 3 3v4H1V7z" fill="#312e81" />
+            <circle cx="5" cy="7.5" r="2" fill="#ef4444" />
+            <circle cx="10" cy="7.5" r="2" fill="#eab308" />
+            <circle cx="15" cy="7.5" r="2" fill="#10b981" />
+            <line x1="4" y1="14" x2="11" y2="14" stroke="#06b6d4" stroke-width="3" stroke-linecap="round"/>
+            <line x1="14" y1="14" x2="20" y2="14" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+            <line x1="4" y1="18" x2="16" y2="18" stroke="#a855f7" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="tpm-label" style="color: #06b6d4;">BUILD</span>
+      </div>
+      
+      <div class="tpm-stage" id="tpmStage3">
+        <div class="tpm-box" style="border-color: #3b82f6;">
+          <!-- Chart / Test (Bolder) -->
+          <svg viewBox="0 0 24 24">
+            <rect x="2" y="3" width="20" height="18" rx="3" fill="#172554" />
+            <rect x="5" y="14" width="4" height="5" rx="1" fill="#0ea5e9" />
+            <rect x="10.5" y="10" width="4" height="9" rx="1" fill="#06b6d4" />
+            <rect x="16" y="5" width="4" height="14" rx="1" fill="#a855f7" />
+          </svg>
+        </div>
+        <span class="tpm-label" style="color: #3b82f6;">TEST</span>
+      </div>
+      
+      <div class="tpm-stage" id="tpmStage4">
+        <div class="tpm-box" style="border-color: #10b981;">
+          <!-- Rocket / Ship (Bolder) -->
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2c0 0-6 5-6 13 0 3 2 5 2 5h8s2-2 2-5c0-8-6-13-6-13z" fill="#4f46e5" />
+            <circle cx="12" cy="11" r="3" fill="#0ea5e9" />
+            <path d="M6 14l-3 4v3h5M18 14l3 4v3h-5" fill="none" stroke="#06b6d4" stroke-width="4" stroke-linejoin="round"/>
+            <path d="M9 20h6l-3 4z" fill="#10b981" />
+          </svg>
+        </div>
+        <span class="tpm-label" style="display:flex; align-items:center; gap:4px; color: #10b981;">SHIP <span style="background:#10b981; color:#0A1612; padding:2px 4px; border-radius:4px; font-size:8px;">● LIVE</span></span>
+      </div>
+    </div>
+    <div class="tpm-progress-container">
+      <div class="tpm-progress-text">
+        <span id="tpmPhaseText">PLANNING SPRINT...</span>
+        <span id="tpmPercentText" style="color: var(--accent-p)">0%</span>
+      </div>
+      <div class="loader-progress">
+        <div class="loader-progress-bar"></div>
+      </div>
     </div>
   </div>
+
+  <!-- Skip to Main Content (a11y) -->
+  <a href="#main-content" class="btn btn-p" style="position: absolute; top: -100px; left: var(--sp-4); z-index: 1000; transition: top 0.2s;" onfocus="this.style.top='10px'" onblur="this.style.top='-100px'">Skip to main content</a>
 
   <!-- NAVIGATION HEADER -->
   <nav class="nav">

@@ -23,6 +23,7 @@ import { initMagnetic }         from '@interactions/magnetic.js';
 import { initTilt }             from '@interactions/tilt.js';
 import { initSmoothScroll }     from '@interactions/smooth-scroll.js';
 import { initAboutTabs, initWhyConsole, initJourneyStepper } from '@interactions/tabs.js';
+import { initCommandPalette }   from '@interactions/cmd-k.js';
 import { initHeroAnimation }    from '@animations/hero-animations.js';
 import { initScrollAnimations } from '@animations/scroll-reveal.js';
 import { initTypewriter }       from '@animations/typewriter.js';
@@ -76,7 +77,7 @@ async function init() {
     initLazyLoad();
     initCopyEmail();
     initGlobalLivePreview();
-
+    initCommandPalette();
     // 5. Scroll Reveals & Special animations
     initHeroAnimation();
     initScrollAnimations();
@@ -111,3 +112,16 @@ async function init() {
 document.readyState === 'loading'
   ? document.addEventListener('DOMContentLoaded', init)
   : init();
+
+// 10. Register Service Worker for PWA & Offline Support
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(registration => {
+        console.log('[PWA] Service Worker registered successfully:', registration.scope);
+      })
+      .catch(error => {
+        console.warn('[PWA] Service Worker registration failed:', error);
+      });
+  });
+}

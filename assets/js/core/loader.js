@@ -65,12 +65,12 @@ export function initLoader() {
   // Smooth buttery animation loop synced to monitor refresh rate
   const animate = () => {
     // If still waiting on resources but stuck at 0, slowly creep up
-    if (targetProgress < 10 && currentProgress < 10) targetProgress += 0.05;
+    if (targetProgress < 10 && currentProgress < 10) targetProgress += 0.2;
     if (isComplete) targetProgress = 100;
 
-    // Smooth easing
+    // Fast, ultra-smooth easing
     let diff = targetProgress - currentProgress;
-    currentProgress += diff * 0.05; // 5% easing per frame for perfect smoothness
+    currentProgress += diff * 0.25; // 25% easing per frame for ultra-fast smoothness
 
     if (currentProgress > 99.9 && isComplete) {
       currentProgress = 100;
@@ -121,8 +121,8 @@ export function initLoader() {
       loader.classList.add('loaded');
       setTimeout(() => {
         loader.remove();
-      }, 600);
-    }, 450);
+      }, 300);
+    }, 100);
   };
 
   // Start loop
