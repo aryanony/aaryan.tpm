@@ -1,8 +1,24 @@
 User-agent: *
 Allow: /
-Disallow: /assets/css/
-Disallow: /assets/js/
-Disallow: /data/
-Disallow: /node_modules/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /draft/
+
+# Explicitly allow AI crawlers to access the entire site for SEO/AEO/GEO optimization
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: GoogleExtendedBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
 
 Sitemap: https://aaaryangupta.com/sitemap.xml
+

@@ -35,6 +35,7 @@ import { renderSkills }         from '@sections/skills-render.js';
 import { renderFAQ }            from '@sections/faq-render.js';
 import { renderStats }          from '@sections/stats-render.js';
 import { renderHealthtech }     from '@sections/healthtech-render.js';
+import { renderProducts }       from '@sections/products-render.js';
 import { initNav }              from '@sections/nav.js';
 import { initContactForm }      from '@forms/contact-form.js';
 import { initScrollProgress }   from '@utils/scroll-progress.js';
@@ -61,6 +62,7 @@ async function init() {
       renderFAQ(), 
       renderStats(),
       renderHealthtech(),
+      renderProducts(),
     ]);
     
     // Dispatch ready event for tilt and magnetic hooks

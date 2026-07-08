@@ -1,0 +1,225 @@
+{
+  "greeting": {
+    "patterns": ["hello", "hi", "hey", "greetings", "sup", "yo", "hola", "namaste", "start", "welcome"],
+    "responses": [
+      "Hey there! 👋 I'm Aaryan's AI assistant. I'm here to answer any questions about his project management work, software delivery, or Health-Tech products. What would you like to explore today?",
+      "Hello! 😊 I'm Aaryan Gupta's virtual assistant. I can tell you about his background, services, experience, and the software systems he builds for clinics and businesses. What can I do for you?",
+      "Hi! Welcome. I know everything about Aaryan's portfolio, including projects like ProjectPort, UiBrium, and his practice management tools. What's on your mind? 🚀",
+      "Hey! Glad you stopped by. 👋 I can guide you through Aaryan's case studies, tech stack, and freelance services, or answer clinical software questions. What are you looking for?"
+    ]
+  },
+  "about": {
+    "patterns": ["who is aaryan", "about aaryan", "tell me about aaryan", "tell me about him", "who are you", "introduce", "about yourself", "about him", "background", "bio", "profile"],
+    "responses": [
+      "Aaryan Gupta is a Technical Project Manager (TPM) based in Jaipur, India. He specializes in health-tech digital transformation, SaaS project coordination, AI automation, and building micro-SaaS software for clinics and SMBs. He graduated with an MCA from AKTU (2025, CGPA 7.31) and transitioned from frontend development to PM because he realized coordination is where tech projects succeed or fail. Would you like to know more about his professional experience or his tech stack?",
+      "He's a dev-turned-PM who bridges complex technology and business execution. Based out of Jaipur, with markets in Ahmedabad, Noida, and globally, Aaryan has successfully delivered 20+ projects across healthcare, e-commerce, and SaaS. He currently works as an Associate Project Manager at Oblinex, coordinating products for 70+ international markets! Should I share his education or key project details?",
+      "Aaryan is a technical PM with a developer background. He excels at managing Agile teams, planning sprints, and provisioning servers. He is highly passionate about improving digital health in India by building one-time purchase, self-hosted software for clinics (like TokenQ and RxPad). What aspect of his background can I clarify?"
+    ]
+  },
+  "skills": {
+    "patterns": ["skills", "tech stack", "technologies", "what can he do", "expertise", "capable", "proficient", "tools", "programming", "code", "development", "languages"],
+    "responses": [
+      "Aaryan is highly fluent in both project management and software engineering. Here is his stack:\n\n🔹 **Project Management:** Agile, Scrum, Kanban, Jira, Notion, Trello, Miro, Sprint Governance, Risk Management, QA Validation.\n🔹 **Frontend:** React.js, Next.js, HTML5, CSS3, JavaScript (ES6+), TypeScript, Tailwind CSS.\n🔹 **Backend & Database:** Node.js, Express.js, MongoDB, MySQL, Firebase, REST APIs.\n🔹 **AI & Automation:** Prompt Engineering, OpenAI/Claude APIs, Botpress, n8n, Make/Zapier, WhatsApp Business Automation.\n🔹 **DevOps & Cloud:** Git, GitHub, Vercel, Linux (Debian/Ubuntu Server Administration), VPS Provisioning, SSL setup.\n\nWould you like to hear about the projects he built using these skills?",
+      "He spans frontend code (React, Tailwind), backend structures (Node, MongoDB), DevOps deployment (Linux, Vercel, VPS, domains), and AI automation (n8n, Botpress). This means he speaks the developer's language, allowing him to estimate tasks and lead engineering sprints with 40% less planning overhead. Want to know more about his Agile process?",
+      "With a blend of MERN development and Agile PM disciplines, Aaryan can read code, test API endpoints, provision VPS servers, write SQL/NoSQL queries, and manage Scrum tickets in Jira. He doesn't just manage schedules — he manages product architecture. What tech or tool are you interested in?"
+    ]
+  },
+  "experience": {
+    "patterns": ["experience", "career", "work history", "resume", "professional", "years", "companies", "jobs", "timeline", "work"],
+    "responses": [
+      "Aaryan has 3+ years of professional experience in IT delivery. Here's a breakdown of his roles:\n\n1. **Associate Project Manager | Oblinex Pvt. Ltd. (May 2025 — Present):** Managing end-to-end delivery for concurrent live accounts across 70+ international markets (US, UK, UAE, Europe, etc.). Coordinates sprints, conducts pre-release QA, and provisions VPS servers (Ubuntu, SSL, domain routing).\n2. **Frontend Web3 Developer Intern | MyDigiShell (Apr 2025 — Feb 2026):** Managed Web3 client dashboard integrations and wallet integrations over 11 months using React and Tailwind.\n3. **Digital Marketer & E-Commerce Strategist | Elipact Enterprises (Nov 2021 — Mar 2022):** Led SEO content plans and landing page builds for Shopify/WordPress.\n4. **Web Developer & WordPress Specialist | Startup Web Support (Aug 2021 — Nov 2021):** Delivered optimized, responsive websites brief-to-launch.\n\nWould you like to see his educational credentials or project case studies?",
+      "Over the last 3 years, Aaryan has delivered 20+ technology projects and overseen client operations in 70+ international markets. He currently handles account onboarding, sprint planning, ticket tracking, and app store updates at Oblinex, Patna. Would you like me to highlight his health-tech portfolio or his certifications?"
+    ]
+  },
+  "education": {
+    "patterns": ["education", "college", "university", "aktu", "lloyd", "mca", "bca", "munger", "cgpa", "academics", "qualifications", "degree"],
+    "responses": [
+      "Aaryan's academic qualifications include:\n\n🎓 **Master of Computer Applications (MCA):** Lloyd Institute of Engineering & Technology, Greater Noida (affiliated with AKTU University), 2023–2025 | CGPA: 7.31.\n🎓 **Bachelor of Computer Applications (BCA):** R.D & D.J College, Munger University, Bihar, 2019–2023 | Grade: 72.36%.\n\nHe also holds professional credentials like the nasscom STEM Digital Application Fundamentals, and freeCodeCamp MERN development certifications. Should I tell you about his signature projects?"
+    ]
+  },
+  "certifications": {
+    "patterns": ["certifications", "certified", "credentials", "courses", "certificates", "ibm", "nasscom", "freecodecamp"],
+    "responses": [
+      "Aaryan holds several key certifications:\n\n🏆 **IBM / IBMMooc:** Virtual Internship in Web & Mobile Development (MERN Stack, 2026)\n🏆 **nasscom / MeitY:** Digital Application Fundamentals STEM (2026)\n🏆 **freeCodeCamp:** JavaScript Algorithms & Data Structures, and Responsive Web Design / Front End Libraries\n🏆 **The Digital Adda:** Cryptocurrency & Blockchain Certification\n\nThese support his technical foundations. Ready to see some of his built products?"
+    ]
+  },
+  "projects": {
+    "patterns": ["projects", "built", "created", "developed", "case studies", "showcase", "uibrium", "projectport", "portfolio"],
+    "responses": [
+      "He has built several high-impact products, including:\n\n🚀 **ProjectPort:** A full-stack client project automation platform (React, Node, MongoDB) that accelerates client onboarding by 40%.\n🚀 **UiBrium:** An open-source React UI dashboard component library published on NPM with over 2,000 downloads, focusing on dark-mode dashboards and 100% accessibility.\n🚀 **Aryanony AI Bot:** An automated lead qualification and support bot that reduces client ticket loads by 60%.\n🚀 **Micro-SaaS Clinic Apps:** Patient queue (TokenQ) and prescription pad systems deployed locally for doctors.\n\nWhich of these would you like to dive into?",
+      "Aaryan has delivered multiple custom products, including ProjectPort (SaaS client dashboard), UiBrium (React components on NPM), and several clinic queue/prescription generators. I can provide detailed features, price points, and links for any of them! Which one should we check?"
+    ]
+  },
+  "projectport": {
+    "patterns": ["projectport", "project port", "onboarding platform", "saas platform", "projectsport"],
+    "responses": [
+      "**ProjectPort** is Aaryan's full-stack client project automation platform. It features automated invoice generation, contract signing, client dashboard widgets, and Slack webhooks to notify team channels of new onboarding events. It is built with React.js, Node.js, and MongoDB, and is live at **projectsport.vercel.app**!"
+    ]
+  },
+  "uibrium": {
+    "patterns": ["uibrium", "ui library", "component library", "npm package", "react components"],
+    "responses": [
+      "**UiBrium** is Aaryan's open-source React UI dashboard component library published on NPM. It is designed specifically for dark-mode dashboard developers, providing highly clean, angular layouts, satoshi typography, and 100% accessibility compliance. It has crossed 2,000 downloads on NPM! Check it out at **uibrium.vercel.app**."
+    ]
+  },
+  "aibot": {
+    "patterns": ["ai bot", "chatbot", "aryanony bot", "conversational", "assistant", "how do you work", "widget"],
+    "responses": [
+      "You're chatting with a version of the **Aryanony AI Assistant** right now! 😊 In production, this assistant integrates with platforms like Botpress and LLM APIs to handle client inquiries, qualify freelance leads, and schedule Calendly calls automatically, helping teams cut support ticket volumes by 60%."
+    ]
+  },
+  "services": {
+    "patterns": ["services", "offer", "provide", "consulting", "hire", "freelance", "work with", "rates", "pricing", "cost", "quote", "charge", "packages"],
+    "responses": [
+      "Aaryan offers various services and products:\n\n💼 **Technical Project Management / Retainers:** Sprint planning, Agile governance, QA release oversight (₹25k–₹60k/month or ₹25k–₹80k/project).\n🏥 **Health-Tech Consulting:** Practice workflow digitization for clinics and diagnostic labs.\n🤖 **AI & Automation:** Custom WhatsApp auto-replies, n8n workflows, support bot integrations (₹8k–₹30k one-time).\n💻 **Micro-SaaS Products:** Zero-subscription, self-hosted tools like TokenQ or RxPad Pro (₹5k–₹35k one-time).\n🛠️ **Website Maintenance:** Retainers starting at ₹2,000/month.\n\nWould you like details on the pricing packages or the clinic products?"
+    ]
+  },
+  "pricing": {
+    "patterns": ["pricing", "cost", "rates", "how much", "charge", "packages", "price", "fee", "fees", "hourly", "retainer"],
+    "responses": [
+      "Here is Aaryan's transparent pricing schedule:\n\n- **Agile PM / Team Coordination:** ₹25,000 – ₹60,000/month (Retainer).\n- **Project PM Delivery:** ₹25,000 – ₹80,000 depending on scope.\n- **Self-Hosted Micro-SaaS:** ₹5,000 – ₹35,000 one-time setup (Zero monthly software fees).\n- **AI Workflow Automations (n8n/Make):** ₹8,000 – ₹30,000 one-time.\n- **Website Maintenance retaining contracts:**\n  - *Essential:* ₹2,000/month (security checks + minor updates)\n  - *Professional:* ₹4,000/month (performance optimization + 10 hrs support)\n  - *Premium:* ₹8,000/month (priority emergency support + unlimited minor updates)\n\nAll services begin with a free 30-minute scoping call (calendly.com/aaryanpm/30min)."
+    ]
+  },
+  "healthtech": {
+    "patterns": ["healthtech", "healthcare", "medical", "clinic", "hospital", "doctor", "emr", "patient", "practice", "opd", "prescription"],
+    "responses": [
+      "Health-Tech is Aaryan's primary specialization. He bridges the clinical workflow gap for Indian doctors. He knows that clinic software fails if it ignores reception-to-OPD timings, receptionist comfort levels, or internet dropouts. To fix this, he designs and deploys custom, self-hosted tools: **TokenQ** (WhatsApp queue system), **RxPad Pro** (digital prescriptions), **LabTrack Pro** (lab flows), **RecallMD** (automated follow-ups), and **CareReview** (ratings builder).\n\nAll tools are **one-time purchase**, self-hosted on the clinic's local machine or a VPS, with **no monthly subscription fees**! Are you a doctor or clinic owner in Jaipur, Ahmedabad, or elsewhere?",
+      "Most software developers build clinic apps with complex interfaces that doctors find too slow to use in a 3-minute checkup window. Aaryan custom-scopes clinical systems (EMR, patient queues, prescriptions) around the doctor's actual workflow, removing tech chaos and giving doctors back 2 hours per day. Want me to break down his specific clinic software products?"
+    ]
+  },
+  "tokenq": {
+    "patterns": ["tokenq", "queue system", "token", "patient queue", "opd queue"],
+    "responses": [
+      "**TokenQ** is Aaryan's OPD Patient Queue System designed to eliminate crowded waiting rooms. Patients scan a QR code to receive token updates directly via WhatsApp. The doctor and receptionist see a real-time live queue screen. One-time setup: ₹6,000 – ₹12,000 (deployed in 24 hours). Zero monthly SaaS fees!"
+    ]
+  },
+  "rxpad": {
+    "patterns": ["rxpad", "prescription pad", "rxpad pro", "prescription generator", "prescriptions"],
+    "responses": [
+      "**RxPad Pro** is a Digital Prescription Pad. It allows doctors to type or voice-input prescription notes quickly. The system automatically structures diagnoses and dosages and generates a clean, branded PDF on the clinic's letterhead. It also stores complete patient history. One-time setup: ₹5,000 – ₹10,000 (deployed in 24 hours)."
+    ]
+  },
+  "labtrack": {
+    "patterns": ["labtrack", "lab management", "labtrack pro", "laboratory", "diagnostic"],
+    "responses": [
+      "**LabTrack Pro** is a diagnostic laboratory workflow manager. It handles sample tracking from collection to testing, generates structured pathology/radiology reports, and sends PDF reports to patients automatically via WhatsApp. One-time setup: ₹15,000 – ₹35,000 (deployed in 48 hours)."
+    ]
+  },
+  "recallmd": {
+    "patterns": ["recallmd", "patient follow-up", "follow-up", "appointment reminder", "reminders", "followups"],
+    "responses": [
+      "**RecallMD** is a Patient Follow-Up Automation tool. It integrates with WhatsApp to send automated appointment reminders, post-treatment follow-up questions, and dosage schedules, requiring zero manual work from your staff. One-time setup: ₹4,000 – ₹8,000 (deployed in 12 hours)."
+    ]
+  },
+  "carereview": {
+    "patterns": ["carereview", "reputation management", "google reviews", "clinic review", "reviews", "ratings"],
+    "responses": [
+      "**CareReview** is a Google Review Builder for clinics. It sends automated post-visit check-ins on WhatsApp, prompting happy patients to share their feedback on Google Maps, helping doctors grow their local digital footprint. One-time setup: ₹4,000 – ₹9,000 (deployed in 12 hours)."
+    ]
+  },
+  "doctor_special": {
+    "patterns": ["digitize", "practice management", "why self hosted", "why self-hosted", "zero monthly fees", "monthly fees", "saas fee", "server", "vps"],
+    "responses": [
+      "Aaryan's key differentiator for medical professionals is his **One-Time Purchase, Self-Hosted model**. Instead of paying ₹2,000–₹5,000 every single month to cloud software vendors (who hold your patient data hostage), Aaryan builds and installs the software directly on your clinic's own computer or a private VPS. You own your data forever, secure patient confidentiality, and pay ₹0 in monthly subscription fees. Want to discuss digitizing your clinic?"
+    ]
+  },
+  "location_jaipur": {
+    "patterns": ["jaipur", "rajasthan", "sms hospital", "sawai man singh", "riico", "vaishali", "malviya", "jln", "ima jaipur"],
+    "responses": [
+      "Aaryan is based in Jaipur, Rajasthan, and is active in the local healthcare and startup ecosystem! He works closely with medical clinics and healthcare practitioners across neighborhoods like Vaishali Nagar, Malviya Nagar, and JLN Marg, and is familiar with the digital needs of local clinics near SMS Hospital (Sawai Man Singh Hospital) and the RIICO industrial networks. Would you like to schedule a local in-person meeting in Jaipur to discuss your project?"
+    ]
+  },
+  "location_ahmedabad": {
+    "patterns": ["ahmedabad", "gujarat", "gift city", "civil hospital ahmedabad", "ispirt gujarat", "sg highway", "pharma"],
+    "responses": [
+      "Aaryan focuses on the Ahmedabad market, targeting Gujarat's growing health-tech corridor, GIFT City startups, and the pharmaceutical hubs along SG Highway. He understands the strict operational demands of diagnostic labs and clinics in areas like Satellite and Vastrapur. He can coordinate remotely or schedule visits to Ahmedabad for major deployment milestones. Want to talk about health-tech setup in Gujarat?"
+    ]
+  },
+  "contact": {
+    "patterns": ["contact", "reach", "email", "phone", "call", "connect", "get in touch", "hire", "talk to him", "whatsapp", "calendly", "book", "meeting", "number", "mobile", "address", "location"],
+    "responses": [
+      "You can connect with Aaryan in several ways:\n\n📧 **Email:** aaryangupta.pm@gmail.com\n📞 **Phone:** +91 62056 50368\n💬 **WhatsApp:** wa.me/916205650368\n🗓️ **Calendly:** Book a free 30-minute strategy call at **calendly.com/aaryanpm/30min**\n\nHe is based in Noida (office/residence) but regularly meets clients in Jaipur and Ahmedabad. What's the best way for him to reach out to you?",
+      "To hire Aaryan or discuss a project, you can email him at aaryangupta.pm@gmail.com, message on WhatsApp (+91 62056 50368), or directly reserve a slot on his calendar at **calendly.com/aaryanpm/30min**. He usually replies within 4 hours!"
+    ]
+  },
+  "smalltalk_howareyou": {
+    "patterns": ["how are you", "how do you do", "how is it going", "whats up", "how r u"],
+    "responses": [
+      "I am doing fantastic, thank you! 😊 Ready to share everything about Aaryan's project delivery and clinic solutions. How are you doing today?",
+      "Doing great! 🚀 Just cataloging project deadlines and queue systems. What brings you to Aaryan's website today?"
+    ]
+  },
+  "smalltalk_joke": {
+    "patterns": ["tell me a joke", "make me laugh", "joke", "jokes"],
+    "responses": [
+      "Why do programmers prefer dark mode? Because light attracts bugs! 🐛😂",
+      "There are 10 types of people in the world: those who understand binary, and those who don't! 🤓",
+      "How many programmers does it take to change a lightbulb? None, that's a hardware problem! 💡"
+    ]
+  },
+  "smalltalk_bot": {
+    "patterns": ["are you a bot", "are you human", "are you real", "are you a machine", "who are you"],
+    "responses": [
+      "I'm Aaryan's automated AI assistant! 🤖 I don't eat or sleep, but I'm loaded with all of Aaryan's professional bio, pricing, and project data to help you instantly. Want to get in touch with Aaryan himself?",
+      "I am a virtual assistant built to represent Aaryan's portfolio. Think of me as the digital twin of his project coordination mind! How can I help you today?"
+    ]
+  },
+  "thanks": {
+    "patterns": ["thanks", "thank you", "thx", "appreciate", "helpful", "great", "awesome", "cool", "nice", "perfect"],
+    "responses": [
+      "You're very welcome! 😊 Let me know if you want to explore his other projects (like UiBrium or ProjectPort) or check his availability.",
+      "Anytime! Glad I could help. Feel free to ask more questions, or book a quick scoping call with Aaryan: calendly.com/aaryanpm/30min! 🚀",
+      "Glad that was helpful! Let me know if you need his WhatsApp or email info. 👍"
+    ]
+  },
+  "bye": {
+    "patterns": ["bye", "goodbye", "see you", "later", "exit", "quit", "close", "thanks bye"],
+    "responses": [
+      "Goodbye! 👋 Have a wonderful day. Aaryan is just an email (aaryangupta.pm@gmail.com) or Calendly booking away if you need him!",
+      "Catch you later! Don't hesitate to reach out to Aaryan at wa.me/916205650368 when you're ready to ship! ✨"
+    ]
+  },
+  "self_hosted_benefits": {
+    "patterns": ["benefits of self hosted", "why self hosted", "why selfhosted", "cloud vs local", "own server", "host my own", "data security", "data ownership"],
+    "responses": [
+      "Self-hosting clinic or business software gives you three major benefits:\n\n1. **Zero Recurring SaaS Fees:** You pay a single one-time setup fee instead of paying ₹2,000–₹5,000 every single month. Over 5 years, this saves ₹1.2 Lakh to ₹3 Lakhs.\n2. **100% Data Security & Privacy:** Your patient records and prescription histories are stored on your own local PC or your private VPS. No third-party company can access, inspect, or hold your clinical data hostage.\n3. **Tailored Workflow Speed:** Cloud-based software lags when your internet drops. A locally hosted instance runs at LAN speed (0.1ms latency), meaning reception desk check-ins and Doctor OPD prescription generation load instantly.",
+      "Traditional cloud SaaS services own your data, lock you into monthly payments, and go offline when the internet goes down. Deploying a self-hosted instance (via Aaryan's micro-SaaS framework) means you own the database, secure clinical confidentiality, and pay zero recurring subscriptions. Want to know how we deploy it?"
+    ]
+  },
+  "practo_alternative": {
+    "patterns": ["practo", "lybrate", "docpulse", "alternative to practo", "competitor", "difference from practo", "practo replacement", "why not practo"],
+    "responses": [
+      "Compared to platforms like Practo, Lybrate, or Docpulse, Aaryan's self-hosted tools represent a fundamentally different philosophy:\n\n- **Zero Commissions / Monthly Fees:** Practo charges commission per booking or a high monthly subscription. Aaryan's tools are a one-time purchase.\n- **Data Custody:** Platforms like Practo share/analyze your clinic's patient metrics for marketing. With Aaryan's custom self-hosted setup, the database is 100% yours, private, and secure.\n- **OPD Speed:** Practo requires a continuous, high-speed internet connection. Aaryan's queue (TokenQ) and prescription (RxPad) tools run locally at the clinic, making them immune to internet drops."
+    ]
+  },
+  "setup_process": {
+    "patterns": ["how to deploy", "setup process", "installation", "how do you install", "setup steps", "how does it work", "deployment", "time to setup"],
+    "responses": [
+      "The deployment process is simple and completely handled by Aaryan:\n\n1. **Workflow Mapping (30-Min Call):** We understand your clinic's layout and diagnose how your queue and prescribing flows.\n2. **Infrastructure Prep:** Aaryan provisions a clean VPS (like Ubuntu via Hostinger/DigitalOcean) or configures a local PC at your clinic.\n3. **Installation & Coding:** Aaryan installs Node/Express, sets up MongoDB/MySQL, registers WhatsApp API templates, and configures secure SSL.\n4. **OPD Simulation & Live Training:** We run test tokens and prescriptions to train your receptionist and check timings (12-48 hrs setup window).\n\nReady to discuss your clinic's setup?"
+    ]
+  },
+  "whatsapp_compliance": {
+    "patterns": ["whatsapp compliance", "is whatsapp official", "whatsapp api", "whatsapp spam", "whatsapp rules", "whatsapp business", "legal"],
+    "responses": [
+      "Yes, Aaryan integrates official, compliant Meta WhatsApp Business APIs or secure local automation gateways to ensure your messages are 100% legal. The queue tokens (TokenQ) and prescriptions (RxPad Pro) are sent via approved messaging templates, meaning you avoid number blocking or spam flags. We configure template variables dynamically so messages feel personalized and clinic-branded."
+    ]
+  },
+  "maintenance_details": {
+    "patterns": ["what if it breaks", "support", "maintenance contract", "backups", "recovery", "bugs", "fixes", "updates"],
+    "responses": [
+      "Aaryan provides solid post-delivery safety nets:\n\n- **30-Day Free Support:** Every custom setup includes 30 days of free troubleshooting.\n- **Automated Backups:** We schedule daily, encrypted database backups to your Google Drive or AWS S3, ensuring zero data loss.\n- **Website Maintenance retaining packages:** For ongoing safety, you can enroll in a maintenance retainer starting at ₹2,000/month for active monitoring, server updates, and emergency support."
+    ]
+  },
+  "customization": {
+    "patterns": ["can you customize", "custom fields", "add fields", "my own logo", "custom tests", "custom features", "modify code"],
+    "responses": [
+      "Yes, absolutely! Since Aaryan's micro-SaaS applications are delivered as one-time setup products (not rigid cloud platforms), the source code is tailored directly to your clinic. We can add custom pathology tests to LabTrack Pro, customize prescription fields in RxPad Pro to match your exact clinic letterhead, or adapt booking forms to capture specific patient inputs."
+    ]
+  },
+  "oblinex_detailed": {
+    "patterns": ["oblinex", "oblinex pvt ltd", "associate pm", "what is oblinex", "what does he do at oblinex"],
+    "responses": [
+      "Oblinex Pvt. Ltd. is an international technology and software delivery organization. As an Associate Project Manager at Oblinex, Aaryan oversees infrastructure, database deployments, and developer teams serving clients across **70+ global markets**. This role has trained him in managing highly scalable databases, configuring bulletproof VPS hosting, and keeping remote teams aligned under strict delivery schedules."
+    ]
+  }
+}

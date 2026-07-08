@@ -1,12 +1,12 @@
 # AARYAN GUPTA — WEBSITE MASTER DOCUMENT
 ## Complete AI Build Guide | Portfolio & Personal Brand Website
 ### Version: 2025–2027 | Strategy: SEO + AEO + GEO + Conversion
-### Public Name: Aaryan Gupta | Legal/Document Name: Aryan Raj
+### Aaryan Gupta 
 
 ---
 
 > **INSTRUCTION TO AI BUILDING THIS WEBSITE:**
-> This document is the single source of truth for building the personal portfolio and brand website of Aaryan Gupta (legal name: Aryan Raj), a Technical Project Manager specializing in Health-Tech, SaaS, and website coordination. Read every section completely before generating a single line of code or copy. Every decision — architecture, copy, schema, URL, heading, CTA — must follow this document exactly. No deviation. No assumptions. Ask if unclear. The goal is a world-class, conversion-optimized, AI-visible, SEO-dominant personal brand website that generates unlimited genuine freelance clients.
+> This document is the single source of truth for building the personal portfolio and brand website of Aaryan Gupta , a Technical Project Manager specializing in Health-Tech, SaaS, and website coordination. Read every section completely before generating a single line of code or copy. Every decision — architecture, copy, schema, URL, heading, CTA — must follow this document exactly. No deviation. No assumptions. Ask if unclear. The goal is a world-class, conversion-optimized, AI-visible, SEO-dominant personal brand website that generates unlimited genuine freelance clients.
 
 ---
 
@@ -17,7 +17,7 @@
 | Field | Value |
 |-------|-------|
 | **Public Brand Name** | Aaryan Gupta |
-| **Legal Name (documents only)** | Aryan Raj |
+| **Legal Name (documents only)** ||
 | **Primary Title** | Technical Project Manager |
 | **Secondary Titles** | Health-Tech Specialist · AI & SaaS Product Coordinator · Website Maintenance Expert |
 | **Location (Primary)** | Jaipur, India (target market) |

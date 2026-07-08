@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Anti-FOUC script -->
+  <script>!function(){var t=localStorage.getItem('ag-theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t)}()</script>
+
+  <!-- Preload styles -->
+  <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&amp;f[]=satoshi@300,400,500,700,900&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&amp;f[]=satoshi@300,400,500,700,900&amp;display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap"></noscript>
+
+  <title>Micro-SaaS & Local Business Software Portfolio | Aaryan Gupta</title>
+  <meta name="description" content="One-time fee practice management systems, B2B quotation, staff payroll, and n8n WhatsApp automations in Jaipur & Ahmedabad. Lifetime license, self-hosted, 100% database custody.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://aaaryangupta.com/products.html">
+
+  <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#030D0A" media="(prefers-color-scheme: dark)">
+
+  <!-- Geo Meta Tags for Jaipur & Ahmedabad Dominance -->
+  <meta name="geo.region" content="IN-RJ">
+  <meta name="geo.placename" content="Jaipur">
+  <meta name="geo.position" content="26.9124;75.7873">
+  <meta name="ICBM" content="26.9124, 75.7873">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aaaryangupta.com/products.html">
+  <meta property="og:title" content="Micro-SaaS & Local Business Software Portfolio | Aaryan Gupta">
+  <meta property="og:description" content="One-time fee practice management, B2B quotation, staff payroll, and n8n WhatsApp automations. Self-hosted clinic & SMB software in Jaipur & Ahmedabad.">
+  <meta property="og:image" content="https://aaaryangupta.com/assets/images/og/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@aryanony">
+  <meta name="twitter:image" content="https://aaaryangupta.com/assets/images/og/og-default.png">
+
+  <!-- Core Component CSS -->
+  <link rel="stylesheet" href="/assets/css/components/cmd-k.css">
+
+  <!-- Inline critical layout settings (Anti-FOUC Loader) -->
+  <style>
+    :root {
+      --bg-base: #030D0A;
+      --text-primary: #EDF8F5;
+      --accent-p: #0D9488;
+      --nav-h: 72px;
+      --z-loader: 10000;
+    }
+    html, body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+    .loader-wrapper {
+      position: fixed; inset: 0; background: var(--bg-base); z-index: var(--z-loader);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px;
+    }
+    .tpm-stages {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 380px; height: 200px;
+      position: relative; margin: 0 auto;
+    }
+    .tpm-graph {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 1; pointer-events: none;
+    }
+    #tpmGraphLine {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+    }
+    .tpm-stage {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      opacity: 0.3; transition: all 0.4s ease;
+      z-index: 2; will-change: opacity, transform;
+    }
+    .tpm-stage:nth-child(2) { transform: translateY(40px) translateZ(0); }
+    .tpm-stage:nth-child(3) { transform: translateY(0px) translateZ(0); }
+    .tpm-stage:nth-child(4) { transform: translateY(-40px) translateZ(0); }
+    .tpm-stage:nth-child(5) { transform: translateY(-80px) translateZ(0); }
+    
+    .tpm-box {
+      width: 56px; height: 56px; border-radius: 16px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.0) 100%);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative; overflow: hidden;
+      will-change: box-shadow, background; transform: translateZ(0);
+    }
+    .tpm-box::before {
+      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.5s ease; pointer-events: none;
+      will-change: opacity;
+    }
+    .tpm-box svg { width: 24px; height: 24px; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; filter: grayscale(100%) opacity(40%); will-change: transform, filter; transform: translateZ(0); }
+    
+    .tpm-label {
+      font-family: monospace; font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      color: rgba(128,128,128,0.7) !important; text-transform: uppercase; transition: all 0.5s ease;
+    }
+    
+    .tpm-stage.active { opacity: 1; }
+    .tpm-stage.active .tpm-box { background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%); }
+    .tpm-stage.active .tpm-box::before { opacity: 1; }
+    
+    .tpm-stage.active:nth-child(2) .tpm-box {
+      border-color: rgba(14, 165, 233, 0.4);
+      box-shadow: 0 0 25px rgba(14, 165, 233, 0.3), inset 0 0 12px rgba(14, 165, 233, 0.15);
+    }
+    .tpm-stage.active:nth-child(3) .tpm-box {
+      border-color: rgba(6, 182, 212, 0.4);
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.3), inset 0 0 12px rgba(6, 182, 212, 0.15);
+    }
+    .tpm-stage.active:nth-child(4) .tpm-box {
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.3), inset 0 0 12px rgba(59, 130, 246, 0.15);
+    }
+    .tpm-stage.active:nth-child(5) .tpm-box {
+      border-color: rgba(16, 185, 129, 0.4);
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.3), inset 0 0 12px rgba(16, 185, 129, 0.15);
+    }
+
+    .tpm-stage.active .tpm-box svg { filter: grayscale(0%) opacity(100%) drop-shadow(0 0 8px rgba(255,255,255,0.25)); transform: scale(1.15); }
+    .tpm-stage.active .tpm-label { color: inherit !important; text-shadow: 0 0 10px currentColor; }
+    
+    .tpm-progress-container {
+      width: 100%; max-width: 320px; display: flex; flex-direction: column; gap: 12px; margin-top: 16px;
+    }
+    .tpm-progress-text {
+      display: flex; justify-content: space-between; font-family: monospace;
+      font-size: 11px; font-weight: 600; letter-spacing: 1px; color: rgba(128,128,128,0.8);
+    }
+    .loader-progress { width: 100%; height: 2px; background: rgba(128,128,128,0.2); position: relative; overflow: hidden; display: none; }
+    .loader-progress-bar { position: absolute; top:0; left:0; height:100%; width:0%; background: var(--accent-p); transition: width 0.1s linear; }
+
+    @media (max-width: 600px) {
+      .tpm-stages { transform: scale(0.75); transform-origin: center center; margin-bottom: -40px; }
+    }
+  </style>
+
+  <!-- Deferred Stylesheet -->
+  <link rel="stylesheet" href="/assets/css/main.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>
+
+  <!-- Product & Breadcrumb Schema Database (AEO, SEO, & GEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://aaaryangupta.com/products.html#webpage",
+        "url": "https://aaaryangupta.com/products.html",
+        "name": "Micro-SaaS & Local Software Business Portfolio | Aaryan Gupta",
+        "description": "One-time fee practice management, B2B quotation, staff payroll, and n8n WhatsApp automations by Aaryan Gupta. Self-hosted clinic & SMB software in Jaipur & Ahmedabad.",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aaaryangupta.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://aaaryangupta.com/products.html" }
+          ]
+        }
+      },
+      {
+        "@type": "OfferCatalog",
+        "@id": "https://aaaryangupta.com/products.html#catalog",
+        "name": "Micro-SaaS Clinic & Business Software Catalog",
+        "itemListElement": [
+          {
+            "@type": "Product",
+            "name": "TokenQ",
+            "description": "Smart OPD queue manager displaying real-time queues on clinic screens. Sends tokens directly to patients' WhatsApp.",
+            "category": "Healthcare Queue Management",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "INR",
+              "lowPrice": "6000",
+              "highPrice": "15000"
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "RxPad Pro",
+            "description": "Clinical digital prescription pad featuring medical terminology voice-to-text dictation and branded PDF prescriptions.",
+            "category": "Electronic Medical Records",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "INR",
+              "lowPrice": "5000",
+              "highPrice": "12000"
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "LabTrack Pro",
+            "description": "Diagnostic laboratory information system with sample barcode logging and auto-WhatsApp pathology report delivery.",
+            "category": "Lab Information Management",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "INR",
+              "lowPrice": "15000",
+              "highPrice": "35000"
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "RecallMD",
+            "description": "Automated patient follow-up and appointment reminder system using Meta WhatsApp Business API integration.",
+            "category": "Patient Engagement",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "INR",
+              "lowPrice": "8000",
+              "highPrice": "18000"
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "WellnessDesk",
+            "description": "Membership and session tracking software with drag-and-drop calendar scheduling for wellness & yoga centers.",
+            "category": "Studio Management",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "INR",
+              "lowPrice": "8000",
+              "highPrice": "20000"
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "CareReview",
+            "description": "Reputation builder routing positive reviews to Google Maps and negative feedback to internal clinic logs.",
+            "category": "Reputation Management",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "INR",
+              "lowPrice": "5000",
+              "highPrice": "12000"
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "QuoteFlow",
+            "description": "B2B sales quotation generator, Kanban order pipeline, and payment aging ledger tracking tool.",
+            "category": "B2B Sales Operations",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "INR",
+              "lowPrice": "10000",
+              "highPrice": "25000"
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "SmartProof",
+            "description": "White-label client onboarding and project proofing portal with file review logs and integrated billing sheets.",
+            "category": "Client Portals",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "INR",
+              "lowPrice": "8000",
+              "highPrice": "40000"
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "ShiftMate",
+            "description": "Staff attendance roster sheet and payroll calculation suite with automatic payslip PDF builders.",
+            "category": "HR & Payroll",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "INR",
+              "lowPrice": "8000",
+              "highPrice": "18000"
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "LeadBoard",
+            "description": "Mobile-first PWA CRM with drag-and-drop pipeline stages, lead sources, and WhatsApp follow-up triggers.",
+            "category": "CRM Systems",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "INR",
+              "lowPrice": "10000",
+              "highPrice": "22000"
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "DashCore",
+            "description": "Spreadsheet data uploader translating raw Excel/CSV logs into visual KPI dashboards and progress metrics.",
+            "category": "Business Intelligence",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "INR",
+              "lowPrice": "12000",
+              "highPrice": "30000"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="products-page-body">
+
+  <!-- Custom mouse cursor elements -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Preloader Screen -->
+  <div class="loader-wrapper">
+    <div class="tpm-stages">
+      <svg class="tpm-graph" viewBox="0 0 380 200">
+        <defs>
+          <linearGradient id="tpmGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#0ea5e9"></stop>
+            <stop offset="33%" stop-color="#06b6d4"></stop>
+            <stop offset="66%" stop-color="#3b82f6"></stop>
+            <stop offset="100%" stop-color="#10b981"></stop>
+          </linearGradient>
+        </defs>
+        <path d="M 28 140 C 64 117, 100 123, 136 100 C 172 77, 208 83, 244 60 C 280 37, 316 43, 352 20" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path id="tpmGraphLine" d="M 28 140 C 64 117, 100 123, 136 100 C 172 77, 208 83, 244 60 C 280 37, 316 43, 352 20" fill="none" stroke="url(#tpmGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" style="will-change: stroke-dashoffset; transform: translateZ(0);"></path>
+      </svg>
+
+      <div class="tpm-stage" id="tpmStage1">
+        <div class="tpm-box">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="20" rx="3" fill="#4f46e5"></rect>
+            <path d="M7 2h10v4H7z" fill="#0ea5e9"></path>
+            <path d="M8 12.5l2.5 2.5 5.5-5.5" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <span class="tpm-label" style="color: #0ea5e9;">PLAN</span>
+      </div>
+      
+      <div class="tpm-stage" id="tpmStage2">
+        <div class="tpm-box" style="border-color: #06b6d4;">
+          <svg viewBox="0 0 24 24">
+            <rect x="1" y="4" width="22" height="16" rx="3" fill="#1e1b4b"></rect>
+            <path d="M1 7c0-1.65 1.35-3 3-3h16c1.65 0 3 1.35 3 3v4H1V7z" fill="#312e81"></path>
+            <circle cx="5" cy="7.5" r="2" fill="#ef4444"></circle>
+            <circle cx="10" cy="7.5" r="2" fill="#eab308"></circle>
+            <circle cx="15" cy="7.5" r="2" fill="#10b981"></circle>
+            <line x1="4" y1="14" x2="11" y2="14" stroke="#06b6d4" stroke-width="3" stroke-linecap="round"></line>
+            <line x1="14" y1="14" x2="20" y2="14" stroke="#10b981" stroke-width="3" stroke-linecap="round"></line>
+            <line x1="4" y1="18" x2="16" y2="18" stroke="#a855f7" stroke-width="3" stroke-linecap="round"></line>
+          </svg>
+        </div>
+        <span class="tpm-label" style="color: #06b6d4;">BUILD</span>
+      </div>
+      
+      <div class="tpm-stage" id="tpmStage3">
+        <div class="tpm-box" style="border-color: #3b82f6;">
+          <svg viewBox="0 0 24 24">
+            <rect x="2" y="3" width="20" height="18" rx="3" fill="#172554"></rect>
+            <rect x="5" y="14" width="4" height="5" rx="1" fill="#0ea5e9"></rect>
+            <rect x="10.5" y="10" width="4" height="9" rx="1" fill="#06b6d4"></rect>
+            <rect x="16" y="5" width="4" height="14" rx="1" fill="#a855f7"></rect>
+          </svg>
+        </div>
+        <span class="tpm-label" style="color: #3b82f6;">TEST</span>
+      </div>
+      
+      <div class="tpm-stage" id="tpmStage4">
+        <div class="tpm-box" style="border-color: #10b981;">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2c0 0-6 5-6 13 0 3 2 5 2 5h8s2-2 2-5c0-8-6-13-6-13z" fill="#4f46e5"></path>
+            <circle cx="12" cy="11" r="3" fill="#0ea5e9"></circle>
+            <path d="M6 14l-3 4v3h5M18 14l3 4v3h-5" fill="none" stroke="#06b6d4" stroke-linejoin="round"></path>
+            <path d="M9 20h6l-3 4z" fill="#10b981"></path>
+          </svg>
+        </div>
+        <span class="tpm-label" style="display:flex; align-items:center; gap:4px; color: #10b981;">SHIP <span style="background:#10b981; color:#0A1612; padding:2px 4px; border-radius:4px; font-size:8px;">● LIVE</span></span>
+      </div>
+    </div>
+    <div class="tpm-progress-container">
+      <div class="tpm-progress-text">
+        <span id="tpmPhaseText">PLANNING SPRINT...</span>
+        <span id="tpmPercentText" style="color: var(--accent-p)">0%</span>
+      </div>
+      <div class="loader-progress">
+        <div class="loader-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skip to Main Content (a11y) -->
+  <a href="#main-content" class="btn btn-p" style="position: absolute; top: -100px; left: var(--sp-4); z-index: 1000; transition: top 0.2s;" onfocus="this.style.top='10px'" onblur="this.style.top='-100px'">Skip to main content</a>
+
+  <!-- NAVIGATION HEADER -->
+  <nav class="nav">
+    <div class="nav__progress"></div>
+    <div class="container nav__container">
+      <a href="/" class="nav__logo">
+        <img loading="lazy" decoding="async" src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo">
+        <span data-cfg="identity.publicName">Aaryan Gupta</span>
+      </a>
+      
+      <div class="nav__links">
+        <a href="/about.html" class="nav__link">About</a>
+        <a href="/services.html" class="nav__link">Services</a>
+        <a href="/work/" class="nav__link">Projects</a>
+        <a href="/#experience" class="nav__link">Experience</a>
+        <a href="/#skills" class="nav__link">Skills</a>
+        <a href="/products.html" class="nav__link aria-current">Products</a>
+      </div>
+
+      <div class="nav__right">
+        <button class="theme-toggle flex-center" aria-label="Toggle light/dark theme">
+          <i class="ph-duotone ph-moon moon-icon"></i>
+          <i class="ph-duotone ph-sun sun-icon"></i>
+        </button>
+        <a data-cfg-href="contact.calendlyUrl" data-cfg="contact.calendarText" class="btn btn-p btn-magnetic btn-sm">Book Free Call</a>
+      </div>
+
+      <button class="nav__ham" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Fullscreen Mobile Navigation Menu -->
+  <div class="nav__mobile-menu" id="mobile-menu">
+    <a href="/about.html" class="nav__link">About</a>
+    <a href="/services.html" class="nav__link">Services</a>
+    <a href="/work/" class="nav__link">Projects</a>
+    <a href="/#experience" class="nav__link">Experience</a>
+    <a href="/#skills" class="nav__link">Skills</a>
+    <a href="/products.html" class="nav__link aria-current">Products</a>
+    <a data-cfg-href="contact.calendlyUrl" data-cfg="contact.calendarText" class="btn btn-p btn-magnetic" style="margin-top: var(--sp-4);">Book Free Call</a>
+  </div>
+
+  <!-- MAIN VIEWPORT CONTAINER -->
+  <main id="main-content">
+    <div class="container section products-page">
+      
+      <!-- Products Hero -->
+      <header class="products-hero reveal">
+        <span class="text-eyebrow">Trusted by Clinics & Businesses Across Rajasthan & Gujarat</span>
+        <h1>Stop Renting Software.<br>Start <span class="hero-gradient">Owning</span> It.</h1>
+        <p>
+          Every month you pay a SaaS subscription, you're funding someone else's infrastructure. Our practice management systems, queue displays, B2B quotation tools, and WhatsApp automation workflows are <strong>yours — permanently</strong>. One invoice. Lifetime access. Zero recurring drain on your revenue.
+        </p>
+
+        <!-- Trust Badges Row -->
+        <div class="trust-badges-row">
+          <div class="trust-badge-item"><i class="ph-duotone ph-lightning"></i> <span>Offline-First Architecture</span></div>
+          <div class="trust-badge-item"><i class="ph-duotone ph-shield-check"></i> <span>Your Server, Your Data</span></div>
+          <div class="trust-badge-item"><i class="ph-duotone ph-wallet"></i> <span>One-Time Investment Only</span></div>
+        </div>
+
+        <!-- Animated Trust Counter Strip -->
+        <div class="trust-counter-strip">
+          <div class="trust-counter"><span class="counter-value" data-target="40">0</span><span class="counter-suffix">+</span><span class="counter-label">Systems Deployed</span></div>
+          <span class="counter-divider"></span>
+          <div class="trust-counter"><span class="counter-value" data-target="12">0</span><span class="counter-suffix">+</span><span class="counter-label">Cities Served</span></div>
+          <span class="counter-divider"></span>
+          <div class="trust-counter"><span class="counter-value-static">₹0</span><span class="counter-label">Monthly Rent</span></div>
+          <span class="counter-divider"></span>
+          <div class="trust-counter"><span class="counter-value-static">100%</span><span class="counter-label">Data Sovereignty</span></div>
+        </div>
+      </header>
+
+      <!-- Lifetime ROI Savings Simulator Widget -->
+      <section class="roi-simulator-card reveal card" style="margin-bottom: var(--sp-12); max-width: 1080px; margin-left: auto; margin-right: auto; background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent 60%);">
+        <div class="card__inner">
+          <div class="roi-sim__header">
+            <h3><i class="ph-duotone ph-chart-bar"></i> How Much Are You Bleeding to SaaS Rentals?</h3>
+            <p>Drag the sliders below to see the exact financial damage of monthly subscription platforms vs. owning your infrastructure outright. The numbers don't lie.</p>
+          </div>
+          
+          <div class="roi-sim__grid">
+            <div class="roi-sim__controls">
+              <div class="roi-control-group">
+                <label for="slider-years">Projection Timeline (Years):</label>
+                <div class="slider-input-wrap">
+                  <input type="range" id="slider-years" min="1" max="5" value="3" class="roi-slider neon-blue-slider">
+                  <span id="label-years" class="roi-value-label">3 Years</span>
+                </div>
+              </div>
+
+              <div class="roi-control-group">
+                <label for="slider-volume">Daily Patients / Transactions:</label>
+                <div class="slider-input-wrap">
+                  <input type="range" id="slider-volume" min="10" max="150" value="40" class="roi-slider neon-teal-slider">
+                  <span id="label-volume" class="roi-value-label">40 / day</span>
+                </div>
+              </div>
+              
+              <div class="roi-control-group">
+                <label for="slider-ticket">Avg. Transaction Ticket Size:</label>
+                <div class="slider-input-wrap">
+                  <input type="range" id="slider-ticket" min="200" max="2500" step="100" value="500" class="roi-slider neon-blue-slider">
+                  <span id="label-ticket" class="roi-value-label">₹500</span>
+                </div>
+              </div>
+
+              <div class="roi-control-group">
+                <label>What Do You Operate?</label>
+                <div class="roi-industry-buttons">
+                  <button class="industry-btn active" data-industry="Healthcare" data-saas-fee="2500" data-setup-fee="12000">🏥 I Run a Clinic</button>
+                  <button class="industry-btn" data-industry="Lab" data-saas-fee="4500" data-setup-fee="25000">🔬 I Run a Lab</button>
+                  <button class="industry-btn" data-industry="SMB" data-saas-fee="3500" data-setup-fee="18000">🏪 I Run a Business</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="roi-sim__display">
+              <div class="roi-bar-chart">
+                <div class="roi-chart-bar-wrap">
+                  <span class="roi-bar-label">Typical Monthly SaaS Subscription Rent (e.g. Practo, Zoho, Salesforce)</span>
+                  <div class="roi-bar-outer">
+                    <div id="bar-saas" class="roi-bar-inner saas-bar" style="width: 100%;"></div>
+                  </div>
+                  <span id="cost-saas" class="roi-bar-value" style="color: #ff6b6b;">₹1,08,000</span>
+                </div>
+
+                <div class="roi-chart-bar-wrap">
+                  <span class="roi-bar-label">Aaryan's Flat-Fee Self-Hosted Model (No Monthly Rent)</span>
+                  <div class="roi-bar-outer">
+                    <div id="bar-aaryan" class="roi-bar-inner aaryan-bar" style="width: 30%;"></div>
+                  </div>
+                  <span id="cost-aaryan" class="roi-bar-value" style="color: #52e5d9;">₹33,000</span>
+                </div>
+              </div>
+
+              <div class="roi-summary-box">
+                <div class="roi-savings-badge" style="background: rgba(16, 185, 129, 0.05); border-color: rgba(16, 185, 129, 0.25);">
+                  <span class="savings-lbl">Money You Keep</span>
+                  <h4 id="savings-amount">₹75,000</h4>
+                  <span class="savings-pct" id="savings-pct">You save 78% vs. renting</span>
+                </div>
+                
+                <div class="roi-metrics-grid">
+                  <div class="roi-gauge-item">
+                    <span class="gauge-value" id="metric-roi">3.2x</span>
+                    <span class="gauge-label">Return Multiplier</span>
+                  </div>
+                  <div class="roi-gauge-item">
+                    <span class="gauge-value" id="metric-hours">60 hrs</span>
+                    <span class="gauge-label">Hours Reclaimed</span>
+                  </div>
+                  <div class="roi-gauge-item">
+                    <span class="gauge-value" style="color: #52e5d9;">100%</span>
+                    <span class="gauge-label">Data Sovereignty</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Tab Controls -->
+      <nav class="products-tabs reveal" aria-label="Product selector tabs">
+        <button class="tab-btn active" data-filter="all"><i class="ph-bold ph-squares-four"></i> View All Solutions</button>
+        <button class="tab-btn" data-filter="Healthcare"><i class="ph-bold ph-first-aid"></i> Healthcare & Clinics</button>
+        <button class="tab-btn" data-filter="SMB"><i class="ph-bold ph-storefront"></i> Business & Trading</button>
+        <button class="tab-btn" data-filter="Automation"><i class="ph-bold ph-robot"></i> AI & Automation</button>
+      </nav>
+
+      <!-- Detailed Info Container -->
+      <section class="product-details-container reveal-grid" aria-live="polite" style="margin-bottom: var(--sp-16);"></section>
+
+      <!-- FAQ Header -->
+      <div class="section-hdr reveal">
+        <span class="text-eyebrow">Ownership, Compliance & Guarantees</span>
+        <h2>Questions Smart Buyers Always Ask</h2>
+      </div>
+
+      <!-- FAQ Container -->
+      <div class="faq-container reveal" style="max-width: 800px; margin: 0 auto var(--sp-16);">
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">
+            <span>What does "self-hosted" mean — and why should I care?</span>
+            <i class="ph-bold ph-plus faq-icon"></i>
+          </button>
+          <div class="faq-body">
+            <div class="faq-ans">
+              Self-hosted means <strong>your data never leaves your premises</strong>. The database and application code run either on a local computer inside your clinic/office (offline-first architecture) or on your own private cloud server (VPS). No third-party company can access, throttle, or monetize your patients' medical records, customer contacts, or financial files. You maintain absolute operational sovereignty — with zero dependency on external platform uptimes or pricing changes.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">
+            <span>Are there any recurring monthly subscription fees?</span>
+            <i class="ph-bold ph-plus faq-icon"></i>
+          </button>
+          <div class="faq-body">
+            <div class="faq-ans">
+              <strong>Absolutely not.</strong> Unlike Practo, Zoho, Salesforce, and other subscription-based platforms that charge you every single month (plus per-booking commissions), our products are delivered under a <strong>one-time setup and lifetime licensing model</strong>. Once deployed, the software is permanently yours. The only potential third-party costs are optional server hosting (approximately ₹300–₹600/month only if you choose cloud sync) or Meta WhatsApp Business API message credits (charged directly by Meta at their actual usage rates — not by us).
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">
+            <span>How do you handle compliance with Meta guidelines for WhatsApp?</span>
+            <i class="ph-bold ph-plus faq-icon"></i>
+          </button>
+          <div class="faq-body">
+            <div class="faq-ans">
+              We route all automated notifications (queues, follow-ups, reviews) through approved Meta WhatsApp Business API gateways (e.g. Twilio, WATI, AiSensy). Before going live, Aaryan configures your official Business Manager, registers your clinic telephone number, and submits message templates for Meta approval. This prevents your clinic number from being marked as spam or banned, adhering 100% to compliance standards.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">
+            <span>What happens if the internet goes down during consulting hours?</span>
+            <i class="ph-bold ph-plus faq-icon"></i>
+          </button>
+          <div class="faq-body">
+            <div class="faq-ans">
+              <strong>Nothing breaks.</strong> Our core clinical tools (TokenQ and RxPad Pro) are engineered with a resilient <strong>offline-first local fallback engine</strong>. Reception check-ins and doctor consulting logs continue operating locally inside the browser's database (IndexedDB/SQLite). The moment connectivity is restored, all local data automatically synchronizes back to your clinic's backup node or private cloud server — with zero manual intervention from your receptionist.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <button class="footer__scroll-top" type="button" aria-label="Scroll to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+      <i class="ph-bold ph-caret-up"></i>
+    </button>
+    <div class="container footer-grid">
+      <div class="footer__info">
+        <a href="/" class="footer__logo">
+          <img loading="lazy" decoding="async" src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo">
+          <span data-cfg="identity.publicName">Aaryan Gupta</span>
+        </a>
+        <p class="footer__tagline">
+          Bridging technical execution with product coordination for SaaS &amp; HealthTech squads.
+        </p>
+        <div class="footer__socials">
+          <a data-cfg-href="social.linkedin" target="_blank" rel="noopener" class="footer__social-link" aria-label="LinkedIn">
+            <i class="ph-fill ph-linkedin-logo"></i>
+          </a>
+          <a data-cfg-href="social.github" target="_blank" rel="noopener" class="footer__social-link" aria-label="GitHub">
+            <i class="ph-fill ph-github-logo"></i>
+          </a>
+          <a data-cfg-href="social.twitter" target="_blank" rel="noopener" class="footer__social-link" aria-label="Twitter">
+            <i class="ph-fill ph-x-logo"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Services</h3>
+        <div class="footer__col-links">
+          <a href="/services/technical-project-management.html">Project Management</a>
+          <a href="/services/healthtech-consulting.html">HealthTech Consulting</a>
+          <a href="/services/ai-automation.html">AI Workflows</a>
+          <a href="/services/micro-saas-software.html">Micro-SaaS Software</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Locations</h3>
+        <div class="footer__col-links">
+          <a href="/jaipur.html">Jaipur PM Services</a>
+          <a href="/ahmedabad.html">Ahmedabad PM Services</a>
+          <a href="/about.html">About Aaryan</a>
+          <a href="/blog/">Insights Blog</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Booking</h3>
+        <div class="footer__col-links">
+          <a href="/contact.html">Go to Contact Form</a>
+          <a data-cfg-href="contact.calendlyUrl">Book a strategy call on Calendly</a>
+          <a data-cfg-href="contact.whatsappUrl">Chat with me on WhatsApp</a>
+          <a href="mailto:aaryangupta.pm@gmail.com">Email Aaryan directly</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <div class="footer__copyright">
+        © <span id="year">2026</span> Aaryan Gupta. All rights reserved. (Legal: Aryan Raj)
+      </div>
+      <div class="footer__bottom-links">
+        <a href="/about.html">Privacy Policy</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script type="module" src="/assets/js/core/main.js"></script>
+
+</body>
+</html>

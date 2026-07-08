@@ -2313,6 +2313,6 @@ PHASE 6 — Polish (Week 4):
 ---
 
 *Document complete. Version 1.0 · June 2026*  
-*For: Aryan Raj (Aaryan Gupta) · aaaryangupta.com*  
+*For: (Aaryan Gupta) · aaaryangupta.com*  
 *Sources: Vedic Jyotish · Numerology · Vastu Shastra · Design Psychology · UX Research*
 

@@ -1,0 +1,614 @@
+[
+  {
+    "id": "labtrack-pro",
+    "name": "LabTrack Pro",
+    "category": "Healthcare",
+    "tagline": "Lab Report & Referral Management",
+    "desc": "Diagnostic laboratory management featuring sample tracking, secure report generation, auto-calculated doctor referral commissions, and instant patient report delivery.",
+    "techstack": ["React", "Node.js", "MySQL", "Electron", "SQLite"],
+    "needs": "Pathology labs, diagnostic centers, and radiology clinics looking to eliminate referral disputes, digitize report delivery, and monitor overall business health.",
+    "deployment": "Hybrid (Web VPS + Offline Local Client)",
+    "price": "₹15,000 – ₹35,000",
+    "plans": [
+      {
+        "name": "Pathology Laboratory Lite",
+        "price": "₹15,000",
+        "features": [
+          "Local desktop installation (Electron + SQLite)",
+          "Branded test report PDF generation",
+          "Basic referral commission tracking ledger",
+          "Manual email/WhatsApp PDF sharing link",
+          "30-day post-delivery technical support"
+        ]
+      },
+      {
+        "name": "Pathology Center Enterprise",
+        "price": "₹35,000",
+        "features": [
+          "Cloud VPS database synchronization",
+          "Secure Patient Portal (OTP mobile log-in)",
+          "Doctor Portal (referred patients list & ledger)",
+          "Meta API WhatsApp automated report link delivery",
+          "60-day priority support + Custom integrations"
+        ]
+      }
+    ],
+    "features": [
+      "Rapid Patient Registration: Check-in & select test packages in under 60 seconds.",
+      "Automated Commission Engine: Configurable flat or percentage referral tracking per test/doctor.",
+      "Smart Result Flagging: Auto-flags normal, abnormal, or critical result ranges with visual red alerts.",
+      "Branded PDF & Secure QR: Generates digital report PDFs with integrated QR codes for secure verification.",
+      "WhatsApp Portal Delivery: Patients scan QR or receive OTP via mobile to download reports without passwords."
+    ],
+    "icon": "ph-flask",
+    "highlight": true
+  },
+  {
+    "id": "recallmd",
+    "name": "RecallMD",
+    "category": "Healthcare",
+    "tagline": "Patient Follow-Up Automation",
+    "desc": "Automated patient retention system that triggers WhatsApp reminders, vaccination alerts, and post-consultation check-ups.",
+    "techstack": ["Electron", "SQLite", "node-cron", "WhatsApp API"],
+    "needs": "Dental, pediatric, ophthalmology, and general practice clinics experiencing patient drop-offs and manual follow-up inefficiencies.",
+    "deployment": "Pure Local Desktop",
+    "price": "₹8,000 – ₹18,000",
+    "plans": [
+      {
+        "name": "Standalone Follow-up Desk",
+        "price": "₹8,000",
+        "features": [
+          "Local database setup (SQLite)",
+          "Bulk patient database migration from CSV",
+          "Manual WhatsApp Web messaging template trigger",
+          "Basic scheduling calendar dashboard"
+        ]
+      },
+      {
+        "name": "Automated Engagement Engine",
+        "price": "₹18,000",
+        "features": [
+          "Full WhatsApp Business API integration",
+          "Daily auto-cron scheduler at 8:00 AM",
+          "Variable-supported templates (names, doctors, dates)",
+          "Estimated Revenue Recovery analytics dashboard"
+        ]
+      }
+    ],
+    "features": [
+      "Dynamic Reminder Scheduler: Schedule by visit date, vaccination calendar, or annual check-ups.",
+      "Variable Template Engine: Personalized message variables like [patient_name], [doctor_name], and [condition].",
+      "Official WhatsApp Routing: Links to Twilio or WATI API to ensure zero-spam compliance.",
+      "Revenue Recovery Tracker: Estimates recovery amount by matching missed appointments with visit fees."
+    ],
+    "icon": "ph-chats",
+    "highlight": false
+  },
+  {
+    "id": "tokenq",
+    "name": "TokenQ",
+    "category": "Healthcare",
+    "tagline": "Smart Patient Queue & Token Display",
+    "desc": "Smart OPD queue manager displaying real-time patient status on waiting area monitors. Issues tokens directly to patients' WhatsApp on registration.",
+    "techstack": ["React PWA", "Node.js", "Socket.io", "LAN WiFi"],
+    "needs": "Clinics, OPD centers, and labs seeking to eliminate waiting room congestion and coordinate doctor calling workflows.",
+    "deployment": "Local Network LAN (WiFi)",
+    "price": "₹6,000 – ₹15,000",
+    "plans": [
+      {
+        "name": "Single OPD / Clinic",
+        "price": "₹6,000",
+        "features": [
+          "Single doctor queue management console",
+          "Local network TV display page (no internet required)",
+          "Local server setup on receptionist PC",
+          "30 days support"
+        ]
+      },
+      {
+        "name": "Multi-OPD / Hospital Enterprise",
+        "price": "₹15,000",
+        "features": [
+          "Multiple doctors & department series (OPD, LAB, GEN)",
+          "Priority queue toggle (senior citizen, emergency status)",
+          "SMS backup notifications",
+          "Custom clinic branding & audio chime alerts"
+        ]
+      }
+    ],
+    "features": [
+      "Instant TV Board: Fullscreen real-time queue display showing serving & waiting tokens.",
+      "No-Internet LAN Server: Runs purely on clinic's local WiFi with Zero cloud dependency.",
+      "Doctor Calling Console: Simple browser interface for doctors to call next, skip, or pause queue.",
+      "WhatsApp Token Delivery: Auto-sends token slips and live queue tracking links to patients' WhatsApp.",
+      "Priority Queues: Dedicated rapid queue settings for emergencies, senior citizens, or VIPs."
+    ],
+    "icon": "ph-user-list",
+    "highlight": true
+  },
+  {
+    "id": "wellnessdesk",
+    "name": "WellnessDesk",
+    "category": "Healthcare",
+    "tagline": "Membership & Appointment Manager",
+    "desc": "Client session package tracker, attendance marker, and automated renewal manager for fitness and therapy studios.",
+    "techstack": ["Electron", "SQLite", "React PWA", "LAN"],
+    "needs": "Yoga studios, physiotherapy clinics, spas, and fitness centers struggling to track package session consumption and expiring memberships.",
+    "deployment": "Local Network or Desktop",
+    "price": "₹8,000 – ₹20,000",
+    "plans": [
+      {
+        "name": "Studio Starter Desk",
+        "price": "₹8,000",
+        "features": [
+          "Single-device local database (SQLite)",
+          "Member registration, photo upload, plan logs",
+          "Standard package duration & expiration tracking",
+          "Daily attendance check-in sheet"
+        ]
+      },
+      {
+        "name": "Multi-Therapist Hub",
+        "price": "₹20,000",
+        "features": [
+          "Multi-device local network access (WiFi)",
+          "Therapist calendar and booking scheduler",
+          "WhatsApp auto-reminders and renewal prompts",
+          "Trainer slot conflict detection alerts"
+        ]
+      }
+    ],
+    "features": [
+      "Visual Member Status: Instant color-coded badges for active, expiring, or expired memberships.",
+      "Session Balance Ledger: Deducts sessions from member balances on attendance with automatic renewal prompts.",
+      "Conflict-Free Calendar: Drag-and-drop booking sheet with automatic therapist slot verification.",
+      "Automated Expiry Alerts: Triggers WhatsApp messages to members 7, 3, and 1 days before plan expiration."
+    ],
+    "icon": "ph-heartbeat",
+    "highlight": false
+  },
+  {
+    "id": "rxpad-pro",
+    "name": "RxPad Pro",
+    "category": "Healthcare",
+    "tagline": "Smart Digital Prescription Generator",
+    "desc": "Advanced digital writing pad featuring medical terminology voice-to-text dictation, custom drug directories, and instant branded PDF/WhatsApp sharing.",
+    "techstack": ["Tauri", "React", "SQLite", "Web Speech API"],
+    "needs": "Doctors and specialists aiming to speed up consultation times, maintain clean patient records, and output standardized print-ready prescriptions.",
+    "deployment": "Pure Local Desktop (Tauri)",
+    "price": "₹5,000 – ₹12,000",
+    "plans": [
+      {
+        "name": "Standalone Prescription Desk",
+        "price": "₹5,000",
+        "features": [
+          "Offline desktop app (Tauri + SQLite)",
+          "5,000+ medicine catalog database",
+          "Branded clinic letterhead layout template",
+          "Local encrypted backup engine"
+        ]
+      },
+      {
+        "name": "Cloud Prescription Sync",
+        "price": "₹12,000",
+        "features": [
+          "Cloud database backup and synchronization",
+          "Receptionist-doctor intake connection module",
+          "Chronological patient medical history charts",
+          "Custom medical certificate template builder"
+        ]
+      }
+    ],
+    "features": [
+      "Voice-Enabled Builder: Dictation using Web Speech API trained in medical vocabulary.",
+      "Medicine Autocomplete: Autofills drug name, dosage, frequency, and instructions from a 5000+ local database.",
+      "Saved Protocol Templates: 3-click prescription generation using saved 'Doctor's Favorites' by diagnosis.",
+      "Branded PDFs & Certificates: Generates standard Rx charts and medical certificates in high-resolution print PDFs."
+    ],
+    "icon": "ph-prescription",
+    "highlight": true
+  },
+  {
+    "id": "carereview",
+    "name": "CareReview",
+    "category": "Healthcare",
+    "tagline": "Clinic Reputation Management",
+    "desc": "Review generation system that collects patient ratings at check-out and intelligently redirects positive feedback to Google Maps while filtering negative comments.",
+    "techstack": ["React", "Node.js", "PWA", "Google Maps API"],
+    "needs": "Medical facilities wanting to improve their local search rankings and filter dissatisfied reviews internally.",
+    "deployment": "Hybrid Web (minimal hosting)",
+    "price": "₹5,000 – ₹12,000",
+    "plans": [
+      {
+        "name": "Reputation Starter",
+        "price": "₹5,000",
+        "features": [
+          "Reception desk QR-code feedback form",
+          "Internal review tracking dashboard",
+          "Positive rating redirect to Google Reviews listing",
+          "Unpaid feedback CSV export"
+        ]
+      },
+      {
+        "name": "AI Reputation Manager",
+        "price": "₹12,000",
+        "features": [
+          "Post-visit automated WhatsApp feedback links",
+          "AI-suggested professional responses template generator",
+          "Instant alert notifications to owner on negative ratings",
+          "Multi-branch reputation performance charts"
+        ]
+      }
+    ],
+    "features": [
+      "Smart Routing Engine: Redirects 4-5 star ratings to Google, and keeps 1-3 star feedbacks in an internal admin panel.",
+      "Instant Negative Alerts: Triggers owner notifications on WhatsApp for poor ratings to enable immediate recovery.",
+      "Reputation Analytics: Tracks rating trends, staff performance, and keyword clouds from comments."
+    ],
+    "icon": "ph-star",
+    "highlight": false
+  },
+  {
+    "id": "quoteflow",
+    "name": "QuoteFlow",
+    "category": "SMB",
+    "tagline": "B2B Quotation & Order Tracker",
+    "desc": "Sales quote builder, order manager, and payment ledger for manufacturers, wholesalers, and trading businesses.",
+    "techstack": ["Electron", "SQLite", "Node.js", "WhatsApp Web API"],
+    "needs": "Wholesalers, manufacturers, and dealers who struggle to track verbal price quotes, order stages, and outstanding balances.",
+    "deployment": "Pure Local Desktop",
+    "price": "₹10,000 – ₹25,000",
+    "plans": [
+      {
+        "name": "Quotation Desk",
+        "price": "₹10,000",
+        "features": [
+          "Single-device local database (SQLite)",
+          "Product catalog catalog (SKUs, GST, base price)",
+          "Professional quotation PDF generator",
+          "Manual email/WhatsApp share triggers"
+        ]
+      },
+      {
+        "name": "Order Pipeline Suite",
+        "price": "₹25,000",
+        "features": [
+          "Kanban order pipeline tracking dashboard",
+          "One-click quotation to invoice generation",
+          "Multi-tier pricing structures (retail, wholesale, dealer)",
+          "Outstanding aging payment ledgers & WhatsApp link triggers"
+        ]
+      }
+    ],
+    "features": [
+      "Multi-Tier Price List: Configure and switch catalog pricing between retail, wholesale, and dealer tiers instantly.",
+      "One-Click Quotations: Generates professional PDFs with calculated GST, discount rates, and terms.",
+      "Kanban Order Pipeline: Visual progress cards tracking order confirmations, production, and dispatch.",
+      "Ledger Payment Tracker: Records full, partial, or unpaid statuses with aging ledger logs."
+    ],
+    "icon": "ph-file-text",
+    "highlight": true
+  },
+  {
+    "id": "smartproof",
+    "name": "SmartProof",
+    "category": "SMB",
+    "tagline": "White-Label Client Project Portal",
+    "desc": "Direct client onboarding and project proofing portal featuring white-labeled logos, task trackers, version histories, and client feedback consoles.",
+    "techstack": ["React", "Node.js", "MySQL", "SMTP API"],
+    "needs": "Digital marketing agencies, design studios, CA firms, and consultants seeking a premium, branded portal to share work and get approvals.",
+    "deployment": "Cloud VPS (Web-hosted)",
+    "price": "₹8,000 – ₹40,000",
+    "plans": [
+      {
+        "name": "Single Agency Portal",
+        "price": "₹8,000",
+        "features": [
+          "Self-hosted deployment on agency's VPS",
+          "Unlimited client accounts & isolated workspaces",
+          "Dynamic file sharing & approval comment thread",
+          "Standard email alert triggers"
+        ]
+      },
+      {
+        "name": "White-Label Enterprise",
+        "price": "₹40,000",
+        "features": [
+          "Full logo and brand primary color customization",
+          "Custom domain mapping per client portal",
+          "Client billing console (invoice logs & PDF downloads)",
+          "Custom SMTP mail server configuration"
+        ]
+      }
+    ],
+    "features": [
+      "Isolated Client Workspaces: Secure, independent logins for each client to review files privately.",
+      "Proof & Revision Engine: Upload graphic files, PDFs, or links with instant client approve/reject buttons and comment logs.",
+      "Branded White-Labeling: Customize colors, logo, navigation header, and use a custom domain (portal.agency.com).",
+      "Client Billing Console: Integrated invoice distribution where clients can view balances and download statements."
+    ],
+    "icon": "ph-projector-screen",
+    "highlight": false
+  },
+  {
+    "id": "shiftmate",
+    "name": "ShiftMate",
+    "category": "SMB",
+    "tagline": "Staff Attendance & Payroll",
+    "desc": "Desktop payroll and attendance calculator with shift scheduling and monthly pay slip generators.",
+    "techstack": ["Electron", "SQLite", "Node.js"],
+    "needs": "Restaurants, factories, retail outlets, and salons managing 10 to 100 shift-based or hourly employees.",
+    "deployment": "Pure Local Desktop",
+    "price": "₹8,000 – ₹18,000",
+    "plans": [
+      {
+        "name": "Attendance & Roster",
+        "price": "₹8,000",
+        "features": [
+          "Employee roster database",
+          "Weekly visual shift schedule grid",
+          "Daily attendance logging sheet",
+          "Monthly shift swap manager"
+        ]
+      },
+      {
+        "name": "Complete Payroll Desk",
+        "price": "₹18,000",
+        "features": [
+          "Custom salary structures (hourly, daily, fixed monthly)",
+          "Automatic overtime, leave, PF, and tax calculations",
+          "Bulk monthly salary slip PDF generator",
+          "Locked payroll processing ledger"
+        ]
+      }
+    ],
+    "features": [
+      "Bulk Attendance Marking: 1-click 'Mark All Present' with fast adjustments for absentees, half-days, and holidays.",
+      "Shift Scheduling Grid: Weekly visual rosters with shift templates and swap trackers.",
+      "Automated Pay Slip Generator: Auto-calculates net pay based on days present, overtime hours, and custom deductions.",
+      "Digital Payslip PDF: Combines employee profile, allowances, and salary totals in a standard, print-ready document."
+    ],
+    "icon": "ph-calendar",
+    "highlight": false
+  },
+  {
+    "id": "leadboard",
+    "name": "LeadBoard",
+    "category": "SMB",
+    "tagline": "Simple Lead & Follow-Up Manager",
+    "desc": "Mobile-first field sales CRM featuring drag-and-drop pipelines, lead assignment rules, and instant follow-up triggers.",
+    "techstack": ["React PWA", "Node.js", "MySQL", "PWA Caching"],
+    "needs": "Real estate agents, insurance brokers, and sales teams requiring a lightweight, fast-loading CRM they can access on-site.",
+    "deployment": "Web PWA (Mobile-first)",
+    "price": "₹10,000 – ₹22,000",
+    "plans": [
+      {
+        "name": "Sales Agent Lite",
+        "price": "₹10,000",
+        "features": [
+          "Single-user sales agent database",
+          "Quick lead creation panel (30 seconds)",
+          "Daily task list & manual note logging",
+          "PWA offline access caching"
+        ]
+      },
+      {
+        "name": "Team Pipeline Manager",
+        "price": "₹22,000",
+        "features": [
+          "Multi-user roles (Manager, Salesperson)",
+          "Automatic lead distribution rules",
+          "Dynamic Kanban drag-and-drop deals board",
+          "Full manager pipeline performance dashboard"
+        ]
+      }
+    ],
+    "features": [
+      "Responsive Kanban Board: Drag-and-drop cards between new, contacted, interested, negotiating, won, and lost stages.",
+      "Quick Follow-Up Prompts: Aggregates daily tasks and launches WhatsApp chats with pre-filled reminder texts in two taps.",
+      "Sales Performance Dashboard: Charts lead conversions, response times, and pipeline totals per agent.",
+      "Lead Source Attribution: Segment leads automatically by source (walk-in, Instagram, IndiaMART, cold call)."
+    ],
+    "icon": "ph-funnel",
+    "highlight": false
+  },
+  {
+    "id": "dashcore",
+    "name": "DashCore",
+    "category": "SMB",
+    "tagline": "Business Intelligence Dashboard",
+    "desc": "Interactive analytics tool that turns raw Excel or CSV datasets into professional KPI charts and targets.",
+    "techstack": ["Electron", "SQLite", "Chart.js", "File Parser"],
+    "needs": "SMB owners who want to visualize financial, sales, or logistics spreadsheets without paying for expensive BI subscription licenses.",
+    "deployment": "Pure Local Desktop",
+    "price": "₹12,000 – ₹30,000",
+    "plans": [
+      {
+        "name": "Dashboard Lite",
+        "price": "₹12,000",
+        "features": [
+          "Drag-and-drop spreadsheet column mapping wizard",
+          "Auto-render dynamic line and bar charts",
+          "Pre-built templates (retail, restaurant, logistics)",
+          "Local storage database"
+        ]
+      },
+      {
+        "name": "BI Enterprise Suite",
+        "price": "₹30,000",
+        "features": [
+          "Multiple data snapshot chronological comparison",
+          "Target goals progression tracking analytics",
+          "Customizable report templates",
+          "Automatic executive dashboard PDF export"
+        ]
+      }
+    ],
+    "features": [
+      "Data Upload Wizard: Drag-and-drop Excel files and map headers with columns in seconds.",
+      "Auto-Chart Generation: Detects data types to automatically render time-series lines, distribution pies, or category bars.",
+      "Goal Tracker: Set targets per metric and view progress bars with alerts for underperforming periods.",
+      "Executive Report PDF: Exports high-resolution, print-ready dashboards with logo integrations."
+    ],
+    "icon": "ph-chart-pie",
+    "highlight": false
+  },
+  {
+    "id": "automation-whatsapp",
+    "name": "WhatsApp Business Automation",
+    "category": "Automation",
+    "tagline": "Auto-Responses & n8n Workflows",
+    "desc": "Integration workflows that automate confirmations, customer route prompts, and follow-ups on the client's own accounts.",
+    "techstack": ["n8n", "Make.com", "WATI API", "AiSensy API"],
+    "needs": "Any consumer-facing business experiencing delays in customer communication and high receptionist workload.",
+    "deployment": "Meta API Cloud / VPS Setup",
+    "price": "₹8,000 – ₹20,000",
+    "plans": [
+      {
+        "name": "Essential Auto-responder",
+        "price": "₹8,000",
+        "features": [
+          "Standard FAQ response flow mapping",
+          "New lead auto-greeting trigger",
+          "Simple lead logging into Google Sheets/Notion",
+          "20-minute rapid deployment"
+        ]
+      },
+      {
+        "name": "Omni-channel Workflow Suite",
+        "price": "₹20,000",
+        "features": [
+          "Google Calendar synced appointment reminders",
+          "Confirm/Cancel customer reply action handlers",
+          "Post-visit review generation routing workflow",
+          "Multi-agent sales assignment rules"
+        ]
+      }
+    ],
+    "features": [
+      "Trigger-Based Auto-replies: Welcomes new numbers and routes responses based on customer keywords.",
+      "Appointment Scheduler Sync: Syncs with Google Calendar to send reminders and update statuses via patient reply codes.",
+      "Meta API Compliance: Routes messaging through approved Meta gateways to protect your business phone number from bans."
+    ],
+    "icon": "ph-phone-call",
+    "highlight": false
+  },
+  {
+    "id": "automation-leads",
+    "name": "Lead Capture & Routing Pipeline",
+    "category": "Automation",
+    "tagline": "Multi-Source Lead Aggregator",
+    "desc": "Multi-source lead routing pipelines that gather, clean, and assign leads to staff.",
+    "techstack": ["n8n", "Google Sheets", "WhatsApp API", "Zapier"],
+    "needs": "Sales departments losing track of leads across multiple advertising channels (IndiaMART, Instagram, website forms).",
+    "deployment": "Google Cloud / VPS Setup",
+    "price": "₹5,000 – ₹15,000",
+    "plans": [
+      {
+        "name": "Lead Collector",
+        "price": "₹5,000",
+        "features": [
+          "Consolidates website and Instagram DM forms",
+          "Pipes lead entries to a unified Google Sheet",
+          "Standard email alert to administrator"
+        ]
+      },
+      {
+        "name": "Smart Routing Dispatcher",
+        "price": "₹15,000",
+        "features": [
+          "Connects trade portals (IndiaMART, TradeIndia, JustDial)",
+          "Auto-reminder pings for uncontacted leads",
+          "Salesperson direct WhatsApp messaging alert details",
+          "Round-robin lead assignment logic"
+        ]
+      }
+    ],
+    "features": [
+      "Unified Inbox Sheet: Consolidates entries from web forms, DMs, trade portals, and chats into one clean table.",
+      "Agent Notification Alerts: Sends direct message notifications to assigned agents with full client details.",
+      "SLA Escalation Engine: Automatically pings sales managers if a lead remains uncontacted for more than 2 hours."
+    ],
+    "icon": "ph-arrows-split",
+    "highlight": false
+  },
+  {
+    "id": "automation-billing",
+    "name": "Invoice & Payment Automation",
+    "category": "Automation",
+    "tagline": "Payment Link & Invoice Generator",
+    "desc": "Accounting automation that generates invoices, sends payment links, and follows up on overdue balances.",
+    "techstack": ["Razorpay API", "n8n", "WhatsApp API", "Google Sheets"],
+    "needs": "Businesses losing cash flow due to late invoice creation and forgot-to-follow-up client balances.",
+    "deployment": "Razorpay Cloud Setup",
+    "price": "₹8,000 – ₹18,000",
+    "plans": [
+      {
+        "name": "Billing Starter",
+        "price": "₹8,000",
+        "features": [
+          "Completed work trigger in Google Sheets/CRM",
+          "Auto-generate professional invoice PDF layout",
+          "Manual WhatsApp payment dispatch"
+        ]
+      },
+      {
+        "name": "Aging Collections Suite",
+        "price": "₹18,000",
+        "features": [
+          "Automated Razorpay link delivery via WhatsApp API",
+          "Instant receipt PDF generation upon payment",
+          "Gentle dunning follow-ups at 7 and 14 days",
+          "Daily overdue collections dashboard for owner"
+        ]
+      }
+    ],
+    "features": [
+      "Auto-Invoice PDF: Renders invoice tables on custom templates on completion triggers.",
+      "Direct Payment Gateways: Links payments to Razorpay/Stripe and delivers them directly via text link.",
+      "Dunning Notification Engine: Automatically sends scheduled gentle follow-up reminders at 7 and 14 days."
+    ],
+    "icon": "ph-receipt",
+    "highlight": false
+  },
+  {
+    "id": "automation-chatbot",
+    "name": "AI Chatbot Setup",
+    "category": "Automation",
+    "tagline": "FAQ, Lead-Gen & Booking Bot",
+    "desc": "Self-hosted or cloud-based AI conversational agent that answers inquiries, captures details, and books meetings.",
+    "techstack": ["Botpress", "Flowise", "OpenAI API", "Ollama"],
+    "needs": "Businesses needing 24/7 customer support without hiring virtual assistants or paying recurring bot fees.",
+    "deployment": "Self-hosted Cloud or Local PC",
+    "price": "₹10,000 – ₹25,000",
+    "plans": [
+      {
+        "name": "FAQ Botpress Assistant",
+        "price": "₹10,000",
+        "features": [
+          "Botpress cloud setup (free tier)",
+          "Vector database trained on static business FAQs",
+          "Standard email lead capturing flow",
+          "Web widget integration code"
+        ]
+      },
+      {
+        "name": "Local LLM Ollama Integration",
+        "price": "₹25,000",
+        "features": [
+          "Local PC deployment via Ollama (zero API costs)",
+          "Dynamic appointment calendar booking sync",
+          "Interactive WhatsApp bot interface routing",
+          "Receptionist escalation takeover handoff"
+        ]
+      }
+    ],
+    "features": [
+      "Intelligent FAQ Agent: Answers dynamic customer queries using customized vector store knowledge bases.",
+      "Appointment Scheduler: Checks staff availability and locks meeting slots dynamically.",
+      "Local Offline LLM Option: Runs AI models locally via Ollama, saving thousands in recurring API fees."
+    ],
+    "icon": "ph-cpu",
+    "highlight": false
+  }
+]

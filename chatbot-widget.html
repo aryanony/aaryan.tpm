@@ -371,123 +371,18 @@
   </div>
 
   <script>
-    // ─── Humanized Knowledge Base ───
-    const KB = {
-      greeting: {
-        patterns: ['hello', 'hi', 'hey', 'greetings', 'sup', 'yo', 'hola', 'namaste'],
-        responses: [
-          "Hey there! 👋 I'm Aaryan's AI assistant. What can I help you discover about his work?",
-          "Hi! 😊 I'm here to answer any questions about Aaryan's projects, skills, or services. What's on your mind?",
-          "Hello! I'm Aaryan's virtual assistant. How can I assist you today? 🚀"
-        ]
-      },
-      about: {
-        patterns: ['who is aaryan', 'about aaryan', 'tell me about', 'who are you', 'introduce', 'about yourself', 'about him', 'background'],
-        responses: [
-          "Aaryan is a Technical Project Manager who excels at HealthTech digital transformation, SaaS product delivery, and AI automation! 🚀 Do you want to hear more about his specific tech stack or his experience?",
-          "He's a TPM based in Jaipur, India, with a knack for bridging complex tech with smooth execution. Would you like to know about his projects or his background?"
-        ]
-      },
-      skills: {
-        patterns: ['skills', 'tech stack', 'technologies', 'what can he do', 'expertise', 'capable', 'proficient', 'tools', 'programming', 'code'],
-        responses: [
-          "Aaryan's stack is pretty solid! ⚡ He works with React.js, Next.js, Node.js, and Python, and uses tools like Botpress and Vercel. Want to see some projects built with these?",
-          "He specializes in Frontend (React/Next), Backend (Node/Express), and AI/ML (OpenAI/Botpress). Should I show you his open-source work?"
-        ]
-      },
-      projects: {
-        patterns: ['projects', 'work', 'portfolio', 'built', 'created', 'developed', 'case studies', 'showcase'],
-        responses: [
-          "He's built some amazing things! 🔹 **ProjectPort** (a SaaS platform), 🔹 **UiBrium** (an NPM UI library), and this very AI bot. Which one sounds interesting?",
-          "Aaryan has shipped several cool products, including HealthTech EMRs, SaaS onboarding platforms, and open-source UI libraries. Want details on a specific one?"
-        ]
-      },
-      projectport: {
-        patterns: ['projectport', 'project port', 'onboarding platform', 'saas platform'],
-        responses: [
-          "**ProjectPort** is a SaaS client onboarding platform that achieved 40% faster onboarding! It uses React, Node, and MongoDB. Want the link to the live demo?",
-          "Ah, **ProjectPort**! It's a full-stack SaaS that automates document signing and Slack notifications. It really streamlined client onboarding."
-        ]
-      },
-      uibrium: {
-        patterns: ['uibrium', 'ui library', 'component library', 'npm package', 'react components'],
-        responses: [
-          "**UiBrium** is an open-source React UI library tailored for dark-mode dashboards. It actually has over 2000 NPM downloads! Pretty cool, right?",
-          "That's his open-source component library. It boasts 100% A11y compliance and is built with React + Tailwind. Want the link?"
-        ]
-      },
-      aibot: {
-        patterns: ['ai bot', 'chatbot', 'aryanony bot', 'conversational', 'assistant', 'how do you work'],
-        responses: [
-          "You're actually talking to a simulated version of the **Aryanony AI Bot** right now! 😄 The real one integrates with Botpress and OpenAI to cut support tickets by 60%.",
-          "The **Aryanony AI Bot** is an intelligent assistant that captures leads and handles support. Want me to tell you about his other automation services?"
-        ]
-      },
-      services: {
-        patterns: ['services', 'offer', 'provide', 'consulting', 'hire', 'freelance', 'work with'],
-        responses: [
-          "Aaryan offers HealthTech Consulting, Technical Project Management, AI & Automation, and Micro-SaaS development. Are you looking to hire him for a project?",
-          "He provides top-tier consulting for HealthTech, SaaS development, and AI chatbot integrations. Want to book a quick call with him?"
-        ]
-      },
-      contact: {
-        patterns: ['contact', 'reach', 'email', 'phone', 'call', 'connect', 'get in touch', 'hire', 'talk to him'],
-        responses: [
-          "You can easily reach Aaryan via email at aaryangupta.pm@gmail.com, or book a call at calendly.com/aaryanpm/30min. Should I give you his WhatsApp too?",
-          "Best way is through email (aaryangupta.pm@gmail.com) or LinkedIn! He's always open to discussing new opportunities."
-        ]
-      },
-      experience: {
-        patterns: ['experience', 'career', 'work history', 'resume', 'professional', 'years', 'companies'],
-        responses: [
-          "Aaryan has 3+ years of experience delivering projects across 70+ markets! He's managed over 20 projects end-to-end. Want to know more about his HealthTech expertise?",
-          "He's been in the game for over 3 years, specializing in SaaS and HealthTech delivery. His superpower is aligning developers with business goals."
-        ]
-      },
-      healthtech: {
-        patterns: ['healthtech', 'healthcare', 'medical', 'clinic', 'hospital', 'doctor', 'emr', 'patient'],
-        responses: [
-          "Aaryan has deep expertise in Indian Healthcare IT. He's built EMR/EHR systems, diagnostic trackers, and patient management software! Are you in the healthcare space?",
-          "His HealthTech work is top-notch—building self-hosted OPD management and clinic software with zero recurring SaaS fees for doctors."
-        ]
-      },
-      smalltalk_howareyou: {
-        patterns: ['how are you', 'how do you do', 'how is it going', 'whats up'],
-        responses: [
-          "I'm doing fantastic, thanks for asking! 😊 Just here helping showcase Aaryan's awesome work. How can I help you?",
-          "I'm great! I don't need coffee, but I'm always energized to talk about tech. What brings you to Aaryan's portfolio?"
-        ]
-      },
-      smalltalk_joke: {
-        patterns: ['tell me a joke', 'make me laugh', 'joke'],
-        responses: [
-          "Why do programmers prefer dark mode? Because light attracts bugs! 🐛😂",
-          "There are 10 types of people in the world: those who understand binary, and those who don't! 🤓"
-        ]
-      },
-      smalltalk_bot: {
-        patterns: ['are you a bot', 'are you human', 'are you real', 'are you a machine'],
-        responses: [
-          "I'm an AI assistant! 🤖 I don't have feelings, but I'm programmed to be super helpful. Do you have any questions about Aaryan's work?",
-          "I am an AI, yes! But I try to be as friendly as possible. 😊 How can I assist you today?"
-        ]
-      },
-      thanks: {
-        patterns: ['thanks', 'thank you', 'thx', 'appreciate', 'helpful', 'great', 'awesome', 'cool', 'nice'],
-        responses: [
-          "You're very welcome! 😊 Let me know if anything else catches your eye.",
-          "Anytime! Glad I could help. Feel free to explore more of the portfolio! 🚀",
-          "You got it! ✨ Let me know if you want to book a call with Aaryan."
-        ]
-      },
-      bye: {
-        patterns: ['bye', 'goodbye', 'see you', 'later', 'exit', 'quit', 'close'],
-        responses: [
-          "Goodbye! 👋 Have a wonderful day. Aaryan's just an email away if you need him!",
-          "Catch you later! Don't hesitate to reach out to Aaryan at aaryangupta.pm@gmail.com! ✨"
-        ]
-      }
-    };
+    // ─── State Management ───
+    let KB = {};
+    let config = {};
+    let fallbackIdx = 0;
+    let lastIntent = null; 
+    let isTyping = false;  
+
+    const messagesEl = document.getElementById('chatMessages');
+    const inputEl = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const typingEl = document.getElementById('typingIndicator');
+    const quickEl = document.getElementById('quickReplies');
 
     const QUICK_SUGGESTIONS = [
       { text: "👤 About Aaryan", query: "Tell me about Aaryan" },
@@ -495,7 +390,8 @@
       { text: "🚀 Projects", query: "Show me his projects" },
       { text: "💼 Services", query: "What services does he offer?" },
       { text: "📞 Contact", query: "How to contact him?" },
-      { text: "🏥 HealthTech", query: "Tell me about his HealthTech work" }
+      { text: "🏥 HealthTech", query: "Tell me about his HealthTech work" },
+      { text: "🩺 Doctors Q&A", query: "How can he help doctors?" }
     ];
 
     const FALLBACK_RESPONSES = [
@@ -504,16 +400,31 @@
       "I don't have information on that specific topic, but I'm great at answering questions about Aaryan's portfolio! Ask about his projects, skills, or services. 🚀"
     ];
 
-    // ─── Chat Logic & State ───
-    const messagesEl = document.getElementById('chatMessages');
-    const inputEl = document.getElementById('chatInput');
-    const sendBtn = document.getElementById('sendBtn');
-    const typingEl = document.getElementById('typingIndicator');
-    const quickEl = document.getElementById('quickReplies');
-    let fallbackIdx = 0;
-    let lastIntent = null; // Contextual memory
-    let isTyping = false;  // Lock to prevent multi-message glitches
+    // Synonyms Map to improve matcher accuracy
+    const SYNONYMS = {
+      cost: ["pricing", "cost", "rates", "price", "fee", "fees", "how much", "charges", "charge", "expensive", "cheap", "hourly", "retainer", "budget", "money"],
+      contact: ["contact", "reach", "email", "phone", "call", "connect", "get in touch", "hire", "talk", "whatsapp", "calendly", "meeting", "number", "mobile", "address", "location"],
+      skills: ["skills", "tech", "technologies", "expertise", "proficient", "tools", "programming", "code", "languages", "stack"],
+      healthtech: ["healthtech", "healthcare", "medical", "clinic", "hospital", "doctor", "emr", "patient", "practice", "opd", "prescription"],
+      tokenq: ["tokenq", "queue"],
+      rxpad: ["rxpad", "prescription pad", "generator"],
+      labtrack: ["labtrack", "lab", "laboratory", "diagnostic"],
+      recallmd: ["recallmd", "followup", "reminder", "reminders"],
+      carereview: ["carereview", "review", "rating", "google reviews"]
+    };
 
+    // Conversational fillers/transitions to sound more human
+    const TRANSITIONS = [
+      "Ah, that's a great question!",
+      "Sure! Let me explain that for you...",
+      "Good point. Here are the details:",
+      "Absolutely. Especially for doctors and clinic owners, this is important:",
+      "Actually, that's something Aaryan specializes in.",
+      "Certainly! Let me break that down:",
+      "Yes, indeed!"
+    ];
+
+    // Helper functions
     function getTime() {
       return new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
     }
@@ -521,7 +432,8 @@
     function formatText(text) {
       return text
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\n/g, '<br>');
+        .replace(/\n/g, '<br>')
+        .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>'); // support markdown links
     }
 
     function addMessage(text, isUser = false) {
@@ -577,64 +489,148 @@
       return matrix[b.length][a.length];
     }
 
-    // Advanced NLP Token Matcher
+    // Advanced NLP Token Matcher with Weighted Scoring to prevent intent shadowing
     function matchIntent(input) {
       const rawInput = input.toLowerCase().trim();
-      const cleanInput = rawInput.replace(/[^\w\s]/gi, ''); // remove punctuation for fuzzy matching
+      const cleanInput = rawInput.replace(/[^\w\s]/gi, ''); // remove punctuation
       const words = cleanInput.split(/\s+/);
+
+      let bestIntent = null;
+      let highestScore = -1;
 
       for (const [key, entry] of Object.entries(KB)) {
         for (const pattern of entry.patterns) {
-          // Exact sub-string match (fast path) - check raw and clean
-          if (rawInput.includes(pattern) || cleanInput.includes(pattern.replace(/[^\w\s]/gi, ''))) {
-             return key;
+          let score = 0;
+          const cleanPattern = pattern.replace(/[^\w\s]/gi, '').toLowerCase();
+
+          // Check for exact match
+          if (cleanInput === cleanPattern) {
+            score = 1000;
+          }
+          // Check for substring match
+          else if (rawInput.includes(pattern) || cleanInput.includes(cleanPattern)) {
+            // Score based on pattern length (longer patterns are more specific)
+            score = pattern.length * 10;
+            
+            // If the pattern is a single word and it is a full word match in input, boost it
+            if (!pattern.includes(' ') && words.includes(cleanPattern)) {
+              score += 100;
+            }
+          }
+          // Fuzzy match for single-word patterns
+          else if (!pattern.includes(' ')) {
+            for (let word of words) {
+              if (Math.abs(word.length - pattern.length) <= 2) {
+                const dist = getLevenshteinDistance(word, pattern);
+                if (dist <= 1 && pattern.length > 3) {
+                  score = 50 + (pattern.length * 5); // typo match score
+                  break;
+                }
+              }
+            }
+          }
+          // Multi-word token-based match (75% match)
+          else {
+            const patternWords = cleanPattern.split(/\s+/);
+            let matches = 0;
+            for (let pWord of patternWords) {
+              if (words.includes(pWord)) matches++;
+            }
+            if (patternWords.length > 1 && (matches / patternWords.length >= 0.75)) {
+              score = (matches / patternWords.length) * 150 + (pattern.length * 5);
+            }
           }
 
-          // Token-based fuzzy match
-          const patternWords = pattern.split(/\s+/);
-          if (patternWords.length === 1) {
-             // Single-word intent (e.g. "skills"): check if any user word matches with slight typos
-             for(let word of words) {
-                if (Math.abs(word.length - pattern.length) <= 2) {
-                    const dist = getLevenshteinDistance(word, pattern);
-                    if (dist <= 1 && pattern.length > 3) return key; // Allow 1 typo
-                    if (dist === 0) return key;
-                }
-             }
-          } else {
-             // Multi-word intent (e.g. "who is aaryan"): 
-             // If they typed at least 80% of the words correctly, we consider it a hit
-             let matches = 0;
-             for (let pWord of patternWords) {
-                if (words.includes(pWord)) matches++;
-             }
-             if (patternWords.length > 1 && (matches / patternWords.length >= 0.75)) {
-                return key;
-             }
+          if (score > highestScore && score > 0) {
+            highestScore = score;
+            bestIntent = key;
           }
         }
       }
-      return null;
+
+      // Dynamic overrides for primary product keys and specialized terms
+      if (words.includes('tokenq')) return 'tokenq';
+      if (words.includes('uibrium')) return 'uibrium';
+      if (words.includes('projectport')) return 'projectport';
+      if (words.includes('rxpad')) return 'rxpad';
+      if (words.includes('labtrack')) return 'labtrack';
+      if (words.includes('recallmd')) return 'recallmd';
+      if (words.includes('carereview')) return 'carereview';
+
+      return bestIntent;
     }
 
     function findResponse(input) {
       const lower = input.toLowerCase().trim().replace(/[^\w\s]/gi, '');
+      const words = lower.split(/\s+/);
       
-      // Contextual Follow-up Memory
-      const isAffirmative = lower === 'yes' || lower === 'sure' || lower.includes('tell me more') || lower === 'yeah' || lower === 'yep' || lower === 'link' || lower === 'show me';
-      if (lastIntent && isAffirmative) {
-          if (lastIntent === 'skills') return "Awesome! Check out his GitHub to see his code in action: github.com/aryanony";
-          if (lastIntent === 'projects' || lastIntent === 'projectport' || lastIntent === 'uibrium') return "You can see live demos of ProjectPort and UiBrium right here in the portfolio! They really showcase his full-stack abilities.";
-          if (lastIntent === 'healthtech') return "His HealthTech work involves building robust EMRs and reducing patient wait times using AI. It's incredibly impactful.";
-          if (lastIntent === 'services') return "Great! You can easily book a 30-min discovery call at calendly.com/aaryanpm/30min to discuss your requirements.";
+      // Synonym mappings
+      const isPricingQuery = words.some(w => SYNONYMS.cost.includes(w));
+      const isLinkQuery = words.some(w => ["link", "demo", "website", "live", "url", "github", "npm", "docs"].includes(w));
+      const isSetupQuery = words.some(w => ["setup", "deploy", "install", "installation", "run", "configure", "deployment"].includes(w));
+      const isCustomQuery = words.some(w => ["customize", "custom", "add", "change", "modify", "customization"].includes(w));
+
+      // Shorthand pronoun detector (references the previous topic)
+      const hasPronoun = words.some(w => ["it", "this", "app", "software", "system", "tool", "product", "service", "them", "these"].includes(w)) || words.length <= 3;
+
+      // ─── Conversational Memory & Context Resolution ───
+      if (lastIntent && (hasPronoun || words.length <= 4)) {
+        if (isPricingQuery) {
+          if (lastIntent === 'tokenq') return "💰 **TokenQ Pricing:** It is a **one-time setup fee of ₹6,000 to ₹12,000** depending on customization (such as hospital-wide screens). There are **no monthly fees** or subscription packages!";
+          if (lastIntent === 'rxpad') return "💰 **RxPad Pro Pricing:** Deployed as a one-time purchase of **₹5,000 to ₹10,000** for clinic computers. This includes database setup, patient history storage, and zero monthly SaaS fees.";
+          if (lastIntent === 'labtrack') return "💰 **LabTrack Pro Pricing:** One-time configuration fee of **₹15,000 to ₹35,000** to set up pathology sample flows, PDF reports, and WhatsApp automation gateways.";
+          if (lastIntent === 'recallmd') return "💰 **RecallMD Pricing:** One-time purchase between **₹4,000 and ₹8,000** for patient appointment reminders and medication schedules.";
+          if (lastIntent === 'carereview') return "💰 **CareReview Pricing:** Deployed for a one-time setup fee of **₹4,000 to ₹9,000** to integrate Maps review triggers.";
+          if (lastIntent === 'microsaas') return KB.pricing.responses[0];
+          if (lastIntent === 'maintenance') return "🔧 **Website Maintenance Contracts:** Retainers cost **₹2,000/month** (Essential), **₹4,000/month** (Professional), or **₹8,000/month** (Premium). Fully customizable and cancelable anytime.";
+          if (lastIntent === 'services' || lastIntent === 'tpm') return "💼 **Agile PM Retainers:** Aaryan's TPM rates are ₹25k–₹80k per project, and dev team management retainers range from ₹25k–₹60k/month.";
+        }
+
+        if (isLinkQuery) {
+          if (lastIntent === 'projectport') return "Sure! Check out the live project at [projectsport.vercel.app](https://projectsport.vercel.app) or inspect the repository: [github.com/aryanony/ProjectPort](https://github.com/aryanony/ProjectPort).";
+          if (lastIntent === 'uibrium') return "Absolutely! Check out **UiBrium** live documentation here: [uibrium.vercel.app](https://uibrium.vercel.app) or NPM package: [npmjs.com/package/uibrium](https://www.npmjs.com/package/uibrium).";
+          if (lastIntent === 'skills') return "You can see Aaryan's code repositories live on GitHub: [github.com/aryanony](https://github.com/aryanony).";
+          if (lastIntent === 'contact' || lastIntent === 'services') return "You can book a call on Aaryan's calendar here: [calendly.com/aaryanpm/30min](https://calendly.com/aaryanpm/30min) or chat via WhatsApp: [wa.me/916205650368](https://wa.me/916205650368).";
+        }
+
+        if (isSetupQuery) {
+          if (['tokenq', 'rxpad', 'labtrack', 'recallmd', 'carereview', 'healthtech', 'microsaas'].includes(lastIntent)) {
+            return KB.setup_process.responses[Math.floor(Math.random() * KB.setup_process.responses.length)];
+          }
+        }
+
+        if (isCustomQuery) {
+          if (['tokenq', 'rxpad', 'labtrack', 'recallmd', 'carereview', 'healthtech', 'microsaas'].includes(lastIntent)) {
+            return KB.customization.responses[Math.floor(Math.random() * KB.customization.responses.length)];
+          }
+        }
       }
 
+      // Contextual Follow-up Memory for Yes/No replies
+      const isAffirmative = lower === 'yes' || lower === 'sure' || lower.includes('tell me more') || lower === 'yeah' || lower === 'yep' || lower.includes('how');
+      if (lastIntent && isAffirmative) {
+          if (lastIntent === 'skills') return "Awesome! Check out Aaryan's GitHub to see his code repositories: [github.com/aryanony](https://github.com/aryanony).";
+          if (lastIntent === 'projects' || lastIntent === 'projectport' || lastIntent === 'uibrium') return "You can see live demos of ProjectPort and UiBrium right here in the portfolio! They showcase his MERN-stack and deployment capabilities.";
+          if (lastIntent === 'healthtech') return "Aaryan's Health-Tech work involves custom, self-hosted EMRs and clinic queues. Deployed on your server, meaning zero SaaS costs. Want to look at the setup process?";
+          if (lastIntent === 'services') return "Great! You can easily book a 30-min discovery call at [calendly.com/aaryanpm/30min](https://calendly.com/aaryanpm/30min) to discuss your requirements.";
+          if (lastIntent === 'location_jaipur' || lastIntent === 'location_ahmedabad') return "Aaryan has a deep understanding of local clinical needs. If you'd like to collaborate, let's schedule a call at [calendly.com/aaryanpm/30min](https://calendly.com/aaryanpm/30min).";
+      }
+
+      // Normal intent matching
       const intent = matchIntent(input);
       if (intent) {
         lastIntent = intent;
         const responses = KB[intent].responses;
-        // Randomly select one of the varied responses to sound more human
-        return responses[Math.floor(Math.random() * responses.length)];
+        let reply = responses[Math.floor(Math.random() * responses.length)];
+
+        // Prepend human-like conversational transitions (45% chance for professional intents)
+        const nonFillerIntents = ['greeting', 'thanks', 'bye', 'smalltalk_howareyou', 'smalltalk_joke', 'smalltalk_bot'];
+        if (!nonFillerIntents.includes(intent) && Math.random() < 0.45) {
+          const transition = TRANSITIONS[Math.floor(Math.random() * TRANSITIONS.length)];
+          reply = transition + " " + reply;
+        }
+
+        return reply;
       }
 
       // Contextual fallback
@@ -643,12 +639,11 @@
     }
 
     function handleSend(text) {
-      if (isTyping) return; // Prevent multi-message spam glitch
+      if (isTyping) return; 
       
       const trimmed = (typeof text === 'string' ? text : inputEl.value).trim();
       if (!trimmed) return;
 
-      // Lock UI
       isTyping = true;
       inputEl.disabled = true;
       sendBtn.disabled = true;
@@ -657,28 +652,25 @@
       inputEl.value = '';
       quickEl.innerHTML = '';
 
-      // Immediately show typing indicator (no awkward pause)
       showTyping();
       
       const response = findResponse(trimmed);
       
-      // Simulate human typing time (approx 15ms per character + base delay, max 2.5s)
-      const typeDelay = Math.min(response.length * 15 + 400, 2500);
+      // Dynamic typing simulation speed (approx 10ms per char + base offset)
+      const typeDelay = Math.min(response.length * 10 + 350, 2000);
       
       setTimeout(() => {
         hideTyping();
         addMessage(response, false);
 
-        // Unlock UI
         isTyping = false;
         inputEl.disabled = false;
         sendBtn.disabled = false;
         inputEl.focus();
 
-        // Show dynamic quick replies after a short breath
         setTimeout(() => {
           renderQuickReplies(QUICK_SUGGESTIONS.sort(() => 0.5 - Math.random()).slice(0, 3));
-        }, 400);
+        }, 300);
       }, typeDelay);
     }
 
@@ -687,11 +679,41 @@
       if (e.key === 'Enter' && !isTyping) handleSend();
     });
 
-    // ─── Initial Boot ───
-    setTimeout(() => {
-      addMessage("Hi! 👋 I'm **Aaryan's AI Assistant**. I know everything about his work, skills, projects, and services.\n\nWhat would you like to explore?", false);
-      setTimeout(() => renderQuickReplies(QUICK_SUGGESTIONS.slice(0, 3)), 800);
-    }, 800);
+    // ─── Initial Boot & Fetch Loader ───
+    async function bootChatbot() {
+      try {
+        // Disable input until data is loaded
+        inputEl.disabled = true;
+        sendBtn.disabled = true;
+
+        const [kbRes, configRes] = await Promise.all([
+          fetch('/data/chatbot-data.json'),
+          fetch('/data/site.config.json')
+        ]);
+
+        KB = await kbRes.json();
+        config = await configRes.json();
+
+        // Enable input
+        inputEl.disabled = false;
+        sendBtn.disabled = false;
+        
+        // Show welcome message
+        setTimeout(() => {
+          addMessage("Hi! 👋 I'm **Aaryan's AI Assistant**.\n\nI know everything about Aaryan's technical project management services, micro-SaaS software (like TokenQ and RxPad Pro), and his work in Jaipur and Ahmedabad.\n\nWhat would you like to explore?", false);
+          setTimeout(() => renderQuickReplies(QUICK_SUGGESTIONS.slice(0, 3)), 600);
+        }, 500);
+
+      } catch (err) {
+        console.error("Failed to load chatbot data:", err);
+        // Fallback message
+        addMessage("Hi! 👋 I'm **Aaryan's AI Assistant**. I'm currently running in offline fallback mode. How can I help you? You can ask about his services, projects, or contact info.", false);
+        inputEl.disabled = false;
+        sendBtn.disabled = false;
+      }
+    }
+
+    bootChatbot();
   </script>
 
 

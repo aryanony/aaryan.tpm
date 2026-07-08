@@ -1,7 +1,7 @@
 # AARYAN GUPTA PORTFOLIO — COMPLETE ARCHITECTURE MASTER BLUEPRINT
 ## Single Source of Truth · Production Grade · World-Class Quality
 ### Version 3.0 | 2025–2027 | Pure HTML + CSS + JS + Vite
-### Public Name: Aaryan Gupta | Legal: Aryan Raj | Domain: aaaryangupta.com
+### Name: Aaryan Gupta || Domain: aaaryangupta.com
 
 ---
 
@@ -48,7 +48,6 @@ APPENDIX  A — Quick Reference Card
 | Field | Value |
 |-------|-------|
 | **Public Brand Name** | Aaryan Gupta |
-| **Legal Name** | Aryan Raj (documents only — NEVER use publicly) |
 | **Primary Title** | Technical Project Manager |
 | **Secondary Titles** | HealthTech Digital Strategist · AI & SaaS Product Coordinator · Micro-SaaS Builder · AI Automation Consultant |
 | **Primary Market** | Jaipur, Rajasthan, India |

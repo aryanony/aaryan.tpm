@@ -4,8 +4,9 @@ export async function renderHealthtech() {
   const container = document.querySelector('.healthtech__products');
   if (!container) return;
 
-  const res = await fetch('/data/healthtech-products.json');
-  const products = await res.json();
+  const res = await fetch('/data/products.json?v=' + Date.now());
+  const allProducts = await res.json();
+  const products = allProducts.filter(p => p.highlight === true);
 
   container.innerHTML = products.map((p, idx) => {
     const activeClass = idx === 0 ? 'active' : ''; // Expand first card on load
@@ -21,8 +22,8 @@ export async function renderHealthtech() {
         <div class="ht-product__body">
           <p class="ht-product__desc">${p.desc}</p>
           <div class="ht-product__meta">
-            <span>Setup: <strong>${p.setup}</strong></span>
-            <span>Server Deployment: <strong>Included</strong></span>
+            <span>Deploy: <strong>${p.deployment}</strong></span>
+            <span>License: <strong>One-time</strong></span>
           </div>
         </div>
       </div>
