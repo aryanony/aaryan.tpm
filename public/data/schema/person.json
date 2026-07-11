@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": "https://aaaryangupta.com/#person",
+  "@id": "https://aryanony.pages.dev/#person",
   "name": "Aaryan Gupta",
-  "url": "https://aaaryangupta.com",
+  "url": "https://aryanony.pages.dev",
   "image": {
     "@type": "ImageObject",
-    "url": "https://aaaryangupta.com/assets/images/profile/aaryan-gupta-headshot.webp",
+    "url": "https://aryanony.pages.dev/assets/images/profile/aaryan-gupta-headshot.webp",
     "width": 800,
     "height": 1000,
     "caption": "Aaryan Gupta — Technical Project Manager, Jaipur"

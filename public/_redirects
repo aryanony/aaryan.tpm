@@ -1,4 +1,8 @@
 # Pretty URL redirects for Cloudflare Pages
+/index.html       /                 301
+/work/index.html  /work             301
+/blog/index.html  /blog             301
+
 /jaipur      /jaipur.html      200
 /ahmedabad   /ahmedabad.html   200
 /about       /about.html       200

@@ -20,5 +20,5 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
-Sitemap: https://aaaryangupta.com/sitemap.xml
+Sitemap: https://aryanony.pages.dev/sitemap.xml
 

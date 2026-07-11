@@ -1,10 +1,10 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://aaaryangupta.com/#organization",
+  "@id": "https://aryanony.pages.dev/#organization",
   "name": "Aaryan Gupta Consulting",
-  "url": "https://aaaryangupta.com",
-  "logo": "https://aaaryangupta.com/assets/images/icons/icon-512.png",
+  "url": "https://aryanony.pages.dev",
+  "logo": "https://aryanony.pages.dev/assets/images/icons/icon-512.png",
   "email": "aaryangupta.pm@gmail.com",
   "telephone": "+916205650368",
   "address": {
