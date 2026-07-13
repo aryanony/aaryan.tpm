@@ -11,6 +11,7 @@ const STATIC_ASSETS = [
   '/contact.html',
   '/jaipur.html',
   '/ahmedabad.html',
+  '/pune.html',
   '/404.html',
   OFFLINE_FALLBACK,
   '/manifest.webmanifest',

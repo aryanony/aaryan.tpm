@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Aaryan Gupta — Technical PM &amp; HealthTech Insights</title>
+  <link>https://aryanony.pages.dev/blog/</link>
+  <description>Latest insights and articles on HealthTech digital transformation, clinic workflow management, Agile sprint delivery, and AI automation.</description>
+  <language>en-in</language>
+  <lastBuildDate>Mon, 13 Jul 2026 19:20:12 GMT</lastBuildDate>
+  <atom:link href="https://aryanony.pages.dev/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Build SaaS Without Monthly Fees | Aaryan Gupta</title>
+      <link>https://aryanony.pages.dev/blog/how-build-saas-without-monthly-fees.html</link>
+      <guid>https://aryanony.pages.dev/blog/how-build-saas-without-monthly-fees.html</guid>
+      <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Learn how to architect, develop, and host micro-SaaS web products without recurring subscription fees using VPS, Docker, and self-hosted databases.</description>
+    </item>
+    <item>
+      <title>Jira vs. Notion for Startups | Aaryan Gupta</title>
+      <link>https://aryanony.pages.dev/blog/jira-vs-notion-for-startups.html</link>
+      <guid>https://aryanony.pages.dev/blog/jira-vs-notion-for-startups.html</guid>
+      <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Deciding between Jira and Notion for your startup</description>
+    </item>
+    <item>
+      <title>Software Maintenance Guide for Non-Tech Founders | Aaryan Gupta</title>
+      <link>https://aryanony.pages.dev/blog/software-maintenance-guide-non-tech-founders.html</link>
+      <guid>https://aryanony.pages.dev/blog/software-maintenance-guide-non-tech-founders.html</guid>
+      <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
+      <description>A comprehensive guide to website and software maintenance. Learn how to track patches, manage dependencies, audit speeds, and ensure uptime.</description>
+    </item>
+    <item>
+      <title>The TPM Role in Healthcare Integration | Aaryan Gupta</title>
+      <link>https://aryanony.pages.dev/blog/tpm-role-in-healthcare-integration.html</link>
+      <guid>https://aryanony.pages.dev/blog/tpm-role-in-healthcare-integration.html</guid>
+      <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Understand the critical responsibilities of a Technical Project Manager coordinating HL7, FHIR, and EMR data integrations for medical clinics.</description>
+    </item>
+    <item>
+      <title>What is a Technical Project Manager? | Aaryan Gupta</title>
+      <link>https://aryanony.pages.dev/blog/what-is-technical-project-manager.html</link>
+      <guid>https://aryanony.pages.dev/blog/what-is-technical-project-manager.html</guid>
+      <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Understand the role of a Technical Project Manager (TPM). Learn how coding literacy, API knowledge, and architectural awareness accelerate sprint deliveries.</description>
+    </item>
+    <item>
+      <title>Why Doctors Need Custom OPD Software | Aaryan Gupta</title>
+      <link>https://aryanony.pages.dev/blog/why-doctors-need-custom-opd-software.html</link>
+      <guid>https://aryanony.pages.dev/blog/why-doctors-need-custom-opd-software.html</guid>
+      <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Discover why mainstream medical SaaS models fail Indian OPD consulting clinics and why custom self-hosted systems offer better workflows.</description>
+    </item>
+</channel>
+</rss>

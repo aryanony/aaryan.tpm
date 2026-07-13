@@ -2,8 +2,8 @@
  * main.js — Orchestrates all modules in correct dependency order
  */
 
-// Centralized dynamic injection of premium Phosphor Web Icons stylesheet CDN
-const weights = ['regular', 'fill', 'duotone', 'bold', 'light', 'thin'];
+// Centralized dynamic injection of premium Phosphor Web Icons stylesheet CDN (Optimized weights)
+const weights = ['regular', 'fill', 'duotone', 'bold'];
 weights.forEach(weight => {
   const link = document.createElement('link');
   link.rel = 'stylesheet';
@@ -42,6 +42,7 @@ import { initScrollProgress }   from '@utils/scroll-progress.js';
 import { initLazyLoad }         from '@utils/lazy-load.js';
 import { initCopyEmail }        from '@utils/copy-email.js';
 import { initGlobalLivePreview } from '@utils/sandbox.js';
+import { initAnalyticsTracker } from '@utils/analytics-tracker.js';
 
 async function init() {
   try {
@@ -51,6 +52,7 @@ async function init() {
     // 2. Theme & Loader (prevent flash of unstyled content / give immediate loader)
     initTheme(cfg);
     initLoader();
+    initAnalyticsTracker();
     initNav(cfg);
 
     // 3. Render dynamic sections from datasets
@@ -115,15 +117,4 @@ document.readyState === 'loading'
   ? document.addEventListener('DOMContentLoaded', init)
   : init();
 
-// 10. Register Service Worker for PWA & Offline Support
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => {
-        console.log('[PWA] Service Worker registered successfully:', registration.scope);
-      })
-      .catch(error => {
-        console.warn('[PWA] Service Worker registration failed:', error);
-      });
-  });
-}
+

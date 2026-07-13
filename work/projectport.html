@@ -1,31 +1,57 @@
 <!DOCTYPE html><html lang="en" data-theme="dark"><head>
   <meta charset="UTF-8">
   <!-- Preconnect to Font CDNs for faster loading -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Performance optimization: Preconnect to Font & Tracking CDNs -->
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://calendly.com" crossorigin>
+  <link rel="dns-prefetch" href="//api.fontshare.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//calendly.com">
 
   <!-- Anti-FOUC -->
-  <script>!function(){var t=localStorage.getItem('ag-theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t)}()</script>
+  <script>if(window.location.hostname.startsWith("www.")){window.location.replace(window.location.href.replace("www.",""))}!function(){var t=localStorage.getItem("ag-theme")||(window.matchMedia("(prefers-color-scheme:light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t)}();</script>
 
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K4WSSP6T');</script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P6R6QNNCJQ"></script>
+  <!-- Google Tag Manager & Google Analytics (PageSpeed Optimized Lazy-Load) -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    (function() {
+      var initialized = false;
+      function initThirdParty() {
+        if (initialized) return;
+        initialized = true;
+        window.removeEventListener('scroll', initThirdParty);
+        window.removeEventListener('mousemove', initThirdParty);
+        window.removeEventListener('touchstart', initThirdParty);
+        window.removeEventListener('keydown', initThirdParty);
+        
+        // Load GTM
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-K4WSSP6T');
 
-    gtag('config', 'G-P6R6QNNCJQ');
+        // Load GA4
+        var gt = document.createElement('script');
+        gt.async = true;
+        gt.src = 'https://www.googletagmanager.com/gtag/js?id=G-P6R6QNNCJQ';
+        document.head.appendChild(gt);
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function(){dataLayer.push(arguments);}
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-P6R6QNNCJQ');
+      }
+      var fallbackTimeout = setTimeout(initThirdParty, 3500);
+      window.addEventListener('scroll', initThirdParty, { passive: true });
+      window.addEventListener('mousemove', initThirdParty, { passive: true });
+      window.addEventListener('touchstart', initThirdParty, { passive: true });
+      window.addEventListener('keydown', initThirdParty, { passive: true });
+    })();
   </script>
 
   <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&amp;f[]=satoshi@300,400,500,700,900&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -38,6 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="canonical" href="https://aryanony.pages.dev/work/projectport.html">
 
   <!-- Open Graph -->
+  <meta property="og:site_name" content="Aaryan Gupta">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aryanony.pages.dev/work/projectport.html">
   <meta property="og:title" content="Case Study: ProjectPort Platform | Aaryan Gupta">
@@ -48,6 +75,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta property="og:locale" content="en_IN">
 
   <!-- Twitter -->
+  <meta name="twitter:title" content="Case Study: ProjectPort Platform | Aaryan Gupta">
+  <meta name="twitter:description" content="Read the ProjectPort case study. How Aaryan Gupta built a freelance project coordination system that cut onboarding friction by 50%.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@aryanony">
   <meta name="twitter:image" content="https://aryanony.pages.dev/assets/images/og/og-default.png">
@@ -276,7 +305,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="nav__progress"></div>
     <div class="container nav__container">
       <a href="/" class="nav__logo">
-        <img loading="lazy" decoding="async" src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo">
+        <img loading="lazy" decoding="async" src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo" width="120" height="40">
         <span data-cfg="identity.publicName">Aaryan Gupta</span>
       </a>
       
@@ -323,6 +352,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="post-header reveal">
         <span class="text-eyebrow">Product Case Study</span>
         <h1>ProjectPort Platform</h1>
+        <div class="post-share reveal" style="display: flex; gap: var(--sp-3); margin-top: var(--sp-4); align-items: center;">
+          <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-secondary); text-transform: uppercase;">Share Case Study:</span>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Faryanony.pages.dev%2Fwork%2Fprojectport.html" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); transition: color 0.3s; display: flex; align-items: center;" onmouseover="this.style.color='var(--accent-p)'" onmouseout="this.style.color='var(--text-secondary)'" aria-label="Share on LinkedIn">
+            <i class="ph-fill ph-linkedin-logo" style="font-size: 20px;"></i>
+          </a>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Faryanony.pages.dev%2Fwork%2Fprojectport.html&text=ProjectPort%20Platform%20-%20Aaryan%20Gupta" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); transition: color 0.3s; display: flex; align-items: center;" onmouseover="this.style.color='var(--accent-p)'" onmouseout="this.style.color='var(--text-secondary)'" aria-label="Share on X">
+            <i class="ph-fill ph-x-logo" style="font-size: 18px;"></i>
+          </a>
+          <button onclick="navigator.clipboard.writeText(window.location.href); const el = this.querySelector('span'); el.textContent='Copied!'; setTimeout(() => el.textContent='Copy Link', 2000)" style="background: transparent; border: none; padding: 0; color: var(--text-secondary); cursor: pointer; display: flex; align-items: center; gap: 4px; font-family: var(--font-mono); font-size: var(--text-xs); transition: color 0.3s; outline: none;" onmouseover="this.style.color='var(--accent-p)'" onmouseout="this.style.color='var(--text-secondary)'" aria-label="Copy Link">
+            <i class="ph-bold ph-link" style="font-size: 16px;"></i>
+            <span>Copy Link</span>
+          </button>
+        </div>
         <div style="width: 100%; height: 1px; background: var(--bd-subtle); margin-top: var(--sp-4);"></div>
       </div>
 
@@ -419,7 +461,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container footer-grid">
       <div class="footer__info">
         <a href="/" class="footer__logo">
-            <img loading="lazy" decoding="async" src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo">
+            <img loading="lazy" decoding="async" src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo" width="120" height="40">
           <span data-cfg="identity.publicName">Aaryan Gupta</span>
         </a>
         <p class="footer__tagline">
@@ -453,6 +495,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="footer__col-links">
           <a href="/jaipur.html">Jaipur PM Services</a>
           <a href="/ahmedabad.html">Ahmedabad PM Services</a>
+          <a href="/pune.html">Pune PM Services</a>
           <a href="/about.html">About Aaryan</a>
           <a href="/blog/">Insights Blog</a>
         </div>

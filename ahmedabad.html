@@ -1,31 +1,57 @@
 <!DOCTYPE html><html lang="en" data-theme="dark"><head>
   <meta charset="UTF-8">
   <!-- Preconnect to Font CDNs for faster loading -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Performance optimization: Preconnect to Font & Tracking CDNs -->
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://calendly.com" crossorigin>
+  <link rel="dns-prefetch" href="//api.fontshare.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//calendly.com">
 
   <!-- Anti-FOUC -->
-  <script>!function(){var t=localStorage.getItem('ag-theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t)}()</script>
+  <script>if(window.location.hostname.startsWith("www.")){window.location.replace(window.location.href.replace("www.",""))}!function(){var t=localStorage.getItem("ag-theme")||(window.matchMedia("(prefers-color-scheme:light)").matches?"light":"dark");document.documentElement.setAttribute("data-theme",t)}();</script>
 
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K4WSSP6T');</script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P6R6QNNCJQ"></script>
+  <!-- Google Tag Manager & Google Analytics (PageSpeed Optimized Lazy-Load) -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    (function() {
+      var initialized = false;
+      function initThirdParty() {
+        if (initialized) return;
+        initialized = true;
+        window.removeEventListener('scroll', initThirdParty);
+        window.removeEventListener('mousemove', initThirdParty);
+        window.removeEventListener('touchstart', initThirdParty);
+        window.removeEventListener('keydown', initThirdParty);
+        
+        // Load GTM
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-K4WSSP6T');
 
-    gtag('config', 'G-P6R6QNNCJQ');
+        // Load GA4
+        var gt = document.createElement('script');
+        gt.async = true;
+        gt.src = 'https://www.googletagmanager.com/gtag/js?id=G-P6R6QNNCJQ';
+        document.head.appendChild(gt);
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function(){dataLayer.push(arguments);}
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-P6R6QNNCJQ');
+      }
+      var fallbackTimeout = setTimeout(initThirdParty, 3500);
+      window.addEventListener('scroll', initThirdParty, { passive: true });
+      window.addEventListener('mousemove', initThirdParty, { passive: true });
+      window.addEventListener('touchstart', initThirdParty, { passive: true });
+      window.addEventListener('keydown', initThirdParty, { passive: true });
+    })();
   </script>
 
   <!-- Preload styles -->
@@ -39,6 +65,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="canonical" href="https://aryanony.pages.dev/ahmedabad.html">
 
   <!-- Open Graph -->
+  <meta property="og:site_name" content="Aaryan Gupta">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aryanony.pages.dev/ahmedabad.html">
   <meta property="og:title" content="Technical Project Manager in Ahmedabad, Gujarat | HealthTech | Aaryan Gupta">
@@ -49,6 +76,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta property="og:locale" content="en_IN">
 
   <!-- Twitter -->
+  <meta name="twitter:title" content="Technical Project Manager in Ahmedabad, Gujarat | HealthTech | Aaryan Gupta">
+  <meta name="twitter:description" content="Aaryan Gupta — Technical PM in Ahmedabad. HealthTech, AI automation, and micro-SaaS setups for Gujarat businesses, clinic owners, and startups. Book a call.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@aryanony">
   <meta name="twitter:image" content="https://aryanony.pages.dev/assets/images/og/og-default.png">
@@ -198,7 +227,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     },
     "priceRange": "₹Standard",
     "openingHours": "Mo-Fr 09:00-18:00",
-    "areaServed": ["Ahmedabad", "Gujarat", "India"]
+    "areaServed": ["Ahmedabad", "Gujarat", "India"],
+    "sameAs": [
+      "https://www.wikidata.org/wiki/Q1070",
+      "https://en.wikipedia.org/wiki/Ahmedabad"
+    ]
   }
   </script>
 
@@ -311,7 +344,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="nav__progress"></div>
     <div class="container nav__container">
       <a href="/" class="nav__logo">
-        <img loading="lazy" decoding="async" src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo">
+        <img loading="lazy" decoding="async" src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo" width="120" height="40">
         <span data-cfg="identity.publicName">Aaryan Gupta</span>
       </a>
       
@@ -431,7 +464,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container footer-grid">
       <div class="footer__info">
         <a href="/" class="footer__logo">
-            <img loading="lazy" decoding="async" src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo">
+            <img loading="lazy" decoding="async" src="/assets/images/logo.png" alt="Aaryan Gupta" class="site-logo" width="120" height="40">
           <span data-cfg="identity.publicName">Aaryan Gupta</span>
         </a>
         <p class="footer__tagline">
@@ -465,6 +498,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="footer__col-links">
           <a href="/jaipur.html">Jaipur PM Services</a>
           <a href="/ahmedabad.html">Ahmedabad PM Services</a>
+          <a href="/pune.html">Pune PM Services</a>
           <a href="/about.html">About Aaryan</a>
           <a href="/blog/">Insights Blog</a>
         </div>

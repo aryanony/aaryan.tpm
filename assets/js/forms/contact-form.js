@@ -41,6 +41,16 @@ export function initContactForm(config) {
     const emailTarget = config?.contact?.email || 'aaryangupta.pm@gmail.com';
     const mailto = `mailto:${emailTarget}?subject=Project Inquiry from ${encodeURIComponent(name.value)}&body=${encodeURIComponent(message.value)}%0A%0AReply to: ${encodeURIComponent(email.value)}`;
     
+    // Push conversion tracking event to dataLayer
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'contact_form_submit',
+      form_name: 'contact-form',
+      user_name: name.value,
+      user_email: email.value
+    });
+    console.log('[AG-Analytics] Tracked Contact Form Submission:', name.value);
+
     window.location.href = mailto;
 
     if (status) {
