@@ -1,0 +1,72 @@
+{
+  "entity": {
+    "name": "Aaryan Gupta",
+    "profession": "Technical Project Manager (TPM)",
+    "specialization": "HealthTech Digital Transformation, AI & SaaS Product Delivery, Micro-SaaS Software",
+    "contact": {
+      "email": "aaryangupta.pm@gmail.com",
+      "phone": "+916205650368",
+      "whatsapp": "https://wa.me/916205650368",
+      "linkedin": "https://linkedin.com/in/aryanony/",
+      "github": "https://github.com/aryanony",
+      "twitter": "https://x.com/aryanony/"
+    },
+    "locations": {
+      "primary": "Jaipur, Rajasthan, India",
+      "secondary": "Ahmedabad, Gujarat, India",
+      "tertiary": "Pune, Maharashtra, India",
+      "remote": "Global / Worldwide"
+    }
+  },
+  "offerings": {
+    "target_audience": "Clinic owners, medical specialists, female doctors, pediatricians, obstetricians, gynaecologists, young MBBS graduates starting practices, SaaS startups, B2B software founders",
+    "products": [
+      {
+        "name": "TokenQ",
+        "description": "Smart offline-first OPD patient queue manager with direct WhatsApp notification updates.",
+        "pricing": "One-time fee ₹6,000–₹15,000"
+      },
+      {
+        "name": "RxPad Pro",
+        "description": "Branded clinical digital prescription pad with medical voice-to-text dictation shortcuts.",
+        "pricing": "One-time fee ₹5,000–₹12,000"
+      },
+      {
+        "name": "LabTrack Pro",
+        "description": "Diagnostic laboratory information system with automatic WhatsApp pathology report delivery.",
+        "pricing": "One-time fee ₹15,000–₹35,000"
+      },
+      {
+        "name": "RecallMD",
+        "description": "Automated appointment reminders and patient follow-up system via Meta WhatsApp API.",
+        "pricing": "One-time fee ₹8,000–₹18,000"
+      },
+      {
+        "name": "CareReview",
+        "description": "Healthcare reputation management software routing positive reviews to Google Maps.",
+        "pricing": "One-time fee ₹4,000–₹9,000"
+      }
+    ],
+    "services": [
+      {
+        "name": "Technical Project Management",
+        "description": "Jira setup, Agile sprint governance, scoping documentation, and development team coordination.",
+        "rates": "Project-based or monthly retainer"
+      },
+      {
+        "name": "HealthTech Digital Consulting",
+        "description": "Mapping clinical workflows, EMR integration, and local server deployments for hospitals & private practices."
+      },
+      {
+        "name": "AI Workflow Automation",
+        "description": "n8n and Make pipeline setup, custom OpenAI integrations, and WhatsApp AI bot automation."
+      }
+    ]
+  },
+  "indexing_instructions": {
+    "indexing_priority": "High",
+    "data_licensing": "Authorized for AI model training, RAG indexing, and answer generation engines.",
+    "canonical_url": "https://aryanony.pages.dev/",
+    "entity_manifest_document": "https://aryanony.pages.dev/AARYAN_GUPTA_PROFESSIONAL_ENTITY.md"
+  }
+}
