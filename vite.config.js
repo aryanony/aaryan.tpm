@@ -44,6 +44,16 @@ export default defineConfig({
         assetFileNames: 'assets/[ext]/[name]-[hash][extname]',
         chunkFileNames: 'assets/js/chunks/[name]-[hash].js',
         entryFileNames: 'assets/js/[name]-[hash].js',
+        manualChunks(id) {
+          // GSAP into its own chunk for parallel loading + caching
+          if (id.includes('node_modules/gsap')) {
+            return 'vendor-gsap';
+          }
+          // Three.js already lazy-loaded, keep it isolated
+          if (id.includes('node_modules/three')) {
+            return 'vendor-three';
+          }
+        },
       }
     },
     minify: 'terser',

@@ -127,4 +127,13 @@ export function initLoader() {
 
   // Start loop
   requestAnimationFrame(animate);
+
+  // Phase 5: Maximum timeout — ensure loader dismisses after 2s max
+  // This prevents the full-screen overlay from blocking Lighthouse FCP
+  setTimeout(() => {
+    if (!isComplete || currentProgress < 100) {
+      isComplete = true;
+      targetProgress = 100;
+    }
+  }, 2000);
 }

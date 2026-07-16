@@ -1,102 +1,163 @@
 /**
- * main.js — Orchestrates all modules in correct dependency order
+ * main.js — Performance-optimized orchestrator
+ * 
+ * Strategy:
+ *  - Only critical-path modules loaded synchronously (theme, loader, nav, config, hero)
+ *  - All below-fold section renderers use IntersectionObserver lazy-loading
+ *  - Interaction modules deferred to after first paint
+ *  - Phosphor icons reduced to 2 weights (fill + duotone), deferred
+ *  - Three.js gated behind requestIdleCallback
  */
 
-// Centralized dynamic injection of premium Phosphor Web Icons stylesheet CDN (Optimized weights)
-const weights = ['regular', 'fill', 'duotone', 'bold'];
-weights.forEach(weight => {
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.type = 'text/css';
-  link.media = 'print';
-  link.onload = function() { this.media = 'all'; };
-  link.href = `https://unpkg.com/@phosphor-icons/web@2.1.1/src/${weight}/style.css`;
-  document.head.appendChild(link);
-});
+// ── Phase 3: Phosphor Icons — only load fill + duotone, deferred ──
+function loadIcons() {
+  const weights = ['fill', 'duotone'];
+  weights.forEach(weight => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.media = 'print';
+    link.onload = function() { this.media = 'all'; };
+    link.href = `https://unpkg.com/@phosphor-icons/web@2.1.1/src/${weight}/style.css`;
+    document.head.appendChild(link);
+  });
+}
 
-
+// ── Critical-path static imports (theme, loader, config, nav) ──
 import { loadConfig }           from '@config/site.config.js';
 import { initTheme }            from '@core/theme.js';
 import { initLoader }           from '@core/loader.js';
-import Cursor                   from '@interactions/cursor.js';
-import { initMagnetic }         from '@interactions/magnetic.js';
-import { initTilt }             from '@interactions/tilt.js';
-import { initSmoothScroll }     from '@interactions/smooth-scroll.js';
-import { initAboutTabs, initWhyConsole, initJourneyStepper } from '@interactions/tabs.js';
-import { initCommandPalette }   from '@interactions/cmd-k.js';
-import { initHeroAnimation }    from '@animations/hero-animations.js';
-import { initScrollAnimations } from '@animations/scroll-reveal.js';
-import { initTypewriter }       from '@animations/typewriter.js';
-import { initMarquee }          from '@animations/marquee.js';
-import { renderServices }       from '@sections/services-render.js';
-import { renderProjects }       from '@sections/projects-render.js';
-import { renderExperience }     from '@sections/experience-render.js';
-import { renderSkills }         from '@sections/skills-render.js';
-import { renderFAQ }            from '@sections/faq-render.js';
-import { renderStats }          from '@sections/stats-render.js';
-import { renderHealthtech }     from '@sections/healthtech-render.js';
-import { renderProducts }       from '@sections/products-render.js';
-import { initNav }              from '@sections/nav.js';
-import { initContactForm }      from '@forms/contact-form.js';
-import { initScrollProgress }   from '@utils/scroll-progress.js';
-import { initLazyLoad }         from '@utils/lazy-load.js';
-import { initCopyEmail }        from '@utils/copy-email.js';
-import { initGlobalLivePreview } from '@utils/sandbox.js';
-import { initAnalyticsTracker } from '@utils/analytics-tracker.js';
+
+// ── IntersectionObserver lazy-loader for below-fold sections ──
+function lazySection(selector, importFn) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+
+  const observer = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      observer.disconnect();
+      importFn();
+    }
+  }, { rootMargin: '200px' }); // trigger 200px before visible
+
+  observer.observe(el);
+}
 
 async function init() {
   try {
-    // 1. Config FIRST
+    // 1. Config FIRST (needed for nav + hero text injection)
     const cfg = await loadConfig();
     
-    // 2. Theme & Loader (prevent flash of unstyled content / give immediate loader)
+    // 2. Theme & Loader (prevent FOUC, show loader immediately)
     initTheme(cfg);
     initLoader();
-    initAnalyticsTracker();
+
+    // 3. Nav — critical above-fold, but use dynamic import to keep main chunk small
+    const { initNav } = await import('@sections/nav.js');
     initNav(cfg);
 
-    // 3. Render dynamic sections from datasets
-    await Promise.all([
-      renderServices(), 
-      renderProjects(), 
-      renderExperience(),
-      renderSkills(), 
-      renderFAQ(), 
-      renderStats(),
-      renderHealthtech(),
-      renderProducts(),
-    ]);
-    
-    // Dispatch ready event for tilt and magnetic hooks
-    document.dispatchEvent(new Event('ag:ready'));
+    // 4. Hero animation — above-fold, load immediately but async
+    import('@animations/hero-animations.js').then(m => m.initHeroAnimation());
 
-    // 4. Interactive custom events
-    initMagnetic();
-    initTilt();
-    initSmoothScroll();
-    initAboutTabs();
-    initWhyConsole();
-    initJourneyStepper();
-    initScrollProgress();
-    initLazyLoad();
-    initCopyEmail();
-    initGlobalLivePreview();
-    initCommandPalette();
-    // 5. Scroll Reveals & Special animations
-    initHeroAnimation();
-    initScrollAnimations();
-    initTypewriter(cfg);
-    initMarquee();
+    // 5. Typewriter — above-fold visual, load immediately
+    import('@animations/typewriter.js').then(m => m.initTypewriter(cfg));
 
-    // 6. Three.js Particle system (lazy load under desktop specs)
+    // 6. Below-fold section renderers — lazy via IntersectionObserver
+    lazySection('.services-section, [id="services"]', () =>
+      import('@sections/services-render.js').then(m => m.renderServices())
+    );
+    lazySection('.work-section, [id="projects"]', () =>
+      import('@sections/projects-render.js').then(m => m.renderProjects())
+    );
+    lazySection('.exp-section, [id="experience"]', () =>
+      import('@sections/experience-render.js').then(m => m.renderExperience())
+    );
+    lazySection('.skills-section, [id="skills"]', () =>
+      import('@sections/skills-render.js').then(m => m.renderSkills())
+    );
+    lazySection('.faq-section, [id="faq"]', () =>
+      import('@sections/faq-render.js').then(m => m.renderFAQ())
+    );
+    lazySection('#stats-section, .stats-section', () =>
+      import('@sections/stats-render.js').then(m => m.renderStats())
+    );
+    lazySection('.healthtech-section, [id="healthtech"]', () =>
+      import('@sections/healthtech-render.js').then(m => m.renderHealthtech())
+    );
+    lazySection('.products-section, [id="products"]', () =>
+      import('@sections/products-render.js').then(m => m.renderProducts())
+    );
+
+    // 7. Defer non-critical interactions to after first paint
+    requestAnimationFrame(() => {
+      setTimeout(async () => {
+        // Load icons now (after first paint)
+        loadIcons();
+
+        const [
+          { default: Cursor },
+          { initMagnetic },
+          { initTilt },
+          { initSmoothScroll },
+          { initAboutTabs, initWhyConsole, initJourneyStepper },
+          { initCommandPalette },
+          { initScrollAnimations },
+          { initMarquee },
+          { initScrollProgress },
+          { initLazyLoad },
+          { initCopyEmail },
+          { initGlobalLivePreview },
+          { initAnalyticsTracker },
+          { initContactForm },
+        ] = await Promise.all([
+          import('@interactions/cursor.js'),
+          import('@interactions/magnetic.js'),
+          import('@interactions/tilt.js'),
+          import('@interactions/smooth-scroll.js'),
+          import('@interactions/tabs.js'),
+          import('@interactions/cmd-k.js'),
+          import('@animations/scroll-reveal.js'),
+          import('@animations/marquee.js'),
+          import('@utils/scroll-progress.js'),
+          import('@utils/lazy-load.js'),
+          import('@utils/copy-email.js'),
+          import('@utils/sandbox.js'),
+          import('@utils/analytics-tracker.js'),
+          import('@forms/contact-form.js'),
+        ]);
+
+        // Dispatch ready event for tilt and magnetic hooks
+        document.dispatchEvent(new Event('ag:ready'));
+
+        initMagnetic();
+        initTilt();
+        initSmoothScroll();
+        initAboutTabs();
+        initWhyConsole();
+        initJourneyStepper();
+        initScrollProgress();
+        initLazyLoad();
+        initCopyEmail();
+        initGlobalLivePreview();
+        initCommandPalette();
+        initScrollAnimations();
+        initMarquee();
+        initAnalyticsTracker();
+        initContactForm(cfg);
+      }, 50); // 50ms delay to let first paint complete
+    });
+
+    // 8. Three.js Particle system — lazy via requestIdleCallback + viewport check
     if (import.meta.env.VITE_ENABLE_THREEJS !== 'false' && window.innerWidth >= 768) {
-      import('@three/hero-bg.js').then(m => m.initHeroBackground());
+      const loadThree = () => import('@three/hero-bg.js').then(m => m.initHeroBackground());
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadThree, { timeout: 5000 });
+      } else {
+        setTimeout(loadThree, 3000);
+      }
     }
 
-    // 7. Forms
-    initContactForm(cfg);
-
-    // 8. Non-critical features deferred by 2.5s for page speed optimization
+    // 9. Non-critical features deferred by 4s for page speed optimization
     setTimeout(async () => {
       const { initCookies }   = await import('@utils/cookies.js');
       const { initAnalytics } = await import('@utils/analytics.js');
@@ -104,7 +165,7 @@ async function init() {
       initCookies();
       initAnalytics(cfg.analytics);
       initPWA();
-    }, 2500);
+    }, 4000);
 
     document.documentElement.classList.add('js-loaded');
   } catch (err) {
@@ -116,5 +177,3 @@ async function init() {
 document.readyState === 'loading'
   ? document.addEventListener('DOMContentLoaded', init)
   : init();
-
-
