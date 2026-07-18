@@ -66,6 +66,13 @@ h1, h2, h3, h4, h5 {
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
   color: var(--text-accent);
+  margin-right: var(--sp-4);
+}
+
+.text-eyebrow::before {
+  content: '— ';
+  margin-right: 6px;
+  opacity: 0.6;
 }
 
 /* Accessible focus ring for keyboard navigation */

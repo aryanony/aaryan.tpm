@@ -1,6 +1,6 @@
 // sw.js — Service Worker for Aaryan Gupta Portfolio
 
-const CACHE_NAME = 'ag-cache-v1';
+const CACHE_NAME = 'ag-cache-v2';
 const OFFLINE_FALLBACK = '/offline.html';
 
 const STATIC_ASSETS = [
@@ -15,6 +15,15 @@ const STATIC_ASSETS = [
   '/404.html',
   OFFLINE_FALLBACK,
   '/manifest.webmanifest',
+  '/favicon.ico',
+  '/favicon.svg',
+  '/apple-touch-icon.png',
+  '/assets/images/icons/icon.svg',
+  '/assets/images/icons/icon.png',
+  '/assets/images/icons/icon-192.png',
+  '/assets/images/icons/icon-192x192.png',
+  '/assets/images/icons/icon-512.png',
+  '/assets/images/icons/icon-512x512.png',
   '/data/site.config.json',
   '/data/services.json',
   '/data/projects.json',

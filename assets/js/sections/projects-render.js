@@ -484,6 +484,11 @@ export async function renderProjects() {
       // Dispatch event to activate tilt
       document.dispatchEvent(new Event('ag:ready'));
     }
+
+    // Recalculate ScrollTrigger positions due to dynamic content height changes
+    import('../animations/gsap-init.js').then(({ ScrollTrigger }) => {
+      ScrollTrigger.refresh();
+    });
   };
 
   const bindControls = () => {

@@ -9,20 +9,6 @@
  *  - Three.js gated behind requestIdleCallback
  */
 
-// ── Phase 3: Phosphor Icons — only load fill + duotone, deferred ──
-function loadIcons() {
-  const weights = ['fill', 'duotone'];
-  weights.forEach(weight => {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.media = 'print';
-    link.onload = function() { this.media = 'all'; };
-    link.href = `https://unpkg.com/@phosphor-icons/web@2.1.1/src/${weight}/style.css`;
-    document.head.appendChild(link);
-  });
-}
-
 // ── Critical-path static imports (theme, loader, config, nav) ──
 import { loadConfig }           from '@config/site.config.js';
 import { initTheme }            from '@core/theme.js';
@@ -66,6 +52,9 @@ async function init() {
     lazySection('.services-section, [id="services"]', () =>
       import('@sections/services-render.js').then(m => m.renderServices())
     );
+    if (document.querySelector('.services-grid') && !document.querySelector('#services')) {
+      import('@sections/services-render.js').then(m => m.renderServices());
+    }
     lazySection('.work-section, [id="projects"]', () =>
       import('@sections/projects-render.js').then(m => m.renderProjects())
     );
@@ -75,25 +64,23 @@ async function init() {
     lazySection('.skills-section, [id="skills"]', () =>
       import('@sections/skills-render.js').then(m => m.renderSkills())
     );
-    lazySection('.faq-section, [id="faq"]', () =>
+    lazySection('.faq-section, .faq-container, [id="faq"]', () =>
       import('@sections/faq-render.js').then(m => m.renderFAQ())
     );
     lazySection('#stats-section, .stats-section', () =>
       import('@sections/stats-render.js').then(m => m.renderStats())
     );
-    lazySection('.healthtech-section, [id="healthtech"]', () =>
+    lazySection('.healthtech-section, [id="products"]', () =>
       import('@sections/healthtech-render.js').then(m => m.renderHealthtech())
     );
-    lazySection('.products-section, [id="products"]', () =>
-      import('@sections/products-render.js').then(m => m.renderProducts())
-    );
+    if (document.querySelector('.product-details-container')) {
+      import('@sections/products-render.js').then(m => m.renderProducts());
+    }
 
     // 7. Defer non-critical interactions to after first paint
     requestAnimationFrame(() => {
       setTimeout(async () => {
-        // Load icons now (after first paint)
-        loadIcons();
-
+        
         const [
           { default: Cursor },
           { initMagnetic },

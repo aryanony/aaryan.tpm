@@ -238,7 +238,7 @@ function displayProducts(items, container) {
     const activeClass = idx === 0 ? 'active' : '';
 
     return `
-      <div class="prod-card reveal ${activeClass}" data-id="${p.id}" data-base-price="${p.price}" data-category="${p.category}">
+      <div class="prod-card ${activeClass}" data-id="${p.id}" data-base-price="${p.price}" data-category="${p.category}">
         <div class="prod-card__hdr">
           <div class="prod-card__icon-wrap">
             <i class="ph-duotone ${p.icon || 'ph-cube'}"></i>
@@ -457,6 +457,11 @@ function displayProducts(items, container) {
         }, 150);
       }
     });
+  });
+
+  // Recalculate ScrollTrigger positions due to dynamic content height changes
+  import('../animations/gsap-init.js').then(({ ScrollTrigger }) => {
+    ScrollTrigger.refresh();
   });
 }
 

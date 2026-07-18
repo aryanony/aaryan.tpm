@@ -8,7 +8,7 @@
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  border-top: 1px solid rgba(13, 148, 136, 0.4);
+  border-top: 1px solid rgba(20, 184, 166, 0.5);
   padding: var(--sp-16) 0 var(--sp-8);
   position: relative;
   /* Removed overflow: hidden so scroll button isn't cut off */
@@ -42,12 +42,19 @@
   position: absolute;
   width: 52px;
   height: 52px;
-  background: rgba(13, 148, 136, 0.12);
+  background: rgba(20, 184, 166, 0.12);
+  border: 1px solid rgba(20, 184, 166, 0.3);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   /* The secret to soft corners: a rotated squircle! */
   border-radius: 18px; 
   transform: rotate(45deg);
+  transition: background var(--dur-base), border-color var(--dur-base);
+}
+
+.footer__scroll-top:hover::before {
+  background: rgba(20, 184, 166, 0.2);
+  border-color: rgba(20, 184, 166, 0.6);
 }
 
 .footer__scroll-top:hover {

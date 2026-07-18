@@ -48,6 +48,11 @@ export async function renderServices() {
 
   // Initialize interactive ROI estimator
   initROIEstimator();
+
+  // Recalculate ScrollTrigger positions due to dynamic content height changes
+  import('../animations/gsap-init.js').then(({ ScrollTrigger }) => {
+    ScrollTrigger.refresh();
+  });
 }
 
 function initROIEstimator() {

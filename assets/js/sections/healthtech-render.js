@@ -6,15 +6,27 @@ export async function renderHealthtech() {
 
   const res = await fetch('/data/products.json?v=' + Date.now());
   const allProducts = await res.json();
-  const products = allProducts.filter(p => p.highlight === true);
+  const products = allProducts.filter(p => p.category === 'Healthcare');
+
+  const BADGE_MAP = {
+    'tokenq': '⚡ MOST DEPLOYED',
+    'rxpad-pro': '🏆 CLINIC FAVORITE',
+    'labtrack-pro': '🔒 ENTERPRISE',
+    'recallmd': '📈 98% RETENTION',
+    'carereview': '⭐ REPUTATION',
+    'wellnessdesk': '💪 STUDIO LITE'
+  };
 
   container.innerHTML = products.map((p, idx) => {
     const activeClass = idx === 0 ? 'active' : ''; // Expand first card on load
+    const badgeText = BADGE_MAP[p.id] || '';
+    const badgeHtml = badgeText ? `<span class="badge badge-success" style="font-size: 8px; padding: 2px 6px; margin-left: 6px; display: inline-flex; align-items: center; line-height: 1; height: 16px;">${badgeText}</span>` : '';
+    
     return `
       <div class="ht-product ${activeClass}" data-id="${p.id}">
         <div class="ht-product__hdr">
           <div class="ht-product__info">
-            <h4 class="ht-product__name">${p.name}</h4>
+            <h4 class="ht-product__name" style="display: flex; align-items: center; flex-wrap: wrap; gap: 4px;">${p.name}${badgeHtml}</h4>
             <span class="ht-product__tagline">${p.tagline}</span>
           </div>
           <span class="ht-product__price">${p.price}</span>
@@ -59,6 +71,11 @@ export async function renderHealthtech() {
 
   // Initialize interactive simulation
   initTokenQSimulator();
+
+  // Recalculate ScrollTrigger positions due to dynamic content height changes
+  import('../animations/gsap-init.js').then(({ ScrollTrigger }) => {
+    ScrollTrigger.refresh();
+  });
 }
 
 function initTokenQSimulator() {

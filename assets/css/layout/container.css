@@ -14,15 +14,14 @@
 
 .section-hdr {
   text-align: center;
-  max-width: 640px;
+  max-width: 900px;
   margin: 0 auto var(--sp-16);
 }
 
 .section-hdr h2 {
   font-size: var(--section-h2);
-  margin-bottom: var(--sp-3);
   position: relative;
-  display: inline-block;
+  display: inline;
 }
 
 /* Optional text gradient for emphasis words in headings */
