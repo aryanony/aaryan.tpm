@@ -1,4 +1,5 @@
 // assets/js/sections/skills-render.js
+import { ScrollTrigger } from '../animations/gsap-init.js';
 
 const SKILL_ICONS = {
   'PM & Agile': 'ph-duotone ph-kanban',
@@ -56,6 +57,11 @@ export async function renderSkills() {
       
       trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
       body.style.maxHeight = collapsed ? '0px' : `${body.scrollHeight}px`;
+
+      // Refresh ScrollTrigger to update heights (timeout matches transition)
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 350);
     };
 
     header.addEventListener('click', toggle);
@@ -63,6 +69,9 @@ export async function renderSkills() {
 
   // Initialize interactive tech stack filter
   initTechStackBuilder();
+
+  // Refresh ScrollTrigger to update heights after load
+  ScrollTrigger.refresh();
 }
 
 function initTechStackBuilder() {
@@ -118,6 +127,7 @@ function initTechStackBuilder() {
             body.style.maxHeight = `${body.scrollHeight}px`;
           }
         });
+        ScrollTrigger.refresh();
         return;
       }
 
@@ -149,6 +159,11 @@ function initTechStackBuilder() {
           }
         }
       });
+
+      // Refresh ScrollTrigger to update layouts (timeout matches transition)
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 350);
     });
   });
 }

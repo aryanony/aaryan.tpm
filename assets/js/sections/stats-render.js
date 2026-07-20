@@ -71,4 +71,9 @@ export async function renderStats() {
       });
     }
   }
+
+  // Refresh ScrollTrigger to update layouts after loading stats
+  import('../animations/gsap-init.js').then(({ ScrollTrigger }) => {
+    ScrollTrigger.refresh();
+  });
 }

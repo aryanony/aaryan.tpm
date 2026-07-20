@@ -39,18 +39,24 @@ function buildVisualHTML(project, mode) {
     const wrapClass = mode === 'showcase'
       ? `work__mock-frame work__live-frame ${isChatbot ? 'work__live-frame--fit' : 'work__live-frame--scroll'}`
       : `project-card__img-wrap work__live-frame ${isChatbot ? 'work__live-frame--fit' : 'work__live-frame--scroll'}`;
+    
+    const fallbackClass = mode === 'showcase' ? 'work__mock-img' : 'project-card__img';
+    
     return `
       <div class="${wrapClass}" data-live-src="${project.livePreviewUrl}">
         <div class="work__live-loader">
           <div class="work__live-spinner"></div>
           <span>Loading preview…</span>
         </div>
+        <!-- Fallback static image behind the iframe -->
+        <img src="${project.image}" alt="${project.name} preview fallback" class="${fallbackClass}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
         <iframe
           title="Live preview of ${project.name}"
           loading="lazy"
           sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
           class="work__live-iframe"
           scrolling="no"
+          style="position: relative; z-index: 1; background: transparent;"
         ></iframe>
       </div>
     `;
@@ -64,16 +70,16 @@ function buildVisualHTML(project, mode) {
     `;
   }
   return `
-    <div class="project-card__img-wrap">
-      <img src="${project.image}" alt="${project.name} image" class="project-card__img" loading="lazy">
-    </div>
+     <div class="project-card__img-wrap">
+       <img src="${project.image}" alt="${project.name} image" class="project-card__img" loading="lazy">
+     </div>
   `;
 }
 
 /**
  * Activates all live preview frames inside a container:
  * - Uses IntersectionObserver to set iframe src only when visible (performance)
- * - Hides loader once iframe has loaded
+ * - Hides loader once iframe has loaded or timeout exceeds (for X-Frame-Options/CORS blocks)
  */
 function activateLiveFrames(container, onActivity) {
   const frames = container.querySelectorAll('.work__live-frame');
@@ -89,7 +95,19 @@ function activateLiveFrames(container, onActivity) {
 
         if (iframe && src && !iframe.src) {
           iframe.src = src;
+
+          // Timeout fallback (3.5 seconds) in case of cross-origin blocks (X-Frame-Options/CORS) or slow network
+          const loadTimeout = setTimeout(() => {
+            if (loader) {
+              loader.style.opacity = '0';
+              setTimeout(() => {
+                loader.style.display = 'none';
+              }, 300);
+            }
+          }, 3500);
+
           iframe.addEventListener('load', () => {
+            clearTimeout(loadTimeout);
             if (loader) {
               loader.style.opacity = '0';
               setTimeout(() => loader.style.display = 'none', 300);

@@ -1,4 +1,5 @@
 // assets/js/sections/products-render.js
+import { ScrollTrigger } from '../animations/gsap-init.js';
 
 /* ──────────────────────────────────────────────────────────
    TAGLINE OVERRIDES — ACTION-ORIENTED SALES PSYCHOLOGY
@@ -46,6 +47,7 @@ export async function renderProducts() {
 
   // Initial render: show all
   displayProducts(products, container);
+  ScrollTrigger.refresh();
 
   if (tabsNav) {
     const tabButtons = tabsNav.querySelectorAll('.tab-btn');
@@ -62,6 +64,7 @@ export async function renderProducts() {
         }
 
         displayProducts(filtered, container);
+        ScrollTrigger.refresh();
       });
     });
   }
@@ -448,6 +451,7 @@ function displayProducts(items, container) {
         card.classList.add('active');
         const body = card.querySelector('.prod-card__body');
         body.style.maxHeight = `${body.scrollHeight}px`;
+        
         initCardTabs(card);
         initAddonConfigurators(card);
         
@@ -456,6 +460,11 @@ function displayProducts(items, container) {
           card.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 150);
       }
+
+      // Refresh ScrollTrigger to update layouts after height transition completes
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 550);
     });
   });
 

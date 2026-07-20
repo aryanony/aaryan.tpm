@@ -379,4 +379,5 @@ export async function renderExperience() {
 
   // Initial render state
   updatePanel(0);
+  ScrollTrigger.refresh();
 }

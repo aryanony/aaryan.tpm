@@ -1317,9 +1317,52 @@ body.products-page-body::before {
   .plans-grid { grid-template-columns: 1fr; }
   .roi-summary-box { grid-template-columns: 1fr; text-align: center; }
   .roi-metrics-grid { grid-template-columns: 1fr; }
-  .prod-card__tabs { gap: var(--sp-3); overflow-x: auto; white-space: nowrap; padding-bottom: var(--sp-2); }
+  .prod-card__tabs { 
+    gap: var(--sp-3); 
+    overflow-x: auto; 
+    white-space: nowrap; 
+    padding-bottom: var(--sp-2);
+    -webkit-mask-image: linear-gradient(to right, transparent, white 16px, white calc(100% - 16px), transparent);
+    mask-image: linear-gradient(to right, transparent, white 16px, white calc(100% - 16px), transparent);
+    scrollbar-width: none;
+  }
+  .prod-card__tabs::-webkit-scrollbar {
+    display: none;
+  }
   .trust-badges-row { gap: var(--sp-3); }
   .trust-counter-strip { gap: var(--sp-4); padding: var(--sp-4); }
   .counter-divider { display: none; }
   .prod-featured-badge { top: 8px; right: 8px; font-size: 8px; padding: 3px 8px; }
+}
+
+@media (max-width: 600px) {
+  .products-tabs {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    width: 100% !important;
+    max-width: none !important;
+    gap: var(--sp-2) !important;
+    padding: 8px !important;
+    border-radius: var(--radius-md) !important;
+  }
+  
+  .products-tabs .tab-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    font-size: var(--text-xs) !important;
+    padding: var(--sp-2) var(--sp-3) !important;
+  }
+
+  .roi-industry-buttons {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: var(--sp-2) !important;
+  }
+
+  .roi-industry-buttons .industry-btn {
+    width: 100% !important;
+    text-align: left !important;
+    padding: var(--sp-3) var(--sp-4) !important;
+  }
 }

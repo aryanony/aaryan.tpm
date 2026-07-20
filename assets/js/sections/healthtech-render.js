@@ -66,6 +66,13 @@ export async function renderHealthtech() {
         const body = item.querySelector('.ht-product__body');
         body.style.maxHeight = `${body.scrollHeight}px`;
       }
+
+      // Refresh ScrollTrigger to update layouts (timeout matches transition)
+      setTimeout(() => {
+        import('../animations/gsap-init.js').then(({ ScrollTrigger }) => {
+          ScrollTrigger.refresh();
+        });
+      }, 400);
     });
   });
 

@@ -1,4 +1,5 @@
 // assets/js/sections/faq-render.js
+import { gsap, ScrollTrigger } from '../animations/gsap-init.js';
 
 export async function renderFAQ() {
   const container = document.querySelector('.faq-container');
@@ -12,7 +13,7 @@ export async function renderFAQ() {
   const dynamicFaqsHtml = faqs.map((faq, idx) => {
     const itemIndex = hasStaticChildren ? `dynamic-${idx}` : idx;
     return `
-      <div class="faq-item" data-id="${itemIndex}">
+      <div class="faq-item reveal" data-id="${itemIndex}">
         <button class="faq-q" aria-expanded="false" aria-controls="faq-ans-${itemIndex}">
           <span>${faq.q}</span>
           <i class="faq-icon ph-bold ph-plus"></i>
@@ -24,11 +25,39 @@ export async function renderFAQ() {
     `;
   }).join('');
 
-  if (hasStaticChildren) {
-    container.innerHTML += dynamicFaqsHtml;
-  } else {
-    container.innerHTML = dynamicFaqsHtml;
+  // Create dynamic nodes via a temporary element wrapper
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = dynamicFaqsHtml;
+  const newItems = Array.from(tempDiv.querySelectorAll('.faq-item'));
+
+  if (!hasStaticChildren) {
+    container.innerHTML = '';
   }
+
+  // Append new nodes individually to keep static nodes (and their GSAP states) fully intact
+  newItems.forEach(item => {
+    container.appendChild(item);
+
+    // Bind GSAP ScrollTrigger reveal animation directly to the new dynamic item
+    gsap.fromTo(item, 
+      { opacity: 0, y: 32, filter: 'blur(12px)' }, 
+      {
+        opacity: 1, 
+        y: 0, 
+        filter: 'blur(0px)',
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: { 
+          trigger: item, 
+          start: 'top 88%', 
+          toggleActions: 'play none none none' 
+        }
+      }
+    );
+  });
+
+  // Refresh ScrollTrigger to update heights after load
+  ScrollTrigger.refresh();
 
   const items = container.querySelectorAll('.faq-item');
   items.forEach(item => {
@@ -60,6 +89,11 @@ export async function renderFAQ() {
         trigger.setAttribute('aria-expanded', 'true');
         body.style.maxHeight = `${body.scrollHeight}px`;
       }
+
+      // Refresh ScrollTrigger to update layouts (timeout matches transition)
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 400);
     });
   });
 }

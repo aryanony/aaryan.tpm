@@ -1,8 +1,6 @@
-// assets/js/config/site.config.js
-
-import config from '../../../public/data/site.config.json';
-
 export async function loadConfig() {
+  const res = await fetch('/data/site.config.json');
+  const config = await res.json();
   window.AG = config;
   injectDOM(config);
   return config;
