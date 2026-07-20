@@ -1,614 +1,1002 @@
 [
   {
-    "id": "labtrack-pro",
-    "name": "LabTrack Pro",
-    "category": "Healthcare",
-    "tagline": "🔒 Eliminate Pathology Disputes. Streamline Lab Operations.",
-    "desc": "An enterprise-grade pathology management system with barcode sample tracking, smart abnormal value flagging, auto-split referral ledgers, and secure patient report downloads via WhatsApp OTP.",
-    "techstack": ["React", "Node.js", "MySQL", "Electron", "SQLite"],
-    "needs": "Pathology labs, diagnostic centers, and radiology clinics looking to eliminate referral disputes, digitize report delivery, and monitor overall business health.",
-    "deployment": "Hybrid (Web VPS + Offline Local Client)",
-    "price": "₹15,000 – ₹35,000",
-    "plans": [
-      {
-        "name": "Pathology Laboratory Lite",
-        "price": "₹15,000",
-        "features": [
-          "Local desktop installation (Electron + SQLite)",
-          "Branded test report PDF generation",
-          "Basic referral commission tracking ledger",
-          "Manual email/WhatsApp PDF sharing link",
-          "30-day post-delivery technical support"
-        ]
-      },
-      {
-        "name": "Pathology Center Enterprise",
-        "price": "₹35,000",
-        "features": [
-          "Cloud VPS database synchronization",
-          "Secure Patient Portal (OTP mobile log-in)",
-          "Doctor Portal (referred patients list & ledger)",
-          "Meta API WhatsApp automated report link delivery",
-          "60-day priority support + Custom integrations"
-        ]
-      }
-    ],
-    "features": [
-      "Rapid Patient Registration: Check-in & select test packages in under 60 seconds.",
-      "Automated Commission Engine: Configurable flat or percentage referral tracking per test/doctor.",
-      "Smart Result Flagging: Auto-flags normal, abnormal, or critical result ranges with visual red alerts.",
-      "Branded PDF & Secure QR: Generates digital report PDFs with integrated QR codes for secure verification.",
-      "WhatsApp Portal Delivery: Patients scan QR or receive OTP via mobile to download reports without passwords."
-    ],
-    "icon": "ph-flask",
-    "highlight": true
-  },
-  {
-    "id": "recallmd",
-    "name": "RecallMD",
-    "category": "Healthcare",
-    "tagline": "📈 Boost Patient Retention. Automate Vaccination Recalls.",
-    "desc": "Intelligent post-consultation CRM that schedules vaccination schedules and chronic check-ups, sending automated WhatsApp reminders that recovery missed revenue.",
-    "techstack": ["Electron", "SQLite", "node-cron", "WhatsApp API"],
-    "needs": "Dental, pediatric, ophthalmology, and general practice clinics experiencing patient drop-offs and manual follow-up inefficiencies.",
-    "deployment": "Pure Local Desktop",
-    "price": "₹8,000 – ₹18,000",
-    "plans": [
-      {
-        "name": "Standalone Follow-up Desk",
-        "price": "₹8,000",
-        "features": [
-          "Local database setup (SQLite)",
-          "Bulk patient database migration from CSV",
-          "Manual WhatsApp Web messaging template trigger",
-          "Basic scheduling calendar dashboard"
-        ]
-      },
-      {
-        "name": "Automated Engagement Engine",
-        "price": "₹18,000",
-        "features": [
-          "Full WhatsApp Business API integration",
-          "Daily auto-cron scheduler at 8:00 AM",
-          "Variable-supported templates (names, doctors, dates)",
-          "Estimated Revenue Recovery analytics dashboard"
-        ]
-      }
-    ],
-    "features": [
-      "Dynamic Reminder Scheduler: Schedule by visit date, vaccination calendar, or annual check-ups.",
-      "Variable Template Engine: Personalized message variables like [patient_name], [doctor_name], and [condition].",
-      "Official WhatsApp Routing: Links to Twilio or WATI API to ensure zero-spam compliance.",
-      "Revenue Recovery Tracker: Estimates recovery amount by matching missed appointments with visit fees."
-    ],
-    "icon": "ph-chats",
-    "highlight": false
-  },
-  {
     "id": "tokenq",
-    "name": "TokenQ",
+    "name": "TokenQ™",
     "category": "Healthcare",
-    "tagline": "⚡ Cut OPD Waiting Time by 50%. Clean Up Waiting Rooms.",
-    "desc": "Offline-first LAN patient coordinator that broadcasts live queue feeds to waiting room TVs, automatically dispatching token slips and real-time tracking links directly to patient mobile numbers.",
-    "techstack": ["React PWA", "Node.js", "Socket.io", "LAN WiFi"],
-    "needs": "Clinics, OPD centers, and labs seeking to eliminate waiting room congestion and coordinate doctor calling workflows.",
-    "deployment": "Local Network LAN (WiFi)",
-    "price": "₹6,000 – ₹15,000",
-    "plans": [
-      {
-        "name": "Single OPD / Clinic",
-        "price": "₹6,000",
-        "features": [
-          "Single doctor queue management console",
-          "Local network TV display page (no internet required)",
-          "Local server setup on receptionist PC",
-          "30 days support"
-        ]
-      },
-      {
-        "name": "Multi-OPD / Hospital Enterprise",
-        "price": "₹15,000",
-        "features": [
-          "Multiple doctors & department series (OPD, LAB, GEN)",
-          "Priority queue toggle (senior citizen, emergency status)",
-          "SMS backup notifications",
-          "Custom clinic branding & audio chime alerts"
-        ]
-      }
+    "eyebrow": "Your Reception's New Favourite Screen",
+    "headline": "Patients Stop Asking \"How Long?\" — The Screen Already Told Them.",
+    "subheadline": "A live token display for your waiting room. No app for patients to download. No internet required to keep running. One payment, running for years.",
+    "icon": "ph-queue",
+    "color": "#3b82f6",
+    "badge": { "type": "flagship", "label": "MOST DEPLOYED" },
+    "forWhom": [
+      { "icon": "ph-stethoscope", "label": "General Clinics" },
+      { "icon": "ph-tooth", "label": "Dental Clinics" },
+      { "icon": "ph-eye", "label": "Eye & Skin Clinics" },
+      { "icon": "ph-heartbeat", "label": "Diagnostic Centres" }
     ],
-    "features": [
-      "Instant TV Board: Fullscreen real-time queue display showing serving & waiting tokens.",
-      "No-Internet LAN Server: Runs purely on clinic's local WiFi with Zero cloud dependency.",
-      "Doctor Calling Console: Simple browser interface for doctors to call next, skip, or pause queue.",
-      "WhatsApp Token Delivery: Auto-sends token slips and live queue tracking links to patients' WhatsApp.",
-      "Priority Queues: Dedicated rapid queue settings for emergencies, senior citizens, or VIPs."
+    "problemSummary": "A waiting room full of patients who don't know if they're next or fortieth in line. Reception fielding \"How long?\" every 4 minutes. Plastic tokens and shouted names don't scale.",
+    "solutionSummary": "TokenQ is a two-screen queue system: a reception control panel that issues and calls tokens, and a large waiting-room display that shows the current token, next token, and live wait count in real time.",
+    "keyBenefits": [
+      { "icon": "ph-wifi-slash", "title": "Works 100% Offline", "desc": "Runs on your clinic's own WiFi — no internet needed, ever" },
+      { "icon": "ph-currency-inr", "title": "₹0/month Forever", "desc": "One-time payment. Zero recurring cost. Zero hidden charges." },
+      { "icon": "ph-clock-countdown", "title": "Live Wait Estimate", "desc": "Patients see their estimated wait time — questions at the desk drop to near-zero" },
+      { "icon": "ph-users-three", "title": "Multi-Doctor Ready", "desc": "Up to 4 independent doctor queues running simultaneously" },
+      { "icon": "ph-speaker-high", "title": "Audio + Visual Alerts", "desc": "Sound + screen flash when the next token is called" },
+      { "icon": "ph-translate", "title": "Hindi / English", "desc": "Display toggle between Hindi and English for your patients" }
     ],
-    "icon": "ph-user-list",
-    "highlight": true
-  },
-  {
-    "id": "wellnessdesk",
-    "name": "WellnessDesk",
-    "category": "Healthcare",
-    "tagline": "💪 Gym, Yoga & Physiotherapy Membership Coordinator.",
-    "desc": "Session package balance tracking and attendance manager for fitness and wellness studios, sending automated WhatsApp alerts to members 7, 3, and 1 days before plan expiration.",
-    "techstack": ["Electron", "SQLite", "React PWA", "LAN"],
-    "needs": "Yoga studios, physiotherapy clinics, spas, and fitness centers struggling to track package session consumption and expiring memberships.",
-    "deployment": "Local Network or Desktop",
-    "price": "₹8,000 – ₹20,000",
-    "plans": [
-      {
-        "name": "Studio Starter Desk",
-        "price": "₹8,000",
-        "features": [
-          "Single-device local database (SQLite)",
-          "Member registration, photo upload, plan logs",
-          "Standard package duration & expiration tracking",
-          "Daily attendance check-in sheet"
-        ]
-      },
-      {
-        "name": "Multi-Therapist Hub",
-        "price": "₹20,000",
-        "features": [
-          "Multi-device local network access (WiFi)",
-          "Therapist calendar and booking scheduler",
-          "WhatsApp auto-reminders and renewal prompts",
-          "Trainer slot conflict detection alerts"
-        ]
-      }
+    "howItWorks": [
+      { "step": 1, "title": "Patient Arrives", "desc": "Receptionist issues a token in one click", "icon": "ph-ticket" },
+      { "step": 2, "title": "TV Shows Queue", "desc": "Waiting room display updates instantly", "icon": "ph-monitor" },
+      { "step": 3, "title": "Doctor Calls Next", "desc": "One-click from the doctor's screen", "icon": "ph-stethoscope" },
+      { "step": 4, "title": "Patient Walks In", "desc": "Audio alert + visual flash on the TV", "icon": "ph-check-circle" }
     ],
-    "features": [
-      "Visual Member Status: Instant color-coded badges for active, expiring, or expired memberships.",
-      "Session Balance Ledger: Deducts sessions from member balances on attendance with automatic renewal prompts.",
-      "Conflict-Free Calendar: Drag-and-drop booking sheet with automatic therapist slot verification.",
-      "Automated Expiry Alerts: Triggers WhatsApp messages to members 7, 3, and 1 days before plan expiration."
+    "comparison": {
+      "headers": ["Feature", "TokenQ", "Enterprise Queue Systems", "Plastic Tokens"],
+      "rows": [
+        ["Setup Cost", "₹6,000 one-time", "₹50,000–₹2,00,000", "₹0"],
+        ["Monthly Cost", "₹0", "AMC contracts", "₹0"],
+        ["Needs Internet", "No", "Usually yes", "N/A"],
+        ["Live Wait Estimate", "Yes", "Yes", "No"],
+        ["Built for 1–4 Doctor Clinics", "Yes", "No — built for hospitals", "N/A"]
+      ]
+    },
+    "pricing": {
+      "startingAt": "₹6,000",
+      "tiers": [
+        {
+          "name": "Standard",
+          "price": "₹6,000",
+          "features": ["Single-doctor queue", "Full-screen TV display board", "Reception control panel", "Audio + visual alerts", "30-day support"],
+          "recommended": false
+        },
+        {
+          "name": "Multi-Doctor",
+          "price": "₹11,000",
+          "features": ["Up to 4 independent doctor queues", "Priority tokens (senior/emergency)", "Custom branding & logo", "Wait-time analytics", "60-day support"],
+          "recommended": true
+        },
+        {
+          "name": "Clinic Chain",
+          "price": "₹25,000",
+          "features": ["Unlimited branches", "All Multi-Doctor features", "Cross-branch analytics", "Dedicated setup assistance", "90-day priority support"],
+          "recommended": false
+        }
+      ]
+    },
+    "useCase": "A 2-doctor ENT clinic installs TokenQ on their existing reception PC and a wall-mounted TV. Within a week, \"how long will it take\" questions drop to near-zero, and the receptionist can finally handle billing without constant interruptions.",
+    "useCaseCity": "Jaipur",
+    "faq": [
+      { "q": "Does TokenQ need Wi-Fi to work?", "a": "Yes, but only your own clinic's local Wi-Fi — no internet connection is required at all. It works exactly the same during an internet outage." },
+      { "q": "Can patients book a token from home?", "a": "That's available as an optional add-on module that layers a public booking link on top — the core in-clinic display remains fully offline either way." },
+      { "q": "What happens if the power goes out?", "a": "Reconnect and the last state is exactly where you left it, because the data lives locally, not in the cloud." },
+      { "q": "Do I need a new TV?", "a": "Any existing TV or monitor with an HDMI port works. A ₹1,500 Fire TV Stick or an old laptop is enough to drive the display." }
     ],
-    "icon": "ph-heartbeat",
-    "highlight": false
+    "trustPoints": ["Zero monthly cost — fully self-contained", "No patient app to install", "Works through internet outages", "Setup takes under 2 hours on existing hardware"],
+    "cta": { "primary": "See TokenQ Live Demo", "secondary": "Book Free Call" },
+    "seoTitle": "TokenQ™ — Patient Queue & Token Display System | Aaryan Gupta",
+    "seoDescription": "Offline-first patient queue display for Indian clinics. One-time payment, zero monthly rent, works even when the internet doesn't. Built for Jaipur & Ahmedabad clinics.",
+    "deploymentLabel": "Offline-First · Zero Internet Dependency"
   },
   {
     "id": "rxpad-pro",
     "name": "RxPad Pro",
     "category": "Healthcare",
-    "tagline": "🏆 Generate Smart Prescriptions in 30 Seconds.",
-    "desc": "A streamlined medical generator with dictation, drug autocomplete from a local database, custom diagnosis templates, and high-resolution letterhead print exports.",
-    "techstack": ["Tauri", "React", "SQLite", "Web Speech API"],
-    "needs": "Doctors and specialists aiming to speed up consultation times, maintain clean patient records, and output standardized print-ready prescriptions.",
-    "deployment": "Pure Local Desktop (Tauri)",
-    "price": "₹5,000 – ₹12,000",
-    "plans": [
-      {
-        "name": "Standalone Prescription Desk",
-        "price": "₹5,000",
-        "features": [
-          "Offline desktop app (Tauri + SQLite)",
-          "5,000+ medicine catalog database",
-          "Branded clinic letterhead layout template",
-          "Local encrypted backup engine"
-        ]
-      },
-      {
-        "name": "Cloud Prescription Sync",
-        "price": "₹12,000",
-        "features": [
-          "Cloud database backup and synchronization",
-          "Receptionist-doctor intake connection module",
-          "Chronological patient medical history charts",
-          "Custom medical certificate template builder"
-        ]
-      }
-    ],
-    "features": [
-      "Voice-Enabled Builder: Dictation using Web Speech API trained in medical vocabulary.",
-      "Medicine Autocomplete: Autofills drug name, dosage, frequency, and instructions from a 5000+ local database.",
-      "Saved Protocol Templates: 3-click prescription generation using saved 'Doctor's Favorites' by diagnosis.",
-      "Branded PDFs & Certificates: Generates standard Rx charts and medical certificates in high-resolution print PDFs."
-    ],
+    "eyebrow": "For the Doctor Who Writes 50 Prescriptions a Day",
+    "headline": "Your Handwriting Was Never the Problem. The Pen Was.",
+    "subheadline": "Type a diagnosis, get a suggested protocol, generate a clinic-branded PDF prescription in three clicks. Fully offline. One-time payment.",
     "icon": "ph-prescription",
-    "highlight": true
+    "color": "#10b981",
+    "badge": { "type": "popular", "label": "FLAGSHIP" },
+    "forWhom": [
+      { "icon": "ph-stethoscope", "label": "General Physicians" },
+      { "icon": "ph-tooth", "label": "Dentists" },
+      { "icon": "ph-baby", "label": "Paediatricians" },
+      { "icon": "ph-gender-female", "label": "Gynaecologists" }
+    ],
+    "problemSummary": "A doctor seeing 40–50 patients a day hand-writes the same prescriptions dozens of times. Illegible handwriting is a documented medico-legal and pharmacy-error risk.",
+    "solutionSummary": "RxPad Pro is a standalone digital prescription pad. Type or dictate a diagnosis, the system suggests your saved treatment protocol, medicines autocomplete, and a branded PDF is ready in under 30 seconds.",
+    "keyBenefits": [
+      { "icon": "ph-microphone", "title": "Voice-to-Text", "desc": "Dictate diagnoses hands-free during consultation" },
+      { "icon": "ph-clock", "title": "30-Second Prescriptions", "desc": "From diagnosis to printed PDF in three clicks" },
+      { "icon": "ph-pill", "title": "5,000+ Medicines", "desc": "Autocomplete from a preloaded Indian drug database" },
+      { "icon": "ph-file-pdf", "title": "Branded PDF Output", "desc": "Clinic letterhead, doctor signature, registration number" },
+      { "icon": "ph-wifi-slash", "title": "Fully Offline", "desc": "Works mid-consultation with zero internet" },
+      { "icon": "ph-shield-check", "title": "Medico-Legal Safe", "desc": "Legible, timestamped, digitally generated prescriptions" }
+    ],
+    "howItWorks": [
+      { "step": 1, "title": "Enter Patient", "desc": "Name, age, gender — 30 seconds", "icon": "ph-user-plus" },
+      { "step": 2, "title": "Select Diagnosis", "desc": "Type or voice-dictate the complaint", "icon": "ph-microphone" },
+      { "step": 3, "title": "Auto-Fill Protocol", "desc": "Your saved favorites appear instantly", "icon": "ph-magic-wand" },
+      { "step": 4, "title": "Print / Share", "desc": "Branded PDF ready to print or WhatsApp", "icon": "ph-printer" }
+    ],
+    "comparison": {
+      "headers": ["Feature", "RxPad Pro", "Full EMR Suites", "Handwriting"],
+      "rows": [
+        ["Cost", "₹5,000 once", "₹1,000+/month", "₹0, but risk-laden"],
+        ["Setup Time", "Same day", "Weeks of onboarding", "N/A"],
+        ["Works Offline", "Yes", "Rarely", "Yes"],
+        ["Legible & Shareable", "Always", "Always", "Never guaranteed"]
+      ]
+    },
+    "pricing": {
+      "startingAt": "₹5,000",
+      "tiers": [
+        {
+          "name": "Solo Doctor",
+          "price": "₹5,000",
+          "features": ["Full prescription suite", "Medical certificate templates", "5,000+ medicine database", "Voice-to-text entry", "30-day support"],
+          "recommended": false
+        },
+        {
+          "name": "Clinic (up to 4 Doctors)",
+          "price": "₹9,500",
+          "features": ["All Solo features", "Shared protocol library", "Multi-doctor profiles", "Patient history across doctors", "60-day support"],
+          "recommended": true
+        }
+      ]
+    },
+    "useCase": "A solo paediatrician who sees 60 patients on a busy Saturday cuts her per-patient prescription time from roughly 90 seconds of handwriting to under 20 seconds — reclaiming close to 45 minutes across the day.",
+    "useCaseCity": "Ahmedabad",
+    "faq": [
+      { "q": "Is the medicine database accurate for India?", "a": "Yes — it's built from common Indian formulations and brand names, stored locally so it works with zero internet dependency." },
+      { "q": "Can I use this on a tablet during rounds?", "a": "Yes, it's installable on any device with a modern browser, including Android tablets." },
+      { "q": "Does it replace my existing EMR?", "a": "No — it's designed as a fast, focused prescription tool. Many doctors run it alongside whatever billing/EMR system they already use." },
+      { "q": "Is my patient data secure?", "a": "It stays on your own device by default. Nothing is transmitted anywhere unless you explicitly enable optional cloud sync." }
+    ],
+    "trustPoints": ["Works entirely offline, mid-consultation", "No monthly EMR-style subscription", "Protocols get faster over time", "ABDM digital-prescription alignment"],
+    "cta": { "primary": "See RxPad Pro Demo", "secondary": "Book Free Call" },
+    "seoTitle": "RxPad Pro — Digital Prescription Software for Doctors | Aaryan Gupta",
+    "seoDescription": "Illegible handwriting, gone. RxPad Pro drafts prescriptions in 3 clicks and works fully offline. One-time payment for Indian clinics and solo practitioners.",
+    "deploymentLabel": "Offline-First · Works on Any Device"
+  },
+  {
+    "id": "labtrack-pro",
+    "name": "LabTrack Pro",
+    "category": "Healthcare",
+    "eyebrow": "For Labs Tired of Commission Arguments",
+    "headline": "The Commission Notebook Just Became a Dashboard.",
+    "subheadline": "Automatic referral-doctor commission tracking, QR-coded patient reports, and a professional patient portal — without a single monthly SaaS bill.",
+    "icon": "ph-flask",
+    "color": "#a855f7",
+    "badge": { "type": "flagship", "label": "ENTERPRISE GRADE" },
+    "forWhom": [
+      { "icon": "ph-flask", "label": "Pathology Labs" },
+      { "icon": "ph-microscope", "label": "Diagnostic Centres" },
+      { "icon": "ph-x-ray", "label": "Radiology Centres" },
+      { "icon": "ph-buildings", "label": "Multi-Branch Chains" }
+    ],
+    "problemSummary": "Most small labs track referral doctor commissions in a notebook or Excel. Reports go out over personal WhatsApp with no branding, no delivery tracking, and no digital record.",
+    "solutionSummary": "LabTrack Pro registers patients, records results with normal-range flagging, generates branded PDF reports with QR codes, and auto-calculates referral commissions — with a doctor-facing login to check their own statement.",
+    "keyBenefits": [
+      { "icon": "ph-hand-coins", "title": "Auto Commission Engine", "desc": "Flat ₹ or % per test per doctor — calculated the moment a report is finalised" },
+      { "icon": "ph-qr-code", "title": "QR Patient Reports", "desc": "Patients scan and download reports instantly on their phone" },
+      { "icon": "ph-user-circle-gear", "title": "Doctor Portal", "desc": "Referring doctors see their own patients + commission ledger" },
+      { "icon": "ph-warning-octagon", "title": "Critical Value Alerts", "desc": "Auto-flags abnormal/critical results with visual + WhatsApp alerts" },
+      { "icon": "ph-currency-inr", "title": "GST-Compliant Billing", "desc": "Daily collection summary with proper GST calculation" },
+      { "icon": "ph-chart-line-up", "title": "Owner Dashboard", "desc": "Today's patients, pending reports, revenue, top referrers" }
+    ],
+    "howItWorks": [
+      { "step": 1, "title": "Register Patient", "desc": "Auto-generated Patient ID", "icon": "ph-user-plus" },
+      { "step": 2, "title": "Enter Results", "desc": "Auto-flags Normal / Abnormal / Critical", "icon": "ph-clipboard-text" },
+      { "step": 3, "title": "Generate Report", "desc": "Branded PDF with QR code", "icon": "ph-file-pdf" },
+      { "step": 4, "title": "Commissions Auto-Calc", "desc": "Doctor sees their statement instantly", "icon": "ph-hand-coins" }
+    ],
+    "comparison": {
+      "headers": ["Feature", "LabTrack Pro", "Full LIMS Systems", "Excel + Notebook"],
+      "rows": [
+        ["Cost", "₹15,000–22,000 once", "₹699+/month", "₹0 but error-prone"],
+        ["Commission Automation", "Built-in", "Rare, if at all", "Fully manual"],
+        ["Patient QR Portal", "Included", "Chain-labs only", "None"],
+        ["Data Ownership", "100% yours", "Vendor's servers", "Yours, but fragile"]
+      ]
+    },
+    "pricing": {
+      "startingAt": "₹15,000",
+      "tiers": [
+        {
+          "name": "Core (Offline Only)",
+          "price": "₹15,000",
+          "features": ["Full lab operations", "PDF report generation", "Commission calculation engine", "Result flagging system", "30-day support"],
+          "recommended": false
+        },
+        {
+          "name": "Standard (+ Portals)",
+          "price": "₹22,000",
+          "features": ["All Core features", "QR patient report portal", "Doctor commission login", "WhatsApp report delivery", "60-day support"],
+          "recommended": true
+        },
+        {
+          "name": "Multi-Branch",
+          "price": "₹40,000",
+          "features": ["All Standard features", "Centralised dashboard", "Cross-branch analytics", "Dedicated onboarding", "90-day priority support"],
+          "recommended": false
+        }
+      ]
+    },
+    "useCase": "A pathology lab that previously reconciled 12 referring doctors' commissions by hand at month-end now has each doctor log into their own portal — eliminating the monthly \"commission call\" entirely.",
+    "useCaseCity": "Jaipur",
+    "faq": [
+      { "q": "Do referring doctors need to install anything?", "a": "No — it's a browser login, works on any phone." },
+      { "q": "What if a doctor disputes their commission?", "a": "The system logs every test-to-commission calculation with a timestamp, so the ledger is the single source of truth." },
+      { "q": "Can this handle NABL-related reporting?", "a": "The report template is fully customisable to include your NABL accreditation number and required disclaimers." },
+      { "q": "Is the portal cost mandatory?", "a": "No — labs that only want the internal commission/reporting engine can skip the portal and stay at ₹0/month." }
+    ],
+    "trustPoints": ["Ends commission disputes with a transparent ledger", "QR-coded reports elevate perceived lab quality", "Core system needs zero ongoing cost", "Portal cost fully transparent"],
+    "cta": { "primary": "See LabTrack Pro Demo", "secondary": "Book Free Call" },
+    "seoTitle": "LabTrack Pro — Lab Report & Doctor Commission Software | Aaryan Gupta",
+    "seoDescription": "Stop tracking referral doctor commissions in a notebook. LabTrack Pro automates lab reports, QR patient portals, and commission statements. One-time payment.",
+    "deploymentLabel": "Offline-First · Optional Cloud Portal"
+  },
+  {
+    "id": "recallmd",
+    "name": "RecallMD",
+    "category": "Healthcare",
+    "eyebrow": "The Revenue Leak Nobody Tracks",
+    "headline": "Your Clinic Loses Patients Quietly. RecallMD Calls Them Back.",
+    "subheadline": "Automatic WhatsApp follow-up reminders tied to every prescription — sent on schedule, every time, without a receptionist remembering to do it.",
+    "icon": "ph-bell-ringing",
+    "color": "#f59e0b",
+    "badge": null,
+    "forWhom": [
+      { "icon": "ph-tooth", "label": "Dental Clinics" },
+      { "icon": "ph-baby", "label": "Paediatric Clinics" },
+      { "icon": "ph-heartbeat", "label": "Chronic-Care Clinics" },
+      { "icon": "ph-eye", "label": "Ophthalmology" }
+    ],
+    "problemSummary": "Clinics routinely lose patients after the first visit because nobody follows up — vaccination dates slip, dental cleanings get forgotten, chronic check-ins lapse.",
+    "solutionSummary": "When a doctor sets a follow-up date, RecallMD automatically queues a WhatsApp reminder for that exact date. Templates are customisable per specialty, and a dashboard shows how many patients are due back.",
+    "keyBenefits": [
+      { "icon": "ph-whatsapp-logo", "title": "Auto WhatsApp Reminders", "desc": "Sent on the exact follow-up date, zero manual effort" },
+      { "icon": "ph-syringe", "title": "Vaccination Schedules", "desc": "Paediatric vaccination calendar reminders built-in" },
+      { "icon": "ph-chart-line-up", "title": "Revenue Dashboard", "desc": "See patients due this month and the revenue they represent" },
+      { "icon": "ph-megaphone", "title": "Campaign Manager", "desc": "Bulk message every diabetic patient about a health drive" },
+      { "icon": "ph-cake", "title": "Relationship Messages", "desc": "Birthday and health-anniversary greetings" },
+      { "icon": "ph-user-focus", "title": "Engagement Score", "desc": "Flags non-responders for a manual follow-up call" }
+    ],
+    "howItWorks": [
+      { "step": 1, "title": "Doctor Sets Follow-Up", "desc": "During prescription — no extra step", "icon": "ph-calendar-plus" },
+      { "step": 2, "title": "RecallMD Queues It", "desc": "Reminder stored automatically", "icon": "ph-clock" },
+      { "step": 3, "title": "WhatsApp Reminder Fires", "desc": "On the exact scheduled date", "icon": "ph-whatsapp-logo" },
+      { "step": 4, "title": "Patient Returns", "desc": "Revenue recovered, relationship maintained", "icon": "ph-arrow-u-down-left" }
+    ],
+    "comparison": {
+      "headers": ["Feature", "RecallMD", "Practo/MocDoc Suites", "Manual WhatsApp"],
+      "rows": [
+        ["Cost", "₹8,000 once", "Bundled into ₹2,000+/month", "₹0, but unreliable"],
+        ["Automation", "Fully automatic", "Yes, but locked to full suite", "None"],
+        ["Works Standalone", "Yes", "No — full platform required", "N/A"]
+      ]
+    },
+    "pricing": {
+      "startingAt": "₹8,000",
+      "tiers": [
+        {
+          "name": "Standard",
+          "price": "₹8,000",
+          "features": ["Follow-up scheduler", "WhatsApp templates", "Revenue dashboard", "Engagement scoring", "30-day support"],
+          "recommended": false
+        },
+        {
+          "name": "Standard + Campaigns",
+          "price": "₹12,500",
+          "features": ["All Standard features", "Bulk campaign manager", "Health-drive messaging", "Birthday greetings", "60-day support"],
+          "recommended": true
+        },
+        {
+          "name": "Multi-Doctor Clinic",
+          "price": "₹20,000",
+          "features": ["All Campaign features", "Shared templates across doctors", "Multi-branch support", "Priority support", "90-day support"],
+          "recommended": false
+        }
+      ]
+    },
+    "useCase": "A dental clinic that used to lose track of 6-month cleaning recalls now has every patient automatically reminded on schedule — recovering several revisit appointments a month that previously fell through entirely.",
+    "useCaseCity": "Ahmedabad",
+    "faq": [
+      { "q": "Do I need my own WhatsApp Business API account?", "a": "Yes — it takes about a day to set up, and we configure it during installation." },
+      { "q": "What if a patient doesn't have WhatsApp?", "a": "The system falls back to SMS templates for that patient automatically." },
+      { "q": "Can I message patients about something other than a follow-up?", "a": "Yes, via the campaign manager — useful for seasonal health drives." },
+      { "q": "Will this get my clinic's number flagged as spam?", "a": "No — routing through an approved Meta Business API gateway with pre-approved templates prevents that." }
+    ],
+    "trustPoints": ["Ties directly into prescription workflow", "WhatsApp costs transparent at Meta's real rate", "Works for any specialty via templates", "No separate data entry needed"],
+    "cta": { "primary": "See RecallMD Demo", "secondary": "Book Free Call" },
+    "seoTitle": "RecallMD — Automated Patient Follow-Up Software | Aaryan Gupta",
+    "seoDescription": "Recover the patients your clinic quietly loses every month. RecallMD automates WhatsApp follow-ups, vaccination reminders, and recall campaigns. One-time payment.",
+    "deploymentLabel": "Offline-First · WhatsApp Connected"
+  },
+  {
+    "id": "clinicstock",
+    "name": "ClinicStock",
+    "category": "Healthcare",
+    "eyebrow": "Your Shelf Is Working Capital, Not a Cupboard",
+    "headline": "Every Expired Strip Is Money You Already Spent — and Never Got Back.",
+    "subheadline": "Batch-and-expiry tracking, low-stock alerts, and GST billing for clinic pharmacies and small medical stores. One-time payment, self-hosted.",
+    "icon": "ph-pill",
+    "color": "#ef4444",
+    "badge": { "type": "new", "label": "NEW LAUNCH" },
+    "forWhom": [
+      { "icon": "ph-first-aid", "label": "Clinic Pharmacies" },
+      { "icon": "ph-storefront", "label": "Medical Stores" },
+      { "icon": "ph-hospital", "label": "Nursing Homes" },
+      { "icon": "ph-prescription", "label": "Chemist Shops" }
+    ],
+    "problemSummary": "A verified case study found a pharmacy chain cut expiry-driven losses by 18% in two months simply by automating expiry alerts. Most small pharmacies still manage stock from memory or outdated spreadsheets.",
+    "solutionSummary": "ClinicStock tracks every medicine by batch and expiry date, flags near-expiry stock automatically, sets reorder points for fast-moving medicines, and bills patients with correct GST slabs linked to inventory.",
+    "keyBenefits": [
+      { "icon": "ph-warning-circle", "title": "Expiry Alerts", "desc": "Configurable alerts 60/30/15 days before medicine expiry" },
+      { "icon": "ph-barcode", "title": "Barcode Scanning", "desc": "Fast billing and stock counts via any USB or webcam scanner" },
+      { "icon": "ph-receipt", "title": "GST-Compliant Billing", "desc": "5%/12%/18% slabs applied automatically per medicine" },
+      { "icon": "ph-chart-line-down", "title": "Low-Stock Alerts", "desc": "Reorder points per medicine so fast-movers never run out" },
+      { "icon": "ph-shield-check", "title": "Schedule H Compliance", "desc": "Controlled-substance recording built in" },
+      { "icon": "ph-truck", "title": "Supplier Tracking", "desc": "Purchase orders and distributor management" }
+    ],
+    "howItWorks": [
+      { "step": 1, "title": "Stock In", "desc": "Scan or enter medicine batches with expiry dates", "icon": "ph-package" },
+      { "step": 2, "title": "Auto Alerts", "desc": "System flags near-expiry and low stock daily", "icon": "ph-bell-ringing" },
+      { "step": 3, "title": "Bill Patients", "desc": "GST-compliant invoice updates stock in real time", "icon": "ph-receipt" },
+      { "step": 4, "title": "Track Returns", "desc": "Manage expiry returns to distributors", "icon": "ph-arrow-counter-clockwise" }
+    ],
+    "comparison": {
+      "headers": ["Feature", "ClinicStock", "Marg ERP / Healthray", "Manual Register"],
+      "rows": [
+        ["Cost", "₹9,000–24,000 once", "Subscription + ERP bundle", "₹0, high error rate"],
+        ["Built for Clinic Pharmacy", "Yes", "Usually for large chains", "N/A"],
+        ["Expiry Alerts", "Yes, configurable", "Yes", "No"],
+        ["Data Ownership", "100% yours", "Vendor's cloud", "Yours, on paper"]
+      ]
+    },
+    "pricing": {
+      "startingAt": "₹9,000",
+      "tiers": [
+        {
+          "name": "Standard",
+          "price": "₹9,000",
+          "features": ["Single-counter inventory", "GST billing", "Expiry tracking", "Low-stock alerts", "30-day support"],
+          "recommended": false
+        },
+        {
+          "name": "Standard + Barcode",
+          "price": "₹12,000",
+          "features": ["All Standard features", "Barcode scanner integration", "Fast billing mode", "Schedule H logging", "60-day support"],
+          "recommended": true
+        },
+        {
+          "name": "Multi-Counter / Branch",
+          "price": "₹24,000",
+          "features": ["All Barcode features", "Centralised stock visibility", "Multi-counter support", "Owner remote dashboard", "90-day support"],
+          "recommended": false
+        }
+      ]
+    },
+    "useCase": "A nursing home pharmacy counter that used to discover expired antibiotics only when restocking now gets an automatic alert 60 days out — giving enough runway to return stock to the distributor instead of writing it off.",
+    "useCaseCity": "Patna",
+    "faq": [
+      { "q": "Does this handle Schedule H drugs?", "a": "Yes — controlled-substance recording is built in for compliance." },
+      { "q": "Can it print GST-compliant bills?", "a": "Yes, with correct HSN codes and GST slabs applied automatically." },
+      { "q": "What if I already use a barcode scanner?", "a": "Any standard USB or webcam-based scanner works out of the box." },
+      { "q": "Is this a full pharmacy ERP?", "a": "No — it's focused on inventory + billing for a clinic-scale counter, not a multi-store chain's full accounting suite." }
+    ],
+    "trustPoints": ["Tied to a documented 18% loss reduction", "GST billing built in from day one", "Rare at this price point for clinic-specific focus", "Schedule H compliance included"],
+    "cta": { "primary": "See ClinicStock Demo", "secondary": "Book Free Call" },
+    "seoTitle": "ClinicStock — Medicine Inventory & Expiry Tracker | Aaryan Gupta",
+    "seoDescription": "Stop losing money to expired medicine. ClinicStock tracks batches, expiry dates, and reorder points for clinic pharmacies and small medical stores. One-time payment.",
+    "deploymentLabel": "Offline-First · Barcode-Ready"
   },
   {
     "id": "carereview",
     "name": "CareReview",
     "category": "Healthcare",
-    "tagline": "⭐ Turn Happy Patients Into Automated Google Reviews.",
-    "desc": "Reputation tool that directs 5-star ratings to Google Maps, while routing critical feedback to private internal channels, instantly upgrading local search rankings.",
-    "techstack": ["React", "Node.js", "PWA", "Google Maps API"],
-    "needs": "Medical facilities wanting to improve their local search rankings and filter dissatisfied reviews internally.",
-    "deployment": "Hybrid Web (minimal hosting)",
-    "price": "₹5,000 – ₹12,000",
-    "plans": [
-      {
-        "name": "Reputation Starter",
-        "price": "₹5,000",
-        "features": [
-          "Reception desk QR-code feedback form",
-          "Internal review tracking dashboard",
-          "Positive rating redirect to Google Reviews listing",
-          "Unpaid feedback CSV export"
-        ]
-      },
-      {
-        "name": "AI Reputation Manager",
-        "price": "₹12,000",
-        "features": [
-          "Post-visit automated WhatsApp feedback links",
-          "AI-suggested professional responses template generator",
-          "Instant alert notifications to owner on negative ratings",
-          "Multi-branch reputation performance charts"
-        ]
-      }
-    ],
-    "features": [
-      "Smart Routing Engine: Redirects 4-5 star ratings to Google, and keeps 1-3 star feedbacks in an internal admin panel.",
-      "Instant Negative Alerts: Triggers owner notifications on WhatsApp for poor ratings to enable immediate recovery.",
-      "Reputation Analytics: Tracks rating trends, staff performance, and keyword clouds from comments."
-    ],
+    "eyebrow": "Your Happiest Patients Never Leave a Review — Until Now",
+    "headline": "Ask Every Patient. Catch the Bad Ones Privately. Publish the Good Ones Automatically.",
+    "subheadline": "A one-tap feedback flow that routes 4–5 star ratings straight to Google, and keeps anything lower internal until you've fixed it.",
     "icon": "ph-star",
-    "highlight": false
+    "color": "#eab308",
+    "badge": null,
+    "forWhom": [
+      { "icon": "ph-stethoscope", "label": "Any Clinic" },
+      { "icon": "ph-flask", "label": "Labs & Diagnostics" },
+      { "icon": "ph-tooth", "label": "Dental Practices" },
+      { "icon": "ph-flower-lotus", "label": "Wellness Centres" }
+    ],
+    "problemSummary": "Satisfied patients never think to leave a Google review. A single bad experience, posted publicly, can damage new-patient trust for months. Owners are flying blind on what patients actually think.",
+    "solutionSummary": "After a visit, a QR code prompts a quick star rating. 4–5 stars redirect to Google at the moment of maximum goodwill. 3 stars or below stay internal and alert the owner.",
+    "keyBenefits": [
+      { "icon": "ph-google-logo", "title": "Auto Google Reviews", "desc": "Happy patients redirected to your Google listing instantly" },
+      { "icon": "ph-shield-warning", "title": "Negative Feedback Filter", "desc": "Low ratings stay private — you fix it before it's public" },
+      { "icon": "ph-qr-code", "title": "Reception QR Code", "desc": "Scan-and-rate at the desk — takes 10 seconds" },
+      { "icon": "ph-chart-bar", "title": "Feedback Dashboard", "desc": "Average rating, trends, complaint categories over time" },
+      { "icon": "ph-users", "title": "Staff Ratings", "desc": "Reception, doctor, cleanliness rated separately" },
+      { "icon": "ph-chat-text", "title": "Sentiment Analysis", "desc": "Auto-tags comments by category: wait time, staff, cleanliness" }
+    ],
+    "howItWorks": [
+      { "step": 1, "title": "Patient Scans QR", "desc": "At the reception desk on the way out", "icon": "ph-qr-code" },
+      { "step": 2, "title": "Rates Experience", "desc": "Quick star rating + optional comment", "icon": "ph-star" },
+      { "step": 3, "title": "Smart Routing", "desc": "4–5★ → Google | 1–3★ → Internal alert", "icon": "ph-git-branch" },
+      { "step": 4, "title": "Reputation Grows", "desc": "More reviews, higher rankings, more patients", "icon": "ph-trend-up" }
+    ],
+    "comparison": {
+      "headers": ["Feature", "CareReview", "EmbedSocial / BrightLocal", "Doing Nothing"],
+      "rows": [
+        ["Cost", "₹5,000–15,000 once", "$259+/month", "₹0, no reviews come in"],
+        ["India/Healthcare Specific", "Yes", "No", "N/A"],
+        ["Filters Negative Feedback", "Yes", "Rarely", "No"]
+      ]
+    },
+    "pricing": {
+      "startingAt": "₹5,000",
+      "tiers": [
+        {
+          "name": "Standard",
+          "price": "₹5,000",
+          "features": ["Feedback form + QR code", "Smart routing engine", "Feedback dashboard", "Monthly PDF summary", "30-day support"],
+          "recommended": false
+        },
+        {
+          "name": "Standard + Staff Ratings",
+          "price": "₹8,000",
+          "features": ["All Standard features", "Per-staff rating breakdown", "Sentiment tagging", "WhatsApp feedback requests", "60-day support"],
+          "recommended": true
+        },
+        {
+          "name": "Multi-Branch",
+          "price": "₹15,000",
+          "features": ["All Staff Rating features", "Consolidated reputation dashboard", "Cross-location comparison", "Priority alerts", "90-day support"],
+          "recommended": false
+        }
+      ]
+    },
+    "useCase": "A dental clinic starts asking every patient for feedback via a QR code; within the first month, several happy patients post reviews they would never have thought to leave — while one frustrated patient's complaint reaches the owner privately.",
+    "useCaseCity": "Jaipur",
+    "faq": [
+      { "q": "Does this replace my Google Business listing?", "a": "No — it drives more reviews to your existing listing." },
+      { "q": "What happens to a 2-star rating?", "a": "It never reaches Google. It's routed straight to an internal alert so you can resolve it directly." },
+      { "q": "Can I see which staff member gets the best ratings?", "a": "Yes, with the staff-rating add-on enabled." },
+      { "q": "Is this privacy safe?", "a": "Feedback is anonymous by default unless the patient chooses to leave contact details." }
+    ],
+    "trustPoints": ["Genuinely protects reputation", "Keyword sentiment surfaces real issues", "Works standalone or bundled with any product"],
+    "cta": { "primary": "See CareReview Demo", "secondary": "Book Free Call" },
+    "seoTitle": "CareReview — Patient Feedback & Google Review Automation | Aaryan Gupta",
+    "seoDescription": "Turn happy patients into 5-star Google reviews automatically, and catch unhappy ones before they post publicly. One-time payment, for any clinic or lab.",
+    "deploymentLabel": "Cloud-Connected · QR-Based"
+  },
+  {
+    "id": "wellnessdesk",
+    "name": "WellnessDesk",
+    "category": "Healthcare",
+    "eyebrow": "Not Hospital Software. Built for Wellness.",
+    "headline": "Memberships That (Almost) Renew Themselves.",
+    "subheadline": "Session-package tracking, automatic expiry alerts, and a real booking calendar — built for yoga studios and physio clinics, not repurposed hospital software.",
+    "icon": "ph-flower-lotus",
+    "color": "#ec4899",
+    "badge": null,
+    "forWhom": [
+      { "icon": "ph-flower-lotus", "label": "Yoga Studios" },
+      { "icon": "ph-person-arms-spread", "label": "Physiotherapy" },
+      { "icon": "ph-drop", "label": "Spas & Wellness" },
+      { "icon": "ph-barbell", "label": "Fitness Studios" }
+    ],
+    "problemSummary": "Wellness centres run memberships and session packages out of a register with no automatic expiry alerts. Members quietly lapse, session packages get tracked on paper with obvious room for error.",
+    "solutionSummary": "WellnessDesk manages member profiles, membership plans, session-package balances (10-session countdown), sends automatic WhatsApp renewal alerts, and gives members a public booking link.",
+    "keyBenefits": [
+      { "icon": "ph-number-circle-ten", "title": "Session Countdown", "desc": "10-session packages visibly count down to zero" },
+      { "icon": "ph-bell-ringing", "title": "Expiry Alerts", "desc": "WhatsApp reminders 7/3/1 days before membership lapses" },
+      { "icon": "ph-calendar", "title": "Booking Calendar", "desc": "Drag-and-drop appointment scheduler per therapist" },
+      { "icon": "ph-link", "title": "Public Booking Page", "desc": "Members book online — no WhatsApp back-and-forth" },
+      { "icon": "ph-palette", "title": "Status Badges", "desc": "Active / Expiring / Expired — color-coded at a glance" },
+      { "icon": "ph-chart-pie", "title": "Revenue Dashboard", "desc": "Today/month revenue, active members, expiring soon" }
+    ],
+    "howItWorks": [
+      { "step": 1, "title": "Register Member", "desc": "Profile, plan type, validity period", "icon": "ph-user-plus" },
+      { "step": 2, "title": "Track Sessions", "desc": "Auto-deduct on check-in", "icon": "ph-check-square" },
+      { "step": 3, "title": "Auto Alerts", "desc": "WhatsApp renewal reminder before expiry", "icon": "ph-bell-ringing" },
+      { "step": 4, "title": "Member Rebooks", "desc": "Via the public booking link — no calls needed", "icon": "ph-calendar-check" }
+    ],
+    "comparison": {
+      "headers": ["Feature", "WellnessDesk", "Mindbody / Vagaro", "Register / Excel"],
+      "rows": [
+        ["Cost", "₹8,000–28,000 once", "$30–$129/month", "₹0, error-prone"],
+        ["Built for India", "Yes", "US-centric, dollar-priced", "N/A"],
+        ["Session-Package Tracking", "Yes", "Yes", "Manual, error-prone"]
+      ]
+    },
+    "pricing": {
+      "startingAt": "₹8,000",
+      "tiers": [
+        {
+          "name": "Standard",
+          "price": "₹8,000",
+          "features": ["Member management", "Session tracker", "Expiry alerts", "Attendance logging", "30-day support"],
+          "recommended": false
+        },
+        {
+          "name": "Standard + Booking Page",
+          "price": "₹12,000",
+          "features": ["All Standard features", "Public booking link", "Therapist calendar", "Payment tracker", "60-day support"],
+          "recommended": true
+        },
+        {
+          "name": "Multi-Studio",
+          "price": "₹28,000",
+          "features": ["All Booking features", "Multiple branches", "Consolidated dashboard", "Staff schedule management", "90-day support"],
+          "recommended": false
+        }
+      ]
+    },
+    "useCase": "A physiotherapy clinic that used to track 10-session packages on a handwritten card now sees every patient's remaining sessions at a glance — and gets an automatic nudge to offer renewal the moment a package runs out.",
+    "useCaseCity": "Jaipur",
+    "faq": [
+      { "q": "Can members book without downloading an app?", "a": "Yes — it's a simple web link that works on any phone browser." },
+      { "q": "Does it handle multiple trainers/therapists?", "a": "Yes, each with an independent schedule." },
+      { "q": "What happens when a session package runs out?", "a": "The system flags it and auto-suggests a renewal message." },
+      { "q": "Is this only for yoga studios?", "a": "No — it works for any membership-and-session business: physio, spa, naturopathy, fitness." }
+    ],
+    "trustPoints": ["Not a repurposed hospital product", "WhatsApp-first communication", "Public booking replaces WhatsApp chaos", "Session countdown creates renewal urgency"],
+    "cta": { "primary": "See WellnessDesk Demo", "secondary": "Book Free Call" },
+    "seoTitle": "WellnessDesk — Membership & Appointment Software for Wellness Centres | Aaryan Gupta",
+    "seoDescription": "Membership tracking, session packages, and automatic renewal alerts for yoga studios, physiotherapy clinics, and spas. One-time payment.",
+    "deploymentLabel": "Offline-First · Public Booking Page"
   },
   {
     "id": "quoteflow",
     "name": "QuoteFlow",
     "category": "SMB",
-    "tagline": "B2B Quotation & Order Tracker",
-    "desc": "Sales quote builder, order manager, and payment ledger for manufacturers, wholesalers, and trading businesses.",
-    "techstack": ["Electron", "SQLite", "Node.js", "WhatsApp Web API"],
-    "needs": "Wholesalers, manufacturers, and dealers who struggle to track verbal price quotes, order stages, and outstanding balances.",
-    "deployment": "Pure Local Desktop",
-    "price": "₹10,000 – ₹25,000",
-    "plans": [
-      {
-        "name": "Quotation Desk",
-        "price": "₹10,000",
-        "features": [
-          "Single-device local database (SQLite)",
-          "Product catalog catalog (SKUs, GST, base price)",
-          "Professional quotation PDF generator",
-          "Manual email/WhatsApp share triggers"
-        ]
-      },
-      {
-        "name": "Order Pipeline Suite",
-        "price": "₹25,000",
-        "features": [
-          "Kanban order pipeline tracking dashboard",
-          "One-click quotation to invoice generation",
-          "Multi-tier pricing structures (retail, wholesale, dealer)",
-          "Outstanding aging payment ledgers & WhatsApp link triggers"
-        ]
-      }
-    ],
-    "features": [
-      "Multi-Tier Price List: Configure and switch catalog pricing between retail, wholesale, and dealer tiers instantly.",
-      "One-Click Quotations: Generates professional PDFs with calculated GST, discount rates, and terms.",
-      "Kanban Order Pipeline: Visual progress cards tracking order confirmations, production, and dispatch.",
-      "Ledger Payment Tracker: Records full, partial, or unpaid statuses with aging ledger logs."
-    ],
+    "eyebrow": "From WhatsApp PDF Chaos to a Real Pipeline",
+    "headline": "Every Quote You Send Should Know What Happened to It.",
+    "subheadline": "Build GST-compliant quotations, share them on WhatsApp in one tap, and track every order from quoted to paid — in one dashboard.",
     "icon": "ph-file-text",
-    "highlight": true
-  },
-  {
-    "id": "smartproof",
-    "name": "SmartProof",
-    "category": "SMB",
-    "tagline": "White-Label Client Project Portal",
-    "desc": "Direct client onboarding and project proofing portal featuring white-labeled logos, task trackers, version histories, and client feedback consoles.",
-    "techstack": ["React", "Node.js", "MySQL", "SMTP API"],
-    "needs": "Digital marketing agencies, design studios, CA firms, and consultants seeking a premium, branded portal to share work and get approvals.",
-    "deployment": "Cloud VPS (Web-hosted)",
-    "price": "₹8,000 – ₹40,000",
-    "plans": [
-      {
-        "name": "Single Agency Portal",
-        "price": "₹8,000",
-        "features": [
-          "Self-hosted deployment on agency's VPS",
-          "Unlimited client accounts & isolated workspaces",
-          "Dynamic file sharing & approval comment thread",
-          "Standard email alert triggers"
-        ]
-      },
-      {
-        "name": "White-Label Enterprise",
-        "price": "₹40,000",
-        "features": [
-          "Full logo and brand primary color customization",
-          "Custom domain mapping per client portal",
-          "Client billing console (invoice logs & PDF downloads)",
-          "Custom SMTP mail server configuration"
-        ]
-      }
+    "color": "#3b82f6",
+    "badge": { "type": "popular", "label": "TOP RATED" },
+    "forWhom": [
+      { "icon": "ph-factory", "label": "Manufacturers" },
+      { "icon": "ph-package", "label": "Wholesalers" },
+      { "icon": "ph-truck", "label": "Distributors" },
+      { "icon": "ph-storefront", "label": "IT Hardware Dealers" }
     ],
-    "features": [
-      "Isolated Client Workspaces: Secure, independent logins for each client to review files privately.",
-      "Proof & Revision Engine: Upload graphic files, PDFs, or links with instant client approve/reject buttons and comment logs.",
-      "Branded White-Labeling: Customize colors, logo, navigation header, and use a custom domain (portal.agency.com).",
-      "Client Billing Console: Integrated invoice distribution where clients can view balances and download statements."
+    "problemSummary": "Most traders create quotes in Word, send them as WhatsApp PDFs, and track orders in Excel. Nobody can quickly answer \"which quotes got accepted, and who still owes us money.\"",
+    "solutionSummary": "QuoteFlow builds GST-compliant quotations from a product catalogue, shares them to WhatsApp as branded PDFs, and tracks them through a visual pipeline — Quoted → Confirmed → Delivered → Paid.",
+    "keyBenefits": [
+      { "icon": "ph-receipt", "title": "GST-Ready Quotes", "desc": "Automatic CGST/SGST/IGST calculation" },
+      { "icon": "ph-kanban", "title": "Visual Pipeline", "desc": "Drag-and-drop order tracking from quote to payment" },
+      { "icon": "ph-whatsapp-logo", "title": "One-Tap Share", "desc": "Branded PDF sent directly via WhatsApp" },
+      { "icon": "ph-currency-inr", "title": "Payment Tracker", "desc": "Full/partial/due status with aging ledger" },
+      { "icon": "ph-list-bullets", "title": "Multi-Tier Pricing", "desc": "Retail vs wholesale vs dealer price lists" },
+      { "icon": "ph-chart-bar", "title": "Business Dashboard", "desc": "Pending value, received value, top clients at a glance" }
     ],
-    "icon": "ph-projector-screen",
-    "highlight": false
+    "howItWorks": [
+      { "step": 1, "title": "Build Quote", "desc": "Select products, GST auto-calculated", "icon": "ph-file-plus" },
+      { "step": 2, "title": "Share on WhatsApp", "desc": "Branded PDF in one tap", "icon": "ph-whatsapp-logo" },
+      { "step": 3, "title": "Track Pipeline", "desc": "Drag orders through stages", "icon": "ph-kanban" },
+      { "step": 4, "title": "Collect Payment", "desc": "Aging reminders for overdue amounts", "icon": "ph-hand-coins" }
+    ],
+    "comparison": {
+      "headers": ["Feature", "QuoteFlow", "Zoho / Salesforce", "Word + Excel + WhatsApp"],
+      "rows": [
+        ["Cost", "₹10,000–28,000 once", "Monthly per-user fees", "₹0, fully manual"],
+        ["Quote-to-Payment Tracking", "Yes", "Overkill, accounting-first", "N/A"],
+        ["GST-Ready", "Yes", "Yes", "Manual"]
+      ]
+    },
+    "pricing": {
+      "startingAt": "₹10,000",
+      "tiers": [
+        {
+          "name": "Standard",
+          "price": "₹10,000",
+          "features": ["Product catalogue", "Quotation builder", "Order pipeline board", "WhatsApp sharing", "30-day support"],
+          "recommended": false
+        },
+        {
+          "name": "Standard + Payments",
+          "price": "₹16,000",
+          "features": ["All Standard features", "Payment tracker", "Aging ledger", "Auto reminders", "60-day support"],
+          "recommended": true
+        },
+        {
+          "name": "Multi-User / Branch",
+          "price": "₹28,000",
+          "features": ["All Payment features", "Shared catalogue", "Multi-user access", "Branch-level tracking", "90-day support"],
+          "recommended": false
+        }
+      ]
+    },
+    "useCase": "An industrial hardware distributor generating 20–30 quotes a day can finally answer \"how much is currently pending across all quotes\" without opening three spreadsheets.",
+    "useCaseCity": "Ahmedabad",
+    "faq": [
+      { "q": "Can I have different prices for different client types?", "a": "Yes — retail, wholesale, and dealer price lists are all configurable per product." },
+      { "q": "Does the WhatsApp share need a paid API?", "a": "No — one-way PDF sharing uses a free method; only automated reminders need a paid gateway." },
+      { "q": "Can my sales team use this from their phones?", "a": "Yes, once the optional cloud-sync layer is enabled." },
+      { "q": "What happens to old quotations?", "a": "Nothing is ever deleted — full history stays searchable per client indefinitely." }
+    ],
+    "trustPoints": ["GST-ready from day one", "WhatsApp sharing matches how Indian B2B trade works", "Full history retained permanently"],
+    "cta": { "primary": "See QuoteFlow Demo", "secondary": "Book Free Call" },
+    "seoTitle": "QuoteFlow — B2B Quotation & Order Tracking Software | Aaryan Gupta",
+    "seoDescription": "Turn WhatsApp-PDF quotation chaos into a real sales pipeline. QuoteFlow tracks quotes, orders, and payments for Indian traders. One-time payment.",
+    "deploymentLabel": "Offline-First · WhatsApp-Native"
   },
   {
     "id": "shiftmate",
     "name": "ShiftMate",
     "category": "SMB",
-    "tagline": "Staff Attendance & Payroll",
-    "desc": "Desktop payroll and attendance calculator with shift scheduling and monthly pay slip generators.",
-    "techstack": ["Electron", "SQLite", "Node.js"],
-    "needs": "Restaurants, factories, retail outlets, and salons managing 10 to 100 shift-based or hourly employees.",
-    "deployment": "Pure Local Desktop",
-    "price": "₹8,000 – ₹18,000",
-    "plans": [
-      {
-        "name": "Attendance & Roster",
-        "price": "₹8,000",
-        "features": [
-          "Employee roster database",
-          "Weekly visual shift schedule grid",
-          "Daily attendance logging sheet",
-          "Monthly shift swap manager"
-        ]
-      },
-      {
-        "name": "Complete Payroll Desk",
-        "price": "₹18,000",
-        "features": [
-          "Custom salary structures (hourly, daily, fixed monthly)",
-          "Automatic overtime, leave, PF, and tax calculations",
-          "Bulk monthly salary slip PDF generator",
-          "Locked payroll processing ledger"
-        ]
-      }
+    "eyebrow": "For Any Business With 10–100 Staff",
+    "headline": "Attendance in 60 Seconds. Payroll in One Click.",
+    "subheadline": "Mark the whole team present in under a minute, and let the system calculate salaries — leave, overtime, deductions and all.",
+    "icon": "ph-calendar-check",
+    "color": "#06b6d4",
+    "badge": null,
+    "forWhom": [
+      { "icon": "ph-cooking-pot", "label": "Restaurants" },
+      { "icon": "ph-storefront", "label": "Retail Shops" },
+      { "icon": "ph-factory", "label": "Small Factories" },
+      { "icon": "ph-scissors", "label": "Salons & Spas" }
     ],
-    "features": [
-      "Bulk Attendance Marking: 1-click 'Mark All Present' with fast adjustments for absentees, half-days, and holidays.",
-      "Shift Scheduling Grid: Weekly visual rosters with shift templates and swap trackers.",
-      "Automated Pay Slip Generator: Auto-calculates net pay based on days present, overtime hours, and custom deductions.",
-      "Digital Payslip PDF: Combines employee profile, allowances, and salary totals in a standard, print-ready document."
+    "problemSummary": "Most small businesses with 10–100 staff track attendance in a register, then calculate salaries by hand at month-end. Enterprise HR platforms charge ₹200–500 per employee per month.",
+    "solutionSummary": "ShiftMate lets a manager mark daily attendance in about a minute, tracks leave and overtime automatically, and calculates full monthly payroll with a single click — generating PDF salary slips.",
+    "keyBenefits": [
+      { "icon": "ph-check-square", "title": "60-Second Attendance", "desc": "Mark All Present + quick adjustments for absences" },
+      { "icon": "ph-calculator", "title": "One-Click Payroll", "desc": "Auto-calculates from attendance records — no manual math" },
+      { "icon": "ph-file-pdf", "title": "PDF Salary Slips", "desc": "Individual or bulk — bank/loan compliant" },
+      { "icon": "ph-clock", "title": "Overtime Tracking", "desc": "Logged daily and factored into final payroll" },
+      { "icon": "ph-calendar-blank", "title": "Leave Management", "desc": "CL/SL/EL with configurable balances" },
+      { "icon": "ph-swap", "title": "Shift Scheduler", "desc": "Multiple shift templates with swap management" }
     ],
-    "icon": "ph-calendar",
-    "highlight": false
+    "howItWorks": [
+      { "step": 1, "title": "Mark Attendance", "desc": "One tap per employee — 60 seconds total", "icon": "ph-check-square" },
+      { "step": 2, "title": "Track Leave & OT", "desc": "Auto-calculated throughout the month", "icon": "ph-clock" },
+      { "step": 3, "title": "Run Payroll", "desc": "One click calculates everything", "icon": "ph-calculator" },
+      { "step": 4, "title": "Print Salary Slips", "desc": "PDF for every employee, ready to hand out", "icon": "ph-printer" }
+    ],
+    "comparison": {
+      "headers": ["Feature", "ShiftMate", "Keka / Darwinbox", "Register + Manual"],
+      "rows": [
+        ["Cost", "₹8,000–28,000 once", "₹200–500/employee/month", "₹0, hours of manual work"],
+        ["Built for 10–100 Staff", "Yes", "Enterprise-focused", "N/A"],
+        ["Salary Slip Generation", "One click", "Yes, but costly", "Manual, error-prone"]
+      ]
+    },
+    "pricing": {
+      "startingAt": "₹8,000",
+      "tiers": [
+        {
+          "name": "Standard (up to 25)",
+          "price": "₹8,000",
+          "features": ["Attendance marking", "Leave management", "Payroll calculation", "Salary slip PDFs", "30-day support"],
+          "recommended": false
+        },
+        {
+          "name": "Growth (up to 75)",
+          "price": "₹13,000",
+          "features": ["All Standard features", "Shift scheduler", "Overtime tracking", "Admin dashboard", "60-day support"],
+          "recommended": true
+        },
+        {
+          "name": "Multi-Branch",
+          "price": "₹28,000",
+          "features": ["All Growth features", "Consolidated payroll", "Cross-location dashboard", "Priority support", "90-day support"],
+          "recommended": false
+        }
+      ]
+    },
+    "useCase": "A restaurant with 22 staff that used to spend most of a day at month-end manually calculating salaries now closes payroll in under 20 minutes, with every salary slip ready to hand out.",
+    "useCaseCity": "Patna",
+    "faq": [
+      { "q": "Can this handle different salary structures per employee?", "a": "Yes — every salary component is configurable per individual." },
+      { "q": "What about overtime pay?", "a": "Overtime hours are logged daily and factored automatically into the final payroll." },
+      { "q": "Is this compliant for salary-slip purposes?", "a": "Yes, the generated slips include all standard components needed for bank/loan verification." },
+      { "q": "Can I export data for my CA/accountant?", "a": "Yes, full payroll data exports to Excel/CSV." }
+    ],
+    "trustPoints": ["No per-employee monthly fee", "Payroll calculation fully transparent", "Salary slips usable for bank/loan purposes"],
+    "cta": { "primary": "See ShiftMate Demo", "secondary": "Book Free Call" },
+    "seoTitle": "ShiftMate — Staff Attendance & Payroll Software India | Aaryan Gupta",
+    "seoDescription": "Mark attendance in 60 seconds, calculate payroll in one click, and generate compliant salary slips. One-time payment for restaurants, shops, and small factories.",
+    "deploymentLabel": "Offline-First · Zero Monthly Fees"
   },
   {
-    "id": "leadboard",
-    "name": "LeadBoard",
+    "id": "billdesk",
+    "name": "BillDesk",
     "category": "SMB",
-    "tagline": "Simple Lead & Follow-Up Manager",
-    "desc": "Mobile-first field sales CRM featuring drag-and-drop pipelines, lead assignment rules, and instant follow-up triggers.",
-    "techstack": ["React PWA", "Node.js", "MySQL", "PWA Caching"],
-    "needs": "Real estate agents, insurance brokers, and sales teams requiring a lightweight, fast-loading CRM they can access on-site.",
-    "deployment": "Web PWA (Mobile-first)",
-    "price": "₹10,000 – ₹22,000",
-    "plans": [
-      {
-        "name": "Sales Agent Lite",
-        "price": "₹10,000",
-        "features": [
-          "Single-user sales agent database",
-          "Quick lead creation panel (30 seconds)",
-          "Daily task list & manual note logging",
-          "PWA offline access caching"
-        ]
-      },
-      {
-        "name": "Team Pipeline Manager",
-        "price": "₹22,000",
-        "features": [
-          "Multi-user roles (Manager, Salesperson)",
-          "Automatic lead distribution rules",
-          "Dynamic Kanban drag-and-drop deals board",
-          "Full manager pipeline performance dashboard"
-        ]
-      }
+    "eyebrow": "Even India's #1 Billing App Won't Sell You This",
+    "headline": "GST Billing Without the Monthly Rent.",
+    "subheadline": "GST-compliant invoicing, inventory, and payment tracking — bought once, owned forever. Because recurring revenue benefits the software company, not you.",
+    "icon": "ph-invoice",
+    "color": "#10b981",
+    "badge": { "type": "new", "label": "NEW LAUNCH" },
+    "forWhom": [
+      { "icon": "ph-storefront", "label": "Shop Owners" },
+      { "icon": "ph-handshake", "label": "Small Traders" },
+      { "icon": "ph-briefcase", "label": "Freelancers" },
+      { "icon": "ph-buildings", "label": "Small Agencies" }
     ],
-    "features": [
-      "Responsive Kanban Board: Drag-and-drop cards between new, contacted, interested, negotiating, won, and lost stages.",
-      "Quick Follow-Up Prompts: Aggregates daily tasks and launches WhatsApp chats with pre-filled reminder texts in two taps.",
-      "Sales Performance Dashboard: Charts lead conversions, response times, and pipeline totals per agent.",
-      "Lead Source Attribution: Segment leads automatically by source (walk-in, Instagram, IndiaMART, cold call)."
+    "problemSummary": "Every popular GST billing app runs on a subscription because recurring revenue is their business model. A small trader ends up paying monthly for something as simple as \"generate a correct GST invoice.\"",
+    "solutionSummary": "BillDesk generates GST-compliant invoices with correct HSN/SAC codes, tracks payments, keeps a customer ledger, and produces reports for your CA — all as a one-time purchase.",
+    "keyBenefits": [
+      { "icon": "ph-receipt", "title": "GST-Compliant Invoicing", "desc": "CGST/SGST/IGST auto-detected by state" },
+      { "icon": "ph-book-open", "title": "Customer Ledger", "desc": "Running balance per customer — who owes what" },
+      { "icon": "ph-chart-bar", "title": "CA-Ready Reports", "desc": "Sales and GST summary exportable for your accountant" },
+      { "icon": "ph-palette", "title": "Multiple Themes", "desc": "Professional invoice templates with your branding" },
+      { "icon": "ph-wallet", "title": "Expense Tracking", "desc": "Track expenses alongside sales" },
+      { "icon": "ph-buildings", "title": "Multi-Business", "desc": "Run more than one shop/entity from one system" }
     ],
-    "icon": "ph-funnel",
-    "highlight": false
+    "howItWorks": [
+      { "step": 1, "title": "Create Invoice", "desc": "Select items, GST auto-calculated by state", "icon": "ph-file-plus" },
+      { "step": 2, "title": "Send to Client", "desc": "Professional PDF via WhatsApp or print", "icon": "ph-share" },
+      { "step": 3, "title": "Track Payments", "desc": "Paid / Partial / Due — with reminders", "icon": "ph-currency-inr" },
+      { "step": 4, "title": "Export for CA", "desc": "GST summary ready at return-filing time", "icon": "ph-file-arrow-down" }
+    ],
+    "comparison": {
+      "headers": ["Feature", "BillDesk", "Vyapar / Zoho Billing", "Manual / Excel"],
+      "rows": [
+        ["Pricing Model", "₹6,000–16,000 once", "₹1,799/year+, forever", "₹0, GST-error-prone"],
+        ["Data Ownership", "100% yours, local-first", "Vendor's cloud", "Yours, but no compliance"],
+        ["Designed to Cost More Over Time", "No", "Yes, by design", "N/A"]
+      ]
+    },
+    "pricing": {
+      "startingAt": "₹6,000",
+      "tiers": [
+        {
+          "name": "Solo / Freelancer",
+          "price": "₹6,000",
+          "features": ["Full invoicing", "Customer ledger", "GST reports", "Single business", "30-day support"],
+          "recommended": false
+        },
+        {
+          "name": "Small Business",
+          "price": "₹11,000",
+          "features": ["All Solo features", "Multi-business support", "Custom invoice themes", "Expense tracking", "60-day support"],
+          "recommended": true
+        },
+        {
+          "name": "Trader / Retail",
+          "price": "₹16,000",
+          "features": ["All Business features", "Stock-linked billing", "Quotation generation", "Payment reminders", "90-day support"],
+          "recommended": false
+        }
+      ]
+    },
+    "useCase": "A small trading business switches from a ₹1,799/year billing app to BillDesk's one-time ₹11,000 licence — breaking even within roughly six years and owning the software outright.",
+    "useCaseCity": "Ahmedabad",
+    "faq": [
+      { "q": "Is this actually GST-compliant?", "a": "Yes — CGST/SGST/IGST calculation and HSN/SAC codes are built in." },
+      { "q": "Can my CA access the reports?", "a": "Yes, full sales and GST-summary data exports to Excel/CSV." },
+      { "q": "What if GST rules change?", "a": "Rule updates are available as an optional low-cost annual refresh." },
+      { "q": "Does this replace my CA?", "a": "No — it replaces manual invoice creation. Your CA still handles return filing, but from much cleaner data." }
+    ],
+    "trustPoints": ["Honestly explains the subscription vs ownership gap", "GST compliance from day one", "Pairs with ClinicStock for inventory businesses"],
+    "cta": { "primary": "See BillDesk Demo", "secondary": "Book Free Call" },
+    "seoTitle": "BillDesk — One-Time GST Billing Software for Small Business | Aaryan Gupta",
+    "seoDescription": "GST-compliant invoicing without a monthly subscription. BillDesk is a one-time-payment billing system for shops, freelancers, and small traders in India.",
+    "deploymentLabel": "Offline-First · GST-Compliant"
   },
   {
-    "id": "dashcore",
-    "name": "DashCore",
-    "category": "SMB",
-    "tagline": "Business Intelligence Dashboard",
-    "desc": "Interactive analytics tool that turns raw Excel or CSV datasets into professional KPI charts and targets.",
-    "techstack": ["Electron", "SQLite", "Chart.js", "File Parser"],
-    "needs": "SMB owners who want to visualize financial, sales, or logistics spreadsheets without paying for expensive BI subscription licenses.",
-    "deployment": "Pure Local Desktop",
-    "price": "₹12,000 – ₹30,000",
-    "plans": [
-      {
-        "name": "Dashboard Lite",
-        "price": "₹12,000",
-        "features": [
-          "Drag-and-drop spreadsheet column mapping wizard",
-          "Auto-render dynamic line and bar charts",
-          "Pre-built templates (retail, restaurant, logistics)",
-          "Local storage database"
-        ]
-      },
-      {
-        "name": "BI Enterprise Suite",
-        "price": "₹30,000",
-        "features": [
-          "Multiple data snapshot chronological comparison",
-          "Target goals progression tracking analytics",
-          "Customizable report templates",
-          "Automatic executive dashboard PDF export"
-        ]
-      }
-    ],
-    "features": [
-      "Data Upload Wizard: Drag-and-drop Excel files and map headers with columns in seconds.",
-      "Auto-Chart Generation: Detects data types to automatically render time-series lines, distribution pies, or category bars.",
-      "Goal Tracker: Set targets per metric and view progress bars with alerts for underperforming periods.",
-      "Executive Report PDF: Exports high-resolution, print-ready dashboards with logo integrations."
-    ],
-    "icon": "ph-chart-pie",
-    "highlight": false
-  },
-  {
-    "id": "automation-whatsapp",
-    "name": "WhatsApp Business Automation",
+    "id": "whatsapp-automation",
+    "name": "WhatsApp Automation Suite",
     "category": "Automation",
-    "tagline": "Auto-Responses & n8n Workflows",
-    "desc": "Integration workflows that automate confirmations, customer route prompts, and follow-ups on the client's own accounts.",
-    "techstack": ["n8n", "Make.com", "WATI API", "AiSensy API"],
-    "needs": "Any consumer-facing business experiencing delays in customer communication and high receptionist workload.",
-    "deployment": "Meta API Cloud / VPS Setup",
-    "price": "₹8,000 – ₹20,000",
-    "plans": [
-      {
-        "name": "Essential Auto-responder",
-        "price": "₹8,000",
-        "features": [
-          "Standard FAQ response flow mapping",
-          "New lead auto-greeting trigger",
-          "Simple lead logging into Google Sheets/Notion",
-          "20-minute rapid deployment"
-        ]
-      },
-      {
-        "name": "Omni-channel Workflow Suite",
-        "price": "₹20,000",
-        "features": [
-          "Google Calendar synced appointment reminders",
-          "Confirm/Cancel customer reply action handlers",
-          "Post-visit review generation routing workflow",
-          "Multi-agent sales assignment rules"
-        ]
-      }
+    "eyebrow": "The Automation Layer Behind Every Product Here",
+    "headline": "Your Front Desk Shouldn't Be Sending the Same Message 40 Times a Day.",
+    "subheadline": "Pre-built automation workflows for appointment reminders, queue alerts, and review requests — wired into your own WhatsApp Business API account.",
+    "icon": "ph-whatsapp-logo",
+    "color": "#25D366",
+    "badge": null,
+    "forWhom": [
+      { "icon": "ph-stethoscope", "label": "Clinics & Labs" },
+      { "icon": "ph-flower-lotus", "label": "Wellness Centres" },
+      { "icon": "ph-storefront", "label": "Retail Shops" },
+      { "icon": "ph-briefcase", "label": "Service Businesses" }
     ],
-    "features": [
-      "Trigger-Based Auto-replies: Welcomes new numbers and routes responses based on customer keywords.",
-      "Appointment Scheduler Sync: Syncs with Google Calendar to send reminders and update statuses via patient reply codes.",
-      "Meta API Compliance: Routes messaging through approved Meta gateways to protect your business phone number from bans."
+    "problemSummary": "Sending appointment reminders, queue updates, and review requests manually doesn't scale. Most agencies sell monthly retainers for what is, underneath, a simple automated workflow.",
+    "solutionSummary": "Pre-built, reusable automation workflows — not a new app to learn, but a configuration layered onto WhatsApp Business API that fires the right message at the right moment. Set up once, runs forever.",
+    "keyBenefits": [
+      { "icon": "ph-bell-ringing", "title": "Appointment Reminders", "desc": "24hr and same-day reminders — automatic" },
+      { "icon": "ph-queue", "title": "Queue Alerts", "desc": "\"You're 2 patients away\" — sent live" },
+      { "icon": "ph-star", "title": "Review Requests", "desc": "Automatic post-visit feedback request" },
+      { "icon": "ph-handshake", "title": "Lead Auto-Reply", "desc": "Instant acknowledgement for new enquiries" },
+      { "icon": "ph-currency-inr", "title": "Payment Reminders", "desc": "Automated payment-link delivery" },
+      { "icon": "ph-shield-check", "title": "Meta Compliant", "desc": "Pre-approved templates, zero spam risk" }
     ],
-    "icon": "ph-phone-call",
-    "highlight": false
+    "howItWorks": [
+      { "step": 1, "title": "Choose Workflows", "desc": "Pick which automations you need", "icon": "ph-list-checks" },
+      { "step": 2, "title": "We Configure", "desc": "Set up on your WhatsApp Business account", "icon": "ph-gear" },
+      { "step": 3, "title": "Templates Approved", "desc": "Meta approves your message templates", "icon": "ph-shield-check" },
+      { "step": 4, "title": "Runs Automatically", "desc": "Messages fire at the right moments, forever", "icon": "ph-infinity" }
+    ],
+    "comparison": {
+      "headers": ["Feature", "This Suite", "WhatsApp Marketing Agencies", "Manual Messaging"],
+      "rows": [
+        ["Pricing", "One-time setup fee", "₹5,000+/month retainer", "₹0, doesn't scale"],
+        ["You Own the Workflow", "Yes, fully exportable", "No — agency retains control", "N/A"],
+        ["Runs on Your Own Number", "Yes", "Sometimes shared/rented", "Yes"]
+      ]
+    },
+    "pricing": {
+      "startingAt": "₹5,000",
+      "tiers": [
+        {
+          "name": "Single Workflow",
+          "price": "₹5,000",
+          "features": ["One automation (e.g. reminders)", "Template configuration", "Meta compliance setup", "30-day support"],
+          "recommended": false
+        },
+        {
+          "name": "Standard Bundle",
+          "price": "₹12,000",
+          "features": ["3 workflows included", "Reminders + Alerts + Reviews", "Full Meta Business setup", "60-day support"],
+          "recommended": true
+        },
+        {
+          "name": "Full Suite",
+          "price": "₹20,000",
+          "features": ["All workflows", "Meta Business Manager setup", "Template approval guidance", "90-day priority support"],
+          "recommended": false
+        }
+      ]
+    },
+    "useCase": "A clinic that already uses TokenQ and CareReview adds the Automation Suite — queue alerts fire automatically from TokenQ's data, and review requests fire after each visit, without a receptionist touching a phone.",
+    "useCaseCity": "Jaipur",
+    "faq": [
+      { "q": "Do I need WhatsApp Business API already?", "a": "No — we set up your Meta Business Manager account and get templates approved." },
+      { "q": "What if I want a new workflow later?", "a": "Each additional workflow is a small standalone add-on fee." },
+      { "q": "Is there a limit on messages?", "a": "No limit from our side — you're billed by Meta directly for message volume." },
+      { "q": "Does this connect to other products?", "a": "Yes — it's specifically designed as the connective layer across every product in this catalog." }
+    ],
+    "trustPoints": ["Fully exportable workflow file — no vendor lock-in", "Runs on your own WhatsApp number", "Connects with every product here"],
+    "cta": { "primary": "See a Live Workflow Demo", "secondary": "Book Free Call" },
+    "seoTitle": "WhatsApp Automation for Clinics & Businesses | Aaryan Gupta",
+    "seoDescription": "Pre-built WhatsApp automation for appointment reminders, queue alerts, and review requests. Setup fee, no monthly software rental. Built for Indian clinics & businesses.",
+    "deploymentLabel": "Cloud-Connected · Meta API Compliant"
   },
   {
-    "id": "automation-leads",
-    "name": "Lead Capture & Routing Pipeline",
+    "id": "clinicbot",
+    "name": "ClinicBot",
     "category": "Automation",
-    "tagline": "Multi-Source Lead Aggregator",
-    "desc": "Multi-source lead routing pipelines that gather, clean, and assign leads to staff.",
-    "techstack": ["n8n", "Google Sheets", "WhatsApp API", "Zapier"],
-    "needs": "Sales departments losing track of leads across multiple advertising channels (IndiaMART, Instagram, website forms).",
-    "deployment": "Google Cloud / VPS Setup",
-    "price": "₹5,000 – ₹15,000",
-    "plans": [
-      {
-        "name": "Lead Collector",
-        "price": "₹5,000",
-        "features": [
-          "Consolidates website and Instagram DM forms",
-          "Pipes lead entries to a unified Google Sheet",
-          "Standard email alert to administrator"
-        ]
-      },
-      {
-        "name": "Smart Routing Dispatcher",
-        "price": "₹15,000",
-        "features": [
-          "Connects trade portals (IndiaMART, TradeIndia, JustDial)",
-          "Auto-reminder pings for uncontacted leads",
-          "Salesperson direct WhatsApp messaging alert details",
-          "Round-robin lead assignment logic"
-        ]
-      }
+    "eyebrow": "The Receptionist Who Never Sleeps",
+    "headline": "\"What Are Your Timings?\" Gets Answered at 2 AM Too.",
+    "subheadline": "An AI-powered front-desk assistant for your website or WhatsApp that answers FAQs and books appointments — even outside clinic hours.",
+    "icon": "ph-robot",
+    "color": "#8b5cf6",
+    "badge": null,
+    "forWhom": [
+      { "icon": "ph-stethoscope", "label": "Clinics & Hospitals" },
+      { "icon": "ph-flask", "label": "Diagnostic Centres" },
+      { "icon": "ph-flower-lotus", "label": "Wellness Centres" },
+      { "icon": "ph-storefront", "label": "Service Businesses" }
     ],
-    "features": [
-      "Unified Inbox Sheet: Consolidates entries from web forms, DMs, trade portals, and chats into one clean table.",
-      "Agent Notification Alerts: Sends direct message notifications to assigned agents with full client details.",
-      "SLA Escalation Engine: Automatically pings sales managers if a lead remains uncontacted for more than 2 hours."
+    "problemSummary": "A meaningful share of new-patient enquiries happen outside clinic hours — evenings, weekends — and go unanswered. By the next working day, many have already called a competitor.",
+    "solutionSummary": "ClinicBot is an AI assistant trained on your specific FAQs, doctor availability, and services — answering questions instantly and capturing appointment requests around the clock, escalating to a human when needed.",
+    "keyBenefits": [
+      { "icon": "ph-clock", "title": "24/7 Availability", "desc": "Answers enquiries even at 2 AM, weekends, holidays" },
+      { "icon": "ph-brain", "title": "Trained on Your FAQs", "desc": "Your specific timings, services, doctors, and pricing" },
+      { "icon": "ph-calendar-plus", "title": "Appointment Capture", "desc": "Name, concern, preferred time — routed to reception" },
+      { "icon": "ph-translate", "title": "Hindi / English", "desc": "Bilingual handling as standard" },
+      { "icon": "ph-arrow-elbow-right", "title": "Smart Escalation", "desc": "Hands off to a human when confidence is low" },
+      { "icon": "ph-chart-bar", "title": "Conversation Log", "desc": "Dashboard showing what patients actually ask" }
     ],
-    "icon": "ph-arrows-split",
-    "highlight": false
+    "howItWorks": [
+      { "step": 1, "title": "We Train the Bot", "desc": "On your FAQs, services, and schedule", "icon": "ph-brain" },
+      { "step": 2, "title": "Patient Asks a Question", "desc": "On your website or WhatsApp", "icon": "ph-chat-dots" },
+      { "step": 3, "title": "Bot Answers Instantly", "desc": "Or captures an appointment request", "icon": "ph-robot" },
+      { "step": 4, "title": "Escalates if Unsure", "desc": "Hands off to your reception team", "icon": "ph-user" }
+    ],
+    "comparison": {
+      "headers": ["Feature", "ClinicBot", "Enterprise Healthcare Chatbots", "No Chatbot"],
+      "rows": [
+        ["Setup Cost", "₹10,000–25,000 once", "Subscription-based, enterprise-priced", "₹0, but misses after-hours leads"],
+        ["Customised to Your FAQs", "Yes", "Generic by default", "N/A"],
+        ["Runs on Your Own AI Account", "Yes", "Rarely — usually marked up", "N/A"]
+      ]
+    },
+    "pricing": {
+      "startingAt": "₹10,000",
+      "tiers": [
+        {
+          "name": "Website Widget Only",
+          "price": "₹10,000",
+          "features": ["FAQ answering", "Appointment capture", "Website widget", "Hindi + English", "30-day support"],
+          "recommended": false
+        },
+        {
+          "name": "Website + WhatsApp",
+          "price": "₹16,000",
+          "features": ["All Widget features", "WhatsApp channel", "Smart escalation", "Conversation log", "60-day support"],
+          "recommended": true
+        },
+        {
+          "name": "Full Suite + Custom Training",
+          "price": "₹25,000",
+          "features": ["All WhatsApp features", "Deep FAQ customisation", "Both channels", "Editable knowledge base", "90-day priority support"],
+          "recommended": false
+        }
+      ]
+    },
+    "useCase": "A diagnostic centre's chatbot fields \"what time do you open on Sunday\" and \"do you do home collection\" dozens of times a week — and captures appointment requests overnight that would otherwise have gone to a competitor.",
+    "useCaseCity": "Patna",
+    "faq": [
+      { "q": "Do I need an OpenAI or Claude account?", "a": "No — we help set one up. The free/low-usage tier covers most small clinics." },
+      { "q": "What if the bot can't answer something?", "a": "It escalates immediately to a human contact instead of guessing." },
+      { "q": "Can I update the FAQs myself later?", "a": "Yes, the knowledge base is designed to be editable without needing us." },
+      { "q": "Does this work in Hindi?", "a": "Yes, bilingual Hindi/English handling is standard." }
+    ],
+    "trustPoints": ["Trained on your specific clinic information", "Full cost transparency", "Escalates rather than bluffs when unsure"],
+    "cta": { "primary": "Chat With a Live Demo Bot", "secondary": "Book Free Call" },
+    "seoTitle": "ClinicBot — AI Chatbot for Clinic Websites & WhatsApp | Aaryan Gupta",
+    "seoDescription": "An AI front-desk assistant that answers FAQs and books appointments on your website or WhatsApp, 24/7. One-time setup for Indian clinics.",
+    "deploymentLabel": "Cloud-Connected · AI-Powered"
   },
   {
-    "id": "automation-billing",
-    "name": "Invoice & Payment Automation",
+    "id": "leadflow",
+    "name": "LeadFlow Automation",
     "category": "Automation",
-    "tagline": "Payment Link & Invoice Generator",
-    "desc": "Accounting automation that generates invoices, sends payment links, and follows up on overdue balances.",
-    "techstack": ["Razorpay API", "n8n", "WhatsApp API", "Google Sheets"],
-    "needs": "Businesses losing cash flow due to late invoice creation and forgot-to-follow-up client balances.",
-    "deployment": "Razorpay Cloud Setup",
-    "price": "₹8,000 – ₹18,000",
-    "plans": [
-      {
-        "name": "Billing Starter",
-        "price": "₹8,000",
-        "features": [
-          "Completed work trigger in Google Sheets/CRM",
-          "Auto-generate professional invoice PDF layout",
-          "Manual WhatsApp payment dispatch"
-        ]
-      },
-      {
-        "name": "Aging Collections Suite",
-        "price": "₹18,000",
-        "features": [
-          "Automated Razorpay link delivery via WhatsApp API",
-          "Instant receipt PDF generation upon payment",
-          "Gentle dunning follow-ups at 7 and 14 days",
-          "Daily overdue collections dashboard for owner"
-        ]
-      }
+    "eyebrow": "Every Lead, From Every Source, In One Place",
+    "headline": "A Lead Shouldn't Go Cold Because It Arrived From the \"Wrong\" Channel.",
+    "subheadline": "Website form, Instagram DM, WhatsApp enquiry, IndiaMART lead — all routed automatically to the right salesperson, the moment they arrive.",
+    "icon": "ph-arrows-merge",
+    "color": "#f97316",
+    "badge": null,
+    "forWhom": [
+      { "icon": "ph-house", "label": "Real Estate Agencies" },
+      { "icon": "ph-graduation-cap", "label": "Coaching Institutes" },
+      { "icon": "ph-shield-check", "label": "Insurance Agents" },
+      { "icon": "ph-handshake", "label": "B2B Sales Teams" }
     ],
-    "features": [
-      "Auto-Invoice PDF: Renders invoice tables on custom templates on completion triggers.",
-      "Direct Payment Gateways: Links payments to Razorpay/Stripe and delivers them directly via text link.",
-      "Dunning Notification Engine: Automatically sends scheduled gentle follow-up reminders at 7 and 14 days."
+    "problemSummary": "Small businesses collect leads from Instagram, website, WhatsApp, and IndiaMART — with no single place any of it lands consistently. Leads get missed, duplicated, or followed up late.",
+    "solutionSummary": "This workflow pulls every lead source into one view, instantly notifies the right salesperson on WhatsApp, sends the lead an auto-acknowledgement, and escalates if nobody follows up in time.",
+    "keyBenefits": [
+      { "icon": "ph-arrows-merge", "title": "Multi-Source Capture", "desc": "Website, Instagram, WhatsApp, IndiaMART — all in one place" },
+      { "icon": "ph-whatsapp-logo", "title": "Instant Notification", "desc": "Right salesperson gets a WhatsApp ping with lead details" },
+      { "icon": "ph-envelope", "title": "Auto Acknowledgement", "desc": "Lead knows they've been heard — instantly" },
+      { "icon": "ph-alarm", "title": "Escalation Alerts", "desc": "Manager pinged if nobody follows up in X hours" },
+      { "icon": "ph-tag", "title": "Source Tracking", "desc": "Know which channel actually produces results" },
+      { "icon": "ph-chart-bar", "title": "ROI Visibility", "desc": "First-time visibility into ad spend effectiveness" }
     ],
-    "icon": "ph-receipt",
-    "highlight": false
-  },
-  {
-    "id": "automation-chatbot",
-    "name": "AI Chatbot Setup",
-    "category": "Automation",
-    "tagline": "FAQ, Lead-Gen & Booking Bot",
-    "desc": "Self-hosted or cloud-based AI conversational agent that answers inquiries, captures details, and books meetings.",
-    "techstack": ["Botpress", "Flowise", "OpenAI API", "Ollama"],
-    "needs": "Businesses needing 24/7 customer support without hiring virtual assistants or paying recurring bot fees.",
-    "deployment": "Self-hosted Cloud or Local PC",
-    "price": "₹10,000 – ₹25,000",
-    "plans": [
-      {
-        "name": "FAQ Botpress Assistant",
-        "price": "₹10,000",
-        "features": [
-          "Botpress cloud setup (free tier)",
-          "Vector database trained on static business FAQs",
-          "Standard email lead capturing flow",
-          "Web widget integration code"
-        ]
-      },
-      {
-        "name": "Local LLM Ollama Integration",
-        "price": "₹25,000",
-        "features": [
-          "Local PC deployment via Ollama (zero API costs)",
-          "Dynamic appointment calendar booking sync",
-          "Interactive WhatsApp bot interface routing",
-          "Receptionist escalation takeover handoff"
-        ]
-      }
+    "howItWorks": [
+      { "step": 1, "title": "Lead Arrives", "desc": "From any channel — website, IG, WhatsApp", "icon": "ph-arrow-square-in" },
+      { "step": 2, "title": "Auto-Captured", "desc": "Logged in central view with source tag", "icon": "ph-clipboard-text" },
+      { "step": 3, "title": "Agent Notified", "desc": "WhatsApp ping with full lead details", "icon": "ph-whatsapp-logo" },
+      { "step": 4, "title": "Escalation if Needed", "desc": "Manager alerted if no response in time", "icon": "ph-alarm" }
     ],
-    "features": [
-      "Intelligent FAQ Agent: Answers dynamic customer queries using customized vector store knowledge bases.",
-      "Appointment Scheduler: Checks staff availability and locks meeting slots dynamically.",
-      "Local Offline LLM Option: Runs AI models locally via Ollama, saving thousands in recurring API fees."
+    "comparison": {
+      "headers": ["Feature", "LeadFlow Automation", "HubSpot / Salesforce", "Checking Multiple Inboxes"],
+      "rows": [
+        ["Pricing", "One-time setup fee", "Monthly, per-user", "₹0, high leak rate"],
+        ["Built for Small Teams", "Yes", "Enterprise-oriented", "N/A"],
+        ["Source-Level ROI", "Yes", "Yes, but costly", "No"]
+      ]
+    },
+    "pricing": {
+      "startingAt": "₹6,000",
+      "tiers": [
+        {
+          "name": "Two Sources",
+          "price": "₹6,000",
+          "features": ["e.g. Website + WhatsApp", "Central lead log", "Auto-acknowledgement", "30-day support"],
+          "recommended": false
+        },
+        {
+          "name": "Standard (4 Sources)",
+          "price": "₹12,000",
+          "features": ["Website, Instagram, WhatsApp, IndiaMART", "Agent WhatsApp notifications", "Source tagging", "60-day support"],
+          "recommended": true
+        },
+        {
+          "name": "Full Suite + Escalation",
+          "price": "₹18,000",
+          "features": ["All Standard features", "No-response escalation rules", "Manager alerts", "90-day priority support"],
+          "recommended": false
+        }
+      ]
+    },
+    "useCase": "A real estate agency running Instagram ads and a website form used to lose track of leads; now every enquiry lands in one sheet, the right agent gets a ping within seconds, and the owner sees which channel is worth the ad spend.",
+    "useCaseCity": "Jaipur",
+    "faq": [
+      { "q": "Which lead sources can this connect to?", "a": "Website forms, Instagram/Meta lead forms, WhatsApp, and IndiaMART as standard; others can be added." },
+      { "q": "Do I need a CRM already?", "a": "No — a Google Sheet is often enough. A lightweight CRM view can be added if preferred." },
+      { "q": "What if a lead isn't followed up?", "a": "The escalation rule automatically flags it to a manager after your chosen time window." },
+      { "q": "Can this connect to LeadBoard?", "a": "Yes — it feeds directly into a pipeline-tracking system for fuller management." }
     ],
-    "icon": "ph-cpu",
-    "highlight": false
+    "trustPoints": ["Genuinely channel-agnostic", "Makes ad-spend ROI visible for the first time", "Pairs with pipeline tracking for full visibility"],
+    "cta": { "primary": "See the Workflow", "secondary": "Book Free Call" },
+    "seoTitle": "LeadFlow Automation — Lead Capture & Routing for Small Business | Aaryan Gupta",
+    "seoDescription": "Capture leads from your website, Instagram, and WhatsApp into one place, automatically routed to the right salesperson. One-time setup, no monthly fee.",
+    "deploymentLabel": "Cloud-Connected · Multi-Channel"
   }
 ]
