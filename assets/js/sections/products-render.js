@@ -370,6 +370,9 @@ function renderProductCard(p, isFirstInCategory) {
           <button class="prod-inner-tab" data-tab-target="tab-faq-${p.id}">
             <i class="ph-bold ph-question"></i> FAQ
           </button>
+          <button class="prod-inner-tab" data-tab-target="tab-business-${p.id}">
+            <i class="ph-bold ph-shield-check"></i> Why Own This?
+          </button>
         </nav>
 
         <div class="prod-panes-container">
@@ -435,6 +438,38 @@ function renderProductCard(p, isFirstInCategory) {
             <div class="prod-section-label"><i class="ph-bold ph-question"></i> Frequently Asked Questions</div>
             <div class="prod-faq-list">
               ${faqHtml}
+            </div>
+          </div>
+
+          <!-- TAB 5: Why Own This? -->
+          <div class="prod-tab-pane" id="tab-business-${p.id}">
+            <div class="prod-section-label"><i class="ph-bold ph-shield-check"></i> The Ownership Advantage</div>
+            <div class="prod-sales-pitch-box" style="padding: var(--sp-4); background: rgba(16, 185, 129, 0.03); border: 1px dashed var(--prod-border-mid); border-left: 3px solid var(--prod-teal); margin-bottom: var(--sp-4); display: flex; gap: var(--sp-3); align-items: flex-start;">
+              <i class="ph-duotone ph-shield-check" style="font-size: 1.5rem; color: var(--prod-teal); flex-shrink: 0; margin-top: 2px;"></i>
+              <p style="font-size: var(--text-sm); line-height: 1.6; font-style: italic; color: var(--text-secondary); margin: 0;">${p.ownershipAdvantage || ''}</p>
+            </div>
+
+            <div class="prod-section-label" style="margin-top: var(--sp-6);"><i class="ph-bold ph-chart-line"></i> Strategic &amp; Financial Value</div>
+            <div class="prod-hooks-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--sp-3); margin-bottom: var(--sp-4);">
+              ${(p.strategicValue || []).map(sv => `
+                <div class="prod-hook-card" style="padding: var(--sp-3); background: var(--prod-pill-bg); border: 1px solid var(--prod-pill-border); display: flex; flex-direction: column; gap: var(--sp-1);">
+                  <div class="prod-hook-header" style="display: flex; align-items: center; gap: var(--sp-2); font-size: var(--text-sm); color: var(--text-primary);">
+                    <i class="ph-fill ph-circle" style="font-size: 6px; color: var(--prod-cyan); transform: rotate(45deg); flex-shrink: 0;"></i>
+                    <strong>${sv.title}</strong>
+                  </div>
+                  <p class="prod-hook-desc" style="font-size: var(--text-xs); color: var(--text-muted); line-height: 1.4; margin: 0;">${sv.desc}</p>
+                </div>
+              `).join('')}
+            </div>
+
+            <div class="prod-section-label" style="margin-top: var(--sp-6);"><i class="ph-bold ph-shield-check"></i> Trust &amp; Value Points</div>
+            <div class="prod-trust-grid" style="display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-bottom: var(--sp-2);">
+              ${(p.trustPoints || []).map(t => `
+                <div class="prod-trust-point">
+                  <i class="ph-fill ph-seal-check"></i>
+                  <span>${t}</span>
+                </div>
+              `).join('')}
             </div>
           </div>
 

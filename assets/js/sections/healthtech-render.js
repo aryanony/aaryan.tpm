@@ -22,19 +22,32 @@ export async function renderHealthtech() {
     const badgeText = BADGE_MAP[p.id] || '';
     const badgeHtml = badgeText ? `<span class="badge badge-success" style="font-size: 8px; padding: 2px 6px; margin-left: 6px; display: inline-flex; align-items: center; line-height: 1; height: 16px;">${badgeText}</span>` : '';
     
+    const keyHighlightsHtml = (p.keyBenefits || []).slice(0, 3).map(b => `
+      <div style="display: flex; align-items: flex-start; gap: 8px; margin-top: 6px; font-family: var(--font-mono, monospace); font-size: 11px; line-height: 1.4;">
+        <i class="ph-bold ${b.icon}" style="color: var(--prod-teal, #10b981); margin-top: 2px; flex-shrink: 0; font-size: 13px;"></i>
+        <span><strong>${b.title}</strong> — ${b.desc}</span>
+      </div>
+    `).join('');
+
     return `
       <div class="ht-product ${activeClass}" data-id="${p.id}">
         <div class="ht-product__hdr">
           <div class="ht-product__info">
             <h4 class="ht-product__name" style="display: flex; align-items: center; flex-wrap: wrap; gap: 4px;">${p.name}${badgeHtml}</h4>
-            <span class="ht-product__tagline">${p.tagline}</span>
+            <span class="ht-product__tagline">${p.headline}</span>
           </div>
-          <span class="ht-product__price">${p.price}</span>
+          <span class="ht-product__price">Starting ${p.pricing.startingAt}</span>
         </div>
         <div class="ht-product__body">
-          <p class="ht-product__desc">${p.desc}</p>
+          <p class="ht-product__desc">${p.subheadline}</p>
+          
+          <div style="margin: var(--sp-3) 0; padding: var(--sp-3); border-left: 2px solid var(--prod-teal, #10b981); background: rgba(16, 185, 129, 0.02); border-radius: 0;">
+            <div style="font-size: 10px; color: var(--prod-teal, #10b981); font-weight: bold; text-transform: uppercase; margin-bottom: var(--sp-1); letter-spacing: 0.05em; font-family: var(--font-mono, monospace);">Key Value Highlights</div>
+            ${keyHighlightsHtml}
+          </div>
+
           <div class="ht-product__meta">
-            <span>Deploy: <strong>${p.deployment}</strong></span>
+            <span>Deploy: <strong>${p.deploymentLabel}</strong></span>
             <span>License: <strong>One-time</strong></span>
           </div>
         </div>

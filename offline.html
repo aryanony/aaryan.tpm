@@ -2,193 +2,516 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <!-- Google Tag Manager & Google Analytics (PageSpeed Optimized Lazy-Load) -->
-  <script>
-    (function() {
-      var initialized = false;
-      function initThirdParty() {
-        if (initialized) return;
-        initialized = true;
-        window.removeEventListener('scroll', initThirdParty);
-        window.removeEventListener('mousemove', initThirdParty);
-        window.removeEventListener('touchstart', initThirdParty);
-        window.removeEventListener('keydown', initThirdParty);
-        
-        // Load GTM
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-K4WSSP6T');
-
-        // Load GA4
-        var gt = document.createElement('script');
-        gt.async = true;
-        gt.src = 'https://www.googletagmanager.com/gtag/js?id=G-P6R6QNNCJQ';
-        document.head.appendChild(gt);
-
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = function(){dataLayer.push(arguments);}
-        window.gtag('js', new Date());
-        window.gtag('config', 'G-P6R6QNNCJQ');
-      }
-      var fallbackTimeout = setTimeout(initThirdParty, 3500);
-      window.addEventListener('scroll', initThirdParty, { passive: true });
-      window.addEventListener('mousemove', initThirdParty, { passive: true });
-      window.addEventListener('touchstart', initThirdParty, { passive: true });
-      window.addEventListener('keydown', initThirdParty, { passive: true });
-    })();
-  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- AI Agent Indexing Auto-Discovery Manifest (AIO / GEO) -->
-  <link rel="meta" type="application/json" title="AI Agent Manifest" href="/ai-manifest.json">
-  <!-- Performance optimization: Preconnect to Font & Tracking CDNs -->
-  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-  <link rel="preconnect" href="https://calendly.com" crossorigin>
-  <link rel="dns-prefetch" href="//api.fontshare.com">
-  <link rel="dns-prefetch" href="//www.googletagmanager.com">
-  <link rel="dns-prefetch" href="//calendly.com">
-  <title>Offline | Aaryan Gupta — Technical PM</title>
+  <title>Offline | Aryanony — Technical PM Console</title>
+  
+  <!-- Phosphor Icons -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css">
+  
   <style>
     :root {
       --bg-base: #030D0A;
+      --prod-teal: #10b981;
+      --prod-cyan: #06b6d4;
+      --prod-blue: #3b82f6;
       --text-primary: #EDF8F5;
-      --accent-p: #0D9488;
-      --nav-h: 72px;
-      --z-loader: 10000;
+      --text-muted: #6b7c77;
+      --border-color: rgba(16, 185, 129, 0.2);
+      --font-mono: monospace;
     }
+    
     html, body {
       background: var(--bg-base);
       color: var(--text-primary);
       margin: 0;
-      font-family: system-ui, sans-serif;
+      padding: 0;
+      font-family: var(--font-mono), monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       overflow-x: hidden;
     }
-    .loader-wrapper {
-      position: fixed; inset: 0; background: var(--bg-base); z-index: var(--z-loader);
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px;
-    }
-    .tpm-stages {
-      display: flex; align-items: center; justify-content: space-between;
-      width: 380px; height: 200px;
-      position: relative; margin: 0 auto;
-    }
-    .tpm-graph {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      z-index: 1; pointer-events: none;
-    }
-    #tpmGraphLine {
-      stroke-dasharray: 1000;
-      stroke-dashoffset: 1000;
-      /* Removed transition: handled purely by JS requestAnimationFrame for zero lag */
-    }
-    .tpm-stage {
-      display: flex; flex-direction: column; align-items: center; gap: 12px;
-      opacity: 0.3; transition: all 0.4s ease;
-      z-index: 2; will-change: opacity, transform;
-    }
-    .tpm-stage:nth-child(2) { transform: translateY(40px) translateZ(0); }
-    .tpm-stage:nth-child(3) { transform: translateY(0px) translateZ(0); }
-    .tpm-stage:nth-child(4) { transform: translateY(-40px) translateZ(0); }
-    .tpm-stage:nth-child(5) { transform: translateY(-80px) translateZ(0); }
-    
-    .tpm-box {
-      width: 56px; height: 56px; border-radius: 16px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.0) 100%);
-      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1);
-      display: flex; align-items: center; justify-content: center;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative; overflow: hidden;
-      will-change: box-shadow, background; transform: translateZ(0);
-    }
-    .tpm-box::before {
-      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
-      opacity: 0; transition: opacity 0.5s ease; pointer-events: none;
-      will-change: opacity;
-    }
-    .tpm-box svg { width: 24px; height: 24px; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; filter: grayscale(100%) opacity(40%); will-change: transform, filter; transform: translateZ(0); }
-    
-    .tpm-label {
-      font-family: monospace; font-size: 10px; font-weight: 700; letter-spacing: 1px;
-      color: rgba(128,128,128,0.7) !important; text-transform: uppercase; transition: all 0.5s ease;
-    }
-    
-    .tpm-stage.active { opacity: 1; }
-    .tpm-stage.active .tpm-box { background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%); }
-    .tpm-stage.active .tpm-box::before { opacity: 1; }
-    
-    .tpm-stage.active:nth-child(2) .tpm-box {
-      border-color: rgba(14, 165, 233, 0.4);
-      box-shadow: 0 0 25px rgba(14, 165, 233, 0.3), inset 0 0 12px rgba(14, 165, 233, 0.15);
-    }
-    .tpm-stage.active:nth-child(3) .tpm-box {
-      border-color: rgba(6, 182, 212, 0.4);
-      box-shadow: 0 0 25px rgba(6, 182, 212, 0.3), inset 0 0 12px rgba(6, 182, 212, 0.15);
-    }
-    .tpm-stage.active:nth-child(4) .tpm-box {
-      border-color: rgba(59, 130, 246, 0.4);
-      box-shadow: 0 0 25px rgba(59, 130, 246, 0.3), inset 0 0 12px rgba(59, 130, 246, 0.15);
-    }
-    .tpm-stage.active:nth-child(5) .tpm-box {
-      border-color: rgba(16, 185, 129, 0.4);
-      box-shadow: 0 0 25px rgba(16, 185, 129, 0.3), inset 0 0 12px rgba(16, 185, 129, 0.15);
+
+    /* Retro CRT Scanlines & Screen Overlay */
+    .crt-screen {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      padding: 30px;
+      box-sizing: border-box;
+      background: rgba(4, 20, 16, 0.95);
+      border: 2px solid var(--prod-teal);
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
+      margin: 20px;
     }
 
-    .tpm-stage.active .tpm-box svg { filter: grayscale(0%) opacity(100%) drop-shadow(0 0 8px rgba(255,255,255,0.25)); transform: scale(1.15); }
-    .tpm-stage.active .tpm-label { color: inherit !important; text-shadow: 0 0 10px currentColor; }
-    
-    .tpm-progress-container {
-      width: 100%; max-width: 320px; display: flex; flex-direction: column; gap: 12px; margin-top: 16px;
+    .crt-screen::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      z-index: 10;
+      background-size: 100% 3px, 3px 100%;
+      pointer-events: none;
     }
-    .tpm-progress-text {
-      display: flex; justify-content: space-between; font-family: monospace;
-      font-size: 11px; font-weight: 600; letter-spacing: 1px; color: rgba(128,128,128,0.8);
-    }
-    .loader-progress { width: 100%; height: 2px; background: rgba(128,128,128,0.2); position: relative; overflow: hidden; display: none; /* Hidden since we have the graph */ }
-    .loader-progress-bar { position: absolute; top:0; left:0; height:100%; width:0%; background: var(--accent-p); transition: width 0.1s linear; }
 
-    @media (max-width: 600px) {
-      .tpm-stages { transform: scale(0.75); transform-origin: center center; margin-bottom: -40px; }
+    .header-panel {
+      border-bottom: 1px dashed var(--prod-teal);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .logo-pulse {
+      display: inline-block;
+      font-size: 2.5rem;
+      color: var(--prod-teal);
+      animation: pulse-glow 2s infinite;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--prod-teal);
+      text-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+    }
+
+    .status-badge {
+      display: inline-block;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid #ef4444;
+      color: #ef4444;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      margin-top: 10px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    p.info-text {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #94a3b8;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    /* Game Interface Styles */
+    .game-title {
+      font-size: 0.9rem;
+      color: var(--prod-cyan);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+      border-bottom: 1px dashed var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: 80px repeat(3, 1fr);
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .grid-hdr {
+      font-size: 0.65rem;
+      color: var(--prod-teal);
+      text-align: center;
+      padding: 6px;
+      border-bottom: 1px solid var(--border-color);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .grid-cell {
+      height: 48px;
+      border: 1px solid var(--border-color);
+      background: rgba(16, 185, 129, 0.02);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--text-primary);
+      cursor: pointer;
+      text-align: center;
+      padding: 4px;
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+    }
+
+    .grid-cell.highlight {
+      border-color: var(--prod-cyan);
+      background: rgba(6, 182, 212, 0.08);
+    }
+
+    .grid-cell.filled {
+      border-color: var(--prod-teal);
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--prod-teal);
+      font-weight: bold;
+    }
+
+    .pool-section {
+      margin-top: 15px;
+    }
+
+    .pool-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .pool-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .pool-card {
+      flex: 1;
+      min-width: 120px;
+      padding: 8px;
+      border: 1px solid var(--prod-cyan);
+      background: rgba(6, 182, 212, 0.04);
+      color: var(--prod-cyan);
+      font-size: 0.65rem;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .pool-card.selected {
+      background: rgba(6, 182, 212, 0.15);
+      border-color: var(--prod-teal);
+      color: var(--prod-teal);
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.1);
+    }
+
+    .pool-card.placed {
+      opacity: 0.3;
+      cursor: not-allowed;
+      border-color: var(--border-color);
+      color: var(--text-muted);
+    }
+
+    /* Actions Panel */
+    .actions-panel {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 12px;
+      text-align: center;
+      background: transparent;
+      border: 1px solid var(--prod-teal);
+      color: var(--prod-teal);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn:hover {
+      background: rgba(16, 185, 129, 0.1);
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
+    }
+
+    .btn-ghost {
+      border-color: var(--prod-cyan);
+      color: var(--prod-cyan);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(6, 182, 212, 0.1);
+      box-shadow: 0 0 12px rgba(6, 182, 212, 0.2);
+    }
+
+    /* Success Screen */
+    .success-alert {
+      display: none;
+      border: 1px solid var(--prod-teal);
+      background: rgba(16, 185, 129, 0.08);
+      padding: 15px;
+      font-size: 0.75rem;
+      color: var(--prod-teal);
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    @keyframes pulse-glow {
+      0% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+      100% { opacity: 0.6; transform: scale(1); }
     }
   </style>
+
   <!-- Favicons + PWA -->
   <link rel="icon" href="/favicon.ico" sizes="48x48">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Aryanony">
+  <link rel="apple-touch-startup-image" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#030D0A">
   <link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4WSSP6T"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  <div class="wrapper">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="120" height="120" style="margin: 0 auto 32px; display: block; filter: drop-shadow(0 0 12px rgba(13,148,136,0.25));">
-      <circle cx="100" cy="100" r="80" fill="#071410" stroke="rgba(13,148,136,0.2)" stroke-width="2" />
-      <rect x="60" y="60" width="80" height="20" rx="4" fill="#0C1C15" stroke="#0D9488" stroke-width="2" />
-      <circle cx="75" cy="70" r="3" fill="#6B938A" />
-      <rect x="90" y="68" width="40" height="4" rx="2" fill="#2D5249" />
-      <rect x="60" y="90" width="80" height="20" rx="4" fill="#0C1C15" stroke="#0D9488" stroke-width="2" />
-      <circle cx="75" cy="100" r="3" fill="#6B938A" />
-      <rect x="90" y="98" width="40" height="4" rx="2" fill="#2D5249" />
-      <rect x="60" y="120" width="80" height="20" rx="4" fill="#0C1C15" stroke="#EF4444" stroke-width="2" />
-      <circle cx="75" cy="130" r="3" fill="#EF4444" />
-      <rect x="90" y="128" width="40" height="4" rx="2" fill="rgba(239,68,68,0.2)" />
-      <path d="M70,45 A40,40 0 0,1 130,45" fill="none" stroke="#6B938A" stroke-width="3" stroke-linecap="round" />
-      <path d="M80,53 A25,25 0 0,1 120,53" fill="none" stroke="#6B938A" stroke-width="3" stroke-linecap="round" />
-      <circle cx="100" cy="100" r="6" fill="#EF4444" />
-    </svg>
-    <h1>You are Offline</h1>
-    <p>It seems your device has lost connection to the internet. Pages that have not been cached previously are currently unavailable.</p>
-    <a href="/" class="btn">Go to Cached Homepage</a>
+
+  <div class="crt-screen">
+    
+    <!-- HEADER PANEL -->
+    <div class="header-panel">
+      <div class="logo-pulse">
+        <i class="ph-bold ph-wifi-slash"></i>
+      </div>
+      <h1>System Offline</h1>
+      <div class="status-badge">Offline Mode Active</div>
+    </div>
+
+    <p class="info-text">
+      Connection to <strong>Aryanony Console</strong> lost. You can continue reading cached pages, or sync the offline clinics scheduling database below.
+    </p>
+
+    <!-- OFFLINE TPM SCHEDULER GAME -->
+    <div class="game-container">
+      <div class="game-title">
+        <i class="ph-bold ph-terminal-window"></i> TPM OPD Scheduler Sync Puzzle
+      </div>
+
+      <!-- Success Notice -->
+      <div class="success-alert" id="game-success">
+        <strong>🏆 OFFLINE DATABASE SYNCED!</strong><br>
+        You scheduled all clinic rooms without conflicts. System integrity verified. Certified ready for online sync.
+      </div>
+
+      <!-- Grid layout: Row 1 headers. Col 1 time slots. -->
+      <div class="game-grid">
+        <div class="grid-hdr">Time</div>
+        <div class="grid-hdr">Room A</div>
+        <div class="grid-hdr">Room B</div>
+        <div class="grid-hdr">Room C</div>
+
+        <!-- 10:00 Row -->
+        <div class="grid-hdr">10:00 AM</div>
+        <div class="grid-cell" id="cell-A-10" data-room="A" data-time="10">Empty</div>
+        <div class="grid-cell" id="cell-B-10" data-room="B" data-time="10">Empty</div>
+        <div class="grid-cell" id="cell-C-10" data-room="C" data-time="10">Empty</div>
+
+        <!-- 11:00 Row -->
+        <div class="grid-hdr">11:00 AM</div>
+        <div class="grid-cell" id="cell-A-11" data-room="A" data-time="11">Empty</div>
+        <div class="grid-cell" id="cell-B-11" data-room="B" data-time="11">Empty</div>
+        <div class="grid-cell" id="cell-C-11" data-room="C" data-time="11">Empty</div>
+
+        <!-- 12:00 Row -->
+        <div class="grid-hdr">12:00 PM</div>
+        <div class="grid-cell" id="cell-A-12" data-room="A" data-time="12">Empty</div>
+        <div class="grid-cell" id="cell-B-12" data-room="B" data-time="12">Empty</div>
+        <div class="grid-cell" id="cell-C-12" data-room="C" data-time="12">Empty</div>
+      </div>
+
+      <!-- Pool of cards to place -->
+      <div class="pool-section" id="pool-area">
+        <div class="pool-label">OPD Clinics to Schedule:</div>
+        <div class="pool-cards">
+          <div class="pool-card" id="card-1" data-id="1" data-target-room="A" data-target-time="10" data-name="Pediatrics">
+            <strong>Pediatrics</strong>
+            <span>Assign: Room A @ 10</span>
+          </div>
+          <div class="pool-card" id="card-2" data-id="2" data-target-room="B" data-target-time="11" data-name="Cardiology">
+            <strong>Cardiology</strong>
+            <span>Assign: Room B @ 11</span>
+          </div>
+          <div class="pool-card" id="card-3" data-id="3" data-target-room="C" data-target-time="12" data-name="General OPD">
+            <strong>General OPD</strong>
+            <span>Assign: Room C @ 12</span>
+          </div>
+          <div class="pool-card" id="card-4" data-id="4" data-target-room="A" data-target-time="11" data-name="Dental">
+            <strong>Dental</strong>
+            <span>Assign: Room A @ 11</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACTIONS PANEL -->
+    <div class="actions-panel">
+      <button class="btn btn-ghost" id="btn-reset-game"><i class="ph-bold ph-arrow-counter-clockwise"></i> Reset</button>
+      <a href="/" class="btn"><i class="ph-bold ph-house-line"></i> Homepage</a>
+    </div>
+
   </div>
+
+  <script>
+    // Advanced Web Audio API Sound Synthesizer for Retro 8-bit Feel
+    let audioCtx = null;
+
+    function playSound(type) {
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        
+        // Resume context if suspended (browser security autoplays check)
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        
+        const now = audioCtx.currentTime;
+        
+        if (type === 'select') {
+          osc.type = 'square';
+          osc.frequency.setValueAtTime(600, now);
+          gain.gain.setValueAtTime(0.04, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+          osc.start(now);
+          osc.stop(now + 0.05);
+          
+          if ('vibrate' in navigator) navigator.vibrate(10);
+        } else if (type === 'error') {
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(120, now);
+          gain.gain.setValueAtTime(0.08, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+          osc.start(now);
+          osc.stop(now + 0.15);
+          
+          if ('vibrate' in navigator) navigator.vibrate(50);
+        } else if (type === 'success') {
+          osc.type = 'sine';
+          // Play classic 3-note arpeggio chord (C5 -> E5 -> G5)
+          osc.frequency.setValueAtTime(523.25, now); // C5
+          osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
+          osc.frequency.setValueAtTime(783.99, now + 0.16); // G5
+          gain.gain.setValueAtTime(0.06, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+          osc.start(now);
+          osc.stop(now + 0.35);
+          
+          if ('vibrate' in navigator) navigator.vibrate([30, 40, 30]);
+        }
+      } catch(e) {
+        console.warn('Audio feedback failed:', e);
+      }
+    }
+
+    // Offline TPM scheduling game controller
+    let selectedCard = null;
+    const cards = document.querySelectorAll('.pool-card');
+    const cells = document.querySelectorAll('.grid-cell');
+    const successAlert = document.getElementById('game-success');
+    const poolArea = document.getElementById('pool-area');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        if (card.classList.contains('placed')) return;
+        
+        playSound('select');
+        cards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectedCard = card;
+        
+        // Highlight compatible cells
+        cells.forEach(cell => {
+          const room = cell.getAttribute('data-room');
+          const time = cell.getAttribute('data-time');
+          const targetRoom = card.getAttribute('data-target-room');
+          const targetTime = card.getAttribute('data-target-time');
+          
+          if (room === targetRoom && time === targetTime) {
+            cell.classList.add('highlight');
+          } else {
+            cell.classList.remove('highlight');
+          }
+        });
+      });
+    });
+
+    cells.forEach(cell => {
+      cell.addEventListener('click', () => {
+        if (!selectedCard) return;
+        
+        const room = cell.getAttribute('data-room');
+        const time = cell.getAttribute('data-time');
+        const targetRoom = selectedCard.getAttribute('data-target-room');
+        const targetTime = selectedCard.getAttribute('data-target-time');
+        const name = selectedCard.getAttribute('data-name');
+        
+        if (room === targetRoom && time === targetTime) {
+          // Correct placement
+          playSound('success');
+          cell.textContent = name;
+          cell.classList.remove('highlight');
+          cell.classList.add('filled');
+          
+          selectedCard.classList.remove('selected');
+          selectedCard.classList.add('placed');
+          selectedCard = null;
+          
+          checkGameCompletion();
+        } else {
+          // Play buzzer effect or trigger alert error
+          playSound('error');
+          cell.style.borderColor = '#ef4444';
+          setTimeout(() => {
+            cell.style.borderColor = 'var(--border-color)';
+          }, 400);
+        }
+      });
+    });
+
+    function checkGameCompletion() {
+      const placedCards = document.querySelectorAll('.pool-card.placed');
+      if (placedCards.length === cards.length) {
+        successAlert.style.display = 'block';
+        poolArea.style.display = 'none';
+      }
+    }
+
+    document.getElementById('btn-reset-game').addEventListener('click', () => {
+      playSound('select');
+      selectedCard = null;
+      successAlert.style.display = 'none';
+      poolArea.style.display = 'block';
+      
+      cards.forEach(c => {
+        c.classList.remove('selected', 'placed');
+      });
+      
+      cells.forEach(cell => {
+        cell.textContent = 'Empty';
+        cell.classList.remove('highlight', 'filled');
+      });
+    });
+  </script>
 </body>
 </html>

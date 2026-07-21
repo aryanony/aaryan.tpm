@@ -28,6 +28,28 @@ export function initCommandPalette() {
     { title: 'Reduce Motion (Battery Saver)', action: () => document.documentElement.classList.toggle('reduce-motion'), icon: '⚡' }
   ];
 
+  // Dynamically push PWA installation if install prompt is deferred
+  if (window.deferredPrompt && !commands.some(c => c.title.includes('Install Aryanony'))) {
+    commands.push({
+      title: 'Install Aryanony App (PWA)',
+      action: () => import('../utils/pwa.js').then(m => m.installPWA()),
+      icon: '📲'
+    });
+  }
+
+  document.addEventListener('pwa:installable', () => {
+    if (!commands.some(c => c.title.includes('Install Aryanony'))) {
+      commands.push({
+        title: 'Install Aryanony App (PWA)',
+        action: () => import('../utils/pwa.js').then(m => m.installPWA()),
+        icon: '📲'
+      });
+      if (backdrop.classList.contains('active')) {
+        renderResults(input.value);
+      }
+    }
+  });
+
   let selectedIndex = 0;
 
   function renderResults(query = '') {

@@ -95,7 +95,7 @@
 }
 
 .ht-product.active .ht-product__body {
-  max-height: 200px;
+  max-height: 450px;
   padding-top: var(--sp-4);
   border-top: 1px solid var(--bd-subtle);
   margin-top: var(--sp-3);

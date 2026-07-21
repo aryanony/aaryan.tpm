@@ -1,6 +1,6 @@
 // sw.js — Service Worker for Aaryan Gupta Portfolio
 
-const CACHE_NAME = 'ag-cache-v2';
+const CACHE_NAME = 'ag-cache-v3';
 const OFFLINE_FALLBACK = '/offline.html';
 
 const STATIC_ASSETS = [
@@ -8,6 +8,7 @@ const STATIC_ASSETS = [
   '/index.html',
   '/about.html',
   '/services.html',
+  '/products.html',
   '/contact.html',
   '/jaipur.html',
   '/ahmedabad.html',
@@ -31,7 +32,10 @@ const STATIC_ASSETS = [
   '/data/skills.json',
   '/data/faq.json',
   '/data/stats.json',
-  '/data/healthtech-products.json'
+  '/data/products.json',
+  '/data/testimonials.json',
+  '/data/chatbot-data.json',
+  '/data/blog-meta.json'
 ];
 
 self.addEventListener('install', event => {
