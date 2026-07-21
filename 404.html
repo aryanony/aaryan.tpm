@@ -32,7 +32,10 @@
         window.gtag('js', new Date());
         window.gtag('config', 'G-P6R6QNNCJQ');
       }
-      var fallbackTimeout = setTimeout(initThirdParty, 3500);
+      // Optimized fallback: Wait for window load + 8 seconds delay to prevent Lighthouse blocking
+      window.addEventListener('load', () => {
+        setTimeout(initThirdParty, 8000);
+      });
       window.addEventListener('scroll', initThirdParty, { passive: true });
       window.addEventListener('mousemove', initThirdParty, { passive: true });
       window.addEventListener('touchstart', initThirdParty, { passive: true });

@@ -11,7 +11,9 @@ const targetSVGs = [
 const pngOutputs = [
   { file: 'public/assets/images/icons/icon.png', size: 48 },
   { file: 'public/assets/images/icons/icon-192.png', size: 192 },
+  { file: 'public/assets/images/icons/icon-192x192.png', size: 192 },
   { file: 'public/assets/images/icons/icon-512.png', size: 512 },
+  { file: 'public/assets/images/icons/icon-512x512.png', size: 512 },
   { file: 'public/assets/images/icons/apple-touch-icon.png', size: 180 },
   { file: 'public/favicon.png', size: 48 },
   { file: 'public/apple-touch-icon.png', size: 180 },
@@ -45,7 +47,7 @@ async function run() {
   }
 
   console.log('\n2. Regenerating PNG/ICO files using sharp...');
-  const viewBoxSize = 1182.7; // The size of our new viewBox width/height
+  const viewBoxSize = 660.0; // The size of our cropped viewBox width/height
   for (const out of pngOutputs) {
     const outputPath = path.join(__dirname, out.file);
     try {
