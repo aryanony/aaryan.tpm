@@ -109,7 +109,8 @@
   <meta name="geo.placename" content="Patna">
 
   <!-- Core Component CSS -->
-  <link rel="stylesheet" href="/assets/css/components/cmd-k.css">
+  <link rel="preload" href="/assets/css/components/cmd-k.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/components/cmd-k.css"></noscript>
 
   <!-- Inline critical layout settings (Anti-FOUC Loader) -->
   <style>

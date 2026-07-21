@@ -103,7 +103,8 @@
   <meta name="ICBM" content="26.9124, 75.7873">
 
   <!-- Core Component CSS -->
-  <link rel="stylesheet" href="/assets/css/components/cmd-k.css">
+  <link rel="preload" href="/assets/css/components/cmd-k.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/components/cmd-k.css"></noscript>
 
   <!-- Inline critical CSS (anti-FOUC layout basics) -->
   <style>
