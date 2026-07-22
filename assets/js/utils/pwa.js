@@ -271,6 +271,7 @@ function initStandaloneUI() {
       box-shadow: 0 -4px 24px rgba(0,0,0,0.6);
     }
     .pwa-nav-item {
+      position: relative;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -288,14 +289,39 @@ function initStandaloneUI() {
       border: none;
       padding: 6px 0;
       touch-action: manipulation;
-      transition: color 0.2s ease, transform 0.1s ease;
+      transition: all 0.2s ease;
       -webkit-tap-highlight-color: transparent;
     }
     .pwa-nav-item i {
       font-size: 20px;
+      transition: color 0.2s ease, filter 0.2s ease, transform 0.2s ease;
+    }
+    .pwa-nav-item span {
+      transition: color 0.2s ease, font-weight 0.2s ease;
     }
     .pwa-nav-item.active {
-      color: var(--prod-teal, #10b981);
+      color: var(--prod-teal, #10b981) !important;
+      font-weight: bold;
+    }
+    .pwa-nav-item.active i {
+      color: var(--prod-teal, #10b981) !important;
+      filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.7));
+      transform: translateY(-1px);
+    }
+    .pwa-nav-item.active span {
+      color: var(--prod-teal, #10b981) !important;
+      font-weight: 700;
+    }
+    .pwa-nav-item.active::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 20%;
+      right: 20%;
+      height: 3px;
+      background: var(--prod-teal, #10b981);
+      box-shadow: 0 0 10px var(--prod-teal, #10b981);
+      border-radius: 0 0 4px 4px;
     }
     .pwa-nav-item:active {
       transform: scale(0.92);
@@ -376,8 +402,7 @@ function initStandaloneUI() {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      e.preventDefault();
-      window.location.href = '/';
+      window.location.assign('/');
     }
   });
 
@@ -387,8 +412,7 @@ function initStandaloneUI() {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      e.preventDefault();
-      window.location.href = '/products.html';
+      window.location.assign('/products.html');
     }
   });
 
@@ -398,8 +422,7 @@ function initStandaloneUI() {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      e.preventDefault();
-      window.location.href = '/services.html';
+      window.location.assign('/services.html');
     }
   });
 

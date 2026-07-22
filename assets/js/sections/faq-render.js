@@ -40,11 +40,10 @@ export async function renderFAQ() {
 
     // Bind GSAP ScrollTrigger reveal animation directly to the new dynamic item
     gsap.fromTo(item, 
-      { opacity: 0, y: 32, filter: 'blur(12px)' }, 
+      { opacity: 0, y: 32 }, 
       {
         opacity: 1, 
         y: 0, 
-        filter: 'blur(0px)',
         duration: 0.8,
         ease: 'power3.out',
         scrollTrigger: { 

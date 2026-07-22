@@ -88,4 +88,41 @@ h1, h2, h3, h4, h5 {
   outline-offset: 3px !important;
 }
 
+/* Universal Anti-Blur Protection for All Sections & Cards */
+.reveal,
+.reveal-grid > *,
+.product-card,
+.service-card,
+.project-card,
+.about-card,
+.healthtech-card,
+.faq-item {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* Mobile & PWA Instant Visibility & GPU Fallback Protection */
+@media (max-width: 768px), (pointer: coarse) {
+  .reveal,
+  .reveal-grid > * {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+  }
+
+  /* GPU Compositor Fallback for cards on Android WebViews */
+  .product-card,
+  .service-card,
+  .project-card,
+  .about-card,
+  .healthtech-card {
+    background: #091714 !important;
+    border-color: rgba(16, 185, 129, 0.25) !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+  }
+}
+
 

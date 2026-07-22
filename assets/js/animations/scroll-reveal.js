@@ -3,42 +3,53 @@
 import { gsap, ScrollTrigger } from './gsap-init.js';
 
 export function initScrollAnimations() {
-  // Generic fade-up reveal (hardware accelerated)
-  gsap.utils.toArray('.reveal').forEach(el => {
-    gsap.fromTo(el, 
-      { opacity: 0, y: 28 }, 
-      {
-        opacity: 1, 
-        y: 0, 
-        duration: 0.7,
-        ease: 'power3.out',
-        scrollTrigger: { 
-          trigger: el, 
-          start: 'top 88%', 
-          toggleActions: 'play none none none' 
-        }
-      }
-    );
-  });
+  const isMobile = window.innerWidth < 768 || ('ontouchstart' in window);
 
-  // Staggered grid item reveals (hardware accelerated)
-  gsap.utils.toArray('.reveal-grid').forEach(grid => {
-    gsap.fromTo(grid.querySelectorAll(':scope > *'),
-      { opacity: 0, y: 20 },
-      { 
-        opacity: 1, 
-        y: 0, 
-        stagger: 0.06, 
-        duration: 0.55,
-        ease: 'power3.out',
-        scrollTrigger: { 
-          trigger: grid, 
-          start: 'top 86%', 
-          toggleActions: 'play none none none' 
+  // On mobile touch viewports, guarantee instant 100% visibility to prevent scroll lag/hidden bugs
+  if (isMobile) {
+    document.querySelectorAll('.reveal, .reveal-grid > *').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      el.style.visibility = 'visible';
+    });
+  } else {
+    // Generic fade-up reveal (desktop)
+    gsap.utils.toArray('.reveal').forEach(el => {
+      gsap.fromTo(el, 
+        { opacity: 0, y: 28 }, 
+        {
+          opacity: 1, 
+          y: 0, 
+          duration: 0.7,
+          ease: 'power3.out',
+          scrollTrigger: { 
+            trigger: el, 
+            start: 'top 88%', 
+            toggleActions: 'play none none none' 
+          }
         }
-      }
-    );
-  });
+      );
+    });
+
+    // Staggered grid item reveals (desktop)
+    gsap.utils.toArray('.reveal-grid').forEach(grid => {
+      gsap.fromTo(grid.querySelectorAll(':scope > *'),
+        { opacity: 0, y: 20 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          stagger: 0.06, 
+          duration: 0.55,
+          ease: 'power3.out',
+          scrollTrigger: { 
+            trigger: grid, 
+            start: 'top 86%', 
+            toggleActions: 'play none none none' 
+          }
+        }
+      );
+    });
+  }
 
   // Timeline stem scroll scrub drawing
   const stem = document.querySelector('.exp__stem');

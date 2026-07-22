@@ -28,16 +28,14 @@
 .reveal {
   opacity: 0;
   transform: translateY(28px);
-  filter: blur(12px);
   transition: 
     opacity 0.65s var(--ease-out), 
-    transform 0.65s var(--ease-out),
-    filter 0.65s var(--ease-out);
-  will-change: opacity, transform, filter;
+    transform 0.65s var(--ease-out);
+  will-change: opacity, transform;
 }
 
 .reveal.visible {
   opacity: 1;
   transform: none;
-  filter: blur(0);
+  filter: none !important;
 }
