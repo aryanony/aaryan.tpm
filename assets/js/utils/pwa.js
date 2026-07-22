@@ -245,15 +245,17 @@ function initStandaloneUI() {
       bottom: 0;
       left: 0;
       right: 0;
-      height: 60px;
-      background: #030D0A;
-      border-top: 1px solid rgba(16, 185, 129, 0.2);
+      height: calc(60px + env(safe-area-inset-bottom, 0px));
+      background: rgba(3, 13, 10, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(16, 185, 129, 0.25);
       display: flex;
       justify-content: space-around;
       align-items: center;
-      z-index: 9998;
-      padding-bottom: env(safe-area-inset-bottom);
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+      z-index: 10005;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.6);
     }
     .pwa-nav-item {
       flex: 1;
@@ -267,10 +269,12 @@ function initStandaloneUI() {
       font-size: 10px;
       gap: 4px;
       height: 100%;
+      min-height: 48px;
       cursor: pointer;
       background: none;
       border: none;
-      padding: 0;
+      padding: 6px 0;
+      touch-action: manipulation;
       transition: color 0.2s ease, transform 0.1s ease;
       -webkit-tap-highlight-color: transparent;
     }
@@ -304,8 +308,8 @@ function initStandaloneUI() {
       100% { transform: scale(0.9); opacity: 0.6; }
     }
     body {
-      padding-bottom: 72px !important;
-      overscroll-behavior: none !important;
+      padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+      overscroll-behavior-y: contain !important;
     }
     /* Hide scroll indicator top bar elements in standalone if needed */
     .scroll-progress-bar {
@@ -362,7 +366,8 @@ function initStandaloneUI() {
   const pathname = window.location.pathname;
   const isHome = pathname === '/' || pathname.endsWith('index.html');
   const isProducts = pathname.includes('products.html');
-  const isServices = pathname.includes('services.html');
+  const isServices = pathname.includes('services.html') || pathname.includes('/services/');
+  const servicesHref = isHome ? '/#services' : '/services.html';
 
   nav.innerHTML = `
     <a href="/" class="pwa-nav-item ${isHome ? 'active' : ''}">
@@ -373,7 +378,7 @@ function initStandaloneUI() {
       <i class="ph-bold ph-squares-four"></i>
       <span>Products</span>
     </a>
-    <a href="/services.html" class="pwa-nav-item ${isServices ? 'active' : ''}">
+    <a href="${servicesHref}" id="pwa-nav-services" class="pwa-nav-item ${isServices ? 'active' : ''}">
       <i class="ph-bold ph-briefcase"></i>
       <span>Services</span>
     </a>
@@ -385,18 +390,39 @@ function initStandaloneUI() {
 
   document.body.appendChild(nav);
 
-  // Tactile feedback on nav tap & event listeners
+  // Tactile feedback & event handling for Services bottom tab
+  const servicesBtn = nav.querySelector('#pwa-nav-services');
+  if (servicesBtn) {
+    servicesBtn.addEventListener('click', (e) => {
+      if (isHome) {
+        const target = document.querySelector('#services');
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else if (isServices) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  }
+
+  // Tactile feedback on nav tap safely
   const navItems = nav.querySelectorAll('.pwa-nav-item');
   navItems.forEach(item => {
     item.addEventListener('click', () => {
-      if ('vibrate' in navigator) navigator.vibrate(12);
+      if (typeof navigator !== 'undefined' && 'vibrate' in navigator && typeof navigator.vibrate === 'function') {
+        try { navigator.vibrate(12); } catch (err) {}
+      }
     });
   });
 
   // Bind Console action to dispatch CTRL+K keyboard event dynamically opening Command-K palette
   document.getElementById('pwa-nav-term').addEventListener('click', (e) => {
     e.preventDefault();
-    if ('vibrate' in navigator) navigator.vibrate(20);
+    if (typeof navigator !== 'undefined' && 'vibrate' in navigator && typeof navigator.vibrate === 'function') {
+      try { navigator.vibrate(20); } catch (err) {}
+    }
     window.dispatchEvent(new KeyboardEvent('keydown', {
       key: 'k',
       ctrlKey: true,

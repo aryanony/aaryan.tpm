@@ -4,6 +4,8 @@ export function initScrollProgress() {
   const progressBar = document.querySelector('.nav__progress');
   if (!progressBar) return;
 
+  let ticking = false;
+
   const updateProgress = () => {
     const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     if (scrollHeight > 0) {
@@ -12,8 +14,17 @@ export function initScrollProgress() {
     } else {
       progressBar.style.width = '0%';
     }
+    ticking = false;
   };
 
-  window.addEventListener('scroll', updateProgress);
+  const onScroll = () => {
+    if (!ticking) {
+      requestAnimationFrame(updateProgress);
+      ticking = true;
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
   updateProgress(); // Run once initially
 }
+

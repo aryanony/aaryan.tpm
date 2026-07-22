@@ -116,20 +116,29 @@ export function initAnalyticsTracker() {
   // 3. Scroll Depth Tracking
   const scrollThresholds = [25, 50, 75, 90];
   const triggeredScrolls = {};
+  let scrollTicking = false;
+
   window.addEventListener('scroll', () => {
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    if (docHeight <= 0) return;
-    const scrollPercent = Math.round((window.scrollY / docHeight) * 100);
-    scrollThresholds.forEach(threshold => {
-      if (scrollPercent >= threshold && !triggeredScrolls[threshold]) {
-        triggeredScrolls[threshold] = true;
-        window.dataLayer.push({
-          event: 'scroll_depth_milestone',
-          scroll_percentage: threshold
-        });
-        console.log('[AG-Analytics] Scroll depth milestone reached:', threshold + '%');
-      }
-    });
+    if (!scrollTicking) {
+      requestAnimationFrame(() => {
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (docHeight > 0) {
+          const scrollPercent = Math.round((window.scrollY / docHeight) * 100);
+          scrollThresholds.forEach(threshold => {
+            if (scrollPercent >= threshold && !triggeredScrolls[threshold]) {
+              triggeredScrolls[threshold] = true;
+              window.dataLayer.push({
+                event: 'scroll_depth_milestone',
+                scroll_percentage: threshold
+              });
+              console.log('[AG-Analytics] Scroll depth milestone reached:', threshold + '%');
+            }
+          });
+        }
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
   }, { passive: true });
 
   // 4. Active engaged session tracking (engaged milliseconds)

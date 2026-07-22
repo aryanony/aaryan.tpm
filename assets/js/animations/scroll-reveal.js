@@ -3,15 +3,14 @@
 import { gsap, ScrollTrigger } from './gsap-init.js';
 
 export function initScrollAnimations() {
-  // Generic fade-up reveal
+  // Generic fade-up reveal (hardware accelerated)
   gsap.utils.toArray('.reveal').forEach(el => {
     gsap.fromTo(el, 
-      { opacity: 0, y: 32, filter: 'blur(12px)' }, 
+      { opacity: 0, y: 28 }, 
       {
         opacity: 1, 
         y: 0, 
-        filter: 'blur(0px)',
-        duration: 0.8,
+        duration: 0.7,
         ease: 'power3.out',
         scrollTrigger: { 
           trigger: el, 
@@ -22,17 +21,15 @@ export function initScrollAnimations() {
     );
   });
 
-  // Staggered grid item reveals
+  // Staggered grid item reveals (hardware accelerated)
   gsap.utils.toArray('.reveal-grid').forEach(grid => {
     gsap.fromTo(grid.querySelectorAll(':scope > *'),
-      { opacity: 0, y: 24, rotationX: 4, filter: 'blur(10px)' },
+      { opacity: 0, y: 20 },
       { 
         opacity: 1, 
         y: 0, 
-        rotationX: 0, 
-        filter: 'blur(0px)',
-        stagger: 0.08, 
-        duration: 0.65,
+        stagger: 0.06, 
+        duration: 0.55,
         ease: 'power3.out',
         scrollTrigger: { 
           trigger: grid, 

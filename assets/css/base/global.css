@@ -1,5 +1,10 @@
 /* ===== assets/css/base/global.css ===== */
 
+html {
+  touch-action: manipulation;
+  -webkit-overflow-scrolling: touch;
+}
+
 body {
   font-family: var(--font-body);
   font-size: var(--text-base);
@@ -8,6 +13,8 @@ body {
   line-height: var(--leading-normal);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  touch-action: manipulation;
+  -webkit-overflow-scrolling: touch;
   transition: background var(--dur-base), color var(--dur-base);
 }
 
