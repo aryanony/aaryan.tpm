@@ -96,6 +96,7 @@ async function init() {
           { initGlobalLivePreview },
           { initAnalyticsTracker },
           { initContactForm },
+          { initPWA },
         ] = await Promise.all([
           import('@interactions/cursor.js'),
           import('@interactions/magnetic.js'),
@@ -111,6 +112,7 @@ async function init() {
           import('@utils/sandbox.js'),
           import('@utils/analytics-tracker.js'),
           import('@forms/contact-form.js'),
+          import('@utils/pwa.js'),
         ]);
 
         // Dispatch ready event for tilt and magnetic hooks
@@ -131,6 +133,7 @@ async function init() {
         initMarquee();
         initAnalyticsTracker();
         initContactForm(cfg);
+        initPWA();
       }, 50); // 50ms delay to let first paint complete
     });
 
@@ -148,10 +151,8 @@ async function init() {
     setTimeout(async () => {
       const { initCookies }   = await import('@utils/cookies.js');
       const { initAnalytics } = await import('@utils/analytics.js');
-      const { initPWA }       = await import('@utils/pwa.js');
       initCookies();
       initAnalytics(cfg.analytics);
-      initPWA();
     }, 4000);
 
     document.documentElement.classList.add('js-loaded');

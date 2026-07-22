@@ -1,8 +1,8 @@
 /* ===== assets/css/base/global.css ===== */
 
 html {
-  touch-action: manipulation;
-  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -12,9 +12,9 @@ body {
   background: var(--bg-base);
   line-height: var(--leading-normal);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-  touch-action: manipulation;
-  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: clip;
   transition: background var(--dur-base), color var(--dur-base);
 }
 

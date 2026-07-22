@@ -1,6 +1,5 @@
-// sw.js — Service Worker for Aaryan Gupta Portfolio
-
-const CACHE_NAME = 'ag-cache-v3';
+// sw.js — High-Performance Service Worker for Live Sync & Complete Offline PWA
+const CACHE_NAME = 'ag-cache-v4';
 const OFFLINE_FALLBACK = '/offline.html';
 
 const STATIC_ASSETS = [
@@ -25,6 +24,16 @@ const STATIC_ASSETS = [
   '/assets/images/icons/icon-192x192.png',
   '/assets/images/icons/icon-512.png',
   '/assets/images/icons/icon-512x512.png',
+  '/services/technical-project-management.html',
+  '/services/healthtech-consulting.html',
+  '/services/ai-automation.html',
+  '/services/micro-saas-software.html',
+  '/services/website-maintenance.html',
+  '/work/index.html',
+  '/work/uibrium.html',
+  '/work/projectport.html',
+  '/work/aryanony-ai-bot.html',
+  '/blog/index.html',
   '/data/site.config.json',
   '/data/services.json',
   '/data/projects.json',
@@ -38,11 +47,20 @@ const STATIC_ASSETS = [
   '/data/blog-meta.json'
 ];
 
+// Handle SKIP_WAITING message sent from PWA client for live update activation
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
+
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      console.log('[SW] Pre-caching offline fallbacks and static assets');
-      return cache.addAll(STATIC_ASSETS);
+      console.log('[SW] Pre-caching all static assets and subpages');
+      return cache.addAll(STATIC_ASSETS).catch(err => {
+        console.warn('[SW] Pre-cache partial failure:', err);
+      });
     })
   );
   self.skipWaiting();
@@ -54,7 +72,7 @@ self.addEventListener('activate', event => {
       return Promise.all(
         keys.map(key => {
           if (key !== CACHE_NAME) {
-            console.log('[SW] Deleting stale cache:', key);
+            console.log('[SW] Purging stale cache:', key);
             return caches.delete(key);
           }
         })
@@ -64,30 +82,29 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
-// Stale-while-revalidate for assets, network-first for documents
+// Network-First for Navigation (HTML Docs), Stale-While-Revalidate for Assets
 self.addEventListener('fetch', event => {
   const request = event.request;
   
-  // Ignore non-GET requests
   if (request.method !== 'GET') return;
   
-  // Ignore Chrome Extensions and external scripts
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
   if (request.mode === 'navigate') {
     event.respondWith(
       fetch(request)
-        .then(response => {
-          // Update cache with fresh version
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(request, clone));
-          return response;
+        .then(networkResponse => {
+          if (networkResponse && networkResponse.status === 200) {
+            const clone = networkResponse.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(request, clone));
+          }
+          return networkResponse;
         })
         .catch(() => {
-          // If network fails, serve cache, then fallback
+          // Offline fallback: Match requested page from cache, or return /offline.html
           return caches.match(request).then(cached => {
-            return cached || caches.match(OFFLINE_FALLBACK);
+            return cached || caches.match(OFFLINE_FALLBACK) || caches.match('/');
           });
         })
     );
@@ -96,13 +113,13 @@ self.addEventListener('fetch', event => {
       caches.match(request).then(cached => {
         const fetchPromise = fetch(request)
           .then(networkResponse => {
-            if (networkResponse.status === 200) {
+            if (networkResponse && networkResponse.status === 200) {
               const clone = networkResponse.clone();
               caches.open(CACHE_NAME).then(cache => cache.put(request, clone));
             }
             return networkResponse;
           })
-          .catch(() => null); // Fail silently on resource network error
+          .catch(() => null);
           
         return cached || fetchPromise;
       })

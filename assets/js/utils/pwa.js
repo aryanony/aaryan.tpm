@@ -2,19 +2,32 @@
 
 export function initPWA() {
   // 1. Service Worker Registration & Automatic Update Reloader
+  // 1. Service Worker Registration & Live Synchronization Engine
   if ('serviceWorker' in navigator && import.meta.env.PROD) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js')
         .then(reg => {
           console.log('[AG] PWA ServiceWorker registered successfully:', reg.scope);
           
+          const checkUpdate = () => reg.update().catch(() => {});
+          checkUpdate();
+
+          // Actively check for website updates when app comes to foreground or reconnects
+          document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') checkUpdate();
+          });
+          window.addEventListener('focus', checkUpdate);
+          window.addEventListener('online', checkUpdate);
+          setInterval(checkUpdate, 60000);
+
           // Check for service worker updates
           reg.addEventListener('updatefound', () => {
             const newWorker = reg.installing;
             if (newWorker) {
               newWorker.addEventListener('statechange', () => {
                 if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  // Show update banner
+                  // Send skip waiting message immediately to activate new live update
+                  newWorker.postMessage({ type: 'SKIP_WAITING' });
                   showUpdateBanner(reg);
                 }
               });
@@ -26,7 +39,7 @@ export function initPWA() {
         });
     });
 
-    // Automatically reload when service worker is updated (skipWaiting called)
+    // Automatically reload when service worker takes control (live update active)
     let refreshing = false;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
       if (!refreshing) {
@@ -309,7 +322,6 @@ function initStandaloneUI() {
     }
     body {
       padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
-      overscroll-behavior-y: contain !important;
     }
     /* Hide scroll indicator top bar elements in standalone if needed */
     .scroll-progress-bar {
@@ -367,14 +379,16 @@ function initStandaloneUI() {
   const isHome = pathname === '/' || pathname.endsWith('index.html');
   const isProducts = pathname.includes('products.html');
   const isServices = pathname.includes('services.html') || pathname.includes('/services/');
+
+  const productsHref = isHome ? '/#products' : '/products.html';
   const servicesHref = isHome ? '/#services' : '/services.html';
 
   nav.innerHTML = `
-    <a href="/" class="pwa-nav-item ${isHome ? 'active' : ''}">
+    <a href="/" id="pwa-nav-home" class="pwa-nav-item ${isHome ? 'active' : ''}">
       <i class="ph-bold ph-house"></i>
       <span>Home</span>
     </a>
-    <a href="/products.html" class="pwa-nav-item ${isProducts ? 'active' : ''}">
+    <a href="${productsHref}" id="pwa-nav-products" class="pwa-nav-item ${isProducts ? 'active' : ''}">
       <i class="ph-bold ph-squares-four"></i>
       <span>Products</span>
     </a>
@@ -390,39 +404,72 @@ function initStandaloneUI() {
 
   document.body.appendChild(nav);
 
-  // Tactile feedback & event handling for Services bottom tab
-  const servicesBtn = nav.querySelector('#pwa-nav-services');
-  if (servicesBtn) {
-    servicesBtn.addEventListener('click', (e) => {
-      if (isHome) {
-        const target = document.querySelector('#services');
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      } else if (isServices) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    });
-  }
-
-  // Tactile feedback on nav tap safely
-  const navItems = nav.querySelectorAll('.pwa-nav-item');
-  navItems.forEach(item => {
-    item.addEventListener('click', () => {
+  const handleTabClick = (btn, action) => {
+    if (!btn) return;
+    btn.addEventListener('click', (e) => {
       if (typeof navigator !== 'undefined' && 'vibrate' in navigator && typeof navigator.vibrate === 'function') {
         try { navigator.vibrate(12); } catch (err) {}
       }
+      action(e);
     });
+  };
+
+  // Home tab
+  handleTabClick(nav.querySelector('#pwa-nav-home'), (e) => {
+    if (isHome) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      e.preventDefault();
+      window.location.href = '/';
+    }
   });
 
-  // Bind Console action to dispatch CTRL+K keyboard event dynamically opening Command-K palette
-  document.getElementById('pwa-nav-term').addEventListener('click', (e) => {
-    e.preventDefault();
-    if (typeof navigator !== 'undefined' && 'vibrate' in navigator && typeof navigator.vibrate === 'function') {
-      try { navigator.vibrate(20); } catch (err) {}
+  // Products tab
+  handleTabClick(nav.querySelector('#pwa-nav-products'), (e) => {
+    if (isHome) {
+      const target = document.querySelector('#products') || document.querySelector('.healthtech-section');
+      if (target) {
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.pageYOffset - 72;
+        window.scrollTo({ top, behavior: 'smooth' });
+      } else {
+        e.preventDefault();
+        window.location.href = '/products.html';
+      }
+    } else if (isProducts) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      e.preventDefault();
+      window.location.href = '/products.html';
     }
+  });
+
+  // Services tab
+  handleTabClick(nav.querySelector('#pwa-nav-services'), (e) => {
+    if (isHome) {
+      const target = document.querySelector('#services') || document.querySelector('.services-section');
+      if (target) {
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.pageYOffset - 72;
+        window.scrollTo({ top, behavior: 'smooth' });
+      } else {
+        e.preventDefault();
+        window.location.href = '/services.html';
+      }
+    } else if (isServices) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      e.preventDefault();
+      window.location.href = '/services.html';
+    }
+  });
+
+  // Console tab
+  handleTabClick(nav.querySelector('#pwa-nav-term'), (e) => {
+    e.preventDefault();
     window.dispatchEvent(new KeyboardEvent('keydown', {
       key: 'k',
       ctrlKey: true,
@@ -430,7 +477,30 @@ function initStandaloneUI() {
     }));
   });
 
-  // 2. Inject Biometric/Decryption Startup Screen on fresh launch session
+  // 2. Universal Standalone PWA Router (Instant Navigation Anywhere -> Anywhere)
+  if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href]');
+      if (!link || link.closest('#pwa-bottom-nav')) return;
+      
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('javascript:') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+      if (link.target === '_blank') return;
+      
+      // If pure internal anchor hash on current page, let smooth scroll handle it
+      if (href.startsWith('#')) return;
+
+      const url = new URL(href, window.location.href);
+      if (url.origin === window.location.origin) {
+        if (url.pathname !== window.location.pathname || url.hash) {
+          e.preventDefault();
+          window.location.href = url.href;
+        }
+      }
+    }, { capture: true });
+  }
+
+  // 3. Inject Biometric/Decryption Startup Screen on fresh launch session
   if (!sessionStorage.getItem('pwa-sys-unlocked')) {
     showSecureLaunchScreen();
   }
@@ -454,27 +524,29 @@ function showSecureLaunchScreen() {
   
   let progress = 0;
   const interval = setInterval(() => {
-    progress += Math.floor(Math.random() * 15) + 5;
+    progress += 40;
     if (progress >= 100) {
       progress = 100;
       clearInterval(interval);
-      bar.style.width = '100%';
-      status.style.color = 'var(--prod-teal)';
-      status.innerHTML = '🔓 Access Granted';
+      if (bar) bar.style.width = '100%';
+      if (status) {
+        status.style.color = 'var(--prod-teal)';
+        status.innerHTML = '🔓 Access Granted';
+      }
       
-      if ('vibrate' in navigator) navigator.vibrate([30, 40]);
+      if ('vibrate' in navigator) navigator.vibrate(15);
       
       setTimeout(() => {
         overlay.style.opacity = '0';
         setTimeout(() => {
           overlay.remove();
           sessionStorage.setItem('pwa-sys-unlocked', 'true');
-        }, 500);
-      }, 400);
+        }, 80);
+      }, 40);
     } else {
-      bar.style.width = `${progress}%`;
-      status.innerHTML = `Decrypting key store... ${progress}%`;
+      if (bar) bar.style.width = `${progress}%`;
+      if (status) status.innerHTML = `Decrypting key store... ${progress}%`;
     }
-  }, 100);
+  }, 30);
 }
 

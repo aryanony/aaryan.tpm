@@ -5,7 +5,7 @@ class Cursor {
     this.dot  = document.querySelector('.cursor-dot');
     this.ring = document.querySelector('.cursor-ring');
     if (!this.dot || !this.ring) return;
-    if (window.matchMedia('(hover: none)').matches) return;
+    if (window.matchMedia('(hover: none)').matches || 'ontouchstart' in window || window.innerWidth < 768) return;
     this.mouse   = { x: -100, y: -100 };
     this.ringPos = { x: -100, y: -100 };
     this.init();

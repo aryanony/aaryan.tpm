@@ -20,10 +20,15 @@ export function initCommandPalette() {
   resultsContainer.setAttribute('aria-label', 'Search results');
 
   const commands = [
-    { title: 'Home', action: () => window.scrollTo(0, 0), icon: '🏠' },
-    { title: 'View Projects', action: () => document.getElementById('projects')?.scrollIntoView(), icon: '💻' },
-    { title: 'View Experience', action: () => document.getElementById('experience')?.scrollIntoView(), icon: '📈' },
-    { title: 'Contact Me', action: () => window.location.href = 'mailto:contact@aaaryangupta.com', icon: '✉️' },
+    { title: 'Home Page', action: () => window.location.href = '/', icon: '🏠' },
+    { title: 'Products — Clinic & Business Software', action: () => window.location.href = '/products.html', icon: '📦' },
+    { title: 'Services — PM & HealthTech Consulting', action: () => window.location.href = '/services.html', icon: '💼' },
+    { title: 'About Aaryan Gupta', action: () => window.location.href = '/about.html', icon: '👤' },
+    { title: 'Contact & Book Strategy Call', action: () => window.location.href = '/contact.html', icon: '✉️' },
+    { title: 'Jaipur Technical PM Services', action: () => window.location.href = '/jaipur.html', icon: '📍' },
+    { title: 'Ahmedabad Technical PM Services', action: () => window.location.href = '/ahmedabad.html', icon: '📍' },
+    { title: 'Pune Technical PM Services', action: () => window.location.href = '/pune.html', icon: '📍' },
+    { title: 'Blog & Software Insights', action: () => window.location.href = '/blog/', icon: '📝' },
     { title: 'Toggle Theme (Dark/Light)', action: () => document.getElementById('theme-toggle')?.click(), icon: '🌓' },
     { title: 'Reduce Motion (Battery Saver)', action: () => document.documentElement.classList.toggle('reduce-motion'), icon: '⚡' }
   ];
