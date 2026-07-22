@@ -95,29 +95,51 @@ export function initNav(config) {
     });
   }
 
-  // Nav active item highlights on scroll
-  const sections = document.querySelectorAll('section[id]');
+  // Nav active item highlights based on page URL and scroll sections
   const navLinks = document.querySelectorAll('.nav__links .nav__link, .nav__mobile-menu .nav__link');
-  
-  if (sections.length && navLinks.length) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href === `#${id}` || href === `/#${id}` || href.endsWith(`#${id}`)) {
-              link.classList.add('active');
-              link.setAttribute('aria-current', 'page');
-            } else {
-              link.classList.remove('active');
-              link.removeAttribute('aria-current');
+  const pathname = window.location.pathname;
+  const isHome = pathname === '/' || pathname.endsWith('index.html');
+
+  if (navLinks.length) {
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+      
+      const isExactPageMatch = 
+        (href === '/products.html' && pathname.includes('products.html')) ||
+        (href === '/services.html' && (pathname.includes('services.html') || pathname.includes('/services/'))) ||
+        (href === '/about.html' && pathname.includes('about.html')) ||
+        (href === '/contact.html' && pathname.includes('contact.html'));
+
+      if (isExactPageMatch) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+
+    if (isHome) {
+      const sections = document.querySelectorAll('section[id]');
+      if (sections.length) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute('id');
+              navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === `#${id}` || href === `/#${id}` || href?.endsWith(`#${id}`)) {
+                  link.classList.add('active');
+                  link.setAttribute('aria-current', 'page');
+                } else if (href?.startsWith('#')) {
+                  link.classList.remove('active');
+                  link.removeAttribute('aria-current');
+                }
+              });
             }
           });
-        }
-      });
-    }, { rootMargin: '-40% 0px -50% 0px' });
+        }, { rootMargin: '-40% 0px -50% 0px' });
 
-    sections.forEach(s => observer.observe(s));
+        sections.forEach(s => observer.observe(s));
+      }
+    }
   }
 }

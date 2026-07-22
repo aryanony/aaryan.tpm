@@ -327,47 +327,6 @@ function initStandaloneUI() {
     .scroll-progress-bar {
       top: 0 !important;
     }
-    
-    /* Standalone secure launch overlay */
-    #pwa-secure-launch {
-      position: fixed;
-      inset: 0;
-      background: #030D0A;
-      z-index: 11000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 24px;
-      color: var(--prod-teal, #10b981);
-      font-family: var(--font-mono, monospace);
-      transition: opacity 0.5s ease;
-    }
-    .pwa-biometric {
-      font-size: 3rem;
-      color: var(--prod-teal, #10b981);
-      animation: biometric-pulse 1.5s infinite;
-    }
-    .pwa-progress-container {
-      width: 200px;
-      height: 2px;
-      background: rgba(16, 185, 129, 0.1);
-      position: relative;
-      overflow: hidden;
-    }
-    .pwa-progress-bar {
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 0%;
-      background: var(--prod-teal, #10b981);
-      box-shadow: 0 0 8px var(--prod-teal);
-      transition: width 0.1s linear;
-    }
-    @keyframes biometric-pulse {
-      0% { opacity: 0.4; transform: scale(0.95); }
-      50% { opacity: 1; transform: scale(1.05); }
-      100% { opacity: 0.4; transform: scale(0.95); }
-    }
   `;
   document.head.appendChild(style);
 
@@ -380,19 +339,16 @@ function initStandaloneUI() {
   const isProducts = pathname.includes('products.html');
   const isServices = pathname.includes('services.html') || pathname.includes('/services/');
 
-  const productsHref = isHome ? '/#products' : '/products.html';
-  const servicesHref = isHome ? '/#services' : '/services.html';
-
   nav.innerHTML = `
     <a href="/" id="pwa-nav-home" class="pwa-nav-item ${isHome ? 'active' : ''}">
       <i class="ph-bold ph-house"></i>
       <span>Home</span>
     </a>
-    <a href="${productsHref}" id="pwa-nav-products" class="pwa-nav-item ${isProducts ? 'active' : ''}">
+    <a href="/products.html" id="pwa-nav-products" class="pwa-nav-item ${isProducts ? 'active' : ''}">
       <i class="ph-bold ph-squares-four"></i>
       <span>Products</span>
     </a>
-    <a href="${servicesHref}" id="pwa-nav-services" class="pwa-nav-item ${isServices ? 'active' : ''}">
+    <a href="/services.html" id="pwa-nav-services" class="pwa-nav-item ${isServices ? 'active' : ''}">
       <i class="ph-bold ph-briefcase"></i>
       <span>Services</span>
     </a>
@@ -414,7 +370,7 @@ function initStandaloneUI() {
     });
   };
 
-  // Home tab
+  // Home tab: scroll to top if on homepage, else open /
   handleTabClick(nav.querySelector('#pwa-nav-home'), (e) => {
     if (isHome) {
       e.preventDefault();
@@ -425,19 +381,9 @@ function initStandaloneUI() {
     }
   });
 
-  // Products tab
+  // Products tab: scroll to top if on products.html, else open /products.html dedicated page
   handleTabClick(nav.querySelector('#pwa-nav-products'), (e) => {
-    if (isHome) {
-      const target = document.querySelector('#products') || document.querySelector('.healthtech-section');
-      if (target) {
-        e.preventDefault();
-        const top = target.getBoundingClientRect().top + window.pageYOffset - 72;
-        window.scrollTo({ top, behavior: 'smooth' });
-      } else {
-        e.preventDefault();
-        window.location.href = '/products.html';
-      }
-    } else if (isProducts) {
+    if (isProducts) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -446,19 +392,9 @@ function initStandaloneUI() {
     }
   });
 
-  // Services tab
+  // Services tab: scroll to top if on services.html, else open /services.html dedicated page
   handleTabClick(nav.querySelector('#pwa-nav-services'), (e) => {
-    if (isHome) {
-      const target = document.querySelector('#services') || document.querySelector('.services-section');
-      if (target) {
-        e.preventDefault();
-        const top = target.getBoundingClientRect().top + window.pageYOffset - 72;
-        window.scrollTo({ top, behavior: 'smooth' });
-      } else {
-        e.preventDefault();
-        window.location.href = '/services.html';
-      }
-    } else if (isServices) {
+    if (isServices) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -499,54 +435,5 @@ function initStandaloneUI() {
       }
     }, { capture: true });
   }
-
-  // 3. Inject Biometric/Decryption Startup Screen on fresh launch session
-  if (!sessionStorage.getItem('pwa-sys-unlocked')) {
-    showSecureLaunchScreen();
-  }
-}
-
-function showSecureLaunchScreen() {
-  const overlay = document.createElement('div');
-  overlay.id = 'pwa-secure-launch';
-  overlay.innerHTML = `
-    <div class="pwa-biometric"><i class="ph-bold ph-fingerprint"></i></div>
-    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--prod-teal);">Aryanony Cryptographic Boot</div>
-    <div class="pwa-progress-container">
-      <div class="pwa-progress-bar" id="pwa-boot-progress"></div>
-    </div>
-    <div id="pwa-boot-status" style="font-size: 10px; color: #6b7c77; text-transform: uppercase;">Decrypting key store...</div>
-  `;
-  document.body.appendChild(overlay);
-
-  const bar = document.getElementById('pwa-boot-progress');
-  const status = document.getElementById('pwa-boot-status');
-  
-  let progress = 0;
-  const interval = setInterval(() => {
-    progress += 40;
-    if (progress >= 100) {
-      progress = 100;
-      clearInterval(interval);
-      if (bar) bar.style.width = '100%';
-      if (status) {
-        status.style.color = 'var(--prod-teal)';
-        status.innerHTML = '🔓 Access Granted';
-      }
-      
-      if ('vibrate' in navigator) navigator.vibrate(15);
-      
-      setTimeout(() => {
-        overlay.style.opacity = '0';
-        setTimeout(() => {
-          overlay.remove();
-          sessionStorage.setItem('pwa-sys-unlocked', 'true');
-        }, 80);
-      }, 40);
-    } else {
-      if (bar) bar.style.width = `${progress}%`;
-      if (status) status.innerHTML = `Decrypting key store... ${progress}%`;
-    }
-  }, 30);
 }
 
