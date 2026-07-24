@@ -1,55 +1,10 @@
 // assets/js/animations/scroll-reveal.js
+import { gsap } from './gsap-init.js';
 
-import { gsap, ScrollTrigger } from './gsap-init.js';
+let revealObserver = null;
 
 export function initScrollAnimations() {
-  const isMobile = window.innerWidth < 768 || ('ontouchstart' in window);
-
-  // On mobile touch viewports, guarantee instant 100% visibility to prevent scroll lag/hidden bugs
-  if (isMobile) {
-    document.querySelectorAll('.reveal, .reveal-grid > *').forEach(el => {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-      el.style.visibility = 'visible';
-    });
-  } else {
-    // Generic fade-up reveal (desktop)
-    gsap.utils.toArray('.reveal').forEach(el => {
-      gsap.fromTo(el, 
-        { opacity: 0, y: 28 }, 
-        {
-          opacity: 1, 
-          y: 0, 
-          duration: 0.7,
-          ease: 'power3.out',
-          scrollTrigger: { 
-            trigger: el, 
-            start: 'top 88%', 
-            toggleActions: 'play none none none' 
-          }
-        }
-      );
-    });
-
-    // Staggered grid item reveals (desktop)
-    gsap.utils.toArray('.reveal-grid').forEach(grid => {
-      gsap.fromTo(grid.querySelectorAll(':scope > *'),
-        { opacity: 0, y: 20 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          stagger: 0.06, 
-          duration: 0.55,
-          ease: 'power3.out',
-          scrollTrigger: { 
-            trigger: grid, 
-            start: 'top 86%', 
-            toggleActions: 'play none none none' 
-          }
-        }
-      );
-    });
-  }
+  initRevealObserver();
 
   // Timeline stem scroll scrub drawing
   const stem = document.querySelector('.exp__stem');
@@ -89,5 +44,62 @@ export function initScrollAnimations() {
         toggleActions: 'play none none none' 
       }
     });
+  });
+}
+
+/**
+ * Initializes high-performance IntersectionObserver for smooth Blur-to-Unblur reveal effects.
+ * Observes existing and dynamically rendered cards/sections.
+ */
+function initRevealObserver() {
+  if ('prefersReducedMotion' in window && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal, .reveal-grid > *').forEach(el => {
+      el.classList.add('is-revealed');
+    });
+    return;
+  }
+
+  if (!revealObserver && 'IntersectionObserver' in window) {
+    revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.05
+    });
+
+    // Auto-observe whenever new elements are dynamically added to DOM
+    if ('MutationObserver' in window) {
+      const mutObs = new MutationObserver(() => {
+        observeAll();
+      });
+      mutObs.observe(document.body, { childList: true, subtree: true });
+    }
+  }
+
+  observeAll();
+
+  // Fail-safe protection: reveal everything after 1.5 seconds so nothing stays stuck
+  setTimeout(() => {
+    document.querySelectorAll('.reveal, .reveal-grid > *').forEach(el => {
+      el.classList.add('is-revealed');
+    });
+  }, 1500);
+}
+
+export function observeAll() {
+  const elements = document.querySelectorAll('.reveal, .reveal-grid > *');
+  elements.forEach(el => {
+    if (!el.classList.contains('is-revealed')) {
+      if (revealObserver) {
+        revealObserver.observe(el);
+      } else {
+        el.classList.add('is-revealed');
+      }
+    }
   });
 }

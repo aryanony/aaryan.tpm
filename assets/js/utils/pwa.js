@@ -1,83 +1,55 @@
-// assets/js/utils/pwa.js
+// assets/js/utils/pwa.js — Clean & Reliable PWA Module
 
 export function initPWA() {
-  // 1. Service Worker Registration & Automatic Update Reloader
-  // 1. Service Worker Registration & Live Synchronization Engine
+  // 1. Service Worker Registration
   if ('serviceWorker' in navigator && import.meta.env.PROD) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js')
         .then(reg => {
-          console.log('[AG] PWA ServiceWorker registered successfully:', reg.scope);
-          
           const checkUpdate = () => reg.update().catch(() => {});
-          checkUpdate();
-
-          // Actively check for website updates when app comes to foreground or reconnects
           document.addEventListener('visibilitychange', () => {
             if (document.visibilityState === 'visible') checkUpdate();
           });
-          window.addEventListener('focus', checkUpdate);
           window.addEventListener('online', checkUpdate);
-          setInterval(checkUpdate, 60000);
+          setInterval(checkUpdate, 120000);
 
-          // Check for service worker updates
           reg.addEventListener('updatefound', () => {
             const newWorker = reg.installing;
             if (newWorker) {
               newWorker.addEventListener('statechange', () => {
                 if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  // Send skip waiting message immediately to activate new live update
-                  newWorker.postMessage({ type: 'SKIP_WAITING' });
                   showUpdateBanner(reg);
                 }
               });
             }
           });
         })
-        .catch(err => {
-          console.error('[AG] PWA ServiceWorker registration failed:', err);
-        });
-    });
-
-    // Automatically reload when service worker takes control (live update active)
-    let refreshing = false;
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (!refreshing) {
-        refreshing = true;
-        window.location.reload();
-      }
+        .catch(() => {});
     });
   }
 
-  // 2. Custom PWA Install Prompt Listener
+  // 2. Install Prompt Listener
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     window.deferredPrompt = e;
     document.dispatchEvent(new CustomEvent('pwa:installable'));
-    
-    // Show themed bottom installation banner on mobile browser viewports (not installed yet)
+
     if (window.innerWidth < 768 && !isStandalone()) {
       showInstallBanner();
     }
   });
 
-  window.addEventListener('appinstalled', (evt) => {
-    console.log('[AG] Aryanony PWA was installed successfully');
+  window.addEventListener('appinstalled', () => {
     window.deferredPrompt = null;
     const banner = document.getElementById('pwa-install-banner');
     if (banner) banner.remove();
   });
 
   // 3. Offline/Online Status Monitor
-  window.addEventListener('offline', () => {
-    showOfflineIndicator();
-  });
+  window.addEventListener('offline', showOfflineIndicator);
+  window.addEventListener('online', hideOfflineIndicator);
 
-  window.addEventListener('online', () => {
-    hideOfflineIndicator();
-  });
-
-  // 4. Standalone Mode UI Optimizations (App Navigation Bar)
+  // 4. Standalone Mode UI (App Bottom Nav Bar)
   if (isStandalone()) {
     initStandaloneUI();
   }
@@ -86,14 +58,9 @@ export function initPWA() {
 export function installPWA() {
   const promptEvent = window.deferredPrompt;
   if (!promptEvent) return;
-  
+
   promptEvent.prompt();
-  promptEvent.userChoice.then((choiceResult) => {
-    if (choiceResult.outcome === 'accepted') {
-      console.log('[AG] User accepted the PWA install prompt');
-    } else {
-      console.log('[AG] User dismissed the PWA install prompt');
-    }
+  promptEvent.userChoice.then(() => {
     window.deferredPrompt = null;
     const banner = document.getElementById('pwa-install-banner');
     if (banner) banner.remove();
@@ -104,152 +71,11 @@ function isStandalone() {
   return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
 }
 
-function showUpdateBanner(reg) {
-  if (document.getElementById('pwa-update-banner')) return;
-
-  const banner = document.createElement('div');
-  banner.id = 'pwa-update-banner';
-  banner.style.cssText = `
-    position: fixed;
-    top: var(--sp-4, 16px);
-    left: var(--sp-4, 16px);
-    right: var(--sp-4, 16px);
-    background: #030D0A;
-    border: 1px solid var(--prod-cyan, #06b6d4);
-    padding: var(--sp-3, 12px) var(--sp-4, 16px);
-    z-index: 10001;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 0 !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    font-family: var(--font-mono, monospace);
-    font-size: var(--text-xs, 12px);
-  `;
-
-  banner.innerHTML = `
-    <span style="color: var(--text-primary, #edf8f5);">✨ Update Available: A fresh version of Aryanony is ready.</span>
-    <button id="pwa-update-btn" style="
-      background: var(--prod-cyan, #06b6d4);
-      color: #030D0A;
-      border: none;
-      padding: 6px 12px;
-      font-weight: bold;
-      cursor: pointer;
-      text-transform: uppercase;
-      font-size: 10px;
-      border-radius: 0 !important;
-    ">Relaunch</button>
-  `;
-
-  document.body.appendChild(banner);
-
-  document.getElementById('pwa-update-btn').addEventListener('click', () => {
-    if (reg.waiting) {
-      reg.waiting.postMessage({ type: 'SKIP_WAITING' });
-    } else {
-      window.location.reload();
-    }
-  });
-}
-
-function showInstallBanner() {
-  if (document.getElementById('pwa-install-banner')) return;
-
-  const banner = document.createElement('div');
-  banner.id = 'pwa-install-banner';
-  banner.style.cssText = `
-    position: fixed;
-    bottom: var(--sp-4, 16px);
-    left: var(--sp-4, 16px);
-    right: var(--sp-4, 16px);
-    background: #030D0A;
-    border: 1px solid var(--prod-teal, #10b981);
-    padding: var(--sp-4, 16px);
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-3, 12px);
-    border-radius: 0 !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    font-family: var(--font-mono, monospace);
-  `;
-
-  banner.innerHTML = `
-    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-      <div style="font-size: var(--text-xs, 12px); color: var(--text-muted, #94a3b8); text-transform: uppercase; letter-spacing: 0.1em;">Install Web App</div>
-      <button id="pwa-close-btn" style="background:none; border:none; color:var(--text-muted, #94a3b8); font-size: 1.2rem; cursor:pointer; padding:0; line-height:1;">&times;</button>
-    </div>
-    <div style="font-size: var(--text-sm, 14px); color: var(--text-primary, #edf8f5); line-height: 1.4; margin-bottom: 2px;">
-      Install <strong>Aryanony</strong> to your home screen for quick, offline-first access.
-    </div>
-    <button id="pwa-install-btn" style="
-      background: var(--prod-teal, #10b981);
-      color: #030D0A;
-      border: none;
-      padding: var(--sp-2, 8px) var(--sp-4, 16px);
-      font-weight: bold;
-      font-size: var(--text-xs, 12px);
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-radius: 0 !important;
-      text-align: center;
-      width: 100%;
-    ">Install App</button>
-  `;
-
-  document.body.appendChild(banner);
-
-  document.getElementById('pwa-close-btn').addEventListener('click', () => {
-    banner.remove();
-  });
-
-  document.getElementById('pwa-install-btn').addEventListener('click', () => {
-    installPWA();
-  });
-}
-
-function showOfflineIndicator() {
-  if (document.getElementById('offline-bar')) return;
-
-  const bar = document.createElement('div');
-  bar.id = 'offline-bar';
-  bar.style.cssText = `
-    position: fixed;
-    bottom: ${isStandalone() ? '60px' : '0'};
-    left: 0;
-    right: 0;
-    background: var(--prod-blue, #3b82f6);
-    color: #edf8f5;
-    text-align: center;
-    padding: var(--sp-2, 8px);
-    font-family: var(--font-mono, monospace);
-    font-size: var(--text-xs, 12px);
-    z-index: 10000;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    font-weight: bold;
-    border-radius: 0 !important;
-    letter-spacing: 0.05em;
-  `;
-  bar.innerHTML = `<i class="ph-bold ph-wifi-slash" style="margin-right: 6px;"></i> Offline Mode Active — Serving cached content`;
-  document.body.appendChild(bar);
-}
-
-function hideOfflineIndicator() {
-  const bar = document.getElementById('offline-bar');
-  if (!bar) return;
-
-  bar.style.background = 'var(--prod-teal, #10b981)';
-  bar.innerHTML = `<i class="ph-bold ph-wifi" style="margin-right: 6px;"></i> Connection Restored — Back online`;
-  
-  setTimeout(() => {
-    bar.remove();
-  }, 3000);
-}
+// ── Standalone App Bottom Nav ──
 
 function initStandaloneUI() {
-  // Inject app mode styles
+  if (document.getElementById('pwa-bottom-nav')) return;
+
   const style = document.createElement('style');
   style.id = 'pwa-standalone-styles';
   style.textContent = `
@@ -258,18 +84,19 @@ function initStandaloneUI() {
       bottom: 0;
       left: 0;
       right: 0;
-      height: calc(60px + env(safe-area-inset-bottom, 0px));
-      background: rgba(3, 13, 10, 0.96);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      height: calc(56px + env(safe-area-inset-bottom, 0px));
+      background: rgba(3, 13, 10, 0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-top: 1px solid rgba(16, 185, 129, 0.25);
       display: flex;
       justify-content: space-around;
       align-items: center;
       z-index: 10005;
       padding-bottom: env(safe-area-inset-bottom, 0px);
-      box-shadow: 0 -4px 24px rgba(0,0,0,0.6);
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.6);
     }
+
     .pwa-nav-item {
       position: relative;
       flex: 1;
@@ -277,41 +104,44 @@ function initStandaloneUI() {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: #94a3b8;
+      color: #7b8c87;
       text-decoration: none;
       font-family: var(--font-mono, monospace);
       font-size: 10px;
-      gap: 4px;
+      font-weight: 500;
+      gap: 3px;
       height: 100%;
       min-height: 48px;
       cursor: pointer;
       background: none;
       border: none;
-      padding: 6px 0;
+      padding: 4px 0;
       touch-action: manipulation;
-      transition: all 0.2s ease;
       -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s ease, background-color 0.15s ease;
     }
+    
     .pwa-nav-item i {
       font-size: 20px;
-      transition: color 0.2s ease, filter 0.2s ease, transform 0.2s ease;
+      transition: color 0.15s ease, transform 0.15s ease;
     }
-    .pwa-nav-item span {
-      transition: color 0.2s ease, font-weight 0.2s ease;
-    }
+
     .pwa-nav-item.active {
       color: var(--prod-teal, #10b981) !important;
-      font-weight: bold;
+      background: rgba(16, 185, 129, 0.08);
     }
+    
     .pwa-nav-item.active i {
       color: var(--prod-teal, #10b981) !important;
-      filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.7));
+      filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.6));
       transform: translateY(-1px);
     }
+    
     .pwa-nav-item.active span {
       color: var(--prod-teal, #10b981) !important;
       font-weight: 700;
     }
+    
     .pwa-nav-item.active::before {
       content: '';
       position: absolute;
@@ -323,47 +153,47 @@ function initStandaloneUI() {
       box-shadow: 0 0 10px var(--prod-teal, #10b981);
       border-radius: 0 0 4px 4px;
     }
+
     .pwa-nav-item:active {
-      transform: scale(0.92);
+      opacity: 0.7;
     }
+
     .pwa-nav-item--terminal {
       position: relative;
     }
+    
     .pwa-nav-item--terminal::after {
       content: '';
       position: absolute;
-      top: 10px;
+      top: 8px;
       right: 28%;
-      width: 6px;
-      height: 6px;
+      width: 5px;
+      height: 5px;
       background: var(--prod-cyan, #06b6d4);
       border-radius: 50%;
-      box-shadow: 0 0 8px var(--prod-cyan);
-      animation: pwa-pulse 2s infinite;
+      box-shadow: 0 0 6px var(--prod-cyan, #06b6d4);
     }
-    @keyframes pwa-pulse {
-      0% { transform: scale(0.9); opacity: 0.6; }
-      50% { transform: scale(1.3); opacity: 1; }
-      100% { transform: scale(0.9); opacity: 0.6; }
-    }
+
     body {
-      padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+      padding-bottom: calc(70px + env(safe-area-inset-bottom, 0px)) !important;
     }
-    /* Hide scroll indicator top bar elements in standalone if needed */
-    .scroll-progress-bar {
-      top: 0 !important;
+
+    .nav.nav-hidden {
+      transform: none !important;
     }
   `;
   document.head.appendChild(style);
 
-  // 1. Build Standalone App Bottom Nav
-  const nav = document.createElement('div');
-  nav.id = 'pwa-bottom-nav';
+  // Path detection supporting root, .html, subpages, and pretty URLs
+  const path = window.location.pathname.toLowerCase().replace(/\/$/, '') || '/';
+  
+  const isHome = path === '/' || path === '/index.html' || path.endsWith('/index.html');
+  const isProducts = path === '/products' || path === '/products.html' || path.includes('products');
+  const isServices = path === '/services' || path === '/services.html' || path.startsWith('/services/') || path.includes('services');
 
-  const pathname = window.location.pathname;
-  const isHome = pathname === '/' || pathname.endsWith('index.html');
-  const isProducts = pathname.includes('products.html');
-  const isServices = pathname.includes('services.html') || pathname.includes('/services/');
+  const nav = document.createElement('nav');
+  nav.id = 'pwa-bottom-nav';
+  nav.setAttribute('aria-label', 'Mobile App Navigation');
 
   nav.innerHTML = `
     <a href="/" id="pwa-nav-home" class="pwa-nav-item ${isHome ? 'active' : ''}">
@@ -378,7 +208,7 @@ function initStandaloneUI() {
       <i class="ph-bold ph-briefcase"></i>
       <span>Services</span>
     </a>
-    <button id="pwa-nav-term" class="pwa-nav-item pwa-nav-item--terminal">
+    <button id="pwa-nav-term" class="pwa-nav-item pwa-nav-item--terminal" type="button" aria-label="Open Console">
       <i class="ph-bold ph-terminal-window"></i>
       <span>Console</span>
     </button>
@@ -386,77 +216,177 @@ function initStandaloneUI() {
 
   document.body.appendChild(nav);
 
-  const handleTabClick = (btn, action) => {
-    if (!btn) return;
-    btn.addEventListener('click', (e) => {
-      if (typeof navigator !== 'undefined' && 'vibrate' in navigator && typeof navigator.vibrate === 'function') {
-        try { navigator.vibrate(12); } catch (err) {}
-      }
-      action(e);
+  // If tapping active page tab, scroll smooth to top.
+  // Otherwise, standard <a> click handles native instant navigation.
+  const homeLink = nav.querySelector('#pwa-nav-home');
+  if (homeLink && isHome) {
+    homeLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      vibrate();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-  };
+  }
 
-  // Home tab: scroll to top if on homepage, else open /
-  handleTabClick(nav.querySelector('#pwa-nav-home'), (e) => {
-    if (isHome) {
+  const productsLink = nav.querySelector('#pwa-nav-products');
+  if (productsLink && isProducts) {
+    productsLink.addEventListener('click', (e) => {
       e.preventDefault();
+      vibrate();
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      window.location.assign('/');
-    }
-  });
+    });
+  }
 
-  // Products tab: scroll to top if on products.html, else open /products.html dedicated page
-  handleTabClick(nav.querySelector('#pwa-nav-products'), (e) => {
-    if (isProducts) {
+  const servicesLink = nav.querySelector('#pwa-nav-services');
+  if (servicesLink && isServices) {
+    servicesLink.addEventListener('click', (e) => {
       e.preventDefault();
+      vibrate();
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      window.location.assign('/products.html');
-    }
-  });
+    });
+  }
 
-  // Services tab: scroll to top if on services.html, else open /services.html dedicated page
-  handleTabClick(nav.querySelector('#pwa-nav-services'), (e) => {
-    if (isServices) {
+  const termBtn = nav.querySelector('#pwa-nav-term');
+  if (termBtn) {
+    termBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      window.location.assign('/services.html');
-    }
-  });
-
-  // Console tab
-  handleTabClick(nav.querySelector('#pwa-nav-term'), (e) => {
-    e.preventDefault();
-    window.dispatchEvent(new KeyboardEvent('keydown', {
-      key: 'k',
-      ctrlKey: true,
-      bubbles: true
-    }));
-  });
-
-  // 2. Universal Standalone PWA Router (Instant Navigation Anywhere -> Anywhere)
-  if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-    document.addEventListener('click', (e) => {
-      const link = e.target.closest('a[href]');
-      if (!link || link.closest('#pwa-bottom-nav')) return;
-      
-      const href = link.getAttribute('href');
-      if (!href || href.startsWith('javascript:') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
-      if (link.target === '_blank') return;
-      
-      // If pure internal anchor hash on current page, let smooth scroll handle it
-      if (href.startsWith('#')) return;
-
-      const url = new URL(href, window.location.href);
-      if (url.origin === window.location.origin) {
-        if (url.pathname !== window.location.pathname || url.hash) {
-          e.preventDefault();
-          window.location.href = url.href;
-        }
-      }
-    }, { capture: true });
+      vibrate();
+      window.dispatchEvent(new KeyboardEvent('keydown', {
+        key: 'k',
+        ctrlKey: true,
+        bubbles: true
+      }));
+    });
   }
 }
 
+function showUpdateBanner(reg) {
+  if (document.getElementById('pwa-update-banner')) return;
+
+  const banner = document.createElement('div');
+  banner.id = 'pwa-update-banner';
+  banner.style.cssText = `
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    background: #030D0A;
+    border: 1px solid #06b6d4;
+    padding: 12px 16px;
+    z-index: 10001;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    font-family: monospace;
+    font-size: 12px;
+  `;
+
+  banner.innerHTML = `
+    <span style="color: #edf8f5;">✨ Update ready</span>
+    <button id="pwa-update-btn" style="
+      background: #06b6d4;
+      color: #030D0A;
+      border: none;
+      padding: 6px 12px;
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 10px;
+    ">Reload</button>
+  `;
+
+  document.body.appendChild(banner);
+
+  document.getElementById('pwa-update-btn').addEventListener('click', () => {
+    if (reg.waiting) {
+      reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+    }
+    setTimeout(() => window.location.reload(), 200);
+  });
+}
+
+function showInstallBanner() {
+  if (document.getElementById('pwa-install-banner')) return;
+
+  const banner = document.createElement('div');
+  banner.id = 'pwa-install-banner';
+  banner.style.cssText = `
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    background: #030D0A;
+    border: 1px solid #10b981;
+    padding: 16px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    font-family: monospace;
+  `;
+
+  banner.innerHTML = `
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+      <div style="font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.1em;">Install Web App</div>
+      <button id="pwa-close-btn" style="background:none; border:none; color:#94a3b8; font-size: 1.2rem; cursor:pointer; padding:0;">&times;</button>
+    </div>
+    <div style="font-size: 14px; color: #edf8f5; line-height: 1.4;">
+      Install <strong>Aryanony</strong> for quick access.
+    </div>
+    <button id="pwa-install-btn" style="
+      background: #10b981;
+      color: #030D0A;
+      border: none;
+      padding: 8px 16px;
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: 100%;
+    ">Install App</button>
+  `;
+
+  document.body.appendChild(banner);
+  document.getElementById('pwa-close-btn').addEventListener('click', () => banner.remove());
+  document.getElementById('pwa-install-btn').addEventListener('click', () => installPWA());
+}
+
+function showOfflineIndicator() {
+  if (document.getElementById('offline-bar')) return;
+
+  const bar = document.createElement('div');
+  bar.id = 'offline-bar';
+  bar.style.cssText = `
+    position: fixed;
+    bottom: ${isStandalone() ? '60px' : '0'};
+    left: 0;
+    right: 0;
+    background: #3b82f6;
+    color: #edf8f5;
+    text-align: center;
+    padding: 8px;
+    font-family: monospace;
+    font-size: 12px;
+    z-index: 10000;
+    font-weight: bold;
+  `;
+  bar.innerHTML = `<i class="ph-bold ph-wifi-slash" style="margin-right: 6px;"></i> Offline — Serving cached content`;
+  document.body.appendChild(bar);
+}
+
+function hideOfflineIndicator() {
+  const bar = document.getElementById('offline-bar');
+  if (!bar) return;
+
+  bar.style.background = '#10b981';
+  bar.innerHTML = `<i class="ph-bold ph-wifi" style="margin-right: 6px;"></i> Back online`;
+  setTimeout(() => bar.remove(), 2500);
+}
+
+function vibrate() {
+  try {
+    if (navigator.vibrate) navigator.vibrate(10);
+  } catch (e) {}
+}

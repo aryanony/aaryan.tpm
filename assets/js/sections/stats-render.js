@@ -76,4 +76,5 @@ export async function renderStats() {
   import('../animations/gsap-init.js').then(({ ScrollTrigger }) => {
     ScrollTrigger.refresh();
   });
+  import('../animations/scroll-reveal.js').then(m => m.observeAll?.());
 }

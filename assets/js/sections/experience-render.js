@@ -380,4 +380,5 @@ export async function renderExperience() {
   // Initial render state
   updatePanel(0);
   ScrollTrigger.refresh();
+  import('../animations/scroll-reveal.js').then(m => m.observeAll?.());
 }

@@ -22,6 +22,7 @@ export async function renderProducts() {
   // Initial render
   displayProducts(products, container);
   ScrollTrigger.refresh();
+  import('../animations/scroll-reveal.js').then(m => m.observeAll?.());
 
   // Tab filtering
   if (tabsNav) {
@@ -34,6 +35,7 @@ export async function renderProducts() {
         const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
         displayProducts(filtered, container);
         ScrollTrigger.refresh();
+        import('../animations/scroll-reveal.js').then(m => m.observeAll?.());
       });
     });
   }

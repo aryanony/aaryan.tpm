@@ -49,10 +49,11 @@ export async function renderServices() {
   // Initialize interactive ROI estimator
   initROIEstimator();
 
-  // Recalculate ScrollTrigger positions due to dynamic content height changes
+  // Recalculate ScrollTrigger positions & trigger reveal observer
   import('../animations/gsap-init.js').then(({ ScrollTrigger }) => {
     ScrollTrigger.refresh();
   });
+  import('../animations/scroll-reveal.js').then(m => m.observeAll?.());
 }
 
 function initROIEstimator() {

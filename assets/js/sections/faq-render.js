@@ -95,4 +95,6 @@ export async function renderFAQ() {
       }, 400);
     });
   });
+
+  import('../animations/scroll-reveal.js').then(m => m.observeAll?.());
 }

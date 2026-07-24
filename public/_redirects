@@ -11,6 +11,7 @@ https://www.aryanony.pages.dev/* https://aryanony.pages.dev/:splat 301
 /pune        /pune.html        200
 /about       /about.html       200
 /services    /services.html    200
+/products    /products.html    200
 /contact     /contact.html     200
 /work        /work/index.html  200
 /blog        /blog/index.html  200

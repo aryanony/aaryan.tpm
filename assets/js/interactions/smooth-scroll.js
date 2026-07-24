@@ -5,6 +5,9 @@ export function initSmoothScroll() {
     const anchor = e.target.closest('a[href*="#"]');
     if (!anchor) return;
     
+    // Skip links inside the PWA bottom nav to prevent conflicts
+    if (anchor.closest('#pwa-bottom-nav')) return;
+    
     const href = anchor.getAttribute('href');
     if (!href || href === '#') return;
     

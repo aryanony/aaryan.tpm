@@ -72,6 +72,7 @@ export async function renderSkills() {
 
   // Refresh ScrollTrigger to update heights after load
   ScrollTrigger.refresh();
+  import('../animations/scroll-reveal.js').then(m => m.observeAll?.());
 }
 
 function initTechStackBuilder() {
