@@ -120,6 +120,10 @@ function initStandaloneUI() {
       -webkit-tap-highlight-color: transparent;
       transition: color 0.15s ease, background-color 0.15s ease;
     }
+
+    .pwa-nav-item * {
+      pointer-events: none;
+    }
     
     .pwa-nav-item i {
       font-size: 20px;
@@ -200,11 +204,11 @@ function initStandaloneUI() {
       <i class="ph-bold ph-house"></i>
       <span>Home</span>
     </a>
-    <a href="https://aryanony.pages.dev/products.html" id="pwa-nav-products" class="pwa-nav-item ${isProducts ? 'active' : ''}">
+    <a href="/products.html" id="pwa-nav-products" class="pwa-nav-item ${isProducts ? 'active' : ''}">
       <i class="ph-bold ph-squares-four"></i>
       <span>Products</span>
     </a>
-    <a href="https://aryanony.pages.dev/services.html" id="pwa-nav-services" class="pwa-nav-item ${isServices ? 'active' : ''}">
+    <a href="/services.html" id="pwa-nav-services" class="pwa-nav-item ${isServices ? 'active' : ''}">
       <i class="ph-bold ph-briefcase"></i>
       <span>Services</span>
     </a>
@@ -216,32 +220,43 @@ function initStandaloneUI() {
 
   document.body.appendChild(nav);
 
-  // If tapping active page tab, scroll smooth to top.
-  // Otherwise, standard <a> click handles native instant navigation.
+  // Reliable touch & click navigation handlers for mobile PWA standalone mode
   const homeLink = nav.querySelector('#pwa-nav-home');
-  if (homeLink && isHome) {
+  if (homeLink) {
     homeLink.addEventListener('click', (e) => {
       e.preventDefault();
       vibrate();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (isHome) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.location.href = '/';
+      }
     });
   }
 
   const productsLink = nav.querySelector('#pwa-nav-products');
-  if (productsLink && isProducts) {
+  if (productsLink) {
     productsLink.addEventListener('click', (e) => {
       e.preventDefault();
       vibrate();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (isProducts) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.location.href = '/products.html';
+      }
     });
   }
 
   const servicesLink = nav.querySelector('#pwa-nav-services');
-  if (servicesLink && isServices) {
+  if (servicesLink) {
     servicesLink.addEventListener('click', (e) => {
       e.preventDefault();
       vibrate();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (isServices) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.location.href = '/services.html';
+      }
     });
   }
 
