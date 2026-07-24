@@ -129,7 +129,7 @@ export function initNav(config) {
                 if (href === `#${id}` || href === `/#${id}` || href?.endsWith(`#${id}`)) {
                   link.classList.add('active');
                   link.setAttribute('aria-current', 'page');
-                } else if (href?.startsWith('#')) {
+                } else if (href?.startsWith('#') || href?.startsWith('/#')) {
                   link.classList.remove('active');
                   link.removeAttribute('aria-current');
                 }
