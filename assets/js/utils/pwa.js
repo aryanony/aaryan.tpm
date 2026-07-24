@@ -200,11 +200,11 @@ function initStandaloneUI() {
       <i class="ph-bold ph-house"></i>
       <span>Home</span>
     </a>
-    <a href="/products.html" id="pwa-nav-products" class="pwa-nav-item ${isProducts ? 'active' : ''}">
+    <a href="https://aryanony.pages.dev/products.html" id="pwa-nav-products" class="pwa-nav-item ${isProducts ? 'active' : ''}">
       <i class="ph-bold ph-squares-four"></i>
       <span>Products</span>
     </a>
-    <a href="/services.html" id="pwa-nav-services" class="pwa-nav-item ${isServices ? 'active' : ''}">
+    <a href="https://aryanony.pages.dev/services.html" id="pwa-nav-services" class="pwa-nav-item ${isServices ? 'active' : ''}">
       <i class="ph-bold ph-briefcase"></i>
       <span>Services</span>
     </a>

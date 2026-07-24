@@ -30,7 +30,10 @@
   line-height: var(--leading-tight);
 }
 
+.text-eyebrow,
 .section-hdr .text-eyebrow {
+  color: var(--text-accent);
+  font-weight: 500;
   margin-right: var(--sp-4);
   white-space: nowrap;
   display: inline-flex;
